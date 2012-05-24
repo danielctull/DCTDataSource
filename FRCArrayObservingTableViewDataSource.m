@@ -85,14 +85,19 @@ void* arrayObservingContext = &arrayObservingContext;
 		NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
 		
 		if (changeType == NSKeyValueChangeInsertion)
-			[self insertRowAtIndexPath:indexPath];
+			[self performRowUpdate:FRCTableViewDataSourceUpdateTypeRowInsert
+						 indexPath:indexPath
+						 animation:self.insertionAnimation];
 			
 		else if (changeType == NSKeyValueChangeRemoval)
-			[self deleteRowAtIndexPath:indexPath];
+			[self performRowUpdate:FRCTableViewDataSourceUpdateTypeRowDelete
+						 indexPath:indexPath
+						 animation:self.deletionAnimation];
 					
 		else if (changeType == NSKeyValueChangeReplacement)
-			[self reloadRowAtIndexPath:indexPath];
-		
+			[self performRowUpdate:FRCTableViewDataSourceUpdateTypeRowReload
+						 indexPath:indexPath
+						 animation:self.reloadAnimation];
 	}];
 	
 	[self endUpdates];

@@ -183,14 +183,18 @@
 	if (self.type == FRCSplitTableViewDataSourceTypeRow) {
 		
 		[tableViewDataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-			[tableViewDataSource insertRowAtIndexPath:indexPath];
+			[self performRowUpdate:FRCTableViewDataSourceUpdateTypeRowInsert
+						 indexPath:indexPath
+						 animation:self.insertionAnimation];
 		}];
 		
 	} else {
 		
 		NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:[childDataSources indexOfObject:tableViewDataSource]];
 		[indexSet enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-			[self insertSection:index];
+			[self performSectionUpdate:FRCTableViewDataSourceUpdateTypeSectionInsert
+						  sectionIndex:index
+							 animation:self.insertionAnimation];
 		}];
 	}
 	
@@ -208,12 +212,16 @@
 	if (self.type == FRCSplitTableViewDataSourceTypeRow) {
 		
 		[tableViewDataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-			[tableViewDataSource deleteRowAtIndexPath:indexPath];
+			[self performRowUpdate:FRCTableViewDataSourceUpdateTypeRowDelete
+						 indexPath:indexPath
+						 animation:self.deletionAnimation];
 		}];
 		
 	} else {
 		NSUInteger index = [childDataSources indexOfObject:tableViewDataSource];
-		[self deleteSection:index];
+		[self performSectionUpdate:FRCTableViewDataSourceUpdateTypeSectionDelete
+					  sectionIndex:index
+						 animation:self.deletionAnimation];
 	}
 	
 	[childDataSources removeObject:tableViewDataSource];

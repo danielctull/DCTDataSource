@@ -38,10 +38,12 @@
 
 typedef enum {
 	FRCTableViewDataSourceUpdateTypeUnknown = 0,
-	FRCTableViewDataSourceUpdateTypeInsert = 1 << 0,
-	FRCTableViewDataSourceUpdateTypeDelete = 1 << 1,
-	FRCTableViewDataSourceUpdateTypeReload = 1 << 2,
-	FRCTableViewDataSourceUpdateTypeMove = 1 << 3
+	FRCTableViewDataSourceUpdateTypeRowInsert = 1 << 0,
+	FRCTableViewDataSourceUpdateTypeRowDelete = 1 << 1,
+	FRCTableViewDataSourceUpdateTypeRowReload = 1 << 2,
+	FRCTableViewDataSourceUpdateTypeSectionInsert = 1 << 3,
+	FRCTableViewDataSourceUpdateTypeSectionDelete = 1 << 4,
+	FRCTableViewDataSourceUpdateTypeMove = 1 << 5
 } FRCTableViewDataSourceUpdateType;
 
 @class FRCParentTableViewDataSource;
@@ -124,15 +126,20 @@ typedef enum {
 @property (nonatomic, copy) NSString *sectionHeaderTitle;
 @property (nonatomic, copy) NSString *sectionFooterTitle;
 
+@property (nonatomic, assign) UITableViewRowAnimation insertionAnimation;
+@property (nonatomic, assign) UITableViewRowAnimation reloadAnimation;
+@property (nonatomic, assign) UITableViewRowAnimation deletionAnimation;
 
 - (void)beginUpdates;
 - (void)endUpdates;
-- (void)insertSection:(NSUInteger)sectionIndex;
-- (void)deleteSection:(NSUInteger)sectionIndex;
-- (void)insertRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)reloadRowAtIndexPath:(NSIndexPath *)indexPath;
-- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath;
+
+- (void)performSectionUpdate:(FRCTableViewDataSourceUpdateType)update
+				sectionIndex:(NSInteger)index
+				   animation:(UITableViewRowAnimation)animation;
+
+- (void)performRowUpdate:(FRCTableViewDataSourceUpdateType)update
+			   indexPath:(NSIndexPath *)indexPath
+			   animation:(UITableViewRowAnimation)animation;
 
 - (void)enumerateIndexPathsUsingBlock:(void(^)(NSIndexPath *, BOOL *stop))enumerator;
 

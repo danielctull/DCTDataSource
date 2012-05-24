@@ -178,15 +178,18 @@
 	
     switch(type) {
         case NSFetchedResultsChangeInsert:
-            [self insertSection:sectionIndex];
+			[self performSectionUpdate:FRCTableViewDataSourceUpdateTypeSectionInsert
+						  sectionIndex:sectionIndex
+							 animation:self.insertionAnimation];
             break;
 			
         case NSFetchedResultsChangeDelete:
-            [self deleteSection:sectionIndex];
+			[self performSectionUpdate:FRCTableViewDataSourceUpdateTypeSectionDelete
+						  sectionIndex:sectionIndex
+							 animation:self.deletionAnimation];
             break;
     }
 }
-
 
 - (void)controller:(NSFetchedResultsController *)controller 
    didChangeObject:(id)anObject
@@ -197,19 +200,30 @@
     switch(type) {
 			
 		case NSFetchedResultsChangeInsert:
-			[self insertRowAtIndexPath:newIndexPath];
+			[self performRowUpdate:FRCTableViewDataSourceUpdateTypeRowInsert
+						 indexPath:newIndexPath
+						 animation:self.insertionAnimation];
 			break;
 			
 		case NSFetchedResultsChangeDelete:
-			[self deleteRowAtIndexPath:indexPath];
+			[self performRowUpdate:FRCTableViewDataSourceUpdateTypeRowDelete
+						 indexPath:indexPath
+						 animation:self.deletionAnimation];
 			break;
 			
         case NSFetchedResultsChangeUpdate:
-			[self reloadRowAtIndexPath:indexPath];
+			[self performRowUpdate:FRCTableViewDataSourceUpdateTypeRowReload
+						 indexPath:indexPath
+						 animation:self.reloadAnimation];
 			break;
 			
         case NSFetchedResultsChangeMove:
-			[self moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
+			[self performRowUpdate:FRCTableViewDataSourceUpdateTypeRowDelete
+						 indexPath:indexPath
+						 animation:self.deletionAnimation];
+			[self performRowUpdate:FRCTableViewDataSourceUpdateTypeRowInsert
+						 indexPath:newIndexPath
+						 animation:self.insertionAnimation];
             break;
     }
 }

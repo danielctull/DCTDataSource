@@ -188,29 +188,19 @@
 	return [super objectAtIndexPath:indexPath];
 }
 
-- (void)insertSection:(NSUInteger)sectionIndex {
-	if (!self.open) return;
-	[super insertSection:sectionIndex];
+
+- (void)performRowUpdate:(FRCTableViewDataSourceUpdateType)update
+			   indexPath:(NSIndexPath *)indexPath
+			   animation:(UITableViewRowAnimation)animation {
+	
+	if (!self.open) [super performRowUpdate:update indexPath:indexPath animation:animation];
 }
-- (void)deleteSection:(NSUInteger)sectionIndex {
-	if (!self.open) return;
-	[super deleteSection:sectionIndex];
-}
-- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath {
-	if (!self.open) return;
-	[super deleteRowAtIndexPath:indexPath];
-}
-- (void)insertRowAtIndexPath:(NSIndexPath *)indexPath {
-	if (!self.open) return;
-	[super insertRowAtIndexPath:indexPath];
-}
-- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath {
-	if (!self.open) return;
-	[super moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
-}
-- (void)reloadRowAtIndexPath:(NSIndexPath *)indexPath {
-	if (!self.open) return;
-	[super reloadRowAtIndexPath:indexPath];
+
+- (void)performSectionUpdate:(FRCTableViewDataSourceUpdateType)update
+				sectionIndex:(NSInteger)index
+				   animation:(UITableViewRowAnimation)animation {
+	
+	if (self.open) [super performSectionUpdate:update sectionIndex:index animation:animation];
 }
 
 #pragma mark - FRCParentTableViewDataSource
@@ -369,7 +359,7 @@
 	[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:headerIndexPath] withRowAnimation:UITableViewRowAnimationFade];
 	
 	if (self.tableViewUpdateHandler != NULL)
-		self.tableViewUpdateHandler(FRCTableViewDataSourceUpdateTypeReload);
+		self.tableViewUpdateHandler(FRCTableViewDataSourceUpdateTypeRowReload);
 }
 
 - (BOOL)frcInternal_childTableViewDataSourceCurrentlyHasCells {

@@ -40,6 +40,8 @@
 #import "UITableView+FRCNibRegistration.h"
 #import "FRCParentTableViewDataSource.h"
 
+NSInteger const FRCTableViewDataSourceNoAnimationSet = -1912;
+
 @interface FRCTableViewDataSource ()
 - (void)frcInternal_setupCellClass;
 @end
@@ -56,6 +58,9 @@
 @synthesize sectionFooterTitle;
 @synthesize cellConfigurer;
 @synthesize tableViewUpdateHandler;
+@synthesize insertionAnimation;
+@synthesize deletionAnimation;
+@synthesize reloadAnimation;
 
 #pragma mark - NSObject
 
@@ -67,6 +72,9 @@
     
     if (!(self = [super init])) return nil;
 	
+	self.insertionAnimation = FRCTableViewDataSourceNoAnimationSet;
+	self.deletionAnimation = FRCTableViewDataSourceNoAnimationSet;
+	self.reloadAnimation = FRCTableViewDataSourceNoAnimationSet;
 	self.cellClass = [FRCTableViewCell class];
 	_cellClassDictionary = [NSMutableDictionary new];
 	
@@ -99,7 +107,11 @@
 - (void)reloadData {
 	[self beginUpdates];
 	[self enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-		[self reloadRowAtIndexPath:indexPath];
+		
+		[self performRowUpdate:FRCTableViewDataSourceUpdateTypeRowReload
+					 indexPath:indexPath
+					 animation:self.reloadAnimation];
+		
 	}];
 	[self endUpdates];
 }
@@ -133,88 +145,51 @@
 		self.tableViewUpdateHandler(updateType);
 }
 
-- (void)insertSection:(NSUInteger)sectionIndex {
-	
-	if (self.parent) {
-		sectionIndex = [self.parent convertSection:sectionIndex fromChildTableViewDataSource:self];
-		[self.parent insertSection:sectionIndex];
-		return;
-	}
-	
-	[self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-				  withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
-	[self addToUpdateType:FRCTableViewDataSourceUpdateTypeInsert];
-	
+- (void)performSectionUpdate:(FRCTableViewDataSourceUpdateType)update
+				sectionIndex:(NSInteger)index
+				   animation:(UITableViewRowAnimation)animation {
+	[self performRowUpdate:update indexPath:[NSIndexPath indexPathForRow:0 inSection:index] animation:animation];
 }
 
-- (void)deleteSection:(NSUInteger)sectionIndex {
-	if (self.parent) {
-		sectionIndex = [self.parent convertSection:sectionIndex fromChildTableViewDataSource:self];
-		[self.parent insertSection:sectionIndex];
-		return;
-	}
-	[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-				  withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
-	[self addToUpdateType:FRCTableViewDataSourceUpdateTypeDelete];
-}
-
-- (void)insertRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)performRowUpdate:(FRCTableViewDataSourceUpdateType)update
+			   indexPath:(NSIndexPath *)indexPath
+			   animation:(UITableViewRowAnimation)animation {
+	
+	if (animation == FRCTableViewDataSourceNoAnimationSet)
+		animation = self.insertionAnimation;
 	
 	if (self.parent) {
+		
+		if (update == FRCTableViewDataSourceUpdateTypeSectionInsert || update == FRCTableViewDataSourceUpdateTypeSectionDelete) {
+			NSInteger index = [self.parent convertSection:indexPath.section fromChildTableViewDataSource:self];
+			[self.parent performSectionUpdate:update sectionIndex:index animation:animation];
+			return;
+		}
+		
 		indexPath = [self.parent convertIndexPath:indexPath fromChildTableViewDataSource:self];
-		[self.parent insertRowAtIndexPath:indexPath];
+		[self.parent performRowUpdate:update indexPath:indexPath animation:animation];
 		return;
 	}
 	
-	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-						  withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
-	[self addToUpdateType:FRCTableViewDataSourceUpdateTypeInsert];
-}
-
-- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (animation == FRCTableViewDataSourceNoAnimationSet)
+		animation = FRCTableViewDataSourceTableViewRowAnimationAutomatic;
 	
-	if (self.parent) {
-		indexPath = [self.parent convertIndexPath:indexPath fromChildTableViewDataSource:self];
-		[self.parent deleteRowAtIndexPath:indexPath];
-		return;
-	}
+	if (update == FRCTableViewDataSourceUpdateTypeRowInsert)
+		[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:animation];
 	
-	[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-						  withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
-	[self addToUpdateType:FRCTableViewDataSourceUpdateTypeDelete];
-}
-
-- (void)reloadRowAtIndexPath:(NSIndexPath *)indexPath {
+	else if (update == FRCTableViewDataSourceUpdateTypeRowDelete)
+		[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:animation];
 	
-	/*Class cellClass = [self cellClassAtIndexPath:indexPath];
-	if ([cellClass conformsToProtocol:@protocol(FRCTableViewCellObjectConfiguration)]
-		&& [cellClass respondsToSelector:@selector(shouldUpdateForObject:withChangedValues:)]
-		&& ![cellClass shouldUpdateForObject:anObject withChangedValues:[anObject changedValuesForCurrentEvent]])
-		return;*/
+	else if (update == FRCTableViewDataSourceUpdateTypeRowReload)
+		[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:animation];
 	
-	if (self.parent) {
-		indexPath = [self.parent convertIndexPath:indexPath fromChildTableViewDataSource:self];
-		[self.parent reloadRowAtIndexPath:indexPath];
-		return;
-	}
+	else if (update == FRCTableViewDataSourceUpdateTypeSectionInsert)
+		[self.tableView insertSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:animation];
 	
-	[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-						  withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
-	[self addToUpdateType:FRCTableViewDataSourceUpdateTypeReload];
-}
-
-- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath
-			   toIndexPath:(NSIndexPath *)newIndexPath {
-	
-	if (self.parent) {
-		indexPath = [self.parent convertIndexPath:indexPath fromChildTableViewDataSource:self];
-		newIndexPath = [self.parent convertIndexPath:newIndexPath fromChildTableViewDataSource:self];
-		[self.parent moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
-		return;
-	}
-	
-	[self.tableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
-	[self addToUpdateType:FRCTableViewDataSourceUpdateTypeMove];
+	else if (update == FRCTableViewDataSourceUpdateTypeSectionDelete)
+		[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:animation];
+		
+	[self addToUpdateType:update];
 }
 
 - (void)addToUpdateType:(FRCTableViewDataSourceUpdateType)type {

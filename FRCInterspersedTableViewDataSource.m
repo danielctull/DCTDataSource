@@ -34,14 +34,9 @@
 	return _interspersedDataSource.cellClass;
 }
 
-- (void)insertRowAtIndexPath:(NSIndexPath *)indexPath {
-	[super insertRowAtIndexPath:indexPath];
-}
-- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath {
-	[super deleteRowAtIndexPath:indexPath];
-}
-- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath {
-	[super moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
+- (void)performRowUpdate:(FRCTableViewDataSourceUpdateType)update indexPath:(NSIndexPath *)indexPath animation:(UITableViewRowAnimation)animation {
+	
+	[super performRowUpdate:update indexPath:indexPath animation:animation];
 }
 
 #pragma mark - FRCParentTableViewDataSource
