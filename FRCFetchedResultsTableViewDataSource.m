@@ -165,52 +165,24 @@
 	return [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
 }
 
-
-- (void)addToUpdateType:(FRCTableViewDataSourceUpdateType)type {
-	
-	if (updateType == FRCTableViewDataSourceUpdateTypeUnknown)
-		updateType = type;
-	
-	updateType = (updateType | type);
-}
-
 #pragma mark - NSFetchedResultsControllerDelegate
 
-// These methods are taken straight from Apple's documentation on NSFetchedResultsController.
-
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-	
-	if (self.parent != nil && ![self.parent childTableViewDataSourceShouldUpdateCells:self])
-		return;
-	
-	updateType = FRCTableViewDataSourceUpdateTypeUnknown;
-    [self.tableView beginUpdates];
+    [self beginUpdates];
 }
-
 
 - (void)controller:(NSFetchedResultsController *)controller 
   didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
 		   atIndex:(NSUInteger)sectionIndex
 	 forChangeType:(NSFetchedResultsChangeType)type {
 	
-	if (!self.tableView) return;
-	
-	if (self.parent != nil && ![self.parent childTableViewDataSourceShouldUpdateCells:self])
-		return;
-	
-	sectionIndex = [self.tableView frc_convertSection:sectionIndex fromChildTableViewDataSource:self];
-	
     switch(type) {
         case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-						  withRowAnimation:UITableViewRowAnimationFade];
-			[self addToUpdateType:FRCTableViewDataSourceUpdateTypeInsert];
+            [self insertSection:sectionIndex];
             break;
 			
         case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
-						  withRowAnimation:UITableViewRowAnimationFade];
-			[self addToUpdateType:FRCTableViewDataSourceUpdateTypeDelete];
+            [self deleteSection:sectionIndex];
             break;
     }
 }
@@ -222,63 +194,28 @@
 	 forChangeType:(NSFetchedResultsChangeType)type
 	  newIndexPath:(NSIndexPath *)newIndexPath {
 	
-	if (self.parent != nil && ![self.parent childTableViewDataSourceShouldUpdateCells:self])
-		return;
-	
-	indexPath = [self.tableView frc_convertIndexPath:indexPath fromChildTableViewDataSource:self];
-	newIndexPath = [self.tableView frc_convertIndexPath:newIndexPath fromChildTableViewDataSource:self];
-	
-    UITableView *tv = self.tableView;
-	
-	if (!tv) return;
-	
     switch(type) {
 			
-        case NSFetchedResultsChangeInsert:
-            [tv insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
-					  withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
-			[self addToUpdateType:FRCTableViewDataSourceUpdateTypeInsert];
-            break;
+		case NSFetchedResultsChangeInsert:
+			[self insertRowAtIndexPath:newIndexPath];
+			break;
 			
-        case NSFetchedResultsChangeDelete:
-            [tv deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-					  withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
-			[self addToUpdateType:FRCTableViewDataSourceUpdateTypeDelete];
-            break;
+		case NSFetchedResultsChangeDelete:
+			[self deleteRowAtIndexPath:indexPath];
+			break;
 			
-        case NSFetchedResultsChangeUpdate: {
+        case NSFetchedResultsChangeUpdate:
+			[self reloadRowAtIndexPath:indexPath];
+			break;
 			
-			Class cellClass = [self cellClassAtIndexPath:indexPath];
-			if ([cellClass conformsToProtocol:@protocol(FRCTableViewCellObjectConfiguration)]
-				&& [cellClass respondsToSelector:@selector(shouldUpdateForObject:withChangedValues:)]
-				&& ![cellClass shouldUpdateForObject:anObject withChangedValues:[anObject changedValuesForCurrentEvent]])
-				return;
-			
-			[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
-								  withRowAnimation:UITableViewRowAnimationNone];
-			[self addToUpdateType:FRCTableViewDataSourceUpdateTypeReload];
-            break;
-		}
         case NSFetchedResultsChangeMove:
-            [tv deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-					  withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
-			[self addToUpdateType:FRCTableViewDataSourceUpdateTypeDelete];
-            [tv insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
-					  withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
-			[self addToUpdateType:FRCTableViewDataSourceUpdateTypeInsert];
+			[self moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
             break;
     }
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-	
-	if (self.parent != nil && ![self.parent childTableViewDataSourceShouldUpdateCells:self])
-		return;
-	
-    [self.tableView endUpdates];
-	
-	if (self.tableViewUpdateHandler != NULL)
-		self.tableViewUpdateHandler(updateType);
+	[self endUpdates];
 }
 
 

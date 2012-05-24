@@ -41,6 +41,7 @@ typedef enum {
 	FRCTableViewDataSourceUpdateTypeInsert = 1 << 0,
 	FRCTableViewDataSourceUpdateTypeDelete = 1 << 1,
 	FRCTableViewDataSourceUpdateTypeReload = 1 << 2,
+	FRCTableViewDataSourceUpdateTypeMove = 1 << 3
 } FRCTableViewDataSourceUpdateType;
 
 @class FRCParentTableViewDataSource;
@@ -122,5 +123,15 @@ typedef enum {
 
 @property (nonatomic, copy) NSString *sectionHeaderTitle;
 @property (nonatomic, copy) NSString *sectionFooterTitle;
+
+
+- (void)beginUpdates;
+- (void)endUpdates;
+- (void)insertSection:(NSUInteger)sectionIndex;
+- (void)deleteSection:(NSUInteger)sectionIndex;
+- (void)insertRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)reloadRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath;
 
 @end

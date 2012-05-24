@@ -38,6 +38,7 @@
 #import "FRCTableViewCell.h"
 #import "UITableView+FRCTableViewDataSources.h"
 #import "UITableView+FRCNibRegistration.h"
+#import "FRCParentTableViewDataSource.h"
 
 @interface FRCTableViewDataSource ()
 - (void)frcInternal_setupCellClass;
@@ -45,6 +46,7 @@
 
 @implementation FRCTableViewDataSource {
 	__strong NSMutableDictionary *_cellClassDictionary;
+	FRCTableViewDataSourceUpdateType updateType;
 }
 
 @synthesize tableView;
@@ -110,6 +112,112 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object {}
+
+
+#pragma mark - Updating the table view
+
+- (void)beginUpdates {
+	[self.tableView beginUpdates];
+}
+
+- (void)endUpdates {
+	[self.tableView endUpdates];
+	
+	if (self.tableViewUpdateHandler != NULL)
+		self.tableViewUpdateHandler(updateType);
+}
+
+- (void)insertSection:(NSUInteger)sectionIndex {
+	
+	if (self.parent) {
+		sectionIndex = [self.parent convertSection:sectionIndex fromChildTableViewDataSource:self];
+		[self.parent insertSection:sectionIndex];
+		return;
+	}
+	
+	[self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+				  withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
+	[self addToUpdateType:FRCTableViewDataSourceUpdateTypeInsert];
+	
+}
+
+- (void)deleteSection:(NSUInteger)sectionIndex {
+	if (self.parent) {
+		sectionIndex = [self.parent convertSection:sectionIndex fromChildTableViewDataSource:self];
+		[self.parent insertSection:sectionIndex];
+		return;
+	}
+	[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+				  withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
+	[self addToUpdateType:FRCTableViewDataSourceUpdateTypeDelete];
+}
+
+- (void)insertRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	if (self.parent) {
+		indexPath = [self.parent convertIndexPath:indexPath fromChildTableViewDataSource:self];
+		[self.parent insertRowAtIndexPath:indexPath];
+		return;
+	}
+	
+	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+						  withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
+	[self addToUpdateType:FRCTableViewDataSourceUpdateTypeInsert];
+}
+
+- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	if (self.parent) {
+		indexPath = [self.parent convertIndexPath:indexPath fromChildTableViewDataSource:self];
+		[self.parent deleteRowAtIndexPath:indexPath];
+		return;
+	}
+	
+	[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+						  withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
+	[self addToUpdateType:FRCTableViewDataSourceUpdateTypeDelete];
+}
+
+- (void)reloadRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	/*Class cellClass = [self cellClassAtIndexPath:indexPath];
+	if ([cellClass conformsToProtocol:@protocol(FRCTableViewCellObjectConfiguration)]
+		&& [cellClass respondsToSelector:@selector(shouldUpdateForObject:withChangedValues:)]
+		&& ![cellClass shouldUpdateForObject:anObject withChangedValues:[anObject changedValuesForCurrentEvent]])
+		return;*/
+	
+	if (self.parent) {
+		indexPath = [self.parent convertIndexPath:indexPath fromChildTableViewDataSource:self];
+		[self.parent reloadRowAtIndexPath:indexPath];
+		return;
+	}
+	
+	[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+						  withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
+	[self addToUpdateType:FRCTableViewDataSourceUpdateTypeReload];
+}
+
+- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath
+			   toIndexPath:(NSIndexPath *)newIndexPath {
+	
+	if (self.parent) {
+		indexPath = [self.parent convertIndexPath:indexPath fromChildTableViewDataSource:self];
+		newIndexPath = [self.parent convertIndexPath:newIndexPath fromChildTableViewDataSource:self];
+		[self.parent moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
+		return;
+	}
+	
+	[self.tableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
+	[self addToUpdateType:FRCTableViewDataSourceUpdateTypeMove];
+}
+
+- (void)addToUpdateType:(FRCTableViewDataSourceUpdateType)type {
+	
+	if (updateType == FRCTableViewDataSourceUpdateTypeUnknown)
+		updateType = type;
+	
+	updateType = (updateType | type);
+}
 
 #pragma mark - UITableViewDataSource
 
