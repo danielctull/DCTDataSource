@@ -15,8 +15,6 @@
 	NSUInteger _childRowCount;
 }
 @synthesize childTableViewDataSource = _childTableViewDataSource;
-@synthesize showInterspersedCellOnBottom = _showInterspersedCellOnBottom;
-@synthesize showInterspersedCellOnTop = _showInterspersedCellOnTop;
 
 - (id)init {
 	if (!(self = [super init])) return nil;
@@ -60,24 +58,7 @@
 	_childRowCount--;
 	[super performRowUpdate:FRCTableViewDataSourceUpdateTypeRowDelete indexPath:indexPath animation:animation];
 	
-	if (_childRowCount == 0) {
-		
-		NSInteger interspersedBottomRow = 1;
-		
-		if (self.showInterspersedCellOnTop) {
-			interspersedBottomRow++;
-			[super performRowUpdate:FRCTableViewDataSourceUpdateTypeRowDelete
-						  indexPath:[NSIndexPath indexPathForRow:0 inSection:0]
-						  animation:animation];
-		}
-		
-		if (self.showInterspersedCellOnBottom)
-			[super performRowUpdate:FRCTableViewDataSourceUpdateTypeRowDelete
-						  indexPath:[NSIndexPath indexPathForRow:interspersedBottomRow inSection:0]
-						  animation:animation];
-		
-		return;
-	}
+	if (_childRowCount == 0) return;
 	
 	NSIndexPath *childIndexPath = [self convertIndexPath:indexPath toChildTableViewDataSource:self.childTableViewDataSource];
 	NSInteger interspersedRowToDelete = indexPath.row + 1;
@@ -89,30 +70,10 @@
 
 - (void)performInsertWithIndexPath:(NSIndexPath *)indexPath animation:(UITableViewRowAnimation)animation {
 	
-	if (_childRowCount == 0) {
-		
-		NSInteger interspersedBottomRow = 1;
-		
-		if (self.showInterspersedCellOnTop) {
-			interspersedBottomRow++;
-			[super performRowUpdate:FRCTableViewDataSourceUpdateTypeRowInsert
-						  indexPath:[NSIndexPath indexPathForRow:0 inSection:0]
-						  animation:animation];
-		}
-		
-		_childRowCount++;
-		[super performRowUpdate:FRCTableViewDataSourceUpdateTypeRowInsert indexPath:indexPath animation:animation];
-		
-		if (self.showInterspersedCellOnBottom)
-			[super performRowUpdate:FRCTableViewDataSourceUpdateTypeRowInsert
-						  indexPath:[NSIndexPath indexPathForRow:interspersedBottomRow inSection:0]
-						  animation:animation];
-		
-		return;
-	}
-	
 	_childRowCount++;
 	[super performRowUpdate:FRCTableViewDataSourceUpdateTypeRowInsert indexPath:indexPath animation:animation];
+	
+	if (_childRowCount == 1) return;
 	
 	NSIndexPath *childIndexPath = [self convertIndexPath:indexPath toChildTableViewDataSource:self.childTableViewDataSource];
 	NSInteger interspersedRowToInsert = indexPath.row - 1;
@@ -125,22 +86,15 @@
 #pragma mark - FRCParentTableViewDataSource
 
 - (NSArray *)childTableViewDataSources {
-	return [NSArray arrayWithObjects:self.childTableViewDataSource, nil];
+	return [NSArray arrayWithObjects:self.childTableViewDataSource, _interspersedDataSource, nil];
 }
 
 - (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(FRCTableViewDataSource *)dataSource {
 	
-	if ([dataSource isEqual:_interspersedDataSource]) {
-	
-		if (self.showInterspersedCellOnTop)
-			return [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
-		
+	if ([dataSource isEqual:_interspersedDataSource])
 		return [NSIndexPath indexPathForRow:1 inSection:indexPath.section];
-	}
 	
 	NSInteger row = 2*indexPath.row;
-		
-	if (self.showInterspersedCellOnTop) row++;
 	
 	return [NSIndexPath indexPathForRow:row inSection:indexPath.section];	
 }
@@ -151,9 +105,7 @@
 		return [NSIndexPath indexPathForRow:0 inSection:0];
 	
 	NSInteger row = indexPath.row;
-	
-	if (self.showInterspersedCellOnTop) row--;
-	
+		
 	row = row/2;
 	
 	return [NSIndexPath indexPathForRow:row inSection:indexPath.section];
@@ -165,11 +117,7 @@
 
 - (FRCTableViewDataSource *)childTableViewDataSourceForIndexPath:(NSIndexPath *)indexPath {
 	
-	BOOL isEvenRow = (indexPath.row % 2 == 0);
-	
-	if (self.showInterspersedCellOnTop) isEvenRow = !isEvenRow;
-		
-	if (isEvenRow) return self.childTableViewDataSource;
+	if (indexPath.row % 2 == 0) return self.childTableViewDataSource;
 		
 	return _interspersedDataSource;
 }
@@ -178,11 +126,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NSInteger amount = [self.childTableViewDataSource tableView:tableView numberOfRowsInSection:section];
-	if (amount == 0) return 0;
-	amount += _interspersedDataSourceCount;
-	if (self.showInterspersedCellOnTop) amount++;
-	if (self.showInterspersedCellOnBottom) amount++;
-	return amount;
+	if (amount < 2) return amount;
+	return 2*amount - 1;
 }
 
 @end

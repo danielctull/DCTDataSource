@@ -13,7 +13,5 @@
  */
 @property (nonatomic, strong) FRCTableViewDataSource *childTableViewDataSource;
 @property (nonatomic, assign) Class interspersedCellClass;
-@property (nonatomic, assign) BOOL showInterspersedCellOnTop;
-@property (nonatomic, assign) BOOL showInterspersedCellOnBottom;
 
 @end
