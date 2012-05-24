@@ -34,12 +34,14 @@
 	return _interspersedDataSource.cellClass;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	NSInteger amount = [self.childTableViewDataSource tableView:tableView numberOfRowsInSection:section];
-	amount = (2*amount)-1;
-	if (self.showInterspersedCellOnBottom) amount++;
-	if (self.showInterspersedCellOnTop) amount++;
-	return amount;
+- (void)insertRowAtIndexPath:(NSIndexPath *)indexPath {
+	[super insertRowAtIndexPath:indexPath];
+}
+- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath {
+	[super deleteRowAtIndexPath:indexPath];
+}
+- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath {
+	[super moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
 }
 
 #pragma mark - FRCParentTableViewDataSource
@@ -94,9 +96,14 @@
 	return _interspersedDataSource;
 }
 
-- (BOOL)childTableViewDataSourceShouldUpdateCells:(FRCTableViewDataSource *)dataSource {
-	if (!self.parent) return YES;
-	return [self.parent childTableViewDataSourceShouldUpdateCells:self];	
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	NSInteger amount = [self.childTableViewDataSource tableView:tableView numberOfRowsInSection:section];
+	amount = (2*amount)-1;
+	if (self.showInterspersedCellOnBottom) amount++;
+	if (self.showInterspersedCellOnTop) amount++;
+	return amount;
 }
 
 @end

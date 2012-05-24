@@ -169,13 +169,6 @@
 	return [[self frcInternal_tableViewDataSources] objectAtIndex:indexPath.section];
 }
 
-- (BOOL)childTableViewDataSourceShouldUpdateCells:(FRCTableViewDataSource *)dataSource {
-	
-	if (!self.parent) return YES;
-		
-	return [self.parent childTableViewDataSourceShouldUpdateCells:self];	
-}
-
 
 #pragma mark - FRCSplitTableViewDataSource methods
 
@@ -189,21 +182,24 @@
 	
 	if (!tableViewHasSetup) return;
 	
+	[self beginUpdates];
+	
 	if (self.type == FRCSplitTableViewDataSourceTypeRow) {
 		
 		NSArray *indexPaths = [self frcInternal_indexPathsForDataSource:tableViewDataSource];
-		[self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
+		[indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger i, BOOL *stop) {
+			[self insertRowAtIndexPath:indexPath];
+		}];
 		
 	} else {
 		
 		NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:[childDataSources indexOfObject:tableViewDataSource]];
-		[self.tableView insertSections:indexSet withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
-		
+		[indexSet enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+			[self insertSection:index];
+		}];
 	}
 	
-	if (self.tableViewUpdateHandler != NULL)
-		self.tableViewUpdateHandler(FRCTableViewDataSourceUpdateTypeInsert);
-	
+	[self endUpdates];
 }
 
 - (void)removeChildTableViewDataSource:(FRCTableViewDataSource *)tableViewDataSource {
@@ -212,31 +208,32 @@
 	
 	NSMutableArray *childDataSources = [self frcInternal_tableViewDataSources];
 	
+	[self beginUpdates];
 	
 	if (self.type == FRCSplitTableViewDataSourceTypeRow) {
 		
 		NSArray *indexPaths = [self frcInternal_indexPathsForDataSource:tableViewDataSource];
-		
 		[childDataSources removeObject:tableViewDataSource];
 		
 		if (!tableViewHasSetup) return;
 		
-		[self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
-	
+		[indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger i, BOOL *stop) {
+			[self deleteRowAtIndexPath:indexPath];
+		}];
+		
 	} else {
 	
 		NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:[childDataSources indexOfObject:tableViewDataSource]];
-	
 		[childDataSources removeObject:tableViewDataSource];
 	
 		if (!tableViewHasSetup) return;
-	
-		[self.tableView deleteSections:indexSet withRowAnimation:FRCTableViewDataSourceTableViewRowAnimationAutomatic];
-	
+		
+		[indexSet enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+			[self deleteSection:index];
+		}];
 	}
 	
-	if (self.tableViewUpdateHandler != NULL)
-		self.tableViewUpdateHandler(FRCTableViewDataSourceUpdateTypeDelete);
+	[self endUpdates];
 }
 
 #pragma mark - UITableViewDataSource methods

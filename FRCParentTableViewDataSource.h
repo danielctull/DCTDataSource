@@ -109,21 +109,4 @@
  */
 - (FRCTableViewDataSource *)childTableViewDataSourceForIndexPath:(NSIndexPath *)indexPath;
 
-/// @name Parental guidance
-
-/** Allows the parent to prevent the child data source from updating. 
- 
- Children should use this method to determine whether they should insert, 
- delete or update cells in their control.
- 
- An example of this is FRCCollapsableSectionTableViewDataSource, which will return NO when
- it is closed. This way an updating child, like a FRCFetchedResultsTableViewDataSource
- will be prevented from inserting or deleting cells into the tableView.
- 
- @param dataSource The child data source that is asking whether it can update.
- 
- @return YES if the child can update the table, NO if not.
- */
-- (BOOL)childTableViewDataSourceShouldUpdateCells:(FRCTableViewDataSource *)dataSource;
-
 @end

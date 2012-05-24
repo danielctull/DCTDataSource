@@ -191,22 +191,35 @@
 	return [super objectAtIndexPath:indexPath];
 }
 
+- (void)insertSection:(NSUInteger)sectionIndex {
+	if (!self.open) return;
+	[super insertSection:sectionIndex];
+}
+- (void)deleteSection:(NSUInteger)sectionIndex {
+	if (!self.open) return;
+	[super deleteSection:sectionIndex];
+}
+- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (!self.open) return;
+	[super deleteRowAtIndexPath:indexPath];
+}
+- (void)insertRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (!self.open) return;
+	[super insertRowAtIndexPath:indexPath];
+}
+- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath {
+	if (!self.open) return;
+	[super moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
+}
+- (void)reloadRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (!self.open) return;
+	[super reloadRowAtIndexPath:indexPath];
+}
+
 #pragma mark - FRCParentTableViewDataSource
 
 - (NSArray *)childTableViewDataSources {
 	return [NSArray arrayWithObject:splitDataSource];
-}
-
-- (BOOL)childTableViewDataSourceShouldUpdateCells:(FRCTableViewDataSource *)dataSource {
-	
-	canReloadHeaderCell = YES;	
-	[self frcInternal_headerCheck];
-	
-	if (!self.open) return NO;
-	
-	if (self.parent == nil) return YES;
-	
-	return [self.parent childTableViewDataSourceShouldUpdateCells:self];	
 }
 
 #pragma mark - UITableViewDataSource
