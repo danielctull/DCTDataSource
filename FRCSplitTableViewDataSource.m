@@ -173,12 +173,12 @@
 - (void)addChildTableViewDataSource:(FRCTableViewDataSource *)tableViewDataSource {
 	
 	NSMutableArray *childDataSources = [self frcInternal_tableViewDataSources];
-	
-	[childDataSources addObject:tableViewDataSource];
-	
+		
 	[self frcInternal_setupDataSource:tableViewDataSource];
 		
 	[self beginUpdates];
+	
+	[childDataSources addObject:tableViewDataSource];
 	
 	if (self.type == FRCSplitTableViewDataSourceTypeRow) {
 		
@@ -190,12 +190,9 @@
 		
 	} else {
 		
-		NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:[childDataSources indexOfObject:tableViewDataSource]];
-		[indexSet enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-			[self performSectionUpdate:FRCTableViewDataSourceUpdateTypeSectionInsert
-						  sectionIndex:index
-							 animation:self.insertionAnimation];
-		}];
+		[self performSectionUpdate:FRCTableViewDataSourceUpdateTypeSectionInsert
+					  sectionIndex:[childDataSources indexOfObject:tableViewDataSource]
+						 animation:self.insertionAnimation];
 	}
 	
 	[self endUpdates];
@@ -209,6 +206,9 @@
 	
 	[self beginUpdates];
 	
+	NSUInteger index = [childDataSources indexOfObject:tableViewDataSource];
+	[childDataSources removeObject:tableViewDataSource];
+	
 	if (self.type == FRCSplitTableViewDataSourceTypeRow) {
 		
 		[tableViewDataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
@@ -218,13 +218,12 @@
 		}];
 		
 	} else {
-		NSUInteger index = [childDataSources indexOfObject:tableViewDataSource];
+		
 		[self performSectionUpdate:FRCTableViewDataSourceUpdateTypeSectionDelete
 					  sectionIndex:index
 						 animation:self.deletionAnimation];
 	}
 	
-	[childDataSources removeObject:tableViewDataSource];
 	[self endUpdates];
 }
 

@@ -154,7 +154,7 @@ NSInteger const FRCTableViewDataSourceNoAnimationSet = -1912;
 - (void)performRowUpdate:(FRCTableViewDataSourceUpdateType)update
 			   indexPath:(NSIndexPath *)indexPath
 			   animation:(UITableViewRowAnimation)animation {
-	
+		
 	if (animation == FRCTableViewDataSourceNoAnimationSet)
 		animation = self.insertionAnimation;
 	
