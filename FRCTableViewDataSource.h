@@ -43,8 +43,6 @@ typedef enum {
 	FRCTableViewDataSourceUpdateTypeReload = 1 << 2,
 } FRCTableViewDataSourceUpdateType;
 
-typedef void (^FRCTableViewDataSourceCellConfigurationBlock) (id cell, NSIndexPath *indexPath, id object);
-
 @class FRCParentTableViewDataSource;
 
 /** An abstract class to represent a core FRCTableViewDataSource object. Examples of concrete 
@@ -119,7 +117,7 @@ typedef void (^FRCTableViewDataSourceCellConfigurationBlock) (id cell, NSIndexPa
 
 @property (nonatomic, copy) void(^tableViewUpdateHandler)(FRCTableViewDataSourceUpdateType type);
 
-@property (nonatomic, copy) FRCTableViewDataSourceCellConfigurationBlock cellConfigurer;
+@property (nonatomic, copy) void(^cellConfigurer)(id cell, NSIndexPath *indexPath, id object);
 
 
 @property (nonatomic, copy) NSString *sectionHeaderTitle;
