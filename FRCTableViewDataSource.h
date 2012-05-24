@@ -134,4 +134,6 @@ typedef enum {
 - (void)reloadRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath;
 
+- (void)enumerateIndexPathsUsingBlock:(void(^)(NSIndexPath *, BOOL *stop))enumerator;
+
 @end

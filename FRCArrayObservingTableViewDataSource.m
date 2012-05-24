@@ -79,54 +79,29 @@ void* arrayObservingContext = &arrayObservingContext;
 	NSKeyValueChange changeType = [[change objectForKey:NSKeyValueChangeKindKey] unsignedIntegerValue];
 	NSIndexSet *indexSet = [change objectForKey:NSKeyValueChangeIndexesKey];
 	
-	NSMutableArray *indexPaths = [NSMutableArray new];
+	[self beginUpdates];
+	
 	[indexSet enumerateIndexesUsingBlock:^(NSUInteger i, BOOL *stop) {
 		NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-		indexPath = [self.tableView frc_convertIndexPath:indexPath fromChildTableViewDataSource:self];
-		[indexPaths addObject:indexPath];
+		
+		if (changeType == NSKeyValueChangeInsertion)
+			[self insertRowAtIndexPath:indexPath];
+			
+		else if (changeType == NSKeyValueChangeRemoval)
+			[self deleteRowAtIndexPath:indexPath];
+					
+		else if (changeType == NSKeyValueChangeReplacement)
+			[self reloadRowAtIndexPath:indexPath];
+		
 	}];
 	
-	FRCTableViewDataSourceUpdateType type = FRCTableViewDataSourceUpdateTypeUnknown;
-	
-	if (changeType == NSKeyValueChangeInsertion) {
-		[self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-		type = FRCTableViewDataSourceUpdateTypeInsert;
-		
-	} else if (changeType == NSKeyValueChangeRemoval) {
-		[self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-		type = FRCTableViewDataSourceUpdateTypeDelete;
-		
-	} else if (changeType == NSKeyValueChangeReplacement) {
-		[self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-		type = FRCTableViewDataSourceUpdateTypeReload;
-	}
-		
-	if (self.tableViewUpdateHandler != NULL)
-		self.tableViewUpdateHandler(type);
+	[self endUpdates];
 }
 
 #pragma mark - FRCTableViewDataSource
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
 	return [_array objectAtIndex:indexPath.row];
-}
-
-- (void)reloadData {
-	
-	NSUInteger count = [_array count];
-	
-	NSMutableArray *indexPaths = [[NSMutableArray alloc] initWithCapacity:count];
-	
-	for (NSUInteger i = 0; i < count; i++) {
-		NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-		indexPath = [self.tableView frc_convertIndexPath:indexPath fromChildTableViewDataSource:self];
-		[indexPaths addObject:indexPath];
-	}
-	
-	[self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-	
-	if (self.tableViewUpdateHandler != NULL)
-		self.tableViewUpdateHandler(FRCTableViewDataSourceUpdateTypeReload);
 }
 
 #pragma mark - UITableViewDataSource

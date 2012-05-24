@@ -40,12 +40,10 @@
 @interface FRCSplitTableViewDataSource ()
 - (NSMutableArray *)frcInternal_tableViewDataSources;
 - (void)frcInternal_setupDataSource:(FRCTableViewDataSource *)dataSource;
-- (NSArray *)frcInternal_indexPathsForDataSource:(FRCTableViewDataSource *)dataSource;
 @end
 
 @implementation FRCSplitTableViewDataSource {
 	__strong NSMutableArray *frcInternal_tableViewDataSources;
-	BOOL tableViewHasSetup;
 }
 
 @synthesize type;
@@ -179,16 +177,13 @@
 	[childDataSources addObject:tableViewDataSource];
 	
 	[self frcInternal_setupDataSource:tableViewDataSource];
-	
-	if (!tableViewHasSetup) return;
-	
+		
 	[self beginUpdates];
 	
 	if (self.type == FRCSplitTableViewDataSourceTypeRow) {
 		
-		NSArray *indexPaths = [self frcInternal_indexPathsForDataSource:tableViewDataSource];
-		[indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger i, BOOL *stop) {
-			[self insertRowAtIndexPath:indexPath];
+		[tableViewDataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
+			[tableViewDataSource insertRowAtIndexPath:indexPath];
 		}];
 		
 	} else {
@@ -212,40 +207,27 @@
 	
 	if (self.type == FRCSplitTableViewDataSourceTypeRow) {
 		
-		NSArray *indexPaths = [self frcInternal_indexPathsForDataSource:tableViewDataSource];
-		[childDataSources removeObject:tableViewDataSource];
-		
-		if (!tableViewHasSetup) return;
-		
-		[indexPaths enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger i, BOOL *stop) {
-			[self deleteRowAtIndexPath:indexPath];
+		[tableViewDataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
+			[tableViewDataSource deleteRowAtIndexPath:indexPath];
 		}];
 		
 	} else {
-	
-		NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:[childDataSources indexOfObject:tableViewDataSource]];
-		[childDataSources removeObject:tableViewDataSource];
-	
-		if (!tableViewHasSetup) return;
-		
-		[indexSet enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-			[self deleteSection:index];
-		}];
+		NSUInteger index = [childDataSources indexOfObject:tableViewDataSource];
+		[self deleteSection:index];
 	}
 	
+	[childDataSources removeObject:tableViewDataSource];
 	[self endUpdates];
 }
 
 #pragma mark - UITableViewDataSource methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tv {
-	tableViewHasSetup = YES;
 	self.tableView = tv;
 	return [[self frcInternal_tableViewDataSources] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tv numberOfRowsInSection:(NSInteger)section {
-	tableViewHasSetup = YES;
 	if (self.type == FRCSplitTableViewDataSourceTypeSection)
 		return [super tableView:tv numberOfRowsInSection:section];
 	
@@ -260,21 +242,6 @@
 }
 
 #pragma mark - Private methods
-
-- (NSArray *)frcInternal_indexPathsForDataSource:(FRCTableViewDataSource *)dataSource {
-	
-	NSInteger numberOfRows = [dataSource tableView:self.tableView numberOfRowsInSection:0];
-	
-	NSMutableArray *indexPaths = [[NSMutableArray alloc] initWithCapacity:numberOfRows];
-	
-	for (NSInteger i = 0; i < numberOfRows; i++) {
-		NSIndexPath *ip = [NSIndexPath indexPathForRow:i inSection:0];
-		ip = [self.tableView frc_convertIndexPath:ip fromChildTableViewDataSource:dataSource];
-		[indexPaths addObject:ip];
-	}
-	
-	return [indexPaths copy];
-}
 
 - (NSMutableArray *)frcInternal_tableViewDataSources {
 	

@@ -96,7 +96,13 @@
 	[self frcInternal_setupCellClass];
 }
 
-- (void)reloadData {}
+- (void)reloadData {
+	[self beginUpdates];
+	[self enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
+		[self reloadRowAtIndexPath:indexPath];
+	}];
+	[self endUpdates];
+}
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
 	return indexPath;
@@ -217,6 +223,23 @@
 		updateType = type;
 	
 	updateType = (updateType | type);
+}
+
+- (void)enumerateIndexPathsUsingBlock:(void(^)(NSIndexPath *, BOOL *stop))enumerator {
+	
+	NSInteger sectionCount = [self numberOfSectionsInTableView:self.tableView];
+	
+	for (NSInteger section = 0; section < sectionCount; section++) {
+		
+		NSInteger rowCount = [self tableView:self.tableView numberOfRowsInSection:section];
+		
+		for (NSInteger row = 0; row < rowCount; row++) {
+			NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+			BOOL stop = NO;
+			enumerator(indexPath, &stop);
+			if (stop) return;
+		}
+	}	
 }
 
 #pragma mark - UITableViewDataSource

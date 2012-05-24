@@ -104,9 +104,6 @@
 
 @interface FRCCollapsableSectionTableViewDataSource ()
 
-
-- (NSArray *)frcInternal_tableViewIndexPathsForCollapsableCellsIndexPathEnumator:(void (^)(NSIndexPath *))block;
-
 - (IBAction)frcInternal_titleTapped:(UITapGestureRecognizer *)sender;
 - (void)frcInternal_setOpened;
 - (void)frcInternal_setClosed;
@@ -262,31 +259,6 @@
 	self.open = !self.open;
 }
 
-- (NSArray *)frcInternal_tableViewIndexPathsForCollapsableCellsIndexPathEnumator:(void (^)(NSIndexPath *))block {
-	
-	NSInteger numberOfRows = [self.childTableViewDataSource tableView:self.tableView numberOfRowsInSection:0];
-	
-	if (numberOfRows == 0) {
-		childTableViewDataSourceHasCells = NO;
-		return nil;
-	}
-	
-	childTableViewDataSourceHasCells = YES;
-	
-	NSMutableArray *indexPaths = [[NSMutableArray alloc] initWithCapacity:numberOfRows];
-	
-	for (NSInteger i = 0; i < numberOfRows; i++) {
-		NSIndexPath *ip = [NSIndexPath indexPathForRow:i inSection:0];
-		
-		if (block) block(ip);
-		
-		ip = [self.tableView frc_convertIndexPath:ip fromChildTableViewDataSource:self.childTableViewDataSource];
-		[indexPaths addObject:ip];
-	}
-	
-	return [indexPaths copy];
-}
-
 - (void)frcInternal_setSplitChild:(FRCTableViewDataSource *)dataSource {
 	NSArray *children = splitDataSource.childTableViewDataSources;
 	if ([children count] > 1) [splitDataSource removeChildTableViewDataSource:[children lastObject]];
@@ -312,24 +284,30 @@
 	id<UITableViewDelegate> delegate = tv.delegate;
 	CGFloat rowHeight = tv.rowHeight;
 	
-	NSArray *indexPaths = [self frcInternal_tableViewIndexPathsForCollapsableCellsIndexPathEnumator:^(NSIndexPath *ip) {
-		
-		if (totalCellHeight > tableViewHeight) return; // Add this check so we can reduce the amount of calls to heightForObject:width:
+	NSMutableArray *tableViewIndexPaths = [NSMutableArray new];
+	
+	[self.childTableViewDataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
 		
 		CGFloat height = rowHeight;
 		
-		if ([delegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)])
-			height = [delegate tableView:tv heightForRowAtIndexPath:ip];
+		if ([delegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
+			indexPath = [self.tableView frc_convertIndexPath:indexPath fromChildTableViewDataSource:self.childTableViewDataSource];
+			height = [delegate tableView:tv heightForRowAtIndexPath:indexPath];
+		}
 		
+		[tableViewIndexPaths addObject:indexPath];
 		totalCellHeight += height;
+		
+		if (totalCellHeight > tableViewHeight)
+			*stop = YES;
 	}];
 	
-	if ([indexPaths count] == 0) return;
+	if ([tableViewIndexPaths count] == 0) return;
 	
 	NSIndexPath *headerIndexPath = self.frcInternal_headerTableViewIndexPath;
 	
 	if (totalCellHeight < tableViewHeight) {
-		[self.tableView scrollToRowAtIndexPath:[indexPaths lastObject] atScrollPosition:UITableViewScrollPositionNone animated:YES];
+		[self.tableView scrollToRowAtIndexPath:[tableViewIndexPaths lastObject] atScrollPosition:UITableViewScrollPositionNone animated:YES];
 		[self.tableView scrollToRowAtIndexPath:headerIndexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
 	} else {
 		[self.tableView scrollToRowAtIndexPath:headerIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];

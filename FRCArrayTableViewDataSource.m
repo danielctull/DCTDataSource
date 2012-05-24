@@ -48,22 +48,4 @@
 	return [self.array objectAtIndex:indexPath.row];
 }
 
-- (void)reloadData {
-	
-	NSUInteger count = [self.array count];
-	
-	NSMutableArray *indexPaths = [[NSMutableArray alloc] initWithCapacity:count];
-	
-	for (NSUInteger i = 0; i < count; i++) {
-		NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-		indexPath = [self.tableView frc_convertIndexPath:indexPath fromChildTableViewDataSource:self];
-		[indexPaths addObject:indexPath];
-	}
-	
-	[self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-	
-	if (self.tableViewUpdateHandler != NULL)
-		self.tableViewUpdateHandler(FRCTableViewDataSourceUpdateTypeReload);
-}
-
 @end
