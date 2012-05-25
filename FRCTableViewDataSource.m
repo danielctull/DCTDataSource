@@ -87,13 +87,25 @@ NSInteger const FRCTableViewDataSourceNoAnimationSet = -1912;
 	_cellClass = aCellClass;
 	[self frcInternal_setupCellClass];
 }
-
 - (void)setCellClass:(Class)cellClass forObjectClass:(Class)objectClass {
 	[_cellClassDictionary setObject:cellClass forKey:objectClass];
 }
-
 - (Class)cellClassForObjectClass:(Class)objectClass {
 	return [_cellClassDictionary objectForKey:objectClass];
+}
+- (void)setCellClass:(Class)cellClass forObject:(id)object {
+	
+	NSNumber *hash = [NSNumber numberWithUnsignedInteger:[object hash]];
+	
+	if (cellClass == NULL) {
+		[_cellClassDictionary removeObjectForKey:hash];
+		return;
+	}
+	
+	[_cellClassDictionary setObject:cellClass forKey:hash];
+}
+- (Class)cellClassForObject:(id)object {
+	return [_cellClassDictionary objectForKey:[NSNumber numberWithUnsignedInteger:[object hash]]];
 }
 
 - (void)setTableView:(UITableView *)tv {
@@ -122,11 +134,14 @@ NSInteger const FRCTableViewDataSourceNoAnimationSet = -1912;
 
 - (Class)cellClassAtIndexPath:(NSIndexPath *)indexPath {
 	
-	Class objectClass = [[self objectAtIndexPath:indexPath] class];
-	Class cellClass = [self cellClassForObjectClass:objectClass];
+	id object = [self objectAtIndexPath:indexPath];
+	Class cellClass = [self cellClassForObject:object];
 	if (cellClass != NULL) return cellClass;
 	
-	return [self cellClass];
+	cellClass = [self cellClassForObjectClass:[object class]];
+	if (cellClass != NULL) return cellClass;
+	
+	return self.cellClass;
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object {}

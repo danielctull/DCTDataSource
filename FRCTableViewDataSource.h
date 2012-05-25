@@ -66,6 +66,9 @@ typedef enum {
 - (void)setCellClass:(Class)cellClass forObjectClass:(Class)objectClass;
 - (Class)cellClassForObjectClass:(Class)objectClass;
 
+- (void)setCellClass:(Class)cellClass forObject:(id)object;
+- (Class)cellClassForObject:(id)object;
+
 /** The table view that is associated with the data source.
  */
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
