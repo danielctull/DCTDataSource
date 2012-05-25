@@ -40,7 +40,6 @@
 void* arrayObservingContext = &arrayObservingContext;
 
 @implementation FRCArrayObservingTableViewDataSource {
-	BOOL _shouldSetup;
 	__strong NSArray *_array;
 }
 @synthesize object = _object;
@@ -71,10 +70,8 @@ void* arrayObservingContext = &arrayObservingContext;
 	
 	if (context != arrayObservingContext)
 		return [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-	
+		
 	_array = [_object valueForKeyPath:_keyPath];
-	
-	if (!_shouldSetup) return;
 	
 	NSKeyValueChange changeType = [[change objectForKey:NSKeyValueChangeKindKey] unsignedIntegerValue];
 	NSIndexSet *indexSet = [change objectForKey:NSKeyValueChangeIndexesKey];
@@ -112,7 +109,6 @@ void* arrayObservingContext = &arrayObservingContext;
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	_shouldSetup = YES;
 	return [_array count];
 }
 
