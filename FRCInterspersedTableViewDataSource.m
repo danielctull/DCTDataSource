@@ -125,9 +125,9 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	NSInteger amount = [self.childTableViewDataSource tableView:tableView numberOfRowsInSection:section];
-	if (amount < 2) return amount;
-	return 2*amount - 1;
+	_childRowCount = [self.childTableViewDataSource tableView:tableView numberOfRowsInSection:section];
+	if (_childRowCount < 2) return _childRowCount;
+	return 2*_childRowCount - 1;
 }
 
 @end
