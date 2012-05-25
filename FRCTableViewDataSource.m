@@ -42,13 +42,11 @@
 
 NSInteger const FRCTableViewDataSourceNoAnimationSet = -1912;
 
-@interface FRCTableViewDataSource ()
-- (void)frcInternal_setupCellClass;
-@end
-
 @implementation FRCTableViewDataSource {
 	__strong NSMutableDictionary *_cellClassDictionary;
 	FRCTableViewDataSourceUpdateType updateType;
+	__strong NSMutableSet *_cellClasses;
+	__strong NSMutableSet *_setupCellClasses;
 }
 
 @synthesize tableView;
@@ -61,7 +59,7 @@ NSInteger const FRCTableViewDataSourceNoAnimationSet = -1912;
 @synthesize insertionAnimation;
 @synthesize deletionAnimation;
 @synthesize reloadAnimation;
-@synthesize cellClassHandler;
+@synthesize cellClassHandler = _cellClassHandler;
 
 #pragma mark - NSObject
 
@@ -78,18 +76,21 @@ NSInteger const FRCTableViewDataSourceNoAnimationSet = -1912;
 	self.reloadAnimation = FRCTableViewDataSourceNoAnimationSet;
 	self.cellClass = [FRCTableViewCell class];
 	_cellClassDictionary = [NSMutableDictionary new];
+	_cellClasses = [NSMutableSet new];
+	_setupCellClasses = [NSMutableSet new];
 	
     return self;
 }
 
 #pragma mark - FRCTableViewDataSource
 
-- (void)setCellClass:(Class)aCellClass {
-	_cellClass = aCellClass;
-	[self frcInternal_setupCellClass];
+- (void)setCellClass:(Class)cellClass {
+	_cellClass = cellClass;
+	[self setupCellClass:cellClass];
 }
 - (void)setCellClass:(Class)cellClass forObjectClass:(Class)objectClass {
 	[_cellClassDictionary setObject:cellClass forKey:objectClass];
+	[self setupCellClass:cellClass];
 }
 - (Class)cellClassForObjectClass:(Class)objectClass {
 	return [_cellClassDictionary objectForKey:objectClass];
@@ -104,6 +105,7 @@ NSInteger const FRCTableViewDataSourceNoAnimationSet = -1912;
 	}
 	
 	[_cellClassDictionary setObject:cellClass forKey:hash];
+	[self setupCellClass:cellClass];
 }
 - (Class)cellClassForObject:(id)object {
 	return [_cellClassDictionary objectForKey:[NSNumber numberWithUnsignedInteger:[object hash]]];
@@ -114,7 +116,9 @@ NSInteger const FRCTableViewDataSourceNoAnimationSet = -1912;
 	if (tv == tableView) return;
 	
 	tableView = tv;
-	[self frcInternal_setupCellClass];
+	[_cellClasses enumerateObjectsUsingBlock:^(Class cellClass, BOOL *stop) {
+		[self setupCellClass:cellClass];
+	}];
 }
 
 - (void)reloadData {
@@ -141,7 +145,10 @@ NSInteger const FRCTableViewDataSourceNoAnimationSet = -1912;
 	
 	if (self.cellClassHandler != NULL) {
 		cellClass = self.cellClassHandler(indexPath, object);
-		if (cellClass != NULL) return cellClass;
+		if (cellClass != NULL) {
+			[self setupCellClass:cellClass];
+			return cellClass;
+		}
 	}
 	
 	cellClass = [self cellClassForObject:object];
@@ -286,18 +293,26 @@ NSInteger const FRCTableViewDataSourceNoAnimationSet = -1912;
 
 #pragma mark - Internal
 
-- (void)frcInternal_setupCellClass {
+- (void)setupCellClass:(Class)cellClass {
+	
+	[_cellClasses addObject:cellClass];
 	
 	if (!self.tableView) return;
 	
-	if (![self.cellClass isSubclassOfClass:[FRCTableViewCell class]]) return;
+	if ([_setupCellClasses containsObject:cellClass]) return;
 	
-	NSString *nibName = [self.cellClass nibName];
+	[_setupCellClasses addObject:cellClass];
+	
+	if (![cellClass isSubclassOfClass:[FRCTableViewCell class]]) return;
+	
+	NSLog(@"%@:%@ %@", self, NSStringFromSelector(_cmd), cellClass);
+	
+	NSString *nibName = [cellClass nibName];
 	
 	if ([nibName length] < 1) return;
 	
 	UINib *nib = [UINib nibWithNibName:nibName bundle:nil];
-	NSString *reuseIdentifier = [self.cellClass reuseIdentifier];
+	NSString *reuseIdentifier = [cellClass reuseIdentifier];
 	
 	[self.tableView frc_registerNib:nib forCellReuseIdentifier:reuseIdentifier];
 }
