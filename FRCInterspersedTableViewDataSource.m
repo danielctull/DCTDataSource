@@ -51,6 +51,9 @@
 		
 	else if (update == FRCTableViewDataSourceUpdateTypeRowInsert)
 		[self performInsertWithIndexPath:indexPath animation:animation];
+	
+	else
+		[super performRowUpdate:update indexPath:indexPath animation:animation];
 }
 
 - (void)performDeleteWithIndexPath:(NSIndexPath *)indexPath animation:(UITableViewRowAnimation)animation {
