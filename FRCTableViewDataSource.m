@@ -61,6 +61,7 @@ NSInteger const FRCTableViewDataSourceNoAnimationSet = -1912;
 @synthesize insertionAnimation;
 @synthesize deletionAnimation;
 @synthesize reloadAnimation;
+@synthesize cellClassHandler;
 
 #pragma mark - NSObject
 
@@ -135,7 +136,15 @@ NSInteger const FRCTableViewDataSourceNoAnimationSet = -1912;
 - (Class)cellClassAtIndexPath:(NSIndexPath *)indexPath {
 	
 	id object = [self objectAtIndexPath:indexPath];
-	Class cellClass = [self cellClassForObject:object];
+	
+	Class cellClass = NULL;
+	
+	if (self.cellClassHandler != NULL) {
+		cellClass = self.cellClassHandler(indexPath, object);
+		if (cellClass != NULL) return cellClass;
+	}
+	
+	cellClass = [self cellClassForObject:object];
 	if (cellClass != NULL) return cellClass;
 	
 	cellClass = [self cellClassForObjectClass:[object class]];
