@@ -305,8 +305,6 @@ NSInteger const FRCTableViewDataSourceNoAnimationSet = -1912;
 	
 	if (![cellClass isSubclassOfClass:[FRCTableViewCell class]]) return;
 	
-	NSLog(@"%@:%@ %@", self, NSStringFromSelector(_cmd), cellClass);
-	
 	NSString *nibName = [cellClass nibName];
 	
 	if ([nibName length] < 1) return;
