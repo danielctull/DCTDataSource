@@ -51,7 +51,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 
 @synthesize tableView;
 @synthesize cellClass = _cellClass;
-@synthesize parent;
+@synthesize parent = _parent;
 @synthesize sectionHeaderTitle;
 @synthesize sectionFooterTitle;
 @synthesize cellConfigurer;
@@ -64,7 +64,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 #pragma mark - NSObject
 
 - (void)dealloc {
-	dct_nil(self.parent);
+	_parent = nil;
 }
 
 - (id)init {

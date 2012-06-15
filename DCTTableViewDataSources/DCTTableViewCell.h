@@ -34,7 +34,8 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTTableViewDataSources.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 /** While most cells used in the DCTTableViewDataSource system should be 
  subclasses of DCTTableViewCell, you might want to use a third party cell 

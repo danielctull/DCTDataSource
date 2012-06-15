@@ -1,6 +1,6 @@
-h1. FRCTableViewDataSources
+h1. DCTTableViewDataSources
 
-FRCTableViewDataSources are a more structured way of making an object to use as a data source for a UITableView.
+DCTTableViewDataSources are a more structured way of making an object to use as a data source for a UITableView.
 
 h2. Features
 
@@ -14,20 +14,20 @@ h2. iOS 5 and Automatic Reference Counting (ARC)
 
 This project uses ARC, but will work fine with iOS 4.3-style ARC. 
 
-It will also work fine when compiled to use iOS 4.3 as the base SDK. When doing so, the new iOS 5 call (@registerNib:forCellReuseIdentifier:@ on UITableView) is not used. If you use the FRCTableViewDataSource implementation of @tableView:cellForRowAtIndexPath:@ in data source subclasses, it will yield no ill effect and still give you the nib-based table cell.
+It will also work fine when compiled to use iOS 4.3 as the base SDK. When doing so, the new iOS 5 call (@registerNib:forCellReuseIdentifier:@ on UITableView) is not used. If you use the DCTTableViewDataSource implementation of @tableView:cellForRowAtIndexPath:@ in data source subclasses, it will yield no ill effect and still give you the nib-based table cell.
 
 h2. Example
 
 This will create a table view with a cell to use as a button to add a timestamp and list all the timestamps below it. This is shown in the MasterViewController in the project in the *demo* branch.
 
-bc.. splitDataSource = [[FRCSplitTableViewDataSource alloc] init];
-splitDataSource.type = FRCSplitTableViewDataSourceTypeSection;
+bc.. splitDataSource = [[DCTSplitTableViewDataSource alloc] init];
+splitDataSource.type = DCTSplitTableViewDataSourceTypeSection;
 
-addingDataSource = [[FRCObjectTableViewDataSource alloc] init];
+addingDataSource = [[DCTObjectTableViewDataSource alloc] init];
 addingDataSource.object = @"Add new timestamp";
 [splitDataSource addChildTableViewDataSource:addingDataSource];
 
-FRCFetchedResultsTableViewDataSource *fetchedResultsDS = [[FRCFetchedResultsTableViewDataSource alloc] init];
+DCTFetchedResultsTableViewDataSource *fetchedResultsDS = [[DCTFetchedResultsTableViewDataSource alloc] init];
 fetchedResultsDS.cellClass = [EventTableViewCell class];
 fetchedResultsDS.managedObjectContext = self.managedObjectContext;
 fetchedResultsDS.fetchRequest = request; // Just some request
@@ -45,7 +45,7 @@ The master branch contains the code and should be used if you want to add these 
 
 To add this project as a submodule you should run the following from inside your project's git repository:
 
-bc. git submodule add git://github.com/danielctull/FRCTableViewDataSources.git
+bc. git submodule add git://github.com/danielctull/DCTTableViewDataSources.git
 
 To keep up to date with the latest changes `cd` into the directory that contains this submodule and pull the newest changes as usual:
 
@@ -57,7 +57,7 @@ This contains an Xcode project that demonstrates the code and is the branch to u
 
 To clone the demo branch, while also pulling in any necessary submodules run the following command:
 
-bc. git clone -b demo --recursive git://github.com/danielctull/FRCTableViewDataSources.git
+bc. git clone -b demo --recursive git://github.com/danielctull/DCTTableViewDataSources.git
 
 When changing to the demo branch you will need to run through the following set of commands:
 

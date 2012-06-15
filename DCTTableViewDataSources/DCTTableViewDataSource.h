@@ -34,7 +34,13 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTTableViewDataSources.h"
+#import <UIKit/UIKit.h>
+
+#if !defined DCTTableViewDataSourceTableViewRowAnimationAutomatic && __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_5_0
+#define DCTTableViewDataSourceTableViewRowAnimationAutomatic UITableViewRowAnimationAutomatic
+#elif !defined DCTTableViewDataSourceTableViewRowAnimationAutomatic && __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_3
+#define DCTTableViewDataSourceTableViewRowAnimationAutomatic UITableViewRowAnimationFade
+#endif
 
 typedef enum {
 	DCTTableViewDataSourceUpdateTypeUnknown = 0,
@@ -81,7 +87,7 @@ typedef enum {
  parent, although this is not always true (for instance the root 
  data source).
  */
-@property (nonatomic, dct_weak) DCTParentTableViewDataSource *parent;
+@property (nonatomic, unsafe_unretained) DCTParentTableViewDataSource *parent;
 
 /** A convinient way to repload the cells of the data source, this 
  should be overridden by subclasses to provide desired results.
