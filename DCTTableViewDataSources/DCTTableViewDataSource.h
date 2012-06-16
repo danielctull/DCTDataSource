@@ -49,7 +49,8 @@ typedef enum {
 	DCTTableViewDataSourceUpdateTypeRowReload = 1 << 2,
 	DCTTableViewDataSourceUpdateTypeSectionInsert = 1 << 3,
 	DCTTableViewDataSourceUpdateTypeSectionDelete = 1 << 4,
-	DCTTableViewDataSourceUpdateTypeMove = 1 << 5
+	DCTTableViewDataSourceUpdateTypeMove = 1 << 5,
+	DCTTableViewDataSourceUpdateTypeReloadAll = 1 << 6
 } DCTTableViewDataSourceUpdateType;
 
 @class DCTParentTableViewDataSource;
@@ -93,6 +94,8 @@ typedef enum {
  should be overridden by subclasses to provide desired results.
  */
 - (void)reloadData;
+
+@property (nonatomic, assign) BOOL forceReload;
 
 /** To get the associated object from the data source for the given 
  index path. By default this returns the index path, but subclasses
