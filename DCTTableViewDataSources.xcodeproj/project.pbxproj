@@ -61,7 +61,7 @@
 		244A67CB158B1B3E00952890 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = MainBundleAssets;
+			dstPath = Assets;
 			dstSubfolderSpec = 16;
 			files = (
 				244A67CC158B1B4D00952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicator.png in CopyFiles */,
@@ -523,6 +523,7 @@
 				244A678B158B1AB100952890 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		244A678C158B1AB100952890 /* Build configuration list for PBXNativeTarget "DCTTableViewDataSourcesTests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +532,7 @@
 				244A678E158B1AB100952890 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
