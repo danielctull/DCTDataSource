@@ -44,11 +44,11 @@
 
 typedef enum {
 	DCTTableViewDataSourceUpdateTypeUnknown = 0,
-	DCTTableViewDataSourceUpdateTypeRowInsert = 1 << 0,
-	DCTTableViewDataSourceUpdateTypeRowDelete = 1 << 1,
-	DCTTableViewDataSourceUpdateTypeRowReload = 1 << 2,
+	DCTTableViewDataSourceUpdateTypeRowDelete = 1 << 0,
+	DCTTableViewDataSourceUpdateTypeSectionDelete = 1 << 1,
+	DCTTableViewDataSourceUpdateTypeRowInsert = 1 << 2,
 	DCTTableViewDataSourceUpdateTypeSectionInsert = 1 << 3,
-	DCTTableViewDataSourceUpdateTypeSectionDelete = 1 << 4,
+	DCTTableViewDataSourceUpdateTypeRowReload = 1 << 4,
 	DCTTableViewDataSourceUpdateTypeMove = 1 << 5,
 	DCTTableViewDataSourceUpdateTypeReloadAll = 1 << 6
 } DCTTableViewDataSourceUpdateType;
