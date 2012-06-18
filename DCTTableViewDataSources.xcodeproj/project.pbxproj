@@ -41,10 +41,6 @@
 		244A67C8158B1AF700952890 /* UITableView+DCTNibRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67AD158B1AF700952890 /* UITableView+DCTNibRegistration.m */; };
 		244A67C9158B1AF700952890 /* UITableView+DCTTableViewDataSources.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		244A67CA158B1AF700952890 /* UITableView+DCTTableViewDataSources.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */; };
-		244A67CC158B1B4D00952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicator.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67A7158B1AF700952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicator.png */; };
-		244A67CD158B1B4D00952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicator@2x.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67A8158B1AF700952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicator@2x.png */; };
-		244A67CE158B1B4D00952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicatorHighlighted.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67A9158B1AF700952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicatorHighlighted.png */; };
-		244A67CF158B1B4D00952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicatorHighlighted@2x.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67AA158B1AF700952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicatorHighlighted@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,22 +52,6 @@
 			remoteInfo = DCTTableViewDataSources;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		244A67CB158B1B3E00952890 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = Assets;
-			dstSubfolderSpec = 16;
-			files = (
-				244A67CC158B1B4D00952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicator.png in CopyFiles */,
-				244A67CD158B1B4D00952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicator@2x.png in CopyFiles */,
-				244A67CE158B1B4D00952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicatorHighlighted.png in CopyFiles */,
-				244A67CF158B1B4D00952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicatorHighlighted@2x.png in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		244A6765158B1AB100952890 /* libDCTTableViewDataSources.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDCTTableViewDataSources.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,14 +86,11 @@
 		244A67A3158B1AF600952890 /* DCTTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTableViewDataSource.h; sourceTree = "<group>"; };
 		244A67A4158B1AF600952890 /* DCTTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTableViewDataSource.m; sourceTree = "<group>"; };
 		244A67A5158B1AF600952890 /* DCTTableViewDataSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTableViewDataSources.h; sourceTree = "<group>"; };
-		244A67A7158B1AF700952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DCTCollapsableSectionTableViewDataSourceDisclosureIndicator.png; sourceTree = "<group>"; };
-		244A67A8158B1AF700952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DCTCollapsableSectionTableViewDataSourceDisclosureIndicator@2x.png"; sourceTree = "<group>"; };
-		244A67A9158B1AF700952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicatorHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DCTCollapsableSectionTableViewDataSourceDisclosureIndicatorHighlighted.png; sourceTree = "<group>"; };
-		244A67AA158B1AF700952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicatorHighlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DCTCollapsableSectionTableViewDataSourceDisclosureIndicatorHighlighted@2x.png"; sourceTree = "<group>"; };
 		244A67AC158B1AF700952890 /* UITableView+DCTNibRegistration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DCTNibRegistration.h"; sourceTree = "<group>"; };
 		244A67AD158B1AF700952890 /* UITableView+DCTNibRegistration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTNibRegistration.m"; sourceTree = "<group>"; };
 		244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DCTTableViewDataSources.h"; sourceTree = "<group>"; };
 		244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTTableViewDataSources.m"; sourceTree = "<group>"; };
+		24EAE886158F782B00C3A4F4 /* DCTTableViewDataSources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DCTTableViewDataSources.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +119,7 @@
 		244A675A158B1AB100952890 = {
 			isa = PBXGroup;
 			children = (
+				24EAE886158F782B00C3A4F4 /* DCTTableViewDataSources.bundle */,
 				244A676A158B1AB100952890 /* DCTTableViewDataSources */,
 				244A677E158B1AB100952890 /* DCTTableViewDataSourcesTests */,
 				244A6767158B1AB100952890 /* Frameworks */,
@@ -198,7 +176,6 @@
 				244A67AD158B1AF700952890 /* UITableView+DCTNibRegistration.m */,
 				244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */,
 				244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */,
-				244A67A6158B1AF600952890 /* Images */,
 			);
 			path = DCTTableViewDataSources;
 			sourceTree = "<group>";
@@ -220,17 +197,6 @@
 				244A6781158B1AB100952890 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		244A67A6158B1AF600952890 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				244A67A7158B1AF700952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicator.png */,
-				244A67A8158B1AF700952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicator@2x.png */,
-				244A67A9158B1AF700952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicatorHighlighted.png */,
-				244A67AA158B1AF700952890 /* DCTCollapsableSectionTableViewDataSourceDisclosureIndicatorHighlighted@2x.png */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,7 +233,6 @@
 				244A6761158B1AB100952890 /* Sources */,
 				244A6762158B1AB100952890 /* Frameworks */,
 				244A6763158B1AB100952890 /* Headers */,
-				244A67CB158B1B3E00952890 /* CopyFiles */,
 			);
 			buildRules = (
 			);

@@ -229,9 +229,9 @@
 		gr.delaysTouchesEnded = NO;
 		
 		if ([self dctInternal_childTableViewDataSourceCurrentlyHasCells]) {
-			UIImage *image = [UIImage imageNamed:@"DCTCollapsableSectionTableViewDataSourceDisclosureIndicator.png"];
+			UIImage *image = [UIImage imageNamed:@"DCTTableViewDataSources.bundle/DCTCollapsableSectionTableViewDataSourceDisclosureIndicator.png"];
 			UIImageView *iv = [[UIImageView alloc] initWithImage:image];
-			iv.highlightedImage = [UIImage imageNamed:@"DCTCollapsableSectionTableViewDataSourceDisclosureIndicatorHighlighted.png"];
+			iv.highlightedImage = [UIImage imageNamed:@"DCTTableViewDataSources.bundle/DCTCollapsableSectionTableViewDataSourceDisclosureIndicatorHighlighted.png"];
 			cell.accessoryView = iv;			
 			cell.accessoryView.layer.transform = CATransform3DMakeRotation(self.open ? (CGFloat)M_PI : 0.0f, 0.0f, 0.0f, 1.0f);
 		} else {
