@@ -50,8 +50,13 @@ typedef enum {
 	DCTTableViewDataSourceUpdateTypeSectionInsert = 1 << 3,
 	DCTTableViewDataSourceUpdateTypeRowReload = 1 << 4,
 	DCTTableViewDataSourceUpdateTypeMove = 1 << 5,
-	DCTTableViewDataSourceUpdateTypeReloadAll = 1 << 6
 } DCTTableViewDataSourceUpdateType;
+
+typedef enum {
+	DCTTableViewDataSourceReloadTypeDefault = 0,
+	DCTTableViewDataSourceReloadTypeBottom,
+	DCTTableViewDataSourceReloadTypeTop
+} DCTTableViewDataSourceReloadType;
 
 @class DCTParentTableViewDataSource;
 
@@ -95,7 +100,7 @@ typedef enum {
  */
 - (void)reloadData;
 
-@property (nonatomic, assign) BOOL forceReload;
+@property (nonatomic, assign) DCTTableViewDataSourceReloadType reloadType;
 
 /** To get the associated object from the data source for the given 
  index path. By default this returns the index path, but subclasses
@@ -131,8 +136,6 @@ typedef enum {
  @param object The represented object at the indexPath.
  */
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object;
-
-@property (nonatomic, copy) void(^tableViewUpdateHandler)(DCTTableViewDataSourceUpdateType type);
 
 @property (nonatomic, copy) void(^cellConfigurer)(id cell, NSIndexPath *indexPath, id object);
 

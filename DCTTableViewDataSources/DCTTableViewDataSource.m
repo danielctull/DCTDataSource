@@ -40,30 +40,33 @@
 #import "UITableView+DCTNibRegistration.h"
 #import "DCTParentTableViewDataSource.h"
 
-
 @interface DCTTableViewDataSourceUpdate : NSObject
 @property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, assign) NSInteger section;
 @property (nonatomic, assign) DCTTableViewDataSourceUpdateType type;
 @property (nonatomic, assign) UITableViewRowAnimation animation;
+- (BOOL)isSectionUpdate;
 @end
-
 
 BOOL DCTTableViewDataSourceUpdateTypeIncludes(DCTTableViewDataSourceUpdateType type, DCTTableViewDataSourceUpdateType testType) {
 	return (type & testType) == testType;
 }
 
+void DCTTableViewDataSourceUpdateTypeAdd(DCTTableViewDataSourceUpdateType type, DCTTableViewDataSourceUpdateType typeToAdd) {
+	
+	if (type == DCTTableViewDataSourceUpdateTypeUnknown)
+		type = typeToAdd;
+	
+	type = (type | typeToAdd);
+}
+
 NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 
 @implementation DCTTableViewDataSource {
-	__strong NSMutableDictionary *_cellClassDictionary;
-	DCTTableViewDataSourceUpdateType _updateTypes;
+	__strong NSMutableDictionary *_cellClassDictionary;	
 	__strong NSMutableSet *_cellClasses;
 	__strong NSMutableSet *_setupCellClasses;
-	
 	__strong NSMutableArray *_updates;
-	
-	__strong NSIndexPath *_firstVisibleCellIndexPath;
-	CGFloat _firstVisibleCellYPosition;
 }
 
 @synthesize tableView;
@@ -72,7 +75,6 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 @synthesize sectionHeaderTitle;
 @synthesize sectionFooterTitle;
 @synthesize cellConfigurer;
-@synthesize tableViewUpdateHandler;
 @synthesize insertionAnimation;
 @synthesize deletionAnimation;
 @synthesize reloadAnimation;
@@ -183,162 +185,186 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 #pragma mark - Updating the table view
 
 - (void)beginUpdates {
-	[self beginUpdates:_updateTypes];
+	
+	if (self.parent) {
+		[self.parent beginUpdates];
+		return;
+	}
+	
+	_updates = [NSMutableArray new];
 }
 
 - (void)endUpdates {
-	[self endUpdates:_updateTypes];
+	[self _endUpdates:self.reloadType];
+	_updates = nil;
 }
 
-- (void)beginUpdates:(DCTTableViewDataSourceUpdateType)updates {
+- (void)_endUpdates:(DCTTableViewDataSourceReloadType)reloadType {
 	
-	if (self.forceReload) updates = (updates | DCTTableViewDataSourceUpdateTypeReloadAll);
+	if (self.parent)
+		[self.parent _endUpdates:reloadType];
 	
-	if (self.parent) {
-		[self.parent beginUpdates:updates];
-		return;
-	}
-	
-	if (DCTTableViewDataSourceUpdateTypeIncludes(updates, DCTTableViewDataSourceUpdateTypeReloadAll))
-		_updates = [NSMutableArray new];
+	else if (reloadType == DCTTableViewDataSourceReloadTypeDefault)
+		[self _endUpdatesDefault];
 	else
-		[self.tableView beginUpdates];
+		[self _endUpdatesNonDefault:reloadType];
 }
 
-- (void)endUpdates:(DCTTableViewDataSourceUpdateType)updateTypes {
+- (void)_endUpdatesDefault {
+		
+	[self.tableView beginUpdates];
 	
-	_updateTypes = DCTTableViewDataSourceUpdateTypeUnknown;
+	[_updates enumerateObjectsUsingBlock:^(DCTTableViewDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
+		
+		if (update.animation == DCTTableViewDataSourceNoAnimationSet)
+			update.animation = DCTTableViewDataSourceTableViewRowAnimationAutomatic;
+		
+		switch (update.type) {
+			
+			case DCTTableViewDataSourceUpdateTypeRowInsert:
+				[self.tableView insertRowsAtIndexPaths:@[update.indexPath] withRowAnimation:update.animation];
+				break;
+			
+			case DCTTableViewDataSourceUpdateTypeRowDelete:
+				[self.tableView deleteRowsAtIndexPaths:@[update.indexPath] withRowAnimation:update.animation];
+				break;
+				
+			case DCTTableViewDataSourceUpdateTypeRowReload:
+				[self.tableView reloadRowsAtIndexPaths:@[update.indexPath] withRowAnimation:update.animation];
+				break;
+				
+			case DCTTableViewDataSourceUpdateTypeSectionInsert:
+				[self.tableView insertSections:[NSIndexSet indexSetWithIndex:update.section] withRowAnimation:update.animation];
+				break;
+				
+			case DCTTableViewDataSourceUpdateTypeSectionDelete:
+				[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:update.section] withRowAnimation:update.animation];
+				break;
+				
+			default:
+				break;
+		}
+	}];
 	
-	if (self.forceReload) updateTypes = (updateTypes | DCTTableViewDataSourceUpdateTypeReloadAll);
+	[self.tableView endUpdates];
+}
+
+- (void)_endUpdatesNonDefault:(DCTTableViewDataSourceReloadType)reloadType {
 	
-	if (self.parent) {
-		[self.parent endUpdates:updateTypes];
+	NSArray *indexPaths = [self.tableView indexPathsForVisibleRows];
+		
+	if ([indexPaths count] == 0) {
+		[self.tableView reloadData];
 		return;
 	}
 	
-	if (!DCTTableViewDataSourceUpdateTypeIncludes(updateTypes, DCTTableViewDataSourceUpdateTypeReloadAll)) {
+	__block NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
+	if (reloadType == DCTTableViewDataSourceReloadTypeBottom)
+		indexPath = [indexPaths lastObject];
+	
+	CGFloat firstVisibleCellYPosition = [self.tableView rectForRowAtIndexPath:indexPath].origin.y;
+	
+	NSArray *updates = [_updates sortedArrayUsingSelector:@selector(compare:)];
+			
+	[updates enumerateObjectsUsingBlock:^(DCTTableViewDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
+				
+		if ([update.indexPath compare:indexPath] == NSOrderedDescending) {
+			*stop = YES;
+			return;
+		}
 		
-		[self.tableView endUpdates];
+		switch (update.type) {
+				
+			case DCTTableViewDataSourceUpdateTypeRowInsert:
+				indexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section];
+				break;
+				
+			case DCTTableViewDataSourceUpdateTypeRowDelete:
+				indexPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
+				break;
+				
+			case DCTTableViewDataSourceUpdateTypeSectionInsert:
+				indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section+1];
+				break;
+				
+			case DCTTableViewDataSourceUpdateTypeSectionDelete:
+				indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section-1];
+				break;
+				
+			default:
+				break;
+		}
+	}];
+			
+	[self.tableView reloadData];
+			
+	CGFloat newFirstVisibleCellYPosition = [self.tableView rectForRowAtIndexPath:indexPath].origin.y;
+			
+	CGPoint offset = self.tableView.contentOffset;
+	offset.y += (newFirstVisibleCellYPosition - firstVisibleCellYPosition);
+	self.tableView.contentOffset = offset;
+}
+
+- (void)_performUpdate:(DCTTableViewDataSourceUpdate *)update {
+	
+	if (update.animation == DCTTableViewDataSourceNoAnimationSet) {
 		
-	} else {
-		
-		NSArray *indexPaths = [self.tableView indexPathsForVisibleRows];
-		
-		if ([indexPaths count] == 0) {
-			[self.tableView reloadData];
-		} else {
-			
-			__block NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
-			CGFloat firstVisibleCellYPosition = [self.tableView rectForRowAtIndexPath:indexPath].origin.y;
-			
-			NSArray *updates = [_updates sortedArrayUsingSelector:@selector(compare:)];
-			
-			NSLog(@"%@:%@ %@", self, NSStringFromSelector(_cmd), updates);
-			
-			[updates enumerateObjectsUsingBlock:^(DCTTableViewDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
+		switch (update.type) {
+			case DCTTableViewDataSourceUpdateTypeRowInsert:
+			case DCTTableViewDataSourceUpdateTypeSectionInsert:
+				update.animation = self.insertionAnimation;
+				break;
 				
-				NSLog(@"%@:%@ %i", self, NSStringFromSelector(_cmd), [update.indexPath compare:indexPath]);
+			case DCTTableViewDataSourceUpdateTypeRowDelete:
+			case DCTTableViewDataSourceUpdateTypeSectionDelete:
+				update.animation = self.deletionAnimation;
+				break;
 				
-				if ([update.indexPath compare:indexPath] == NSOrderedDescending) {
-					*stop = YES;
-					return;
-				}
+			case DCTTableViewDataSourceUpdateTypeRowReload:
+				update.animation = self.reloadAnimation;
+				break;
 				
-				if (DCTTableViewDataSourceUpdateTypeIncludes(update.type, DCTTableViewDataSourceUpdateTypeRowDelete))
-					indexPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
-				
-				else if (DCTTableViewDataSourceUpdateTypeIncludes(update.type, DCTTableViewDataSourceUpdateTypeRowInsert))
-					indexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section];
-				
-				else if (DCTTableViewDataSourceUpdateTypeIncludes(update.type, DCTTableViewDataSourceUpdateTypeSectionDelete))
-					indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section-1];
-				
-				else if (DCTTableViewDataSourceUpdateTypeIncludes(update.type, DCTTableViewDataSourceUpdateTypeSectionInsert))
-					indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section+1];
-			}];
-			
-			[self.tableView reloadData];
-			
-			CGFloat newFirstVisibleCellYPosition = [self.tableView rectForRowAtIndexPath:indexPath].origin.y;
-			
-			CGPoint offset = self.tableView.contentOffset;
-			offset.y += (newFirstVisibleCellYPosition - firstVisibleCellYPosition);
-			self.tableView.contentOffset = offset;			
-			
+			default:
+				break;
 		}
 	}
 	
-	_updates = nil;
+	if (self.parent) {
+		
+		if ([update isSectionUpdate]) {
+			update.section = [self.parent convertSection:update.section fromChildTableViewDataSource:self];
+			[self.parent _performUpdate:update];
+			return;
+		}
+		
+		update.indexPath = [self.parent convertIndexPath:update.indexPath fromChildTableViewDataSource:self];
+		[self.parent _performUpdate:update];
+		return;
+	}
 	
-	if (self.tableViewUpdateHandler != NULL)
-		self.tableViewUpdateHandler(updateTypes);
+	[_updates addObject:update];
 }
 
-- (void)performSectionUpdate:(DCTTableViewDataSourceUpdateType)update
+- (void)performSectionUpdate:(DCTTableViewDataSourceUpdateType)updateType
 				sectionIndex:(NSInteger)index
 				   animation:(UITableViewRowAnimation)animation {
-	[self performRowUpdate:update indexPath:[NSIndexPath indexPathForRow:0 inSection:index] animation:animation];
+	
+	DCTTableViewDataSourceUpdate *update = [DCTTableViewDataSourceUpdate new];
+	update.animation = animation;
+	update.type = updateType;
+	update.section = index;
+	[self _performUpdate:update];
 }
 
 - (void)performRowUpdate:(DCTTableViewDataSourceUpdateType)updateType
 			   indexPath:(NSIndexPath *)indexPath
 			   animation:(UITableViewRowAnimation)animation {
 	
-	if (animation == DCTTableViewDataSourceNoAnimationSet)
-		animation = self.insertionAnimation;
-	
-	if (self.forceReload) updateType = (updateType | DCTTableViewDataSourceUpdateTypeReloadAll);
-	
-	if (self.parent) {
-		
-		if (DCTTableViewDataSourceUpdateTypeIncludes(updateType, DCTTableViewDataSourceUpdateTypeSectionInsert)
-			|| DCTTableViewDataSourceUpdateTypeIncludes(updateType, DCTTableViewDataSourceUpdateTypeSectionDelete)) {
-			NSInteger index = [self.parent convertSection:indexPath.section fromChildTableViewDataSource:self];
-			[self.parent performSectionUpdate:updateType sectionIndex:index animation:animation];
-			return;
-		}
-		
-		indexPath = [self.parent convertIndexPath:indexPath fromChildTableViewDataSource:self];
-		[self.parent performRowUpdate:updateType indexPath:indexPath animation:animation];
-		return;
-	}
-	
-	[self addToUpdateType:updateType];
-	
-	if (DCTTableViewDataSourceUpdateTypeIncludes(updateType, DCTTableViewDataSourceUpdateTypeReloadAll)) {
-		DCTTableViewDataSourceUpdate *update = [DCTTableViewDataSourceUpdate new];
-		update.animation = animation;
-		update.type = updateType;
-		update.indexPath = indexPath;
-		[_updates addObject:update];
-		return;
-	}
-	
-	if (animation == DCTTableViewDataSourceNoAnimationSet)
-		animation = DCTTableViewDataSourceTableViewRowAnimationAutomatic;
-	
-	if (DCTTableViewDataSourceUpdateTypeIncludes(updateType, DCTTableViewDataSourceUpdateTypeRowInsert))
-		[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:animation];
-	
-	else if (DCTTableViewDataSourceUpdateTypeIncludes(updateType, DCTTableViewDataSourceUpdateTypeRowDelete))
-		[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:animation];
-	
-	else if (DCTTableViewDataSourceUpdateTypeIncludes(updateType, DCTTableViewDataSourceUpdateTypeRowReload))
-		[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:animation];
-	
-	else if (DCTTableViewDataSourceUpdateTypeIncludes(updateType, DCTTableViewDataSourceUpdateTypeSectionInsert))
-		[self.tableView insertSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:animation];
-	
-	else if (DCTTableViewDataSourceUpdateTypeIncludes(updateType, DCTTableViewDataSourceUpdateTypeSectionDelete))
-		[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:animation];
-}
-
-- (void)addToUpdateType:(DCTTableViewDataSourceUpdateType)type {
-	
-	if (_updateTypes == DCTTableViewDataSourceUpdateTypeUnknown)
-		_updateTypes = type;
-	
-	_updateTypes = (_updateTypes | type);
+	DCTTableViewDataSourceUpdate *update = [DCTTableViewDataSourceUpdate new];	
+	update.animation = animation;
+	update.type = updateType;
+	update.indexPath = indexPath;
+	[self _performUpdate:update];
 }
 
 - (void)enumerateIndexPathsUsingBlock:(void(^)(NSIndexPath *, BOOL *stop))enumerator {
@@ -430,6 +456,11 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 
 
 @implementation DCTTableViewDataSourceUpdate
+
+- (BOOL)isSectionUpdate {
+	return (DCTTableViewDataSourceUpdateTypeIncludes(self.type, DCTTableViewDataSourceUpdateTypeSectionInsert)
+			|| DCTTableViewDataSourceUpdateTypeIncludes(self.type, DCTTableViewDataSourceUpdateTypeSectionDelete));
+}
 
 - (NSComparisonResult)compare:(DCTTableViewDataSourceUpdate *)update {
 	

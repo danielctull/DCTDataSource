@@ -357,9 +357,6 @@
 	
 	NSIndexPath *headerIndexPath = self.dctInternal_headerTableViewIndexPath;
 	[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:headerIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-	
-	if (self.tableViewUpdateHandler != NULL)
-		self.tableViewUpdateHandler(DCTTableViewDataSourceUpdateTypeRowReload);
 }
 
 - (BOOL)dctInternal_childTableViewDataSourceCurrentlyHasCells {
