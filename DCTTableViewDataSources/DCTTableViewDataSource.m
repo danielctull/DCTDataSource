@@ -108,11 +108,11 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	[self setupCellClass:cellClass];
 }
 - (void)setCellClass:(Class)cellClass forObjectClass:(Class)objectClass {
-	[_cellClassDictionary setObject:cellClass forKey:objectClass];
+	[_cellClassDictionary setObject:cellClass forKey:NSStringFromClass(objectClass)];
 	[self setupCellClass:cellClass];
 }
 - (Class)cellClassForObjectClass:(Class)objectClass {
-	return [_cellClassDictionary objectForKey:objectClass];
+	return [_cellClassDictionary objectForKey:NSStringFromClass(objectClass)];
 }
 - (void)setCellClass:(Class)cellClass forObject:(id)object {
 	
