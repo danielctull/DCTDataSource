@@ -35,14 +35,9 @@
  */
 
 #import "DCTCollapsableSectionTableViewDataSource.h"
-#import "DCTParentTableViewDataSource.h"
-#import "DCTTableViewCell.h"
+#import "DCTTableViewDataSources.h"
 #import "UITableView+DCTTableViewDataSources.h"
 #import <QuartzCore/QuartzCore.h>
-#import "DCTObjectTableViewDataSource.h"
-#import "DCTSplitTableViewDataSource.h"
-
-
 
 @implementation DCTCollapsableSectionTableViewDataSourceHeader {
 	__strong NSString *title;
@@ -229,10 +224,14 @@
 		gr.delaysTouchesEnded = NO;
 		
 		if ([self dctInternal_childTableViewDataSourceCurrentlyHasCells]) {
-			UIImage *image = [UIImage imageNamed:@"DCTTableViewDataSources.bundle/DCTCollapsableSectionTableViewDataSourceDisclosureIndicator.png"];
+			
+			NSString *disclosurePath = [[DCTTableViewDataSources bundle] pathForResource:@"DisclosureIndicator" ofType:@"png"];
+			NSString *highlightedDisclosurePath = [[DCTTableViewDataSources bundle] pathForResource:@"DisclosureIndicatorHighlighted" ofType:@"png"];
+			
+			UIImage *image = [UIImage imageWithContentsOfFile:disclosurePath];
 			UIImageView *iv = [[UIImageView alloc] initWithImage:image];
-			iv.highlightedImage = [UIImage imageNamed:@"DCTTableViewDataSources.bundle/DCTCollapsableSectionTableViewDataSourceDisclosureIndicatorHighlighted.png"];
-			cell.accessoryView = iv;			
+			iv.highlightedImage = [UIImage imageWithContentsOfFile:highlightedDisclosurePath];
+			cell.accessoryView = iv;
 			cell.accessoryView.layer.transform = CATransform3DMakeRotation(self.open ? (CGFloat)M_PI : 0.0f, 0.0f, 0.0f, 1.0f);
 		} else {
 			cell.accessoryView = nil;

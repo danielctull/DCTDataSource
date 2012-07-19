@@ -41,6 +41,13 @@
 		244A67C8158B1AF700952890 /* UITableView+DCTNibRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67AD158B1AF700952890 /* UITableView+DCTNibRegistration.m */; };
 		244A67C9158B1AF700952890 /* UITableView+DCTTableViewDataSources.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		244A67CA158B1AF700952890 /* UITableView+DCTTableViewDataSources.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */; };
+		24700B3A15B835A100FA5843 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24700B3915B835A100FA5843 /* CoreFoundation.framework */; };
+		24700B4015B835A100FA5843 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24700B3E15B835A100FA5843 /* InfoPlist.strings */; };
+		24700B4A15B835C100FA5843 /* DisclosureIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 24700B4615B835C100FA5843 /* DisclosureIndicator.png */; };
+		24700B4B15B835C100FA5843 /* DisclosureIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24700B4715B835C100FA5843 /* DisclosureIndicator@2x.png */; };
+		24700B4C15B835C100FA5843 /* DisclosureIndicatorHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 24700B4815B835C100FA5843 /* DisclosureIndicatorHighlighted.png */; };
+		24700B4D15B835C100FA5843 /* DisclosureIndicatorHighlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24700B4915B835C100FA5843 /* DisclosureIndicatorHighlighted@2x.png */; };
+		24700B5115B8362100FA5843 /* DCTTableViewDataSources.m in Sources */ = {isa = PBXBuildFile; fileRef = 24700B5015B8362100FA5843 /* DCTTableViewDataSources.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +57,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 244A6764158B1AB100952890;
 			remoteInfo = DCTTableViewDataSources;
+		};
+		24700B4E15B835D400FA5843 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 244A675C158B1AB100952890 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24700B3715B835A100FA5843;
+			remoteInfo = DCTTableViewDataSourcesBundle;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -90,7 +104,16 @@
 		244A67AD158B1AF700952890 /* UITableView+DCTNibRegistration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTNibRegistration.m"; sourceTree = "<group>"; };
 		244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DCTTableViewDataSources.h"; sourceTree = "<group>"; };
 		244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTTableViewDataSources.m"; sourceTree = "<group>"; };
-		24EAE886158F782B00C3A4F4 /* DCTTableViewDataSources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DCTTableViewDataSources.bundle; sourceTree = "<group>"; };
+		24700B3815B835A100FA5843 /* DCTTableViewDataSources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTTableViewDataSources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		24700B3915B835A100FA5843 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		24700B3D15B835A100FA5843 /* DCTTableViewDataSourcesBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTTableViewDataSourcesBundle-Info.plist"; sourceTree = "<group>"; };
+		24700B3F15B835A100FA5843 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		24700B4115B835A100FA5843 /* DCTTableViewDataSourcesBundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DCTTableViewDataSourcesBundle-Prefix.pch"; sourceTree = "<group>"; };
+		24700B4615B835C100FA5843 /* DisclosureIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DisclosureIndicator.png; sourceTree = "<group>"; };
+		24700B4715B835C100FA5843 /* DisclosureIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DisclosureIndicator@2x.png"; sourceTree = "<group>"; };
+		24700B4815B835C100FA5843 /* DisclosureIndicatorHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DisclosureIndicatorHighlighted.png; sourceTree = "<group>"; };
+		24700B4915B835C100FA5843 /* DisclosureIndicatorHighlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DisclosureIndicatorHighlighted@2x.png"; sourceTree = "<group>"; };
+		24700B5015B8362100FA5843 /* DCTTableViewDataSources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTableViewDataSources.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,15 +136,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		24700B3515B835A100FA5843 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24700B3A15B835A100FA5843 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		244A675A158B1AB100952890 = {
 			isa = PBXGroup;
 			children = (
-				24EAE886158F782B00C3A4F4 /* DCTTableViewDataSources.bundle */,
 				244A676A158B1AB100952890 /* DCTTableViewDataSources */,
 				244A677E158B1AB100952890 /* DCTTableViewDataSourcesTests */,
+				24700B3B15B835A100FA5843 /* DCTTableViewDataSourcesBundle */,
 				244A6767158B1AB100952890 /* Frameworks */,
 				244A6766158B1AB100952890 /* Products */,
 			);
@@ -132,6 +163,7 @@
 			children = (
 				244A6765158B1AB100952890 /* libDCTTableViewDataSources.a */,
 				244A6775158B1AB100952890 /* DCTTableViewDataSourcesTests.octest */,
+				24700B3815B835A100FA5843 /* DCTTableViewDataSources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +174,7 @@
 				244A6768158B1AB100952890 /* Foundation.framework */,
 				244A6776158B1AB100952890 /* SenTestingKit.framework */,
 				244A6778158B1AB100952890 /* UIKit.framework */,
+				24700B3915B835A100FA5843 /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -172,6 +205,7 @@
 				244A67A3158B1AF600952890 /* DCTTableViewDataSource.h */,
 				244A67A4158B1AF600952890 /* DCTTableViewDataSource.m */,
 				244A67A5158B1AF600952890 /* DCTTableViewDataSources.h */,
+				24700B5015B8362100FA5843 /* DCTTableViewDataSources.m */,
 				244A67AC158B1AF700952890 /* UITableView+DCTNibRegistration.h */,
 				244A67AD158B1AF700952890 /* UITableView+DCTNibRegistration.m */,
 				244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */,
@@ -195,6 +229,28 @@
 			children = (
 				244A6780158B1AB100952890 /* DCTTableViewDataSourcesTests-Info.plist */,
 				244A6781158B1AB100952890 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		24700B3B15B835A100FA5843 /* DCTTableViewDataSourcesBundle */ = {
+			isa = PBXGroup;
+			children = (
+				24700B4615B835C100FA5843 /* DisclosureIndicator.png */,
+				24700B4715B835C100FA5843 /* DisclosureIndicator@2x.png */,
+				24700B4815B835C100FA5843 /* DisclosureIndicatorHighlighted.png */,
+				24700B4915B835C100FA5843 /* DisclosureIndicatorHighlighted@2x.png */,
+				24700B3C15B835A100FA5843 /* Supporting Files */,
+			);
+			path = DCTTableViewDataSourcesBundle;
+			sourceTree = "<group>";
+		};
+		24700B3C15B835A100FA5843 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				24700B3D15B835A100FA5843 /* DCTTableViewDataSourcesBundle-Info.plist */,
+				24700B3E15B835A100FA5843 /* InfoPlist.strings */,
+				24700B4115B835A100FA5843 /* DCTTableViewDataSourcesBundle-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -237,6 +293,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				24700B4F15B835D400FA5843 /* PBXTargetDependency */,
 			);
 			name = DCTTableViewDataSources;
 			productName = DCTTableViewDataSources;
@@ -262,6 +319,23 @@
 			productReference = 244A6775158B1AB100952890 /* DCTTableViewDataSourcesTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		24700B3715B835A100FA5843 /* DCTTableViewDataSourcesBundle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24700B4415B835A100FA5843 /* Build configuration list for PBXNativeTarget "DCTTableViewDataSourcesBundle" */;
+			buildPhases = (
+				24700B3415B835A100FA5843 /* Sources */,
+				24700B3515B835A100FA5843 /* Frameworks */,
+				24700B3615B835A100FA5843 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DCTTableViewDataSourcesBundle;
+			productName = DCTTableViewDataSourcesBundle;
+			productReference = 24700B3815B835A100FA5843 /* DCTTableViewDataSources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -285,6 +359,7 @@
 			targets = (
 				244A6764158B1AB100952890 /* DCTTableViewDataSources */,
 				244A6774158B1AB100952890 /* DCTTableViewDataSourcesTests */,
+				24700B3715B835A100FA5843 /* DCTTableViewDataSourcesBundle */,
 			);
 		};
 /* End PBXProject section */
@@ -295,6 +370,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				244A6783158B1AB100952890 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24700B3615B835A100FA5843 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24700B4015B835A100FA5843 /* InfoPlist.strings in Resources */,
+				24700B4A15B835C100FA5843 /* DisclosureIndicator.png in Resources */,
+				24700B4B15B835C100FA5843 /* DisclosureIndicator@2x.png in Resources */,
+				24700B4C15B835C100FA5843 /* DisclosureIndicatorHighlighted.png in Resources */,
+				24700B4D15B835C100FA5843 /* DisclosureIndicatorHighlighted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +421,7 @@
 				244A67C5158B1AF700952890 /* DCTTableViewDataSource.m in Sources */,
 				244A67C8158B1AF700952890 /* UITableView+DCTNibRegistration.m in Sources */,
 				244A67CA158B1AF700952890 /* UITableView+DCTTableViewDataSources.m in Sources */,
+				24700B5115B8362100FA5843 /* DCTTableViewDataSources.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +433,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		24700B3415B835A100FA5843 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -353,6 +448,11 @@
 			target = 244A6764158B1AB100952890 /* DCTTableViewDataSources */;
 			targetProxy = 244A677B158B1AB100952890 /* PBXContainerItemProxy */;
 		};
+		24700B4F15B835D400FA5843 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24700B3715B835A100FA5843 /* DCTTableViewDataSourcesBundle */;
+			targetProxy = 24700B4E15B835D400FA5843 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -360,6 +460,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				244A6782158B1AB100952890 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		24700B3E15B835A100FA5843 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24700B3F15B835A100FA5843 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -469,6 +577,46 @@
 			};
 			name = Release;
 		};
+		24700B4215B835A100FA5843 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DCTTableViewDataSourcesBundle/DCTTableViewDataSourcesBundle-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "DCTTableViewDataSourcesBundle/DCTTableViewDataSourcesBundle-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = DCTTableViewDataSources;
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		24700B4315B835A100FA5843 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DCTTableViewDataSourcesBundle/DCTTableViewDataSourcesBundle-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "DCTTableViewDataSourcesBundle/DCTTableViewDataSourcesBundle-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = DCTTableViewDataSources;
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -498,6 +646,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		24700B4415B835A100FA5843 /* Build configuration list for PBXNativeTarget "DCTTableViewDataSourcesBundle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24700B4215B835A100FA5843 /* Debug */,
+				24700B4315B835A100FA5843 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
