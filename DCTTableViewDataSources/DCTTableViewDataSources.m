@@ -22,7 +22,7 @@ static NSBundle *_bundle = nil;
 																	errorHandler:NULL];
 		
 		for (NSURL *URL in enumerator)
-			if ([[URL lastPathComponent] isEqualToString:@"Fourgy.bundle"])
+			if ([[URL lastPathComponent] isEqualToString:@"DCTTableViewDataSources.bundle"])
 				_bundle = [NSBundle bundleWithURL:URL];
 	});
 	
