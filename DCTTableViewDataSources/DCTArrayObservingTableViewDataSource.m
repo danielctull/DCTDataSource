@@ -42,8 +42,6 @@ void* arrayObservingContext = &arrayObservingContext;
 @implementation DCTArrayObservingTableViewDataSource {
 	__strong NSArray *_array;
 }
-@synthesize object = _object;
-@synthesize keyPath = _keyPath;
 
 - (void)dealloc {
 	[_object removeObserver:self 
