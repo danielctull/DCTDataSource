@@ -19,14 +19,24 @@
 
 - (id)dct_dequeueReusableCellWithIdentifier:(NSString *)identifier {
 	
-	UINib *nib = [self.dctInternal_nibs objectForKey:identifier];
-	NSArray *items = [nib instantiateWithOwner:nil options:nil];
+	id cell = nil;
 	
-	for (id object in items)
-		if ([object isKindOfClass:[UITableViewCell class]])
-			return object;
-	
-	return nil;
+	@try {
+		cell = [self dequeueReusableCellWithIdentifier:identifier];
+	}
+	@finally {
+		
+		if (cell) return cell;
+		
+		UINib *nib = [self.dctInternal_nibs objectForKey:identifier];
+		NSArray *items = [nib instantiateWithOwner:nil options:nil];
+		
+		for (id object in items)
+			if ([object isKindOfClass:[UITableViewCell class]])
+				return object;
+		
+		return nil;
+	}
 }
 
 - (void)dct_registerNib:(UINib *)nib forCellReuseIdentifier:(NSString *)identifier {
