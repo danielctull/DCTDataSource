@@ -38,7 +38,28 @@
 #import "UITableView+DCTTableViewDataSources.h"
 
 @implementation DCTArrayTableViewDataSource
-@synthesize array;
+
+- (void)setArray:(NSArray *)array {
+	
+	[self beginUpdates];
+	
+	[_array enumerateObjectsUsingBlock:^(id obj, NSUInteger i, BOOL *stop) {
+		[self performRowUpdate:DCTTableViewDataSourceUpdateTypeRowDelete
+					 indexPath:[NSIndexPath indexPathForRow:i inSection:0]
+					 animation:self.deletionAnimation];
+	}];
+		
+	
+	_array = [array copy];
+	
+	[_array enumerateObjectsUsingBlock:^(id obj, NSUInteger i, BOOL *stop) {
+		[self performRowUpdate:DCTTableViewDataSourceUpdateTypeRowInsert
+					 indexPath:[NSIndexPath indexPathForRow:i inSection:0]
+					 animation:self.deletionAnimation];
+	}];
+	
+	[self endUpdates];
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	return [self.array count];
