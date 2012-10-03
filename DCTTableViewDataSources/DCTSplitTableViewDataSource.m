@@ -183,9 +183,9 @@
 	if (self.type == DCTSplitTableViewDataSourceTypeRow) {
 		
 		[tableViewDataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-			[self performRowUpdate:DCTTableViewDataSourceUpdateTypeRowInsert
-						 indexPath:indexPath
-						 animation:self.insertionAnimation];
+			[tableViewDataSource performRowUpdate:DCTTableViewDataSourceUpdateTypeRowInsert
+										indexPath:indexPath
+										animation:self.insertionAnimation];
 		}];
 		
 	} else {
@@ -212,9 +212,9 @@
 	if (self.type == DCTSplitTableViewDataSourceTypeRow) {
 		
 		[tableViewDataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-			[self performRowUpdate:DCTTableViewDataSourceUpdateTypeRowDelete
-						 indexPath:indexPath
-						 animation:self.deletionAnimation];
+			[tableViewDataSource performRowUpdate:DCTTableViewDataSourceUpdateTypeRowDelete
+										indexPath:indexPath
+										animation:self.deletionAnimation];
 		}];
 		
 	} else {
@@ -230,6 +230,10 @@
 #pragma mark - UITableViewDataSource methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tv {
+	
+	if (self.type == DCTSplitTableViewDataSourceTypeRow)
+		return 1;
+		
 	self.tableView = tv;
 	return [[self dctInternal_tableViewDataSources] count];
 }
