@@ -119,6 +119,10 @@
 #pragma mark Optional
 
 - (NSString *)tableView:(UITableView *)tv titleForHeaderInSection:(NSInteger)section {
+	
+	NSString *title = [super tableView:tv titleForHeaderInSection:section];
+	if (title) return title;
+	
 	DCTTableViewDataSource * ds = [self childTableViewDataSourceForSection:section];
 	
 	if (![ds respondsToSelector:_cmd]) return nil;
@@ -128,6 +132,10 @@
 }
 
 - (NSString *)tableView:(UITableView *)tv titleForFooterInSection:(NSInteger)section {
+	
+	NSString *title = [super tableView:tv titleForFooterInSection:section];
+	if (title) return title;
+	
 	DCTTableViewDataSource * ds = [self childTableViewDataSourceForSection:section];
 	
 	if (![ds respondsToSelector:_cmd]) return nil;
