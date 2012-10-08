@@ -35,12 +35,8 @@
  */
 
 #import "DCTObjectTableViewDataSource.h"
-#import "DCTParentTableViewDataSource.h"
-#import "UITableView+DCTTableViewDataSources.h"
 
 @implementation DCTObjectTableViewDataSource
-
-@synthesize object;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	return 1;

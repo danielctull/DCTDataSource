@@ -46,8 +46,6 @@
 	__strong NSMutableArray *dctInternal_tableViewDataSources;
 }
 
-@synthesize type;
-
 #pragma mark - DCTParentTableViewDataSource
 
 - (NSArray *)childTableViewDataSources {

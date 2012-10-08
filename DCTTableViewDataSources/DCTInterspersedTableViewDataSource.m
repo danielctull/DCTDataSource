@@ -14,7 +14,6 @@
 	NSUInteger _interspersedDataSourceCount;
 	NSUInteger _childRowCount;
 }
-@synthesize childTableViewDataSource = _childTableViewDataSource;
 
 - (id)init {
 	if (!(self = [super init])) return nil;

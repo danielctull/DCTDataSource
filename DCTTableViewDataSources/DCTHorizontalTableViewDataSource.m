@@ -38,8 +38,6 @@
 
 @implementation DCTHorizontalTableViewDataSource
 
-@synthesize childTableViewDataSource;
-
 - (NSArray *)childTableViewDataSources {
 	return [NSArray arrayWithObject:self.childTableViewDataSource];
 }
