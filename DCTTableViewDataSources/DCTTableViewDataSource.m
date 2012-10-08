@@ -39,18 +39,7 @@
 #import "UITableView+DCTTableViewDataSources.h"
 #import "UITableView+DCTNibRegistration.h"
 #import "DCTParentTableViewDataSource.h"
-
-@interface DCTTableViewDataSourceUpdate : NSObject
-@property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic, assign) NSInteger section;
-@property (nonatomic, assign) DCTTableViewDataSourceUpdateType type;
-@property (nonatomic, assign) UITableViewRowAnimation animation;
-- (BOOL)isSectionUpdate;
-@end
-
-BOOL DCTTableViewDataSourceUpdateTypeIncludes(DCTTableViewDataSourceUpdateType type, DCTTableViewDataSourceUpdateType testType) {
-	return (type & testType) == testType;
-}
+#import "_DCTTableViewDataSourceUpdate.h"
 
 void DCTTableViewDataSourceUpdateTypeAdd(DCTTableViewDataSourceUpdateType type, DCTTableViewDataSourceUpdateType typeToAdd) {
 	
@@ -140,7 +129,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 		
 	[self.tableView beginUpdates];
 	
-	[_updates enumerateObjectsUsingBlock:^(DCTTableViewDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
+	[_updates enumerateObjectsUsingBlock:^(_DCTTableViewDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
 		
 		if (update.animation == DCTTableViewDataSourceNoAnimationSet)
 			update.animation = DCTTableViewDataSourceTableViewRowAnimationAutomatic;
@@ -192,7 +181,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	
 	NSArray *updates = [_updates sortedArrayUsingSelector:@selector(compare:)];
 			
-	[updates enumerateObjectsUsingBlock:^(DCTTableViewDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
+	[updates enumerateObjectsUsingBlock:^(_DCTTableViewDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
 				
 		if ([update.indexPath compare:indexPath] == NSOrderedDescending) {
 			*stop = YES;
@@ -231,7 +220,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	self.tableView.contentOffset = offset;
 }
 
-- (void)_performUpdate:(DCTTableViewDataSourceUpdate *)update {
+- (void)_performUpdate:(_DCTTableViewDataSourceUpdate *)update {
 	
 	if (update.animation == DCTTableViewDataSourceNoAnimationSet) {
 		
@@ -275,7 +264,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 				sectionIndex:(NSInteger)index
 				   animation:(UITableViewRowAnimation)animation {
 	
-	DCTTableViewDataSourceUpdate *update = [DCTTableViewDataSourceUpdate new];
+	_DCTTableViewDataSourceUpdate *update = [_DCTTableViewDataSourceUpdate new];
 	update.animation = animation;
 	update.type = updateType;
 	update.section = index;
@@ -286,7 +275,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 			   indexPath:(NSIndexPath *)indexPath
 			   animation:(UITableViewRowAnimation)animation {
 	
-	DCTTableViewDataSourceUpdate *update = [DCTTableViewDataSourceUpdate new];	
+	_DCTTableViewDataSourceUpdate *update = [_DCTTableViewDataSourceUpdate new];
 	update.animation = animation;
 	update.type = updateType;
 	update.indexPath = indexPath;
@@ -339,35 +328,6 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 	return self.sectionHeaderTitle;
-}
-
-@end
-
-
-
-@implementation DCTTableViewDataSourceUpdate
-
-- (BOOL)isSectionUpdate {
-	return (DCTTableViewDataSourceUpdateTypeIncludes(self.type, DCTTableViewDataSourceUpdateTypeSectionInsert)
-			|| DCTTableViewDataSourceUpdateTypeIncludes(self.type, DCTTableViewDataSourceUpdateTypeSectionDelete));
-}
-
-- (NSComparisonResult)compare:(DCTTableViewDataSourceUpdate *)update {
-	
-	NSComparisonResult result = [[NSNumber numberWithInteger:self.type] compare:[NSNumber numberWithInteger:update.type]];
-	
-	if (result != NSOrderedSame) return result;
-	
-	return [self.indexPath compare:update.indexPath];
-}
-
-- (NSString *)description {
-	return [NSString stringWithFormat:@"<%@: %p; indexPath = %@; type = %i; animation = %i>",
-			NSStringFromClass([self class]),
-			self,
-			self.indexPath,
-			self.type,
-			self.animation];
 }
 
 @end
