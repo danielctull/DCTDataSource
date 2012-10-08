@@ -70,7 +70,6 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 }
 
 @synthesize tableView;
-@synthesize cellClass = _cellClass;
 @synthesize parent = _parent;
 @synthesize sectionHeaderTitle;
 @synthesize sectionFooterTitle;
@@ -78,7 +77,6 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 @synthesize insertionAnimation;
 @synthesize deletionAnimation;
 @synthesize reloadAnimation;
-@synthesize cellClassHandler = _cellClassHandler;
 
 #pragma mark - NSObject
 
@@ -93,7 +91,6 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	self.insertionAnimation = DCTTableViewDataSourceNoAnimationSet;
 	self.deletionAnimation = DCTTableViewDataSourceNoAnimationSet;
 	self.reloadAnimation = DCTTableViewDataSourceNoAnimationSet;
-	self.cellClass = [DCTTableViewCell class];
 	_cellClassDictionary = [NSMutableDictionary new];
 	_cellClasses = [NSMutableSet new];
 	_setupCellClasses = [NSMutableSet new];
@@ -102,43 +99,6 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 }
 
 #pragma mark - DCTTableViewDataSource
-
-- (void)setCellClass:(Class)cellClass {
-	_cellClass = cellClass;
-	[self setupCellClass:cellClass];
-}
-- (void)setCellClass:(Class)cellClass forObjectClass:(Class)objectClass {
-	[_cellClassDictionary setObject:cellClass forKey:NSStringFromClass(objectClass)];
-	[self setupCellClass:cellClass];
-}
-- (Class)cellClassForObjectClass:(Class)objectClass {
-	return [_cellClassDictionary objectForKey:NSStringFromClass(objectClass)];
-}
-- (void)setCellClass:(Class)cellClass forObject:(id)object {
-	
-	NSNumber *hash = [NSNumber numberWithUnsignedInteger:[object hash]];
-	
-	if (cellClass == NULL) {
-		[_cellClassDictionary removeObjectForKey:hash];
-		return;
-	}
-	
-	[_cellClassDictionary setObject:cellClass forKey:hash];
-	[self setupCellClass:cellClass];
-}
-- (Class)cellClassForObject:(id)object {
-	return [_cellClassDictionary objectForKey:[NSNumber numberWithUnsignedInteger:[object hash]]];
-}
-
-- (void)setTableView:(UITableView *)tv {
-	
-	if (tv == tableView) return;
-	
-	tableView = tv;
-	[_cellClasses enumerateObjectsUsingBlock:^(Class cellClass, BOOL *stop) {
-		[self setupCellClass:cellClass];
-	}];
-}
 
 - (void)reloadData {
 	[self beginUpdates];
@@ -156,31 +116,12 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	return indexPath;
 }
 
-- (Class)cellClassAtIndexPath:(NSIndexPath *)indexPath {
-	
-	id object = [self objectAtIndexPath:indexPath];
-	
-	Class cellClass = NULL;
-	
-	if (self.cellClassHandler != NULL) {
-		cellClass = self.cellClassHandler(indexPath, object);
-		if (cellClass != NULL) {
-			[self setupCellClass:cellClass];
-			return cellClass;
-		}
-	}
-	
-	cellClass = [self cellClassForObject:object];
-	if (cellClass != NULL) return cellClass;
-	
-	cellClass = [self cellClassForObjectClass:[object class]];
-	if (cellClass != NULL) return cellClass;
-	
-	return self.cellClass;
-}
-
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object {}
 
+- (NSString *)_cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
+	id object = [self objectAtIndexPath:indexPath];
+	return self.cellReuseIdentifierHandler(indexPath, object);
+}
 
 #pragma mark - Updating the table view
 
@@ -392,27 +333,15 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-	NSString *cellIdentifier = nil;
-	
-	Class theCellClass = [self cellClassAtIndexPath:indexPath];
-	
-	if ([theCellClass isSubclassOfClass:[DCTTableViewCell class]])
-		cellIdentifier = [theCellClass reuseIdentifier];
-	
+	NSString *cellIdentifier = [self _cellReuseIdentifierAtIndexPath:indexPath];
     UITableViewCell *cell = [tv dct_dequeueReusableCellWithIdentifier:cellIdentifier];
 	
-	if (!cell && [theCellClass isSubclassOfClass:[DCTTableViewCell class]])
-		cell = [theCellClass cell];
-	
-	if (!cell)
-		cell = [[theCellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+	if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+											 reuseIdentifier:cellIdentifier];
     
 	id object = [self objectAtIndexPath:indexPath];
 	
 	[self configureCell:cell atIndexPath:indexPath withObject:object];
-	
-	if ([cell conformsToProtocol:@protocol(DCTTableViewCellObjectConfiguration)])
-		[(id<DCTTableViewCellObjectConfiguration>)cell configureWithObject:object];
 	
 	if (self.cellConfigurer != NULL) self.cellConfigurer(cell, indexPath, object);
 	
@@ -425,30 +354,6 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 	return self.sectionHeaderTitle;
-}
-
-#pragma mark - Internal
-
-- (void)setupCellClass:(Class)cellClass {
-	
-	[_cellClasses addObject:cellClass];
-	
-	if (!self.tableView) return;
-	
-	if ([_setupCellClasses containsObject:cellClass]) return;
-	
-	[_setupCellClasses addObject:cellClass];
-	
-	if (![cellClass isSubclassOfClass:[DCTTableViewCell class]]) return;
-	
-	NSString *nibName = [cellClass nibName];
-	
-	if ([nibName length] < 1) return;
-	
-	UINib *nib = [UINib nibWithNibName:nibName bundle:nil];
-	NSString *reuseIdentifier = [cellClass reuseIdentifier];
-	
-	[self.tableView dct_registerNib:nib forCellReuseIdentifier:reuseIdentifier];
 }
 
 @end

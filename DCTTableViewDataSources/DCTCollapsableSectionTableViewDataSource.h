@@ -74,7 +74,7 @@
  DCTCollapsableSectionTableViewDataSourceHeader that represents the current state 
  of the collapsable data source.
  */
-@property (nonatomic, assign) Class titleCellClass;
+@property (nonatomic, copy) NSString *titleCellReuseIdentifier;
 
 /** The title that should go in the header cell. 
  */

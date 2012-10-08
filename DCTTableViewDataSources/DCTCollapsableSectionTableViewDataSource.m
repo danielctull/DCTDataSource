@@ -126,7 +126,6 @@
 @synthesize childTableViewDataSource;
 @synthesize title;
 @synthesize open;
-@synthesize titleCellClass;
 
 #pragma mark - NSObject
 
@@ -139,7 +138,9 @@
 	splitDataSource.parent = self;
 	
 	headerDataSource = [[DCTObjectTableViewDataSource alloc] init];
-	headerDataSource.cellClass = [DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell class];
+	headerDataSource.cellReuseIdentifierHandler = ^(NSIndexPath *indexPath, id object) {
+		return @"DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell";
+	};
 	
 	[splitDataSource addChildTableViewDataSource:headerDataSource];
 	
@@ -174,6 +175,12 @@
 - (void)loadChildTableViewDataSource {}
 
 #pragma mark - DCTTableViewDataSource
+
+- (void)setTableView:(UITableView *)tableView {
+	[super setTableView:tableView];
+	[tableView registerClass:[DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell class]
+	  forCellReuseIdentifier:NSStringFromClass([DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell class])];
+}
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
 	
@@ -338,12 +345,15 @@
 	[UIView commitAnimations];
 }
 
-- (void)setTitleCellClass:(Class)cellClass {
+- (void)setTitleCellReuseIdentifier:(NSString *)titleCellReuseIdentifier {
 	
-	if (titleCellClass == cellClass) return;
+	if ([titleCellReuseIdentifier isEqualToString:_titleCellReuseIdentifier]) return;
 	
-	titleCellClass = cellClass;
-	headerDataSource.cellClass = cellClass;
+	NSString *titleCellReuseIdentifierCopy = [titleCellReuseIdentifier copy];
+	_titleCellReuseIdentifier = titleCellReuseIdentifierCopy;
+	headerDataSource.cellReuseIdentifierHandler = ^(NSIndexPath *indexPath, id object) {
+		return titleCellReuseIdentifierCopy;
+	};
 }
 
 - (void)dctInternal_headerCheck {

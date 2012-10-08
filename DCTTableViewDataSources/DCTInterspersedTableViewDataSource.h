@@ -12,6 +12,6 @@
 /** The child data source to intersperse.
  */
 @property (nonatomic, strong) DCTTableViewDataSource *childTableViewDataSource;
-@property (nonatomic, assign) Class interspersedCellClass;
+@property (nonatomic, copy) NSString *interspersedCellReuseIdentifier;
 
 @end

@@ -68,20 +68,7 @@ typedef enum {
  */
 @interface DCTTableViewDataSource : NSObject <UITableViewDataSource>
 
-/** This is the class to use for cells of this data source. 
- 
- Ideally this should should be a subclass of DCTTableViewCell or
- implement the DCTTableViewCellObjectConfiguration protocol for best reseults.
- */
-@property (nonatomic, assign) Class cellClass;
-
-- (void)setCellClass:(Class)cellClass forObjectClass:(Class)objectClass;
-- (Class)cellClassForObjectClass:(Class)objectClass;
-
-- (void)setCellClass:(Class)cellClass forObject:(id)object;
-- (Class)cellClassForObject:(id)object;
-
-@property (nonatomic, copy) Class(^cellClassHandler)(NSIndexPath *indexPath, id object);
+@property (nonatomic, copy) NSString *(^cellReuseIdentifierHandler)(NSIndexPath *indexPath, id object);
 
 /** The table view that is associated with the data source.
  */
@@ -115,18 +102,6 @@ typedef enum {
  @return The representing object.
  */
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath;
-
-/** To enable a data source to have different cell classes for different
- index paths.
- 
- This method returns the class in the property cellClass. Subclasses
- should override for different results.
- 
- @param indexPath The index path in the co-ordinate space of the data source.
- 
- @return The class of the cell to use.
- */
-- (Class)cellClassAtIndexPath:(NSIndexPath *)indexPath;
 
 /** This allows subclasses to simply configure the cell without needing
  to implement the standard tableView:cellForRowAtIndexPath: method.

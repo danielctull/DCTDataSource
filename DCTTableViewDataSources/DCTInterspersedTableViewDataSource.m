@@ -29,11 +29,16 @@
 	_childTableViewDataSource.parent = self;
 }
 
-- (void)setInterspersedCellClass:(Class)interspersedCellClass {
-	_interspersedDataSource.cellClass = interspersedCellClass;
+- (void)setInterspersedCellReuseIdentifier:(NSString *)interspersedCellReuseIdentifier {
+	_interspersedDataSource.cellReuseIdentifierHandler = ^(NSIndexPath *indexPath, id object) {
+		return interspersedCellReuseIdentifier;
+	};
 }
-- (Class)interspersedCellClass {
-	return _interspersedDataSource.cellClass;
+- (NSString *)interspersedCellReuseIdentifier {
+	
+	if (_interspersedDataSource.cellReuseIdentifierHandler == NULL) return nil;
+	
+	return _interspersedDataSource.cellReuseIdentifierHandler(nil, nil);
 }
 
 - (void)reloadData {

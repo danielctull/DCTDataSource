@@ -51,12 +51,6 @@
 	return [ds objectAtIndexPath:indexPath];
 }
 
-- (Class)cellClassAtIndexPath:(NSIndexPath *)indexPath {
-	DCTTableViewDataSource * ds = [self childTableViewDataSourceForIndexPath:indexPath];
-	indexPath = [self convertIndexPath:indexPath toChildTableViewDataSource:ds];
-	return [ds cellClassAtIndexPath:indexPath];
-}
-
 - (void)setTableView:(UITableView *)tv {
 	
 	if (tv == self.tableView) return;
