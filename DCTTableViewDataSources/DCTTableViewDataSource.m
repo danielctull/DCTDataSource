@@ -63,20 +63,8 @@ void DCTTableViewDataSourceUpdateTypeAdd(DCTTableViewDataSourceUpdateType type, 
 NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 
 @implementation DCTTableViewDataSource {
-	__strong NSMutableDictionary *_cellClassDictionary;	
-	__strong NSMutableSet *_cellClasses;
-	__strong NSMutableSet *_setupCellClasses;
 	__strong NSMutableArray *_updates;
 }
-
-@synthesize tableView;
-@synthesize parent = _parent;
-@synthesize sectionHeaderTitle;
-@synthesize sectionFooterTitle;
-@synthesize cellConfigurer;
-@synthesize insertionAnimation;
-@synthesize deletionAnimation;
-@synthesize reloadAnimation;
 
 #pragma mark - NSObject
 
@@ -88,12 +76,9 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
     
     if (!(self = [super init])) return nil;
 	
-	self.insertionAnimation = DCTTableViewDataSourceNoAnimationSet;
-	self.deletionAnimation = DCTTableViewDataSourceNoAnimationSet;
-	self.reloadAnimation = DCTTableViewDataSourceNoAnimationSet;
-	_cellClassDictionary = [NSMutableDictionary new];
-	_cellClasses = [NSMutableSet new];
-	_setupCellClasses = [NSMutableSet new];
+	_insertionAnimation = DCTTableViewDataSourceNoAnimationSet;
+	_deletionAnimation = DCTTableViewDataSourceNoAnimationSet;
+	_reloadAnimation = DCTTableViewDataSourceNoAnimationSet;
 	
     return self;
 }
