@@ -88,30 +88,6 @@
  */
 @interface DCTTableViewCell : UITableViewCell <DCTTableViewCellObjectConfiguration>
 
-/** Get an instance of the cell, either from a nib if one exists or via alloc, init.
- 
- @return An instance of cell class.
- */
-+ (id)cell;
-
 - (void)sharedInit;
-
-/** The reuse identifier for the cell.
- 
- By default, in the DCTTableViewDataSource system one cell class maps to
- one reuseIdentifier, which is the class name as a string. Subclass cells in 
- nibs should use the class name as a reuse identifier.
- 
- @return The reuse identifier.
- */
-+ (NSString *)reuseIdentifier;
-
-/** This is the nibName to use to load and find the table view cell.
- 
- By default it is the same name as the class.
- 
- @return The nib name.
- */
-+ (NSString *)nibName;
 
 @end
