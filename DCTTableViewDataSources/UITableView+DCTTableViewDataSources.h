@@ -73,16 +73,4 @@
  */
 - (NSIndexPath *)dct_convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(DCTTableViewDataSource *)dataSource;
 
-/** @name Cell registration */
-
-/** Uses the iOS 5 method to register a table view cell class with a nib.
- This will only work for DCTTableViewCell subclasses, but won't crash for 
- others. If iOS 5 is not available, this method does nothing.
- 
- @param tableViewCellSubclass The DCTTableViewCell subclass of the cell to register.
- 
- @deprecated This method does nothing.
- */
-- (void)dct_registerDCTTableViewCellSubclass:(Class)tableViewCellSubclass;
-
 @end

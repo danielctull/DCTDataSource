@@ -111,6 +111,4 @@
 	return indexPath;
 }
 
-- (void)dct_registerDCTTableViewCellSubclass:(Class)tableViewCellSubclass {}
-
 @end
