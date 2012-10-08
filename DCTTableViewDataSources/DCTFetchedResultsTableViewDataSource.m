@@ -35,87 +35,66 @@
  */
 
 #import "DCTFetchedResultsTableViewDataSource.h"
-#import "DCTTableViewCell.h"
-#import "DCTParentTableViewDataSource.h"
-#import "UITableView+DCTTableViewDataSources.h"
 
 @implementation DCTFetchedResultsTableViewDataSource
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize fetchedResultsController = _fetchedResultsController;
-@synthesize fetchRequestBlock = _fetchRequestBlock;
-@synthesize fetchRequest = _fetchRequest;
-@synthesize showIndexList = _showIndexList;
 
 #pragma mark - DCTTableViewDataSource
 
 - (void)reloadData {
-
-	if (self.fetchRequestBlock != nil)
-		self.fetchRequest = self.fetchRequestBlock();
+	
+	if (self.fetchRequestBlock != NULL) {
+		_fetchRequest = self.fetchRequestBlock();
+		_fetchedResultsController.delegate = nil;
+		_fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:self.fetchRequest
+																		managedObjectContext:self.managedObjectContext
+																		  sectionNameKeyPath:nil
+																				   cacheName:nil];
+		_fetchedResultsController.delegate = self;
+	}
+	
+	[super reloadData];
 }
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
 	return [self.fetchedResultsController objectAtIndexPath:indexPath];
 }
 
+- (void)setTableView:(UITableView *)tableView {
+	[super setTableView:tableView];
+	
+}
+
 #pragma mark - DCTFetchedResultsTableViewDataSource
 
-- (void)setFetchRequest:(NSFetchRequest *)fetchRequest {
-	
-	if ([fetchRequest isEqual:_fetchRequest]) return;
-	
-	_fetchedResultsController = nil;
-	
-	_fetchRequest = fetchRequest;
-	
-	if (self.managedObjectContext) [self fetchedResultsController]; // Causes the fetched results controller to load
-}
-
-- (NSFetchRequest *)fetchRequest {
-	
-	if (_fetchRequest == nil) [self loadFetchRequest];
-	
-	return _fetchRequest;
-}
-
-- (void)loadFetchRequest {
-
-	if (self.fetchRequestBlock != nil)
-		self.fetchRequest = self.fetchRequestBlock();
-}
-
-- (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController {
-	
-	if ([fetchedResultsController isEqual:_fetchedResultsController]) return;
-	
-	if (fetchedResultsController && (self.managedObjectContext == nil || self.managedObjectContext != fetchedResultsController.managedObjectContext))
-		self.managedObjectContext = fetchedResultsController.managedObjectContext;
-	
-	_fetchedResultsController.delegate = nil;
+- (id)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController {
+	self = [super init];
+	if (!self) return nil;
 	_fetchedResultsController = fetchedResultsController;
 	_fetchedResultsController.delegate = self;
-	
-	[_fetchedResultsController performFetch:nil];
-	
-	[self.tableView reloadData];
+	return self;
 }
 
-- (NSFetchedResultsController *)fetchedResultsController {
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+					  fetchRequest:(NSFetchRequest *)fetchRequest {
 	
-	if (_fetchedResultsController == nil) [self loadFetchedResultsController];
+	NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+																		  managedObjectContext:managedObjectContext
+																			sectionNameKeyPath:nil
+																					 cacheName:nil];
 	
-	return _fetchedResultsController;
+	self = [self initWithFetchedResultsController:frc];
+	if (!self) return nil;
+	_managedObjectContext = managedObjectContext;
+	_fetchRequest = fetchRequest;
+	return self;
 }
 
-- (void)loadFetchedResultsController {
-	
-	if (!self.fetchRequest) return;
-	if (!self.managedObjectContext) return;
-	
-	self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:self.fetchRequest
-																		managedObjectContext:self.managedObjectContext
-																		  sectionNameKeyPath:nil
-																				   cacheName:nil];
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+				 fetchRequestBlock:(NSFetchRequest *(^)())fetchRequestBlock {
+	self = [self initWithManagedObjectContext:managedObjectContext fetchRequest:fetchRequestBlock()];
+	if (!self) return nil;
+	_fetchRequestBlock = [fetchRequestBlock copy];
+	return self;
 }
 
 #pragma mark - UITableViewDataSource

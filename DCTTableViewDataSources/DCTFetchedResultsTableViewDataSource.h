@@ -37,10 +37,6 @@
 #import "DCTTableViewDataSource.h"
 #import <CoreData/CoreData.h>
 
-/** A block that returns a fetch request. This is useful to use in the case 
- where your fetch request might change, for example a search interface. */
-typedef NSFetchRequest *(^DCTFetchRequestBlock)();
-
 /** A data source that stays in sync with a Core Data fetch request using a
  NSFetchedResultsController.
  
@@ -57,33 +53,36 @@ typedef NSFetchRequest *(^DCTFetchRequestBlock)();
  */
 @interface DCTFetchedResultsTableViewDataSource : DCTTableViewDataSource <NSFetchedResultsControllerDelegate>
 
+- (id)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController;
+
+
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+					  fetchRequest:(NSFetchRequest *)fetchRequest;
+
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+				 fetchRequestBlock:(NSFetchRequest *(^)())fetchRequestBlock;
+
+
 /** The managed obejct context that is associated with the fetched results 
  controller.
  */
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, readonly, strong) NSManagedObjectContext *managedObjectContext;
 
 /** The fetched results controller that is controlling the data for cells 
  maintained by this data source.
  */
-@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, readonly, strong) NSFetchedResultsController *fetchedResultsController;
 
 /** The fetch request being used.
  */
-@property (nonatomic, strong) NSFetchRequest *fetchRequest;
+@property (nonatomic, readonly, strong) NSFetchRequest *fetchRequest;
 
 /** A fetch request block to provide a fetch request.
+ 
+ This is useful to use in the case where your fetch request might
+ change, for example a search interface.
  */
-@property (nonatomic, copy) DCTFetchRequestBlock fetchRequestBlock;
-
-/** Subclasses should use this method to load a fetch request.
- 
- This method is only called if the fetchRequest property is nil. */
-- (void)loadFetchRequest;
-
-/** Subclasses should use this method to load a fetched results controller.
- 
- This method is only called if the fetchedResultsController property is nil. */
-- (void)loadFetchedResultsController;
+@property (nonatomic, readonly, copy) NSFetchRequest *(^fetchRequestBlock)();
 
 @property (nonatomic, assign) BOOL showIndexList;
 
