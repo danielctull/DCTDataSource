@@ -37,5 +37,6 @@
 #import "DCTParentTableViewDataSource.h"
 
 @interface DCTHorizontalTableViewDataSource : DCTParentTableViewDataSource
-@property (nonatomic, strong) DCTTableViewDataSource *childTableViewDataSource;
+- (id)initWithChildTableViewDataSource:(DCTTableViewDataSource *)childTableViewDataSource;
+@property (nonatomic, readonly, strong) DCTTableViewDataSource *childTableViewDataSource;
 @end
