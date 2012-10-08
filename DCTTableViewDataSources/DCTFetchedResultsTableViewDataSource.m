@@ -39,15 +39,12 @@
 #import "DCTParentTableViewDataSource.h"
 #import "UITableView+DCTTableViewDataSources.h"
 
-@implementation DCTFetchedResultsTableViewDataSource {
-	DCTTableViewDataSourceUpdateType updateType;
-}
-
-@synthesize managedObjectContext;
-@synthesize fetchedResultsController;
-@synthesize fetchRequestBlock;
-@synthesize fetchRequest;
-@synthesize showIndexList;
+@implementation DCTFetchedResultsTableViewDataSource
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize fetchedResultsController = _fetchedResultsController;
+@synthesize fetchRequestBlock = _fetchRequestBlock;
+@synthesize fetchRequest = _fetchRequest;
+@synthesize showIndexList = _showIndexList;
 
 #pragma mark - DCTTableViewDataSource
 
@@ -63,22 +60,22 @@
 
 #pragma mark - DCTFetchedResultsTableViewDataSource
 
-- (void)setFetchRequest:(NSFetchRequest *)fr {
+- (void)setFetchRequest:(NSFetchRequest *)fetchRequest {
 	
-	if ([fr isEqual:fetchRequest]) return;
+	if ([fetchRequest isEqual:_fetchRequest]) return;
 	
-	fetchedResultsController = nil;
+	_fetchedResultsController = nil;
 	
-	fetchRequest = fr;
+	_fetchRequest = fetchRequest;
 	
-	if (self.managedObjectContext) [self fetchedResultsController]; // Causes the DCT to load
+	if (self.managedObjectContext) [self fetchedResultsController]; // Causes the fetched results controller to load
 }
 
 - (NSFetchRequest *)fetchRequest {
 	
-	if (fetchRequest == nil) [self loadFetchRequest];
+	if (_fetchRequest == nil) [self loadFetchRequest];
 	
-	return fetchRequest;
+	return _fetchRequest;
 }
 
 - (void)loadFetchRequest {
@@ -87,27 +84,27 @@
 		self.fetchRequest = self.fetchRequestBlock();
 }
 
-- (void)setFetchedResultsController:(NSFetchedResultsController *)dct {
+- (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController {
 	
-	if ([fetchedResultsController isEqual:dct]) return;
+	if ([fetchedResultsController isEqual:_fetchedResultsController]) return;
 	
-	if (dct && (self.managedObjectContext == nil || self.managedObjectContext != dct.managedObjectContext))
-		self.managedObjectContext = dct.managedObjectContext;
+	if (fetchedResultsController && (self.managedObjectContext == nil || self.managedObjectContext != fetchedResultsController.managedObjectContext))
+		self.managedObjectContext = fetchedResultsController.managedObjectContext;
 	
-	fetchedResultsController.delegate = nil;
-	fetchedResultsController = dct;
+	_fetchedResultsController.delegate = nil;
+	_fetchedResultsController = fetchedResultsController;
+	_fetchedResultsController.delegate = self;
 	
-	fetchedResultsController.delegate = self;
-	[fetchedResultsController performFetch:nil];
+	[_fetchedResultsController performFetch:nil];
 	
 	[self.tableView reloadData];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController {
 	
-	if (fetchedResultsController == nil) [self loadFetchedResultsController];
+	if (_fetchedResultsController == nil) [self loadFetchedResultsController];
 	
-	return fetchedResultsController;
+	return _fetchedResultsController;
 }
 
 - (void)loadFetchedResultsController {
@@ -154,7 +151,7 @@
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
 	
-	if (!showIndexList) return nil;
+	if (!_showIndexList) return nil;
 	
 	return [self.fetchedResultsController sectionIndexTitles];
 }
