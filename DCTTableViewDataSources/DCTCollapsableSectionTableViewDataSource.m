@@ -37,6 +37,7 @@
 #import "DCTCollapsableSectionTableViewDataSource.h"
 #import "DCTTableViewDataSources.h"
 #import "UITableView+DCTTableViewDataSources.h"
+#import "_DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation DCTCollapsableSectionTableViewDataSourceHeader {
@@ -58,42 +59,6 @@
 	return self;
 }
 @end
-
-
-
-
-
-
-
-
-@interface DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell : DCTTableViewCell
-@end
-@implementation DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell
-- (void)configureWithObject:(DCTCollapsableSectionTableViewDataSourceHeader *)object {
-	
-	self.textLabel.text = object.title;
-	
-	if (object.empty) {
-		self.textLabel.textColor = [UIColor lightGrayColor];
-		self.selectionStyle = UITableViewCellSelectionStyleNone;
-	} else {
-		self.textLabel.textColor = [UIColor blackColor];
-		self.selectionStyle = UITableViewCellSelectionStyleBlue;
-	}
-}
-@end
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -178,8 +143,8 @@
 
 - (void)setTableView:(UITableView *)tableView {
 	[super setTableView:tableView];
-	[tableView registerClass:[DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell class]
-	  forCellReuseIdentifier:NSStringFromClass([DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell class])];
+	[tableView registerClass:[_DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell class]
+	  forCellReuseIdentifier:NSStringFromClass([_DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell class])];
 }
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
