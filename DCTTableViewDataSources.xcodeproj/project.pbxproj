@@ -205,38 +205,12 @@
 		244A676A158B1AB100952890 /* DCTTableViewDataSources */ = {
 			isa = PBXGroup;
 			children = (
-				244A678F158B1AF600952890 /* DCTArrayObservingTableViewDataSource.h */,
-				244A6790158B1AF600952890 /* DCTArrayObservingTableViewDataSource.m */,
-				244A6791158B1AF600952890 /* DCTArrayTableViewDataSource.h */,
-				244A6792158B1AF600952890 /* DCTArrayTableViewDataSource.m */,
-				244A6793158B1AF600952890 /* DCTCollapsableSectionTableViewDataSource.h */,
-				244A6794158B1AF600952890 /* DCTCollapsableSectionTableViewDataSource.m */,
-				244A6795158B1AF600952890 /* DCTFetchedResultsTableViewDataSource.h */,
-				244A6796158B1AF600952890 /* DCTFetchedResultsTableViewDataSource.m */,
-				244A6797158B1AF600952890 /* DCTHorizontalTableViewDataSource.h */,
-				244A6798158B1AF600952890 /* DCTHorizontalTableViewDataSource.m */,
-				244A6799158B1AF600952890 /* DCTInterspersedTableViewDataSource.h */,
-				244A679A158B1AF600952890 /* DCTInterspersedTableViewDataSource.m */,
-				244A679B158B1AF600952890 /* DCTObjectTableViewDataSource.h */,
-				244A679C158B1AF600952890 /* DCTObjectTableViewDataSource.m */,
-				244A679D158B1AF600952890 /* DCTParentTableViewDataSource.h */,
-				244A679E158B1AF600952890 /* DCTParentTableViewDataSource.m */,
-				244A679F158B1AF600952890 /* DCTSplitTableViewDataSource.h */,
-				244A67A0158B1AF600952890 /* DCTSplitTableViewDataSource.m */,
-				244A67A1158B1AF600952890 /* DCTTableViewCell.h */,
-				244A67A2158B1AF600952890 /* DCTTableViewCell.m */,
-				244A67A3158B1AF600952890 /* DCTTableViewDataSource.h */,
-				244A67A4158B1AF600952890 /* DCTTableViewDataSource.m */,
 				244A67A5158B1AF600952890 /* DCTTableViewDataSources.h */,
 				24700B5015B8362100FA5843 /* DCTTableViewDataSources.m */,
-				244A67AC158B1AF700952890 /* UITableView+DCTNibRegistration.h */,
-				244A67AD158B1AF700952890 /* UITableView+DCTNibRegistration.m */,
-				244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */,
-				244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */,
-				24A389FB162303CF0003A1BE /* _DCTTableViewDataSourceUpdate.h */,
-				24A389FC162303CF0003A1BE /* _DCTTableViewDataSourceUpdate.m */,
-				24A389FF162304B90003A1BE /* _DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell.h */,
-				24A38A00162304B90003A1BE /* _DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell.m */,
+				24D4AB25162B260F009F3E35 /* Core */,
+				24D4AB29162B26A8009F3E35 /* Object + Array */,
+				24D4AB27162B2634009F3E35 /* Parent Data Sources */,
+				24D4AB28162B2649009F3E35 /* Core Data */,
 			);
 			path = DCTTableViewDataSources;
 			sourceTree = "<group>";
@@ -280,6 +254,64 @@
 				24700B4115B835A100FA5843 /* DCTTableViewDataSourcesBundle-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		24D4AB25162B260F009F3E35 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				244A67A3158B1AF600952890 /* DCTTableViewDataSource.h */,
+				244A67A4158B1AF600952890 /* DCTTableViewDataSource.m */,
+				244A679D158B1AF600952890 /* DCTParentTableViewDataSource.h */,
+				244A679E158B1AF600952890 /* DCTParentTableViewDataSource.m */,
+				244A67A1158B1AF600952890 /* DCTTableViewCell.h */,
+				244A67A2158B1AF600952890 /* DCTTableViewCell.m */,
+				24A389FB162303CF0003A1BE /* _DCTTableViewDataSourceUpdate.h */,
+				24A389FC162303CF0003A1BE /* _DCTTableViewDataSourceUpdate.m */,
+				244A67AC158B1AF700952890 /* UITableView+DCTNibRegistration.h */,
+				244A67AD158B1AF700952890 /* UITableView+DCTNibRegistration.m */,
+				244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */,
+				244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		24D4AB27162B2634009F3E35 /* Parent Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				244A6799158B1AF600952890 /* DCTInterspersedTableViewDataSource.h */,
+				244A679A158B1AF600952890 /* DCTInterspersedTableViewDataSource.m */,
+				244A679F158B1AF600952890 /* DCTSplitTableViewDataSource.h */,
+				244A67A0158B1AF600952890 /* DCTSplitTableViewDataSource.m */,
+				244A6793158B1AF600952890 /* DCTCollapsableSectionTableViewDataSource.h */,
+				244A6794158B1AF600952890 /* DCTCollapsableSectionTableViewDataSource.m */,
+				24A389FF162304B90003A1BE /* _DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell.h */,
+				24A38A00162304B90003A1BE /* _DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell.m */,
+				244A6797158B1AF600952890 /* DCTHorizontalTableViewDataSource.h */,
+				244A6798158B1AF600952890 /* DCTHorizontalTableViewDataSource.m */,
+			);
+			name = "Parent Data Sources";
+			sourceTree = "<group>";
+		};
+		24D4AB28162B2649009F3E35 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				244A6795158B1AF600952890 /* DCTFetchedResultsTableViewDataSource.h */,
+				244A6796158B1AF600952890 /* DCTFetchedResultsTableViewDataSource.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		24D4AB29162B26A8009F3E35 /* Object + Array */ = {
+			isa = PBXGroup;
+			children = (
+				244A678F158B1AF600952890 /* DCTArrayObservingTableViewDataSource.h */,
+				244A6790158B1AF600952890 /* DCTArrayObservingTableViewDataSource.m */,
+				244A6791158B1AF600952890 /* DCTArrayTableViewDataSource.h */,
+				244A6792158B1AF600952890 /* DCTArrayTableViewDataSource.m */,
+				244A679B158B1AF600952890 /* DCTObjectTableViewDataSource.h */,
+				244A679C158B1AF600952890 /* DCTObjectTableViewDataSource.m */,
+			);
+			name = "Object + Array";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
