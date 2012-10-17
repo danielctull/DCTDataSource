@@ -71,6 +71,7 @@
 	if (!self) return nil;
 	_fetchedResultsController = fetchedResultsController;
 	_fetchedResultsController.delegate = self;
+	[_fetchedResultsController performFetch:nil];
 	return self;
 }
 
