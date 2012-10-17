@@ -68,6 +68,9 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	_insertionAnimation = DCTTableViewDataSourceNoAnimationSet;
 	_deletionAnimation = DCTTableViewDataSourceNoAnimationSet;
 	_reloadAnimation = DCTTableViewDataSourceNoAnimationSet;
+	_cellReuseIdentifierHandler = ^NSString *(NSIndexPath *indexPath, id object) {
+		return @"DCTTableViewCell";
+	};
 	
     return self;
 }
