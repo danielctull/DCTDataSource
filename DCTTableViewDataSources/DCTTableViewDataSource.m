@@ -77,6 +77,11 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 
 #pragma mark - DCTTableViewDataSource
 
+- (void)setTableView:(UITableView *)tableView {
+	_tableView = tableView;
+	[_tableView registerClass:[DCTTableViewCell class] forCellReuseIdentifier:@"DCTTableViewCell"];
+}
+
 - (void)reloadData {
 	[self beginUpdates];
 	[self enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
@@ -319,6 +324,9 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	id object = [self objectAtIndexPath:indexPath];
 	
 	[self configureCell:cell atIndexPath:indexPath withObject:object];
+	
+	if ([cell conformsToProtocol:@protocol(DCTTableViewCellObjectConfiguration)])
+		[(id<DCTTableViewCellObjectConfiguration>)cell configureWithObject:object];
 	
 	if (self.cellConfigurer != NULL) self.cellConfigurer(cell, indexPath, object);
 	
