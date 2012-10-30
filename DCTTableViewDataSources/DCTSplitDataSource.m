@@ -181,14 +181,14 @@
 	if (self.type == DCTSplitTableViewDataSourceTypeRow) {
 		
 		[tableViewDataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-			[tableViewDataSource performRowUpdate:DCTTableViewDataSourceUpdateTypeRowInsert
+			[tableViewDataSource performRowUpdate:DCTDataSourceUpdateTypeRowInsert
 										indexPath:indexPath
 										animation:self.insertionAnimation];
 		}];
 		
 	} else {
 		
-		[self performSectionUpdate:DCTTableViewDataSourceUpdateTypeSectionInsert
+		[self performSectionUpdate:DCTDataSourceUpdateTypeSectionInsert
 					  sectionIndex:[childDataSources indexOfObject:tableViewDataSource]
 						 animation:self.insertionAnimation];
 	}
@@ -210,14 +210,14 @@
 	if (self.type == DCTSplitTableViewDataSourceTypeRow) {
 		
 		[tableViewDataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-			[tableViewDataSource performRowUpdate:DCTTableViewDataSourceUpdateTypeRowDelete
+			[tableViewDataSource performRowUpdate:DCTDataSourceUpdateTypeRowDelete
 										indexPath:indexPath
 										animation:self.deletionAnimation];
 		}];
 		
 	} else {
 		
-		[self performSectionUpdate:DCTTableViewDataSourceUpdateTypeSectionDelete
+		[self performSectionUpdate:DCTDataSourceUpdateTypeSectionDelete
 					  sectionIndex:index
 						 animation:self.deletionAnimation];
 	}

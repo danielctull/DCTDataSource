@@ -11,7 +11,7 @@
 @interface _DCTTableViewDataSourceUpdate : NSObject
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, assign) NSInteger section;
-@property (nonatomic, assign) DCTTableViewDataSourceUpdateType type;
+@property (nonatomic, assign) DCTDataSourceUpdateType type;
 @property (nonatomic, assign) UITableViewRowAnimation animation;
 - (BOOL)isSectionUpdate;
 @end

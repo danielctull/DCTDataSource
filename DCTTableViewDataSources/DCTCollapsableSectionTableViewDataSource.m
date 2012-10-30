@@ -156,14 +156,14 @@
 }
 
 
-- (void)performRowUpdate:(DCTTableViewDataSourceUpdateType)update
+- (void)performRowUpdate:(DCTDataSourceUpdateType)update
 			   indexPath:(NSIndexPath *)indexPath
 			   animation:(UITableViewRowAnimation)animation {
 	
 	if (!self.open) [super performRowUpdate:update indexPath:indexPath animation:animation];
 }
 
-- (void)performSectionUpdate:(DCTTableViewDataSourceUpdateType)update
+- (void)performSectionUpdate:(DCTDataSourceUpdateType)update
 				sectionIndex:(NSInteger)index
 				   animation:(UITableViewRowAnimation)animation {
 	

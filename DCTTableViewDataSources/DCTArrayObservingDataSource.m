@@ -80,17 +80,17 @@ void* arrayObservingContext = &arrayObservingContext;
 		NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
 		
 		if (changeType == NSKeyValueChangeInsertion)
-			[self performRowUpdate:DCTTableViewDataSourceUpdateTypeRowInsert
+			[self performRowUpdate:DCTDataSourceUpdateTypeRowInsert
 						 indexPath:indexPath
 						 animation:self.insertionAnimation];
 			
 		else if (changeType == NSKeyValueChangeRemoval)
-			[self performRowUpdate:DCTTableViewDataSourceUpdateTypeRowDelete
+			[self performRowUpdate:DCTDataSourceUpdateTypeRowDelete
 						 indexPath:indexPath
 						 animation:self.deletionAnimation];
 					
 		else if (changeType == NSKeyValueChangeReplacement)
-			[self performRowUpdate:DCTTableViewDataSourceUpdateTypeRowReload
+			[self performRowUpdate:DCTDataSourceUpdateTypeRowReload
 						 indexPath:indexPath
 						 animation:self.reloadAnimation];
 	}];

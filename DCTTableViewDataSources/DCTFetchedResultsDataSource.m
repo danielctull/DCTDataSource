@@ -153,13 +153,13 @@
 	
     switch(type) {
         case NSFetchedResultsChangeInsert:
-			[self performSectionUpdate:DCTTableViewDataSourceUpdateTypeSectionInsert
+			[self performSectionUpdate:DCTDataSourceUpdateTypeSectionInsert
 						  sectionIndex:sectionIndex
 							 animation:self.insertionAnimation];
             break;
 			
         case NSFetchedResultsChangeDelete:
-			[self performSectionUpdate:DCTTableViewDataSourceUpdateTypeSectionDelete
+			[self performSectionUpdate:DCTDataSourceUpdateTypeSectionDelete
 						  sectionIndex:sectionIndex
 							 animation:self.deletionAnimation];
             break;
@@ -175,28 +175,28 @@
     switch(type) {
 			
 		case NSFetchedResultsChangeInsert:
-			[self performRowUpdate:DCTTableViewDataSourceUpdateTypeRowInsert
+			[self performRowUpdate:DCTDataSourceUpdateTypeRowInsert
 						 indexPath:newIndexPath
 						 animation:self.insertionAnimation];
 			break;
 			
 		case NSFetchedResultsChangeDelete:
-			[self performRowUpdate:DCTTableViewDataSourceUpdateTypeRowDelete
+			[self performRowUpdate:DCTDataSourceUpdateTypeRowDelete
 						 indexPath:indexPath
 						 animation:self.deletionAnimation];
 			break;
 			
         case NSFetchedResultsChangeUpdate:
-			[self performRowUpdate:DCTTableViewDataSourceUpdateTypeRowReload
+			[self performRowUpdate:DCTDataSourceUpdateTypeRowReload
 						 indexPath:indexPath
 						 animation:self.reloadAnimation];
 			break;
 			
         case NSFetchedResultsChangeMove:
-			[self performRowUpdate:DCTTableViewDataSourceUpdateTypeRowDelete
+			[self performRowUpdate:DCTDataSourceUpdateTypeRowDelete
 						 indexPath:indexPath
 						 animation:self.deletionAnimation];
-			[self performRowUpdate:DCTTableViewDataSourceUpdateTypeRowInsert
+			[self performRowUpdate:DCTDataSourceUpdateTypeRowInsert
 						 indexPath:newIndexPath
 						 animation:self.insertionAnimation];
             break;

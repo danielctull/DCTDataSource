@@ -41,9 +41,9 @@
 #import "DCTParentDataSource.h"
 #import "_DCTTableViewDataSourceUpdate.h"
 
-void DCTTableViewDataSourceUpdateTypeAdd(DCTTableViewDataSourceUpdateType type, DCTTableViewDataSourceUpdateType typeToAdd) {
+void DCTDataSourceUpdateTypeAdd(DCTDataSourceUpdateType type, DCTDataSourceUpdateType typeToAdd) {
 	
-	if (type == DCTTableViewDataSourceUpdateTypeUnknown)
+	if (type == DCTDataSourceUpdateTypeUnknown)
 		type = typeToAdd;
 	
 	type = (type | typeToAdd);
@@ -86,7 +86,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	[self beginUpdates];
 	[self enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
 		
-		[self performRowUpdate:DCTTableViewDataSourceUpdateTypeRowReload
+		[self performRowUpdate:DCTDataSourceUpdateTypeRowReload
 					 indexPath:indexPath
 					 animation:self.reloadAnimation];
 		
@@ -144,23 +144,23 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 		
 		switch (update.type) {
 			
-			case DCTTableViewDataSourceUpdateTypeRowInsert:
+			case DCTDataSourceUpdateTypeRowInsert:
 				[self.tableView insertRowsAtIndexPaths:@[update.indexPath] withRowAnimation:update.animation];
 				break;
 			
-			case DCTTableViewDataSourceUpdateTypeRowDelete:
+			case DCTDataSourceUpdateTypeRowDelete:
 				[self.tableView deleteRowsAtIndexPaths:@[update.indexPath] withRowAnimation:update.animation];
 				break;
 				
-			case DCTTableViewDataSourceUpdateTypeRowReload:
+			case DCTDataSourceUpdateTypeRowReload:
 				[self.tableView reloadRowsAtIndexPaths:@[update.indexPath] withRowAnimation:update.animation];
 				break;
 				
-			case DCTTableViewDataSourceUpdateTypeSectionInsert:
+			case DCTDataSourceUpdateTypeSectionInsert:
 				[self.tableView insertSections:[NSIndexSet indexSetWithIndex:update.section] withRowAnimation:update.animation];
 				break;
 				
-			case DCTTableViewDataSourceUpdateTypeSectionDelete:
+			case DCTDataSourceUpdateTypeSectionDelete:
 				[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:update.section] withRowAnimation:update.animation];
 				break;
 				
@@ -198,19 +198,19 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 		
 		switch (update.type) {
 				
-			case DCTTableViewDataSourceUpdateTypeRowInsert:
+			case DCTDataSourceUpdateTypeRowInsert:
 				indexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section];
 				break;
 				
-			case DCTTableViewDataSourceUpdateTypeRowDelete:
+			case DCTDataSourceUpdateTypeRowDelete:
 				indexPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
 				break;
 				
-			case DCTTableViewDataSourceUpdateTypeSectionInsert:
+			case DCTDataSourceUpdateTypeSectionInsert:
 				indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section+1];
 				break;
 				
-			case DCTTableViewDataSourceUpdateTypeSectionDelete:
+			case DCTDataSourceUpdateTypeSectionDelete:
 				indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section-1];
 				break;
 				
@@ -233,17 +233,17 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	if (update.animation == DCTTableViewDataSourceNoAnimationSet) {
 		
 		switch (update.type) {
-			case DCTTableViewDataSourceUpdateTypeRowInsert:
-			case DCTTableViewDataSourceUpdateTypeSectionInsert:
+			case DCTDataSourceUpdateTypeRowInsert:
+			case DCTDataSourceUpdateTypeSectionInsert:
 				update.animation = self.insertionAnimation;
 				break;
 				
-			case DCTTableViewDataSourceUpdateTypeRowDelete:
-			case DCTTableViewDataSourceUpdateTypeSectionDelete:
+			case DCTDataSourceUpdateTypeRowDelete:
+			case DCTDataSourceUpdateTypeSectionDelete:
 				update.animation = self.deletionAnimation;
 				break;
 				
-			case DCTTableViewDataSourceUpdateTypeRowReload:
+			case DCTDataSourceUpdateTypeRowReload:
 				update.animation = self.reloadAnimation;
 				break;
 				
@@ -268,7 +268,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	[_updates addObject:update];
 }
 
-- (void)performSectionUpdate:(DCTTableViewDataSourceUpdateType)updateType
+- (void)performSectionUpdate:(DCTDataSourceUpdateType)updateType
 				sectionIndex:(NSInteger)index
 				   animation:(UITableViewRowAnimation)animation {
 	
@@ -279,7 +279,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	[self _performUpdate:update];
 }
 
-- (void)performRowUpdate:(DCTTableViewDataSourceUpdateType)updateType
+- (void)performRowUpdate:(DCTDataSourceUpdateType)updateType
 			   indexPath:(NSIndexPath *)indexPath
 			   animation:(UITableViewRowAnimation)animation {
 	

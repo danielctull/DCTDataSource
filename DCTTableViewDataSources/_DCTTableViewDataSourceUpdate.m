@@ -8,15 +8,15 @@
 
 #import "_DCTTableViewDataSourceUpdate.h"
 
-BOOL DCTTableViewDataSourceUpdateTypeIncludes(DCTTableViewDataSourceUpdateType type, DCTTableViewDataSourceUpdateType testType) {
+BOOL DCTDataSourceUpdateTypeIncludes(DCTDataSourceUpdateType type, DCTDataSourceUpdateType testType) {
 	return (type & testType) == testType;
 }
 
 @implementation _DCTTableViewDataSourceUpdate
 
 - (BOOL)isSectionUpdate {
-	return (DCTTableViewDataSourceUpdateTypeIncludes(self.type, DCTTableViewDataSourceUpdateTypeSectionInsert)
-			|| DCTTableViewDataSourceUpdateTypeIncludes(self.type, DCTTableViewDataSourceUpdateTypeSectionDelete));
+	return (DCTDataSourceUpdateTypeIncludes(self.type, DCTDataSourceUpdateTypeSectionInsert)
+			|| DCTDataSourceUpdateTypeIncludes(self.type, DCTDataSourceUpdateTypeSectionDelete));
 }
 
 - (NSComparisonResult)compare:(_DCTTableViewDataSourceUpdate *)update {

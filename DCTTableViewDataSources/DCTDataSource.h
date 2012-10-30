@@ -43,14 +43,14 @@
 #endif
 
 typedef enum {
-	DCTTableViewDataSourceUpdateTypeUnknown = 0,
-	DCTTableViewDataSourceUpdateTypeRowDelete = 1 << 0,
-	DCTTableViewDataSourceUpdateTypeSectionDelete = 1 << 1,
-	DCTTableViewDataSourceUpdateTypeRowInsert = 1 << 2,
-	DCTTableViewDataSourceUpdateTypeSectionInsert = 1 << 3,
-	DCTTableViewDataSourceUpdateTypeRowReload = 1 << 4,
-	DCTTableViewDataSourceUpdateTypeMove = 1 << 5,
-} DCTTableViewDataSourceUpdateType;
+	DCTDataSourceUpdateTypeUnknown = 0,
+	DCTDataSourceUpdateTypeRowDelete = 1 << 0,
+	DCTDataSourceUpdateTypeSectionDelete = 1 << 1,
+	DCTDataSourceUpdateTypeRowInsert = 1 << 2,
+	DCTDataSourceUpdateTypeSectionInsert = 1 << 3,
+	DCTDataSourceUpdateTypeRowReload = 1 << 4,
+	DCTDataSourceUpdateTypeMove = 1 << 5,
+} DCTDataSourceUpdateType;
 
 typedef enum {
 	DCTTableViewDataSourceReloadTypeDefault = 0,
@@ -125,11 +125,11 @@ typedef enum {
 - (void)beginUpdates;
 - (void)endUpdates;
 
-- (void)performSectionUpdate:(DCTTableViewDataSourceUpdateType)update
+- (void)performSectionUpdate:(DCTDataSourceUpdateType)update
 				sectionIndex:(NSInteger)index
 				   animation:(UITableViewRowAnimation)animation;
 
-- (void)performRowUpdate:(DCTTableViewDataSourceUpdateType)update
+- (void)performRowUpdate:(DCTDataSourceUpdateType)update
 			   indexPath:(NSIndexPath *)indexPath
 			   animation:(UITableViewRowAnimation)animation;
 
