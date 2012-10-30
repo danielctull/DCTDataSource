@@ -24,7 +24,7 @@
 #import "DCTHorizontalTableViewDataSource.h"
 #import "DCTInterspersedTableViewDataSource.h"
 #import "DCTObjectDataSource.h"
-#import "DCTSplitTableViewDataSource.h"
+#import "DCTSplitDataSource.h"
 
 
 @interface DCTTableViewDataSources : NSObject

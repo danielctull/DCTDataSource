@@ -34,15 +34,15 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTSplitTableViewDataSource.h"
+#import "DCTSplitDataSource.h"
 #import "UITableView+DCTTableViewDataSources.h"
 
-@interface DCTSplitTableViewDataSource ()
+@interface DCTSplitDataSource ()
 - (NSMutableArray *)dctInternal_tableViewDataSources;
 - (void)dctInternal_setupDataSource:(DCTDataSource *)dataSource;
 @end
 
-@implementation DCTSplitTableViewDataSource {
+@implementation DCTSplitDataSource {
 	__strong NSMutableArray *dctInternal_tableViewDataSources;
 }
 

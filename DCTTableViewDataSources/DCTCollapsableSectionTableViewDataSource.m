@@ -84,7 +84,7 @@
 	
 	BOOL tableViewHasLoaded;
 	
-	__strong DCTSplitTableViewDataSource *splitDataSource;
+	__strong DCTSplitDataSource *splitDataSource;
 	__strong DCTObjectDataSource *headerDataSource;
 }
 
@@ -98,7 +98,7 @@
 	
 	if (!(self = [super init])) return nil;
 	
-	splitDataSource = [[DCTSplitTableViewDataSource alloc] init];
+	splitDataSource = [[DCTSplitDataSource alloc] init];
 	splitDataSource.type = DCTSplitTableViewDataSourceTypeRow;
 	splitDataSource.parent = self;
 	
