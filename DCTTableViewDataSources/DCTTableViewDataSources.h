@@ -20,7 +20,7 @@
 #import "DCTArrayDataSource.h"
 #import "DCTArrayObservingDataSource.h"
 #import "DCTCollapsableSectionTableViewDataSource.h"
-#import "DCTFetchedResultsTableViewDataSource.h"
+#import "DCTFetchedResultsDataSource.h"
 #import "DCTHorizontalTableViewDataSource.h"
 #import "DCTInterspersedTableViewDataSource.h"
 #import "DCTObjectDataSource.h"

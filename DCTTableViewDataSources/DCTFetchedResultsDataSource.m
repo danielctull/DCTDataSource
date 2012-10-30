@@ -34,9 +34,9 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTFetchedResultsTableViewDataSource.h"
+#import "DCTFetchedResultsDataSource.h"
 
-@implementation DCTFetchedResultsTableViewDataSource
+@implementation DCTFetchedResultsDataSource
 
 #pragma mark - DCTTableViewDataSource
 

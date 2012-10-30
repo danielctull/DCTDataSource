@@ -51,7 +51,7 @@
  There may be other combinations that work also. Note however that without 
  a managed object context and some form of fetch request, this will crash.
  */
-@interface DCTFetchedResultsTableViewDataSource : DCTDataSource <NSFetchedResultsControllerDelegate>
+@interface DCTFetchedResultsDataSource : DCTDataSource <NSFetchedResultsControllerDelegate>
 
 - (id)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController;
 

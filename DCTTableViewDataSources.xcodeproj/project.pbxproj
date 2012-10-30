@@ -12,7 +12,7 @@
 		2437B7C015B97FEC00750117 /* DCTArrayObservingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6790158B1AF600952890 /* DCTArrayObservingDataSource.m */; };
 		2437B7C215B97FEC00750117 /* DCTArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6792158B1AF600952890 /* DCTArrayDataSource.m */; };
 		2437B7C415B97FEC00750117 /* DCTCollapsableSectionTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6794158B1AF600952890 /* DCTCollapsableSectionTableViewDataSource.m */; };
-		2437B7C615B97FEC00750117 /* DCTFetchedResultsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6796158B1AF600952890 /* DCTFetchedResultsTableViewDataSource.m */; };
+		2437B7C615B97FEC00750117 /* DCTFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6796158B1AF600952890 /* DCTFetchedResultsDataSource.m */; };
 		2437B7C815B97FEC00750117 /* DCTHorizontalTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6798158B1AF600952890 /* DCTHorizontalTableViewDataSource.m */; };
 		2437B7CA15B97FEC00750117 /* DCTInterspersedTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679A158B1AF600952890 /* DCTInterspersedTableViewDataSource.m */; };
 		2437B7CC15B97FEC00750117 /* DCTObjectDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679C158B1AF600952890 /* DCTObjectDataSource.m */; };
@@ -39,7 +39,7 @@
 		24C0298815B982F3009B1DE9 /* DCTArrayObservingDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A678F158B1AF600952890 /* DCTArrayObservingDataSource.h */; };
 		24C0298A15B982F3009B1DE9 /* DCTArrayDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6791158B1AF600952890 /* DCTArrayDataSource.h */; };
 		24C0298C15B982F3009B1DE9 /* DCTCollapsableSectionTableViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6793158B1AF600952890 /* DCTCollapsableSectionTableViewDataSource.h */; };
-		24C0298E15B982F3009B1DE9 /* DCTFetchedResultsTableViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6795158B1AF600952890 /* DCTFetchedResultsTableViewDataSource.h */; };
+		24C0298E15B982F3009B1DE9 /* DCTFetchedResultsDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6795158B1AF600952890 /* DCTFetchedResultsDataSource.h */; };
 		24C0299015B982F3009B1DE9 /* DCTHorizontalTableViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6797158B1AF600952890 /* DCTHorizontalTableViewDataSource.h */; };
 		24C0299215B982F3009B1DE9 /* DCTInterspersedTableViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6799158B1AF600952890 /* DCTInterspersedTableViewDataSource.h */; };
 		24C0299415B982F3009B1DE9 /* DCTObjectDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A679B158B1AF600952890 /* DCTObjectDataSource.h */; };
@@ -72,7 +72,7 @@
 				24C0298815B982F3009B1DE9 /* DCTArrayObservingDataSource.h in CopyFiles */,
 				24C0298A15B982F3009B1DE9 /* DCTArrayDataSource.h in CopyFiles */,
 				24C0298C15B982F3009B1DE9 /* DCTCollapsableSectionTableViewDataSource.h in CopyFiles */,
-				24C0298E15B982F3009B1DE9 /* DCTFetchedResultsTableViewDataSource.h in CopyFiles */,
+				24C0298E15B982F3009B1DE9 /* DCTFetchedResultsDataSource.h in CopyFiles */,
 				24C0299015B982F3009B1DE9 /* DCTHorizontalTableViewDataSource.h in CopyFiles */,
 				24C0299215B982F3009B1DE9 /* DCTInterspersedTableViewDataSource.h in CopyFiles */,
 				24C0299415B982F3009B1DE9 /* DCTObjectDataSource.h in CopyFiles */,
@@ -106,8 +106,8 @@
 		244A6792158B1AF600952890 /* DCTArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTArrayDataSource.m; sourceTree = "<group>"; };
 		244A6793158B1AF600952890 /* DCTCollapsableSectionTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTCollapsableSectionTableViewDataSource.h; sourceTree = "<group>"; };
 		244A6794158B1AF600952890 /* DCTCollapsableSectionTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTCollapsableSectionTableViewDataSource.m; sourceTree = "<group>"; };
-		244A6795158B1AF600952890 /* DCTFetchedResultsTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTFetchedResultsTableViewDataSource.h; sourceTree = "<group>"; };
-		244A6796158B1AF600952890 /* DCTFetchedResultsTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTFetchedResultsTableViewDataSource.m; sourceTree = "<group>"; };
+		244A6795158B1AF600952890 /* DCTFetchedResultsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTFetchedResultsDataSource.h; sourceTree = "<group>"; };
+		244A6796158B1AF600952890 /* DCTFetchedResultsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTFetchedResultsDataSource.m; sourceTree = "<group>"; };
 		244A6797158B1AF600952890 /* DCTHorizontalTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTHorizontalTableViewDataSource.h; sourceTree = "<group>"; };
 		244A6798158B1AF600952890 /* DCTHorizontalTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTHorizontalTableViewDataSource.m; sourceTree = "<group>"; };
 		244A6799158B1AF600952890 /* DCTInterspersedTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTInterspersedTableViewDataSource.h; sourceTree = "<group>"; };
@@ -300,8 +300,8 @@
 		24D4AB28162B2649009F3E35 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				244A6795158B1AF600952890 /* DCTFetchedResultsTableViewDataSource.h */,
-				244A6796158B1AF600952890 /* DCTFetchedResultsTableViewDataSource.m */,
+				244A6795158B1AF600952890 /* DCTFetchedResultsDataSource.h */,
+				244A6796158B1AF600952890 /* DCTFetchedResultsDataSource.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -450,7 +450,7 @@
 				2437B7C015B97FEC00750117 /* DCTArrayObservingDataSource.m in Sources */,
 				2437B7C215B97FEC00750117 /* DCTArrayDataSource.m in Sources */,
 				2437B7C415B97FEC00750117 /* DCTCollapsableSectionTableViewDataSource.m in Sources */,
-				2437B7C615B97FEC00750117 /* DCTFetchedResultsTableViewDataSource.m in Sources */,
+				2437B7C615B97FEC00750117 /* DCTFetchedResultsDataSource.m in Sources */,
 				2437B7C815B97FEC00750117 /* DCTHorizontalTableViewDataSource.m in Sources */,
 				2437B7CA15B97FEC00750117 /* DCTInterspersedTableViewDataSource.m in Sources */,
 				2437B7CC15B97FEC00750117 /* DCTObjectDataSource.m in Sources */,
