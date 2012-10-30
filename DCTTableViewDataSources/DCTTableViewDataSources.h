@@ -23,7 +23,7 @@
 #import "DCTFetchedResultsTableViewDataSource.h"
 #import "DCTHorizontalTableViewDataSource.h"
 #import "DCTInterspersedTableViewDataSource.h"
-#import "DCTObjectTableViewDataSource.h"
+#import "DCTObjectDataSource.h"
 #import "DCTSplitTableViewDataSource.h"
 
 

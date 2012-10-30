@@ -34,9 +34,9 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTObjectTableViewDataSource.h"
+#import "DCTObjectDataSource.h"
 
-@implementation DCTObjectTableViewDataSource
+@implementation DCTObjectDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	return 1;

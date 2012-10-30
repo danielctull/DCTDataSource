@@ -85,7 +85,7 @@
 	BOOL tableViewHasLoaded;
 	
 	__strong DCTSplitTableViewDataSource *splitDataSource;
-	__strong DCTObjectTableViewDataSource *headerDataSource;
+	__strong DCTObjectDataSource *headerDataSource;
 }
 
 @synthesize childTableViewDataSource;
@@ -102,7 +102,7 @@
 	splitDataSource.type = DCTSplitTableViewDataSourceTypeRow;
 	splitDataSource.parent = self;
 	
-	headerDataSource = [[DCTObjectTableViewDataSource alloc] init];
+	headerDataSource = [[DCTObjectDataSource alloc] init];
 	headerDataSource.cellReuseIdentifierHandler = ^(NSIndexPath *indexPath, id object) {
 		return @"DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell";
 	};

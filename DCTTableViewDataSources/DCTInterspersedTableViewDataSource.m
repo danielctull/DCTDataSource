@@ -7,17 +7,17 @@
 //
 
 #import "DCTInterspersedTableViewDataSource.h"
-#import "DCTObjectTableViewDataSource.h"
+#import "DCTObjectDataSource.h"
 
 @implementation DCTInterspersedTableViewDataSource {
-	__strong DCTObjectTableViewDataSource *_interspersedDataSource;
+	__strong DCTObjectDataSource *_interspersedDataSource;
 	NSUInteger _interspersedDataSourceCount;
 	NSUInteger _childRowCount;
 }
 
 - (id)init {
 	if (!(self = [super init])) return nil;
-	_interspersedDataSource = [DCTObjectTableViewDataSource new];
+	_interspersedDataSource = [DCTObjectDataSource new];
 	_interspersedDataSourceCount = 0;
 	_childRowCount = 0;
 	return self;

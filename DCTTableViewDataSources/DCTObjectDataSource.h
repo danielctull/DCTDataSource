@@ -52,7 +52,7 @@
  [configureWithObject:]([DCTTableViewCell configureWithObject:]) with the
  given object for you to set up with.
  */
-@interface DCTObjectTableViewDataSource : DCTDataSource
+@interface DCTObjectDataSource : DCTDataSource
 
 /** The represented object for the single cell in this data soruce.
  */
