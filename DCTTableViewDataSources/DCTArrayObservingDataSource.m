@@ -34,12 +34,12 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTArrayObservingTableViewDataSource.h"
+#import "DCTArrayObservingDataSource.h"
 #import "UITableView+DCTTableViewDataSources.h"
 
 void* arrayObservingContext = &arrayObservingContext;
 
-@implementation DCTArrayObservingTableViewDataSource {
+@implementation DCTArrayObservingDataSource {
 	__strong NSArray *_array;
 }
 

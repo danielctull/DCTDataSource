@@ -18,7 +18,7 @@
 #import "DCTParentDataSource.h"
 
 #import "DCTArrayTableViewDataSource.h"
-#import "DCTArrayObservingTableViewDataSource.h"
+#import "DCTArrayObservingDataSource.h"
 #import "DCTCollapsableSectionTableViewDataSource.h"
 #import "DCTFetchedResultsTableViewDataSource.h"
 #import "DCTHorizontalTableViewDataSource.h"

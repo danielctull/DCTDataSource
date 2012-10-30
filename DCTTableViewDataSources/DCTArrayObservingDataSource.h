@@ -36,7 +36,7 @@
 
 #import "DCTDataSource.h"
 
-@interface DCTArrayObservingTableViewDataSource : DCTDataSource
+@interface DCTArrayObservingDataSource : DCTDataSource
 
 - (id)initWithObject:(id)object arrayKeyPath:(NSString *)keyPath;
 
