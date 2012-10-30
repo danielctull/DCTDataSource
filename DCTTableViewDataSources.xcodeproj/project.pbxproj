@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		24297F101640109700E32187 /* DCTTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24297F0F1640109700E32187 /* DCTTableViewDataSource.m */; };
+		24297F141640165B00E32187 /* DCTCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24297F131640165B00E32187 /* DCTCollectionViewDataSource.m */; };
 		2437B77E15B97FA900750117 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244A6768158B1AB100952890 /* Foundation.framework */; };
 		2437B7C015B97FEC00750117 /* DCTArrayObservingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6790158B1AF600952890 /* DCTArrayObservingDataSource.m */; };
 		2437B7C215B97FEC00750117 /* DCTArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6792158B1AF600952890 /* DCTArrayDataSource.m */; };
@@ -91,6 +92,8 @@
 /* Begin PBXFileReference section */
 		24297F0E1640109700E32187 /* DCTTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTableViewDataSource.h; sourceTree = "<group>"; };
 		24297F0F1640109700E32187 /* DCTTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTableViewDataSource.m; sourceTree = "<group>"; };
+		24297F121640165B00E32187 /* DCTCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTCollectionViewDataSource.h; sourceTree = "<group>"; };
+		24297F131640165B00E32187 /* DCTCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTCollectionViewDataSource.m; sourceTree = "<group>"; };
 		2437B77D15B97FA900750117 /* libDCTTableViewDataSources.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDCTTableViewDataSources.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2437B7F915B9802A00750117 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		244A6768158B1AB100952890 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -173,6 +176,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24297F111640161200E32187 /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				24297F0E1640109700E32187 /* DCTTableViewDataSource.h */,
+				24297F0F1640109700E32187 /* DCTTableViewDataSource.m */,
+				244A6797158B1AF600952890 /* DCTHorizontalTableViewDataSource.h */,
+				244A6798158B1AF600952890 /* DCTHorizontalTableViewDataSource.m */,
+			);
+			name = UITableView;
+			sourceTree = "<group>";
+		};
+		24297F151640166400E32187 /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				24297F121640165B00E32187 /* DCTCollectionViewDataSource.h */,
+				24297F131640165B00E32187 /* DCTCollectionViewDataSource.m */,
+			);
+			name = UICollectionView;
+			sourceTree = "<group>";
+		};
 		244A675A158B1AB100952890 = {
 			isa = PBXGroup;
 			children = (
@@ -210,9 +233,9 @@
 			children = (
 				244A67A5158B1AF600952890 /* DCTTableViewDataSources.h */,
 				24700B5015B8362100FA5843 /* DCTTableViewDataSources.m */,
-				24297F0E1640109700E32187 /* DCTTableViewDataSource.h */,
-				24297F0F1640109700E32187 /* DCTTableViewDataSource.m */,
 				24D4AB25162B260F009F3E35 /* Core */,
+				24297F111640161200E32187 /* UITableView */,
+				24297F151640166400E32187 /* UICollectionView */,
 				24D4AB29162B26A8009F3E35 /* Object + Array */,
 				24D4AB27162B2634009F3E35 /* Parent Data Sources */,
 				24D4AB28162B2649009F3E35 /* Core Data */,
@@ -291,8 +314,6 @@
 				244A6794158B1AF600952890 /* DCTCollapsableSectionTableViewDataSource.m */,
 				24A389FF162304B90003A1BE /* _DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell.h */,
 				24A38A00162304B90003A1BE /* _DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell.m */,
-				244A6797158B1AF600952890 /* DCTHorizontalTableViewDataSource.h */,
-				244A6798158B1AF600952890 /* DCTHorizontalTableViewDataSource.m */,
 			);
 			name = "Parent Data Sources";
 			sourceTree = "<group>";
@@ -464,6 +485,7 @@
 				24A389FD162303CF0003A1BE /* _DCTTableViewDataSourceUpdate.m in Sources */,
 				24A38A01162304B90003A1BE /* _DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell.m in Sources */,
 				24297F101640109700E32187 /* DCTTableViewDataSource.m in Sources */,
+				24297F141640165B00E32187 /* DCTCollectionViewDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
