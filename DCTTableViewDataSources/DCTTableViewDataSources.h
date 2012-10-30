@@ -14,7 +14,7 @@
 #endif
 
 #import "DCTTableViewCell.h"
-#import "DCTTableViewDataSource.h"
+#import "DCTDataSource.h"
 #import "DCTParentTableViewDataSource.h"
 
 #import "DCTArrayTableViewDataSource.h"

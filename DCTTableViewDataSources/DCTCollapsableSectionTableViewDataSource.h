@@ -67,7 +67,7 @@
 
 /** The child data source to expand.
  */
-@property (nonatomic, strong) DCTTableViewDataSource *childTableViewDataSource;
+@property (nonatomic, strong) DCTDataSource *childTableViewDataSource;
 
 /** The class to use for header cell. Assuming it conforms to the 
  DCTTableViewCellObjectConfiguration protocol, it will get an instance of 

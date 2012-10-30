@@ -35,7 +35,7 @@
  */
 
 #import <UIKit/UIKit.h>
-@class DCTTableViewDataSource;
+@class DCTDataSource;
 
 @interface UITableView (DCTTableViewDataSources)
 
@@ -60,7 +60,7 @@
  
  @return The section in the table view's co-ordinate space.
  */
-- (NSInteger)dct_convertSection:(NSInteger)section fromChildTableViewDataSource:(DCTTableViewDataSource *)dataSource;
+- (NSInteger)dct_convertSection:(NSInteger)section fromChildTableViewDataSource:(DCTDataSource *)dataSource;
 
 /** Returns the indexPath, with respect to the table view, of an index path 
  in the given child data source's structure. This uses the conversion methods
@@ -71,6 +71,6 @@
  
  @return The index path in the table view's co-ordinate space.
  */
-- (NSIndexPath *)dct_convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(DCTTableViewDataSource *)dataSource;
+- (NSIndexPath *)dct_convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(DCTDataSource *)dataSource;
 
 @end

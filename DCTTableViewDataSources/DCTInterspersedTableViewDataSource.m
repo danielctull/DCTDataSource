@@ -23,7 +23,7 @@
 	return self;
 }
  
-- (void)setChildTableViewDataSource:(DCTTableViewDataSource *)childTableViewDataSource {
+- (void)setChildTableViewDataSource:(DCTDataSource *)childTableViewDataSource {
 	_childTableViewDataSource = childTableViewDataSource;
 	_childTableViewDataSource.parent = self;
 }
@@ -96,7 +96,7 @@
 	return [NSArray arrayWithObjects:self.childTableViewDataSource, _interspersedDataSource, nil];
 }
 
-- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(DCTTableViewDataSource *)dataSource {
+- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(DCTDataSource *)dataSource {
 	
 	if ([dataSource isEqual:_interspersedDataSource])
 		return [NSIndexPath indexPathForRow:1 inSection:indexPath.section];
@@ -106,7 +106,7 @@
 	return [NSIndexPath indexPathForRow:row inSection:indexPath.section];	
 }
 
-- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath toChildTableViewDataSource:(DCTTableViewDataSource *)dataSource {
+- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath toChildTableViewDataSource:(DCTDataSource *)dataSource {
 	
 	if ([dataSource isEqual:_interspersedDataSource])
 		return [NSIndexPath indexPathForRow:0 inSection:0];
@@ -118,11 +118,11 @@
 	return [NSIndexPath indexPathForRow:row inSection:indexPath.section];
 }
 
-- (DCTTableViewDataSource *)childTableViewDataSourceForSection:(NSInteger)section {
+- (DCTDataSource *)childTableViewDataSourceForSection:(NSInteger)section {
 	return self.childTableViewDataSource;
 }
 
-- (DCTTableViewDataSource *)childTableViewDataSourceForIndexPath:(NSIndexPath *)indexPath {
+- (DCTDataSource *)childTableViewDataSourceForIndexPath:(NSIndexPath *)indexPath {
 	
 	if (indexPath.row % 2 == 0) return self.childTableViewDataSource;
 		

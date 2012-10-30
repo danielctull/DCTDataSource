@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Daniel Tull. All rights reserved.
 //
 
-#import "DCTTableViewDataSource.h"
+#import "DCTDataSource.h"
 
 @interface _DCTTableViewDataSourceUpdate : NSObject
 @property (nonatomic, strong) NSIndexPath *indexPath;

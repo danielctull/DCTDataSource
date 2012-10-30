@@ -38,7 +38,7 @@
 
 @implementation DCTHorizontalTableViewDataSource
 
-- (id)initWithChildTableViewDataSource:(DCTTableViewDataSource *)childTableViewDataSource {
+- (id)initWithChildTableViewDataSource:(DCTDataSource *)childTableViewDataSource {
 	self = [super init];
 	if (!self) return nil;
 	_childTableViewDataSource = childTableViewDataSource;

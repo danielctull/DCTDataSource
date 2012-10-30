@@ -34,7 +34,7 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTTableViewDataSource.h"
+#import "DCTDataSource.h"
 
 /** This is an abstract class that implements forwarding of the UITableViewDataSource methods to child data source 
  objects. You should use a subclass or make your own parent subclass, which must implement all of the methods declared
@@ -42,7 +42,7 @@
  
  Examples of concrete subclasses are DCTSplitTableViewDataSource and DCTCollapsableSectionTableViewDataSource.
 */
-@interface DCTParentTableViewDataSource : DCTTableViewDataSource
+@interface DCTParentTableViewDataSource : DCTDataSource
 
 /// @name Conversion
 
@@ -53,7 +53,7 @@
  
  @return The section in the co-ordinate space of the parent.
  */
-- (NSInteger)convertSection:(NSInteger)section fromChildTableViewDataSource:(DCTTableViewDataSource *)dataSource;
+- (NSInteger)convertSection:(NSInteger)section fromChildTableViewDataSource:(DCTDataSource *)dataSource;
 
 /** Conversion method
  
@@ -62,7 +62,7 @@
  
  @return The section in the co-ordinate space of the child.
  */
-- (NSInteger)convertSection:(NSInteger)section toChildTableViewDataSource:(DCTTableViewDataSource *)dataSource;
+- (NSInteger)convertSection:(NSInteger)section toChildTableViewDataSource:(DCTDataSource *)dataSource;
 
 /** Conversion method
  
@@ -71,7 +71,7 @@
  
  @return The index path in the co-ordinate space of the parent.
  */
-- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(DCTTableViewDataSource *)dataSource;
+- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(DCTDataSource *)dataSource;
 
 /** Conversion method
  
@@ -80,7 +80,7 @@
  
  @return The index path in the co-ordinate space of the child.
  */
-- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath toChildTableViewDataSource:(DCTTableViewDataSource *)dataSource;
+- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath toChildTableViewDataSource:(DCTDataSource *)dataSource;
 
 /// @name Retrieving child data sources
 
@@ -98,7 +98,7 @@
  
  @return The data source object for the given section.
  */
-- (DCTTableViewDataSource *)childTableViewDataSourceForSection:(NSInteger)section;
+- (DCTDataSource *)childTableViewDataSourceForSection:(NSInteger)section;
 
 /** Retrieves the child data source for a given index path.
  
@@ -107,6 +107,6 @@
  
  @return The data source object for the given indexPath.
  */
-- (DCTTableViewDataSource *)childTableViewDataSourceForIndexPath:(NSIndexPath *)indexPath;
+- (DCTDataSource *)childTableViewDataSourceForIndexPath:(NSIndexPath *)indexPath;
 
 @end

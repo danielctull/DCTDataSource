@@ -34,7 +34,7 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTTableViewDataSource.h"
+#import "DCTDataSource.h"
 
 /** A simple, perhaps the most simple, data source class. It gives back one 
  section and one row, displaying a cell with the given represented object.
@@ -52,7 +52,7 @@
  [configureWithObject:]([DCTTableViewCell configureWithObject:]) with the
  given object for you to set up with.
  */
-@interface DCTObjectTableViewDataSource : DCTTableViewDataSource
+@interface DCTObjectTableViewDataSource : DCTDataSource
 
 /** The represented object for the single cell in this data soruce.
  */

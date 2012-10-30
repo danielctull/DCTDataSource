@@ -34,7 +34,7 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTTableViewDataSource.h"
+#import "DCTDataSource.h"
 #import <CoreData/CoreData.h>
 
 /** A data source that stays in sync with a Core Data fetch request using a
@@ -51,7 +51,7 @@
  There may be other combinations that work also. Note however that without 
  a managed object context and some form of fetch request, this will crash.
  */
-@interface DCTFetchedResultsTableViewDataSource : DCTTableViewDataSource <NSFetchedResultsControllerDelegate>
+@interface DCTFetchedResultsTableViewDataSource : DCTDataSource <NSFetchedResultsControllerDelegate>
 
 - (id)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController;
 

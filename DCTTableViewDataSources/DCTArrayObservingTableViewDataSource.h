@@ -34,9 +34,9 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTTableViewDataSource.h"
+#import "DCTDataSource.h"
 
-@interface DCTArrayObservingTableViewDataSource : DCTTableViewDataSource
+@interface DCTArrayObservingTableViewDataSource : DCTDataSource
 
 - (id)initWithObject:(id)object arrayKeyPath:(NSString *)keyPath;
 

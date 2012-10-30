@@ -34,7 +34,7 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTTableViewDataSource.h"
+#import "DCTDataSource.h"
 #import "DCTTableViewCell.h"
 #import "UITableView+DCTTableViewDataSources.h"
 #import "UITableView+DCTNibRegistration.h"
@@ -51,7 +51,7 @@ void DCTTableViewDataSourceUpdateTypeAdd(DCTTableViewDataSourceUpdateType type, 
 
 NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 
-@implementation DCTTableViewDataSource {
+@implementation DCTDataSource {
 	__strong NSMutableArray *_updates;
 }
 

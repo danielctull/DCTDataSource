@@ -66,7 +66,7 @@ typedef enum {
  When subclassing, generally you should write your own implmentation for the objectAtIndexPath:
  and reloadData methods.
  */
-@interface DCTTableViewDataSource : NSObject <UITableViewDataSource>
+@interface DCTDataSource : NSObject <UITableViewDataSource>
 
 @property (nonatomic, copy) NSString *(^cellReuseIdentifierHandler)(NSIndexPath *indexPath, id object);
 

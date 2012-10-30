@@ -34,8 +34,8 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTTableViewDataSource.h"
+#import "DCTDataSource.h"
 
-@interface DCTArrayTableViewDataSource : DCTTableViewDataSource
+@interface DCTArrayTableViewDataSource : DCTDataSource
 @property (nonatomic, copy) NSArray *array;
 @end

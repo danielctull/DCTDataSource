@@ -39,7 +39,7 @@
 
 @interface DCTSplitTableViewDataSource ()
 - (NSMutableArray *)dctInternal_tableViewDataSources;
-- (void)dctInternal_setupDataSource:(DCTTableViewDataSource *)dataSource;
+- (void)dctInternal_setupDataSource:(DCTDataSource *)dataSource;
 @end
 
 @implementation DCTSplitTableViewDataSource {
@@ -52,7 +52,7 @@
 	return [[self dctInternal_tableViewDataSources] copy];
 }
 
-- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(DCTTableViewDataSource *)dataSource {
+- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(DCTDataSource *)dataSource {
 	
 	NSAssert([dctInternal_tableViewDataSources containsObject:dataSource], @"dataSource should be a child table view data source");
 	
@@ -62,7 +62,7 @@
 		
 		__block NSInteger row = indexPath.row;
 		
-		[dataSources enumerateObjectsUsingBlock:^(DCTTableViewDataSource *ds, NSUInteger idx, BOOL *stop) {
+		[dataSources enumerateObjectsUsingBlock:^(DCTDataSource *ds, NSUInteger idx, BOOL *stop) {
 						
 			if ([ds isEqual:dataSource])
 				*stop = YES;
@@ -81,7 +81,7 @@
 	return indexPath;
 }
 
-- (NSInteger)convertSection:(NSInteger)section fromChildTableViewDataSource:(DCTTableViewDataSource *)dataSource {
+- (NSInteger)convertSection:(NSInteger)section fromChildTableViewDataSource:(DCTDataSource *)dataSource {
 	
 	NSAssert([dctInternal_tableViewDataSources containsObject:dataSource], @"dataSource should be a child table view data source");
 	
@@ -93,7 +93,7 @@
 	return section;
 }
 
-- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath toChildTableViewDataSource:(DCTTableViewDataSource *)dataSource {
+- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath toChildTableViewDataSource:(DCTDataSource *)dataSource {
 	
 	NSAssert([dctInternal_tableViewDataSources containsObject:dataSource], @"dataSource should be a child table view data source");
 	
@@ -102,7 +102,7 @@
 		__block NSInteger totalRows = 0;
 		NSInteger row = indexPath.row;
 		
-		[[self dctInternal_tableViewDataSources] enumerateObjectsUsingBlock:^(DCTTableViewDataSource *ds, NSUInteger idx, BOOL *stop) {
+		[[self dctInternal_tableViewDataSources] enumerateObjectsUsingBlock:^(DCTDataSource *ds, NSUInteger idx, BOOL *stop) {
 			
 			NSInteger numberOfRows = [ds tableView:self.tableView numberOfRowsInSection:0];
 						
@@ -120,12 +120,12 @@
 	return [NSIndexPath indexPathForRow:indexPath.row inSection:0];
 }
 
-- (NSInteger)convertSection:(NSInteger)section toChildTableViewDataSource:(DCTTableViewDataSource *)dataSource {
+- (NSInteger)convertSection:(NSInteger)section toChildTableViewDataSource:(DCTDataSource *)dataSource {
 	NSAssert([dctInternal_tableViewDataSources containsObject:dataSource], @"dataSource should be a child table view data source");
 	return 0;
 }
 
-- (DCTTableViewDataSource *)childTableViewDataSourceForSection:(NSInteger)section {
+- (DCTDataSource *)childTableViewDataSourceForSection:(NSInteger)section {
 	
 	NSArray *dataSources = [self dctInternal_tableViewDataSources];
 	
@@ -139,15 +139,15 @@
 	return [dataSources objectAtIndex:section];
 }
 
-- (DCTTableViewDataSource *)childTableViewDataSourceForIndexPath:(NSIndexPath *)indexPath {
+- (DCTDataSource *)childTableViewDataSourceForIndexPath:(NSIndexPath *)indexPath {
 	
 	if (self.type == DCTSplitTableViewDataSourceTypeRow) {
 		
 		__block NSInteger totalRows = 0;
-		__block DCTTableViewDataSource * dataSource = nil;
+		__block DCTDataSource * dataSource = nil;
 		NSInteger row = indexPath.row;
 		
-		[[self dctInternal_tableViewDataSources] enumerateObjectsUsingBlock:^(DCTTableViewDataSource *ds, NSUInteger idx, BOOL *stop) {
+		[[self dctInternal_tableViewDataSources] enumerateObjectsUsingBlock:^(DCTDataSource *ds, NSUInteger idx, BOOL *stop) {
 			
 			NSInteger numberOfRows = [ds tableView:self.tableView numberOfRowsInSection:0];
 			
@@ -168,7 +168,7 @@
 
 #pragma mark - DCTSplitTableViewDataSource methods
 
-- (void)addChildTableViewDataSource:(DCTTableViewDataSource *)tableViewDataSource {
+- (void)addChildTableViewDataSource:(DCTDataSource *)tableViewDataSource {
 	
 	NSMutableArray *childDataSources = [self dctInternal_tableViewDataSources];
 		
@@ -196,7 +196,7 @@
 	[self endUpdates];
 }
 
-- (void)removeChildTableViewDataSource:(DCTTableViewDataSource *)tableViewDataSource {
+- (void)removeChildTableViewDataSource:(DCTDataSource *)tableViewDataSource {
 	
 	NSAssert([dctInternal_tableViewDataSources containsObject:tableViewDataSource], @"dataSource should be a child table view data source");
 	
@@ -243,7 +243,7 @@
 	
 	__block NSInteger numberOfRows = 0;
 	
-	[[self dctInternal_tableViewDataSources] enumerateObjectsUsingBlock:^(DCTTableViewDataSource * ds, NSUInteger idx, BOOL *stop) {
+	[[self dctInternal_tableViewDataSources] enumerateObjectsUsingBlock:^(DCTDataSource * ds, NSUInteger idx, BOOL *stop) {
 		numberOfRows += [ds tableView:self.tableView numberOfRowsInSection:0];
 	}];
 	
@@ -260,7 +260,7 @@
 	return dctInternal_tableViewDataSources;	
 }
 		 
-- (void)dctInternal_setupDataSource:(DCTTableViewDataSource *)dataSource {
+- (void)dctInternal_setupDataSource:(DCTDataSource *)dataSource {
 	dataSource.tableView = self.tableView;
 	dataSource.parent = self;
 }
