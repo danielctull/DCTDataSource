@@ -38,15 +38,13 @@
 
 @implementation DCTHorizontalTableViewDataSource
 
-- (id)initWithChildTableViewDataSource:(DCTDataSource *)childTableViewDataSource {
-	self = [super init];
+- (id)initWithTableView:(UITableView *)tableView dataSource:(DCTDataSource *)dataSource {
+	self = [super initWithTableView:tableView dataSource:dataSource];
 	if (!self) return nil;
-	_childTableViewDataSource = childTableViewDataSource;
+	CGRect frame = tableView.frame;
+	tableView.transform = CGAffineTransformMakeRotation(-M_PI_2);
+	tableView.frame = frame;
 	return self;
-}
-
-- (NSArray *)childTableViewDataSources {
-	return [NSArray arrayWithObject:self.childTableViewDataSource];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -58,13 +56,6 @@
 	cell.contentView.transform = CGAffineTransformMakeRotation(M_PI_2);
 	
     return cell;
-}
-
-- (void)setTableView:(UITableView *)tableView {
-	CGRect frame = tableView.frame;
-	tableView.transform = CGAffineTransformMakeRotation(-M_PI_2);
-	tableView.frame = frame;
-	[super setTableView:tableView];
 }
 
 @end

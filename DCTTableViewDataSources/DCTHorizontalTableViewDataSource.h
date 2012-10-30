@@ -34,9 +34,7 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTParentDataSource.h"
+#import "DCTTableViewDataSource.h"
 
-@interface DCTHorizontalTableViewDataSource : DCTParentDataSource
-- (id)initWithChildTableViewDataSource:(DCTDataSource *)childTableViewDataSource;
-@property (nonatomic, readonly, strong) DCTDataSource *childTableViewDataSource;
+@interface DCTHorizontalTableViewDataSource : DCTTableViewDataSource
 @end
