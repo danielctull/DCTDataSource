@@ -38,7 +38,7 @@
 #import "DCTTableViewCell.h"
 #import "UITableView+DCTTableViewDataSources.h"
 #import "UITableView+DCTNibRegistration.h"
-#import "DCTParentTableViewDataSource.h"
+#import "DCTParentDataSource.h"
 #import "_DCTTableViewDataSourceUpdate.h"
 
 void DCTTableViewDataSourceUpdateTypeAdd(DCTTableViewDataSourceUpdateType type, DCTTableViewDataSourceUpdateType typeToAdd) {

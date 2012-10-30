@@ -42,7 +42,7 @@
  
  Examples of concrete subclasses are DCTSplitTableViewDataSource and DCTCollapsableSectionTableViewDataSource.
 */
-@interface DCTParentTableViewDataSource : DCTDataSource
+@interface DCTParentDataSource : DCTDataSource
 
 /// @name Conversion
 

@@ -34,7 +34,7 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTParentTableViewDataSource.h"
+#import "DCTParentDataSource.h"
 
 typedef enum {
 	DCTSplitTableViewDataSourceTypeSection = 0,
@@ -42,7 +42,7 @@ typedef enum {
 } DCTSplitTableViewDataSourceType;
 
 /** A class to provide a way of displaying data from multiple data sources in a table view. */
-@interface DCTSplitTableViewDataSource : DCTParentTableViewDataSource
+@interface DCTSplitTableViewDataSource : DCTParentDataSource
 
 /** Add a child data source. This calls to the tableView to animate the cells in.
  

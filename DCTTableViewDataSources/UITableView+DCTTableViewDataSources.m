@@ -36,7 +36,7 @@
 
 #import "UITableView+DCTTableViewDataSources.h"
 #import "DCTTableViewCell.h"
-#import "DCTParentTableViewDataSource.h"
+#import "DCTParentDataSource.h"
 #import "DCTDataSource.h"
 #import "UITableView+DCTNibRegistration.h"
 
@@ -55,8 +55,8 @@
 	
 	NSLog(@"%@%@", string, self);
 	
-	if ([self isKindOfClass:[DCTParentTableViewDataSource class]]) {
-		for (id object in [(DCTParentTableViewDataSource *)self childTableViewDataSources])
+	if ([self isKindOfClass:[DCTParentDataSource class]]) {
+		for (id object in [(DCTParentDataSource *)self childTableViewDataSources])
 			[object dct_logTableViewDataSourcesLevel:level+1];
 	}
 }
@@ -81,7 +81,7 @@
 
 - (NSInteger)dct_convertSection:(NSInteger)section fromChildTableViewDataSource:(DCTDataSource *)dataSource {
 	
-	DCTParentTableViewDataSource *parent = dataSource.parent;
+	DCTParentDataSource *parent = dataSource.parent;
 	
 	while (parent) {
 		section = [parent convertSection:section fromChildTableViewDataSource:dataSource];
@@ -97,7 +97,7 @@
 
 - (NSIndexPath *)dct_convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(DCTDataSource *)dataSource {
 	
-	DCTParentTableViewDataSource *parent = dataSource.parent;
+	DCTParentDataSource *parent = dataSource.parent;
 	
 	while (parent) {
 		indexPath = [parent convertIndexPath:indexPath fromChildTableViewDataSource:dataSource];

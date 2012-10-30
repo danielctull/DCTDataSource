@@ -15,7 +15,7 @@
 		2437B7C815B97FEC00750117 /* DCTHorizontalTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6798158B1AF600952890 /* DCTHorizontalTableViewDataSource.m */; };
 		2437B7CA15B97FEC00750117 /* DCTInterspersedTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679A158B1AF600952890 /* DCTInterspersedTableViewDataSource.m */; };
 		2437B7CC15B97FEC00750117 /* DCTObjectTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679C158B1AF600952890 /* DCTObjectTableViewDataSource.m */; };
-		2437B7CE15B97FEC00750117 /* DCTParentTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679E158B1AF600952890 /* DCTParentTableViewDataSource.m */; };
+		2437B7CE15B97FEC00750117 /* DCTParentDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679E158B1AF600952890 /* DCTParentDataSource.m */; };
 		2437B7D015B97FEC00750117 /* DCTSplitTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A0158B1AF600952890 /* DCTSplitTableViewDataSource.m */; };
 		2437B7D215B97FEC00750117 /* DCTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A2158B1AF600952890 /* DCTTableViewCell.m */; };
 		2437B7D415B97FEC00750117 /* DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A4158B1AF600952890 /* DCTDataSource.m */; };
@@ -42,7 +42,7 @@
 		24C0299015B982F3009B1DE9 /* DCTHorizontalTableViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6797158B1AF600952890 /* DCTHorizontalTableViewDataSource.h */; };
 		24C0299215B982F3009B1DE9 /* DCTInterspersedTableViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6799158B1AF600952890 /* DCTInterspersedTableViewDataSource.h */; };
 		24C0299415B982F3009B1DE9 /* DCTObjectTableViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A679B158B1AF600952890 /* DCTObjectTableViewDataSource.h */; };
-		24C0299615B982F3009B1DE9 /* DCTParentTableViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A679D158B1AF600952890 /* DCTParentTableViewDataSource.h */; };
+		24C0299615B982F3009B1DE9 /* DCTParentDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A679D158B1AF600952890 /* DCTParentDataSource.h */; };
 		24C0299815B982F3009B1DE9 /* DCTSplitTableViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A679F158B1AF600952890 /* DCTSplitTableViewDataSource.h */; };
 		24C0299A15B982F3009B1DE9 /* DCTTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67A1158B1AF600952890 /* DCTTableViewCell.h */; };
 		24C0299C15B982F3009B1DE9 /* DCTDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67A3158B1AF600952890 /* DCTDataSource.h */; };
@@ -75,7 +75,7 @@
 				24C0299015B982F3009B1DE9 /* DCTHorizontalTableViewDataSource.h in CopyFiles */,
 				24C0299215B982F3009B1DE9 /* DCTInterspersedTableViewDataSource.h in CopyFiles */,
 				24C0299415B982F3009B1DE9 /* DCTObjectTableViewDataSource.h in CopyFiles */,
-				24C0299615B982F3009B1DE9 /* DCTParentTableViewDataSource.h in CopyFiles */,
+				24C0299615B982F3009B1DE9 /* DCTParentDataSource.h in CopyFiles */,
 				24C0299815B982F3009B1DE9 /* DCTSplitTableViewDataSource.h in CopyFiles */,
 				24C0299A15B982F3009B1DE9 /* DCTTableViewCell.h in CopyFiles */,
 				24C0299C15B982F3009B1DE9 /* DCTDataSource.h in CopyFiles */,
@@ -111,8 +111,8 @@
 		244A679A158B1AF600952890 /* DCTInterspersedTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTInterspersedTableViewDataSource.m; sourceTree = "<group>"; };
 		244A679B158B1AF600952890 /* DCTObjectTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTObjectTableViewDataSource.h; sourceTree = "<group>"; };
 		244A679C158B1AF600952890 /* DCTObjectTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTObjectTableViewDataSource.m; sourceTree = "<group>"; };
-		244A679D158B1AF600952890 /* DCTParentTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTParentTableViewDataSource.h; sourceTree = "<group>"; };
-		244A679E158B1AF600952890 /* DCTParentTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTParentTableViewDataSource.m; sourceTree = "<group>"; };
+		244A679D158B1AF600952890 /* DCTParentDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTParentDataSource.h; sourceTree = "<group>"; };
+		244A679E158B1AF600952890 /* DCTParentDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTParentDataSource.m; sourceTree = "<group>"; };
 		244A679F158B1AF600952890 /* DCTSplitTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTSplitTableViewDataSource.h; sourceTree = "<group>"; };
 		244A67A0158B1AF600952890 /* DCTSplitTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTSplitTableViewDataSource.m; sourceTree = "<group>"; };
 		244A67A1158B1AF600952890 /* DCTTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTableViewCell.h; sourceTree = "<group>"; };
@@ -261,8 +261,8 @@
 			children = (
 				244A67A3158B1AF600952890 /* DCTDataSource.h */,
 				244A67A4158B1AF600952890 /* DCTDataSource.m */,
-				244A679D158B1AF600952890 /* DCTParentTableViewDataSource.h */,
-				244A679E158B1AF600952890 /* DCTParentTableViewDataSource.m */,
+				244A679D158B1AF600952890 /* DCTParentDataSource.h */,
+				244A679E158B1AF600952890 /* DCTParentDataSource.m */,
 				244A67A1158B1AF600952890 /* DCTTableViewCell.h */,
 				244A67A2158B1AF600952890 /* DCTTableViewCell.m */,
 				24A389FB162303CF0003A1BE /* _DCTTableViewDataSourceUpdate.h */,
@@ -449,7 +449,7 @@
 				2437B7C815B97FEC00750117 /* DCTHorizontalTableViewDataSource.m in Sources */,
 				2437B7CA15B97FEC00750117 /* DCTInterspersedTableViewDataSource.m in Sources */,
 				2437B7CC15B97FEC00750117 /* DCTObjectTableViewDataSource.m in Sources */,
-				2437B7CE15B97FEC00750117 /* DCTParentTableViewDataSource.m in Sources */,
+				2437B7CE15B97FEC00750117 /* DCTParentDataSource.m in Sources */,
 				2437B7D015B97FEC00750117 /* DCTSplitTableViewDataSource.m in Sources */,
 				2437B7D215B97FEC00750117 /* DCTTableViewCell.m in Sources */,
 				2437B7D415B97FEC00750117 /* DCTDataSource.m in Sources */,

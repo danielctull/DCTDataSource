@@ -34,7 +34,7 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTParentTableViewDataSource.h"
+#import "DCTParentDataSource.h"
 
 /** A class to represent the header cell for the collapsable data source. 
  */
@@ -63,7 +63,7 @@
  above its childTableViewDataSource to allow expanding and collapsing in an 
  acordian style.
  */
-@interface DCTCollapsableSectionTableViewDataSource : DCTParentTableViewDataSource
+@interface DCTCollapsableSectionTableViewDataSource : DCTParentDataSource
 
 /** The child data source to expand.
  */

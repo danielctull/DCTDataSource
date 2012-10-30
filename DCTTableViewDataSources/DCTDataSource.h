@@ -58,7 +58,7 @@ typedef enum {
 	DCTTableViewDataSourceReloadTypeTop
 } DCTTableViewDataSourceReloadType;
 
-@class DCTParentTableViewDataSource;
+@class DCTParentDataSource;
 
 /** An abstract class to represent a core DCTTableViewDataSource object. Examples of concrete 
  subclasses are DCTObjectTableViewDataSource and DCTFetchedResultsTableViewDataSource.
@@ -80,7 +80,7 @@ typedef enum {
  parent, although this is not always true (for instance the root 
  data source).
  */
-@property (nonatomic, unsafe_unretained) DCTParentTableViewDataSource *parent;
+@property (nonatomic, unsafe_unretained) DCTParentDataSource *parent;
 
 /** A convinient way to repload the cells of the data source, this 
  should be overridden by subclasses to provide desired results.

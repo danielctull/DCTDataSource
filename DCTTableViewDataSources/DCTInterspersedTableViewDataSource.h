@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Daniel Tull Limited. All rights reserved.
 //
 
-#import "DCTParentTableViewDataSource.h"
+#import "DCTParentDataSource.h"
 
-@interface DCTInterspersedTableViewDataSource : DCTParentTableViewDataSource
+@interface DCTInterspersedTableViewDataSource : DCTParentDataSource
 /** The child data source to intersperse.
  */
 @property (nonatomic, strong) DCTDataSource *childTableViewDataSource;
