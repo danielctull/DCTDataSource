@@ -1,5 +1,5 @@
 /*
- DCTArrayTableViewDataSource.h
+ DCTArrayTableViewDataSource.m
  DCTTableViewDataSources
  
  Created by Daniel Tull on 26.12.2011.
@@ -34,8 +34,39 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTDataSource.h"
+#import "DCTArrayDataSource.h"
+#import "UITableView+DCTTableViewDataSources.h"
 
-@interface DCTArrayTableViewDataSource : DCTDataSource
-@property (nonatomic, copy) NSArray *array;
+@implementation DCTArrayDataSource
+
+- (void)setArray:(NSArray *)array {
+	
+	[self beginUpdates];
+	
+	[_array enumerateObjectsUsingBlock:^(id obj, NSUInteger i, BOOL *stop) {
+		[self performRowUpdate:DCTTableViewDataSourceUpdateTypeRowDelete
+					 indexPath:[NSIndexPath indexPathForRow:i inSection:0]
+					 animation:self.deletionAnimation];
+	}];
+		
+	
+	_array = [array copy];
+	
+	[_array enumerateObjectsUsingBlock:^(id obj, NSUInteger i, BOOL *stop) {
+		[self performRowUpdate:DCTTableViewDataSourceUpdateTypeRowInsert
+					 indexPath:[NSIndexPath indexPathForRow:i inSection:0]
+					 animation:self.deletionAnimation];
+	}];
+	
+	[self endUpdates];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return [self.array count];
+}
+
+- (id)objectAtIndexPath:(NSIndexPath *)indexPath {
+	return [self.array objectAtIndex:indexPath.row];
+}
+
 @end
