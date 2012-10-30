@@ -39,7 +39,7 @@
 #import "UITableView+DCTTableViewDataSources.h"
 #import "UITableView+DCTNibRegistration.h"
 #import "DCTParentDataSource.h"
-#import "_DCTTableViewDataSourceUpdate.h"
+#import "_DCTDataSourceUpdate.h"
 
 void DCTDataSourceUpdateTypeAdd(DCTDataSourceUpdateType type, DCTDataSourceUpdateType typeToAdd) {
 	
@@ -137,7 +137,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 		
 	[self.tableView beginUpdates];
 	
-	[_updates enumerateObjectsUsingBlock:^(_DCTTableViewDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
+	[_updates enumerateObjectsUsingBlock:^(_DCTDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
 		
 		if (update.animation == DCTTableViewDataSourceNoAnimationSet)
 			update.animation = DCTTableViewDataSourceTableViewRowAnimationAutomatic;
@@ -189,7 +189,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	
 	NSArray *updates = [_updates sortedArrayUsingSelector:@selector(compare:)];
 			
-	[updates enumerateObjectsUsingBlock:^(_DCTTableViewDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
+	[updates enumerateObjectsUsingBlock:^(_DCTDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
 				
 		if ([update.indexPath compare:indexPath] == NSOrderedDescending) {
 			*stop = YES;
@@ -228,7 +228,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	self.tableView.contentOffset = offset;
 }
 
-- (void)_performUpdate:(_DCTTableViewDataSourceUpdate *)update {
+- (void)_performUpdate:(_DCTDataSourceUpdate *)update {
 	
 	if (update.animation == DCTTableViewDataSourceNoAnimationSet) {
 		
@@ -272,7 +272,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 				sectionIndex:(NSInteger)index
 				   animation:(UITableViewRowAnimation)animation {
 	
-	_DCTTableViewDataSourceUpdate *update = [_DCTTableViewDataSourceUpdate new];
+	_DCTDataSourceUpdate *update = [_DCTDataSourceUpdate new];
 	update.animation = animation;
 	update.type = updateType;
 	update.section = index;
@@ -283,7 +283,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 			   indexPath:(NSIndexPath *)indexPath
 			   animation:(UITableViewRowAnimation)animation {
 	
-	_DCTTableViewDataSourceUpdate *update = [_DCTTableViewDataSourceUpdate new];
+	_DCTDataSourceUpdate *update = [_DCTDataSourceUpdate new];
 	update.animation = animation;
 	update.type = updateType;
 	update.indexPath = indexPath;

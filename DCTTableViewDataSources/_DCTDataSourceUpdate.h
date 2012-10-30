@@ -8,7 +8,7 @@
 
 #import "DCTDataSource.h"
 
-@interface _DCTTableViewDataSourceUpdate : NSObject
+@interface _DCTDataSourceUpdate : NSObject
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, assign) NSInteger section;
 @property (nonatomic, assign) DCTDataSourceUpdateType type;
