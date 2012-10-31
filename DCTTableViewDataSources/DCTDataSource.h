@@ -68,8 +68,6 @@ typedef enum {
  */
 @interface DCTDataSource : NSObject <UITableViewDataSource>
 
-@property (nonatomic, copy) NSString *(^cellReuseIdentifierHandler)(NSIndexPath *indexPath, id object);
-
 /** The table view that is associated with the data source.
  */
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
@@ -80,14 +78,15 @@ typedef enum {
  parent, although this is not always true (for instance the root 
  data source).
  */
-@property (nonatomic, unsafe_unretained) DCTParentDataSource *parent;
+@property (nonatomic, weak) DCTParentDataSource *parent;
 
 /** A convinient way to repload the cells of the data source, this 
  should be overridden by subclasses to provide desired results.
  */
 - (void)reloadData;
 
-@property (nonatomic, assign) DCTTableViewDataSourceReloadType reloadType;
+- (NSInteger)numberOfSections;
+- (NSInteger)numberOfItemsInSection:(NSInteger)section;
 
 /** To get the associated object from the data source for the given 
  index path. By default this returns the index path, but subclasses
@@ -103,20 +102,11 @@ typedef enum {
  */
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath;
 
-/** This allows subclasses to simply configure the cell without needing
- to implement the standard tableView:cellForRowAtIndexPath: method.
- 
- @param cell The cell to be configured.
- @param indexPath The index path in the co-ordinate space of the data source.
- @param object The represented object at the indexPath.
- */
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object;
-
-@property (nonatomic, copy) void(^cellConfigurer)(id cell, NSIndexPath *indexPath, id object);
-
 
 @property (nonatomic, copy) NSString *sectionHeaderTitle;
 @property (nonatomic, copy) NSString *sectionFooterTitle;
+
+@property (nonatomic, assign) DCTTableViewDataSourceReloadType reloadType;
 
 @property (nonatomic, assign) UITableViewRowAnimation insertionAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation reloadAnimation;

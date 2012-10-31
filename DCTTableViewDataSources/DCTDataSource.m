@@ -68,9 +68,6 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	_insertionAnimation = DCTTableViewDataSourceNoAnimationSet;
 	_deletionAnimation = DCTTableViewDataSourceNoAnimationSet;
 	_reloadAnimation = DCTTableViewDataSourceNoAnimationSet;
-	_cellReuseIdentifierHandler = ^NSString *(NSIndexPath *indexPath, id object) {
-		return @"DCTTableViewCell";
-	};
 	
     return self;
 }
@@ -94,15 +91,17 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	[self endUpdates];
 }
 
-- (id)objectAtIndexPath:(NSIndexPath *)indexPath {
-	return indexPath;
+
+- (NSInteger)numberOfSections {
+	return 0;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object {}
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
+	return 0;
+}
 
-- (NSString *)_cellReuseIdentifierAtIndexPath:(NSIndexPath *)indexPath {
-	id object = [self objectAtIndexPath:indexPath];
-	return self.cellReuseIdentifierHandler(indexPath, object);
+- (id)objectAtIndexPath:(NSIndexPath *)indexPath {
+	return indexPath;
 }
 
 #pragma mark - Updating the table view
@@ -305,32 +304,6 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 			if (stop) return;
 		}
 	}	
-}
-
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tv numberOfRowsInSection:(NSInteger)section {
-	return 5;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	
-	NSString *cellIdentifier = [self _cellReuseIdentifierAtIndexPath:indexPath];
-    UITableViewCell *cell = [tv dct_dequeueReusableCellWithIdentifier:cellIdentifier];
-	
-	if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-											 reuseIdentifier:cellIdentifier];
-    
-	id object = [self objectAtIndexPath:indexPath];
-	
-	[self configureCell:cell atIndexPath:indexPath withObject:object];
-	
-	if ([cell conformsToProtocol:@protocol(DCTTableViewCellObjectConfiguration)])
-		[(id<DCTTableViewCellObjectConfiguration>)cell configureWithObject:object];
-	
-	if (self.cellConfigurer != NULL) self.cellConfigurer(cell, indexPath, object);
-	
-	return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {

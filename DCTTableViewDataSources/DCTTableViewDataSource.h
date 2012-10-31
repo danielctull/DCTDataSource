@@ -15,4 +15,7 @@
 @property (nonatomic, readonly, weak) UITableView *tableView;
 @property (nonatomic, readonly, strong) DCTDataSource *dataSource;
 
+@property (nonatomic, copy) void(^cellConfigurer)(id cell, NSIndexPath *indexPath, id object);
+@property (nonatomic, copy) NSString *(^cellReuseIdentifierHandler)(NSIndexPath *indexPath, id object);
+
 @end

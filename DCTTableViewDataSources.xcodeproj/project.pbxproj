@@ -183,6 +183,12 @@
 				24297F0F1640109700E32187 /* DCTTableViewDataSource.m */,
 				244A6797158B1AF600952890 /* DCTHorizontalTableViewDataSource.h */,
 				244A6798158B1AF600952890 /* DCTHorizontalTableViewDataSource.m */,
+				244A67A1158B1AF600952890 /* DCTTableViewCell.h */,
+				244A67A2158B1AF600952890 /* DCTTableViewCell.m */,
+				244A67AC158B1AF700952890 /* UITableView+DCTNibRegistration.h */,
+				244A67AD158B1AF700952890 /* UITableView+DCTNibRegistration.m */,
+				244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */,
+				244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */,
 			);
 			name = UITableView;
 			sourceTree = "<group>";
@@ -291,14 +297,8 @@
 				244A67A4158B1AF600952890 /* DCTDataSource.m */,
 				244A679D158B1AF600952890 /* DCTParentDataSource.h */,
 				244A679E158B1AF600952890 /* DCTParentDataSource.m */,
-				244A67A1158B1AF600952890 /* DCTTableViewCell.h */,
-				244A67A2158B1AF600952890 /* DCTTableViewCell.m */,
 				24A389FB162303CF0003A1BE /* _DCTDataSourceUpdate.h */,
 				24A389FC162303CF0003A1BE /* _DCTDataSourceUpdate.m */,
-				244A67AC158B1AF700952890 /* UITableView+DCTNibRegistration.h */,
-				244A67AD158B1AF700952890 /* UITableView+DCTNibRegistration.m */,
-				244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */,
-				244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
