@@ -83,7 +83,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	[self beginUpdates];
 	[self enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
 		
-		[self performRowUpdate:DCTDataSourceUpdateTypeRowReload
+		[self performRowUpdate:DCTDataSourceUpdateTypeItemReload
 					 indexPath:indexPath
 					 animation:self.reloadAnimation];
 		
@@ -143,15 +143,15 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 		
 		switch (update.type) {
 			
-			case DCTDataSourceUpdateTypeRowInsert:
+			case DCTDataSourceUpdateTypeItemInsert:
 				[self.tableView insertRowsAtIndexPaths:@[update.indexPath] withRowAnimation:update.animation];
 				break;
 			
-			case DCTDataSourceUpdateTypeRowDelete:
+			case DCTDataSourceUpdateTypeItemDelete:
 				[self.tableView deleteRowsAtIndexPaths:@[update.indexPath] withRowAnimation:update.animation];
 				break;
 				
-			case DCTDataSourceUpdateTypeRowReload:
+			case DCTDataSourceUpdateTypeItemReload:
 				[self.tableView reloadRowsAtIndexPaths:@[update.indexPath] withRowAnimation:update.animation];
 				break;
 				
@@ -197,11 +197,11 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 		
 		switch (update.type) {
 				
-			case DCTDataSourceUpdateTypeRowInsert:
+			case DCTDataSourceUpdateTypeItemInsert:
 				indexPath = [NSIndexPath indexPathForRow:indexPath.row+1 inSection:indexPath.section];
 				break;
 				
-			case DCTDataSourceUpdateTypeRowDelete:
+			case DCTDataSourceUpdateTypeItemDelete:
 				indexPath = [NSIndexPath indexPathForRow:indexPath.row-1 inSection:indexPath.section];
 				break;
 				
@@ -232,17 +232,17 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	if (update.animation == DCTTableViewDataSourceNoAnimationSet) {
 		
 		switch (update.type) {
-			case DCTDataSourceUpdateTypeRowInsert:
+			case DCTDataSourceUpdateTypeItemInsert:
 			case DCTDataSourceUpdateTypeSectionInsert:
 				update.animation = self.insertionAnimation;
 				break;
 				
-			case DCTDataSourceUpdateTypeRowDelete:
+			case DCTDataSourceUpdateTypeItemDelete:
 			case DCTDataSourceUpdateTypeSectionDelete:
 				update.animation = self.deletionAnimation;
 				break;
 				
-			case DCTDataSourceUpdateTypeRowReload:
+			case DCTDataSourceUpdateTypeItemReload:
 				update.animation = self.reloadAnimation;
 				break;
 				

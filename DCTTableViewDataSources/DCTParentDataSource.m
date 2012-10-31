@@ -45,6 +45,12 @@
 		[ds reloadData];
 }
 
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
+	DCTDataSource * ds = [self childTableViewDataSourceForSection:section];
+	section = [self convertSection:section toChildTableViewDataSource:ds];
+	return [ds numberOfItemsInSection:section];
+}
+
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
 	DCTDataSource * ds = [self childTableViewDataSourceForIndexPath:indexPath];
 	indexPath = [self convertIndexPath:indexPath toChildTableViewDataSource:ds];

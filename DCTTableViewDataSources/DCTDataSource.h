@@ -38,12 +38,12 @@
 
 typedef enum {
 	DCTDataSourceUpdateTypeUnknown = 0,
-	DCTDataSourceUpdateTypeRowDelete = 1 << 0,
+	DCTDataSourceUpdateTypeItemDelete = 1 << 0,
 	DCTDataSourceUpdateTypeSectionDelete = 1 << 1,
-	DCTDataSourceUpdateTypeRowInsert = 1 << 2,
+	DCTDataSourceUpdateTypeItemInsert = 1 << 2,
 	DCTDataSourceUpdateTypeSectionInsert = 1 << 3,
-	DCTDataSourceUpdateTypeRowReload = 1 << 4,
-	DCTDataSourceUpdateTypeMove = 1 << 5,
+	DCTDataSourceUpdateTypeItemReload = 1 << 4,
+	DCTDataSourceUpdateTypeItemMove = 1 << 5,
 } DCTDataSourceUpdateType;
 
 typedef enum {

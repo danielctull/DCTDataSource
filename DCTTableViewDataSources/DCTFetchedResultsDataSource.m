@@ -175,28 +175,28 @@
     switch(type) {
 			
 		case NSFetchedResultsChangeInsert:
-			[self performRowUpdate:DCTDataSourceUpdateTypeRowInsert
+			[self performRowUpdate:DCTDataSourceUpdateTypeItemInsert
 						 indexPath:newIndexPath
 						 animation:self.insertionAnimation];
 			break;
 			
 		case NSFetchedResultsChangeDelete:
-			[self performRowUpdate:DCTDataSourceUpdateTypeRowDelete
+			[self performRowUpdate:DCTDataSourceUpdateTypeItemDelete
 						 indexPath:indexPath
 						 animation:self.deletionAnimation];
 			break;
 			
         case NSFetchedResultsChangeUpdate:
-			[self performRowUpdate:DCTDataSourceUpdateTypeRowReload
+			[self performRowUpdate:DCTDataSourceUpdateTypeItemReload
 						 indexPath:indexPath
 						 animation:self.reloadAnimation];
 			break;
 			
         case NSFetchedResultsChangeMove:
-			[self performRowUpdate:DCTDataSourceUpdateTypeRowDelete
+			[self performRowUpdate:DCTDataSourceUpdateTypeItemDelete
 						 indexPath:indexPath
 						 animation:self.deletionAnimation];
-			[self performRowUpdate:DCTDataSourceUpdateTypeRowInsert
+			[self performRowUpdate:DCTDataSourceUpdateTypeItemInsert
 						 indexPath:newIndexPath
 						 animation:self.insertionAnimation];
             break;

@@ -50,10 +50,10 @@
 			   indexPath:(NSIndexPath *)indexPath
 			   animation:(UITableViewRowAnimation)animation {
 	
-	if (update == DCTDataSourceUpdateTypeRowDelete)
+	if (update == DCTDataSourceUpdateTypeItemDelete)
 		[self performDeleteWithIndexPath:indexPath animation:animation];
 		
-	else if (update == DCTDataSourceUpdateTypeRowInsert)
+	else if (update == DCTDataSourceUpdateTypeItemInsert)
 		[self performInsertWithIndexPath:indexPath animation:animation];
 	
 	else
@@ -63,7 +63,7 @@
 - (void)performDeleteWithIndexPath:(NSIndexPath *)indexPath animation:(UITableViewRowAnimation)animation {
 	
 	_childRowCount--;
-	[super performRowUpdate:DCTDataSourceUpdateTypeRowDelete indexPath:indexPath animation:animation];
+	[super performRowUpdate:DCTDataSourceUpdateTypeItemDelete indexPath:indexPath animation:animation];
 	
 	if (_childRowCount == 0) return;
 	
@@ -72,13 +72,13 @@
 	if (childIndexPath.row == _childRowCount) interspersedRowToDelete = indexPath.row - 1;
 	
 	_interspersedDataSourceCount--;
-	[super performRowUpdate:DCTDataSourceUpdateTypeRowDelete indexPath:[NSIndexPath indexPathForRow:interspersedRowToDelete inSection:0] animation:animation];
+	[super performRowUpdate:DCTDataSourceUpdateTypeItemDelete indexPath:[NSIndexPath indexPathForRow:interspersedRowToDelete inSection:0] animation:animation];
 }
 
 - (void)performInsertWithIndexPath:(NSIndexPath *)indexPath animation:(UITableViewRowAnimation)animation {
 	
 	_childRowCount++;
-	[super performRowUpdate:DCTDataSourceUpdateTypeRowInsert indexPath:indexPath animation:animation];
+	[super performRowUpdate:DCTDataSourceUpdateTypeItemInsert indexPath:indexPath animation:animation];
 	
 	if (_childRowCount == 1) return;
 	
@@ -87,7 +87,7 @@
 	if (childIndexPath.row == 0) interspersedRowToInsert = indexPath.row + 1;
 	
 	_interspersedDataSourceCount++;
-	[super performRowUpdate:DCTDataSourceUpdateTypeRowInsert indexPath:[NSIndexPath indexPathForRow:interspersedRowToInsert inSection:0] animation:animation];
+	[super performRowUpdate:DCTDataSourceUpdateTypeItemInsert indexPath:[NSIndexPath indexPathForRow:interspersedRowToInsert inSection:0] animation:animation];
 }
 
 #pragma mark - DCTParentTableViewDataSource

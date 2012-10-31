@@ -181,7 +181,7 @@
 	if (self.type == DCTSplitTableViewDataSourceTypeRow) {
 		
 		[tableViewDataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-			[tableViewDataSource performRowUpdate:DCTDataSourceUpdateTypeRowInsert
+			[tableViewDataSource performRowUpdate:DCTDataSourceUpdateTypeItemInsert
 										indexPath:indexPath
 										animation:self.insertionAnimation];
 		}];
@@ -210,7 +210,7 @@
 	if (self.type == DCTSplitTableViewDataSourceTypeRow) {
 		
 		[tableViewDataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-			[tableViewDataSource performRowUpdate:DCTDataSourceUpdateTypeRowDelete
+			[tableViewDataSource performRowUpdate:DCTDataSourceUpdateTypeItemDelete
 										indexPath:indexPath
 										animation:self.deletionAnimation];
 		}];
