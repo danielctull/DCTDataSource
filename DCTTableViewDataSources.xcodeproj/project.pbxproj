@@ -12,10 +12,8 @@
 		2437B77E15B97FA900750117 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244A6768158B1AB100952890 /* Foundation.framework */; };
 		2437B7C015B97FEC00750117 /* DCTArrayObservingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6790158B1AF600952890 /* DCTArrayObservingDataSource.m */; };
 		2437B7C215B97FEC00750117 /* DCTArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6792158B1AF600952890 /* DCTArrayDataSource.m */; };
-		2437B7C415B97FEC00750117 /* DCTCollapsableSectionTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6794158B1AF600952890 /* DCTCollapsableSectionTableViewDataSource.m */; };
 		2437B7C615B97FEC00750117 /* DCTFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6796158B1AF600952890 /* DCTFetchedResultsDataSource.m */; };
 		2437B7C815B97FEC00750117 /* DCTHorizontalTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6798158B1AF600952890 /* DCTHorizontalTableViewDataSource.m */; };
-		2437B7CA15B97FEC00750117 /* DCTInterspersedTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679A158B1AF600952890 /* DCTInterspersedTableViewDataSource.m */; };
 		2437B7CC15B97FEC00750117 /* DCTObjectDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679C158B1AF600952890 /* DCTObjectDataSource.m */; };
 		2437B7CE15B97FEC00750117 /* DCTParentDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679E158B1AF600952890 /* DCTParentDataSource.m */; };
 		2437B7D015B97FEC00750117 /* DCTSplitDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A0158B1AF600952890 /* DCTSplitDataSource.m */; };
@@ -470,10 +468,8 @@
 			files = (
 				2437B7C015B97FEC00750117 /* DCTArrayObservingDataSource.m in Sources */,
 				2437B7C215B97FEC00750117 /* DCTArrayDataSource.m in Sources */,
-				2437B7C415B97FEC00750117 /* DCTCollapsableSectionTableViewDataSource.m in Sources */,
 				2437B7C615B97FEC00750117 /* DCTFetchedResultsDataSource.m in Sources */,
 				2437B7C815B97FEC00750117 /* DCTHorizontalTableViewDataSource.m in Sources */,
-				2437B7CA15B97FEC00750117 /* DCTInterspersedTableViewDataSource.m in Sources */,
 				2437B7CC15B97FEC00750117 /* DCTObjectDataSource.m in Sources */,
 				2437B7CE15B97FEC00750117 /* DCTParentDataSource.m in Sources */,
 				2437B7D015B97FEC00750117 /* DCTSplitDataSource.m in Sources */,

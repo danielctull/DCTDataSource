@@ -59,11 +59,6 @@
 	return [self.fetchedResultsController objectAtIndexPath:indexPath];
 }
 
-- (void)setTableView:(UITableView *)tableView {
-	[super setTableView:tableView];
-	
-}
-
 #pragma mark - DCTFetchedResultsTableViewDataSource
 
 - (id)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController {

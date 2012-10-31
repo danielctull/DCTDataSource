@@ -18,4 +18,6 @@
 @property (nonatomic, copy) void(^cellConfigurer)(id cell, NSIndexPath *indexPath, id object);
 @property (nonatomic, copy) NSString *(^cellReuseIdentifierHandler)(NSIndexPath *indexPath, id object);
 
+@property (nonatomic, assign) DCTTableViewDataSourceReloadType reloadType;
+
 @end

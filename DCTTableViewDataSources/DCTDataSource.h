@@ -62,10 +62,6 @@ typedef enum {
  */
 @interface DCTDataSource : NSObject <UITableViewDataSource>
 
-/** The table view that is associated with the data source.
- */
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
-
 /** A parent data source, if one exists.
  
  To enable nesting any data source has the potential to have a
@@ -99,8 +95,6 @@ typedef enum {
 
 @property (nonatomic, copy) NSString *sectionHeaderTitle;
 @property (nonatomic, copy) NSString *sectionFooterTitle;
-
-@property (nonatomic, assign) DCTTableViewDataSourceReloadType reloadType;
 
 @property (nonatomic, assign) UITableViewRowAnimation insertionAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation reloadAnimation;

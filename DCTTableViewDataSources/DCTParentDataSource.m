@@ -57,17 +57,6 @@
 	return [ds objectAtIndexPath:indexPath];
 }
 
-- (void)setTableView:(UITableView *)tv {
-	
-	if (tv == self.tableView) return;
-	
-	[super setTableView:tv];
-	
-	[self.childTableViewDataSources enumerateObjectsUsingBlock:^(DCTDataSource * ds, NSUInteger idx, BOOL *stop) {
-		[ds setTableView:self.tableView];
-	}];
-}
-
 #pragma mark - DCTParentTableViewDataSource
 
 - (NSArray *)childTableViewDataSources {

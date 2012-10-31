@@ -39,7 +39,6 @@
 
 @interface DCTSplitDataSource ()
 - (NSMutableArray *)dctInternal_tableViewDataSources;
-- (void)dctInternal_setupDataSource:(DCTDataSource *)dataSource;
 @end
 
 @implementation DCTSplitDataSource {
@@ -67,7 +66,7 @@
 			if ([ds isEqual:dataSource])
 				*stop = YES;
 			else
-				row += [ds tableView:self.tableView numberOfRowsInSection:0];
+				row += [ds numberOfItemsInSection:0];
 			
 		}];
 		
@@ -99,20 +98,20 @@
 	
 	if (self.type == DCTSplitTableViewDataSourceTypeRow) {
 		
-		__block NSInteger totalRows = 0;
+		__block NSInteger totalItems = 0;
 		NSInteger row = indexPath.row;
 		
 		[[self dctInternal_tableViewDataSources] enumerateObjectsUsingBlock:^(DCTDataSource *ds, NSUInteger idx, BOOL *stop) {
 			
-			NSInteger numberOfRows = [ds tableView:self.tableView numberOfRowsInSection:0];
+			NSInteger numberOfItems = [ds numberOfItemsInSection:0];
 						
-			if ((totalRows + numberOfRows) > row)
+			if ((totalItems + numberOfItems) > row)
 				*stop = YES;
 			else
-				totalRows += numberOfRows;
+				totalItems += numberOfItems;
 		}];
 		
-		row = indexPath.row - totalRows;
+		row = indexPath.row - totalItems;
 		
 		return [NSIndexPath indexPathForRow:row inSection:0];
 	}
@@ -149,7 +148,7 @@
 		
 		[[self dctInternal_tableViewDataSources] enumerateObjectsUsingBlock:^(DCTDataSource *ds, NSUInteger idx, BOOL *stop) {
 			
-			NSInteger numberOfRows = [ds tableView:self.tableView numberOfRowsInSection:0];
+			NSInteger numberOfRows = [ds numberOfItemsInSection:0];
 			
 			totalRows += numberOfRows;
 			
@@ -169,11 +168,11 @@
 #pragma mark - DCTSplitTableViewDataSource methods
 
 - (void)addChildTableViewDataSource:(DCTDataSource *)tableViewDataSource {
-	
+
+	tableViewDataSource.parent = self;
+
 	NSMutableArray *childDataSources = [self dctInternal_tableViewDataSources];
-		
-	[self dctInternal_setupDataSource:tableViewDataSource];
-		
+
 	[self beginUpdates];
 	
 	[childDataSources addObject:tableViewDataSource];
@@ -227,24 +226,23 @@
 
 #pragma mark - UITableViewDataSource methods
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tv {
+- (NSInteger)numberOfSections {
 	
 	if (self.type == DCTSplitTableViewDataSourceTypeRow)
 		return 1;
-		
-	self.tableView = tv;
+	
 	return [[self dctInternal_tableViewDataSources] count];
 }
 
-- (NSInteger)tableView:(UITableView *)tv numberOfRowsInSection:(NSInteger)section {
-	if (self.type == DCTSplitTableViewDataSourceTypeSection)
-		return [super tableView:tv numberOfRowsInSection:section];
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
 	
+	if (self.type == DCTSplitTableViewDataSourceTypeSection)
+		return [super numberOfItemsInSection:section];
 	
 	__block NSInteger numberOfRows = 0;
 	
 	[[self dctInternal_tableViewDataSources] enumerateObjectsUsingBlock:^(DCTDataSource * ds, NSUInteger idx, BOOL *stop) {
-		numberOfRows += [ds tableView:self.tableView numberOfRowsInSection:0];
+		numberOfRows += [ds numberOfItemsInSection:0];
 	}];
 	
 	return numberOfRows;
@@ -258,11 +256,6 @@
 		dctInternal_tableViewDataSources = [[NSMutableArray alloc] init];
 	
 	return dctInternal_tableViewDataSources;	
-}
-		 
-- (void)dctInternal_setupDataSource:(DCTDataSource *)dataSource {
-	dataSource.tableView = self.tableView;
-	dataSource.parent = self;
 }
 
 @end
