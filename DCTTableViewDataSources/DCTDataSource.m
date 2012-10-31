@@ -139,7 +139,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	[_updates enumerateObjectsUsingBlock:^(_DCTDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
 		
 		if (update.animation == DCTTableViewDataSourceNoAnimationSet)
-			update.animation = DCTTableViewDataSourceTableViewRowAnimationAutomatic;
+			update.animation = UITableViewRowAnimationAutomatic;
 		
 		switch (update.type) {
 			

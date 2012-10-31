@@ -36,12 +36,6 @@
 
 #import <UIKit/UIKit.h>
 
-#if !defined DCTTableViewDataSourceTableViewRowAnimationAutomatic && __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_5_0
-#define DCTTableViewDataSourceTableViewRowAnimationAutomatic UITableViewRowAnimationAutomatic
-#elif !defined DCTTableViewDataSourceTableViewRowAnimationAutomatic && __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_3
-#define DCTTableViewDataSourceTableViewRowAnimationAutomatic UITableViewRowAnimationFade
-#endif
-
 typedef enum {
 	DCTDataSourceUpdateTypeUnknown = 0,
 	DCTDataSourceUpdateTypeRowDelete = 1 << 0,
