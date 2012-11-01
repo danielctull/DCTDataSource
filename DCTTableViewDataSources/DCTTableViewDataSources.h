@@ -25,8 +25,3 @@
 #import "DCTInterspersedTableViewDataSource.h"
 #import "DCTObjectDataSource.h"
 #import "DCTSplitDataSource.h"
-
-
-@interface DCTTableViewDataSources : NSObject
-+ (NSBundle *)bundle;
-@end

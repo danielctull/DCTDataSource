@@ -55,6 +55,23 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	__strong NSMutableArray *_updates;
 }
 
++ (NSBundle *)bundle {
+	static NSBundle *bundle;
+	static dispatch_once_t bundleToken;
+	dispatch_once(&bundleToken, ^{
+		NSDirectoryEnumerator *enumerator = [[NSFileManager new] enumeratorAtURL:[[NSBundle mainBundle] bundleURL]
+													  includingPropertiesForKeys:nil
+																		 options:NSDirectoryEnumerationSkipsHiddenFiles
+																	errorHandler:NULL];
+
+		for (NSURL *URL in enumerator)
+			if ([[URL lastPathComponent] isEqualToString:@"DCTDataSource.bundle"])
+				bundle = [NSBundle bundleWithURL:URL];
+	});
+
+	return bundle;
+}
+
 #pragma mark - DCTTableViewDataSource
 
 - (void)reloadData {
