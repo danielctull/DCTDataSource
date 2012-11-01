@@ -128,7 +128,6 @@
 		24700B3915B835A100FA5843 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		24700B3D15B835A100FA5843 /* DCTDataSourceBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTDataSourceBundle-Info.plist"; sourceTree = "<group>"; };
 		24700B3F15B835A100FA5843 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		24700B4115B835A100FA5843 /* DCTDataSourceBundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DCTDataSourceBundle-Prefix.pch"; sourceTree = "<group>"; };
 		24700B4615B835C100FA5843 /* DisclosureIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DisclosureIndicator.png; sourceTree = "<group>"; };
 		24700B4715B835C100FA5843 /* DisclosureIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DisclosureIndicator@2x.png"; sourceTree = "<group>"; };
 		24700B4815B835C100FA5843 /* DisclosureIndicatorHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DisclosureIndicatorHighlighted.png; sourceTree = "<group>"; };
@@ -198,9 +197,9 @@
 		244A675A158B1AB100952890 = {
 			isa = PBXGroup;
 			children = (
-				244A676A158B1AB100952890 /* DCTTableViewDataSources */,
-				244A677E158B1AB100952890 /* DCTTableViewDataSourcesTests */,
-				24700B3B15B835A100FA5843 /* DCTTableViewDataSourcesBundle */,
+				244A676A158B1AB100952890 /* DCTDataSource */,
+				244A677E158B1AB100952890 /* DCTDataSourceTests */,
+				24700B3B15B835A100FA5843 /* DCTDataSourceBundle */,
 				244A6767158B1AB100952890 /* Frameworks */,
 				244A6766158B1AB100952890 /* Products */,
 			);
@@ -227,7 +226,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		244A676A158B1AB100952890 /* DCTTableViewDataSources */ = {
+		244A676A158B1AB100952890 /* DCTDataSource */ = {
 			isa = PBXGroup;
 			children = (
 				244A67A3158B1AF600952890 /* DCTDataSource.h */,
@@ -242,17 +241,17 @@
 				24D4AB27162B2634009F3E35 /* Parent Data Sources */,
 				24D4AB28162B2649009F3E35 /* Core Data */,
 			);
-			path = DCTTableViewDataSources;
+			path = DCTDataSource;
 			sourceTree = "<group>";
 		};
-		244A677E158B1AB100952890 /* DCTTableViewDataSourcesTests */ = {
+		244A677E158B1AB100952890 /* DCTDataSourceTests */ = {
 			isa = PBXGroup;
 			children = (
 				244A6784158B1AB100952890 /* DCTTableViewDataSourcesTests.h */,
 				244A6785158B1AB100952890 /* DCTTableViewDataSourcesTests.m */,
 				244A677F158B1AB100952890 /* Supporting Files */,
 			);
-			path = DCTTableViewDataSourcesTests;
+			path = DCTDataSourceTests;
 			sourceTree = "<group>";
 		};
 		244A677F158B1AB100952890 /* Supporting Files */ = {
@@ -264,7 +263,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		24700B3B15B835A100FA5843 /* DCTTableViewDataSourcesBundle */ = {
+		24700B3B15B835A100FA5843 /* DCTDataSourceBundle */ = {
 			isa = PBXGroup;
 			children = (
 				24700B4615B835C100FA5843 /* DisclosureIndicator.png */,
@@ -273,7 +272,7 @@
 				24700B4915B835C100FA5843 /* DisclosureIndicatorHighlighted@2x.png */,
 				24700B3C15B835A100FA5843 /* Supporting Files */,
 			);
-			path = DCTTableViewDataSourcesBundle;
+			path = DCTDataSourceBundle;
 			sourceTree = "<group>";
 		};
 		24700B3C15B835A100FA5843 /* Supporting Files */ = {
@@ -281,7 +280,6 @@
 			children = (
 				24700B3D15B835A100FA5843 /* DCTDataSourceBundle-Info.plist */,
 				24700B3E15B835A100FA5843 /* InfoPlist.strings */,
-				24700B4115B835A100FA5843 /* DCTDataSourceBundle-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -519,8 +517,6 @@
 			buildSettings = {
 				CLANG_CXX_LIBRARY = "libc++";
 				DSTROOT = /tmp/DCTTableViewDataSources.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = DCTDataSource;
@@ -533,8 +529,6 @@
 			buildSettings = {
 				CLANG_CXX_LIBRARY = "libc++";
 				DSTROOT = /tmp/DCTTableViewDataSources.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = DCTDataSource;
@@ -595,9 +589,7 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DCTTableViewDataSources/DCTTableViewDataSources-Prefix.pch";
-				INFOPLIST_FILE = "DCTTableViewDataSourcesTests/DCTDataSourceTests-Info.plist";
+				INFOPLIST_FILE = "DCTDataSourceTests/DCTDataSourceTests-Info.plist";
 				PRODUCT_NAME = DCTDataSourceTests;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -610,9 +602,7 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DCTTableViewDataSources/DCTTableViewDataSources-Prefix.pch";
-				INFOPLIST_FILE = "DCTTableViewDataSourcesTests/DCTDataSourceTests-Info.plist";
+				INFOPLIST_FILE = "DCTDataSourceTests/DCTDataSourceTests-Info.plist";
 				PRODUCT_NAME = DCTDataSourceTests;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -625,10 +615,8 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DCTTableViewDataSourcesBundle/DCTDataSourceBundle-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				INFOPLIST_FILE = "DCTTableViewDataSourcesBundle/DCTDataSourceBundle-Info.plist";
+				INFOPLIST_FILE = "DCTDataSourceBundle/DCTDataSourceBundle-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
@@ -647,10 +635,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DCTTableViewDataSourcesBundle/DCTDataSourceBundle-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				INFOPLIST_FILE = "DCTTableViewDataSourcesBundle/DCTDataSourceBundle-Info.plist";
+				INFOPLIST_FILE = "DCTDataSourceBundle/DCTDataSourceBundle-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = DCTDataSource;
