@@ -41,8 +41,7 @@
 #pragma mark - DCTTableViewDataSource
 
 - (void)reloadData {
-	for (DCTDataSource * ds in self.childTableViewDataSources)
-		[ds reloadData];
+	[self.childTableViewDataSources makeObjectsPerformSelector:@selector(reloadData)];
 }
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
