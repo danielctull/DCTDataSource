@@ -19,5 +19,8 @@
 @property (nonatomic, copy) NSString *(^cellReuseIdentifierHandler)(NSIndexPath *indexPath, id object);
 
 @property (nonatomic, assign) DCTTableViewDataSourceReloadType reloadType;
+@property (nonatomic, assign) UITableViewRowAnimation insertionAnimation;
+@property (nonatomic, assign) UITableViewRowAnimation reloadAnimation;
+@property (nonatomic, assign) UITableViewRowAnimation deletionAnimation;
 
 @end

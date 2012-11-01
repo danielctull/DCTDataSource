@@ -149,14 +149,12 @@
     switch(type) {
         case NSFetchedResultsChangeInsert:
 			[self performSectionUpdate:DCTDataSourceUpdateTypeSectionInsert
-						  sectionIndex:sectionIndex
-							 animation:self.insertionAnimation];
+						  sectionIndex:sectionIndex];
             break;
 			
         case NSFetchedResultsChangeDelete:
 			[self performSectionUpdate:DCTDataSourceUpdateTypeSectionDelete
-						  sectionIndex:sectionIndex
-							 animation:self.deletionAnimation];
+						  sectionIndex:sectionIndex];
             break;
     }
 }
@@ -171,29 +169,24 @@
 			
 		case NSFetchedResultsChangeInsert:
 			[self performRowUpdate:DCTDataSourceUpdateTypeItemInsert
-						 indexPath:newIndexPath
-						 animation:self.insertionAnimation];
+						 indexPath:newIndexPath];
 			break;
 			
 		case NSFetchedResultsChangeDelete:
 			[self performRowUpdate:DCTDataSourceUpdateTypeItemDelete
-						 indexPath:indexPath
-						 animation:self.deletionAnimation];
+						 indexPath:indexPath];
 			break;
 			
         case NSFetchedResultsChangeUpdate:
 			[self performRowUpdate:DCTDataSourceUpdateTypeItemReload
-						 indexPath:indexPath
-						 animation:self.reloadAnimation];
+						 indexPath:indexPath];
 			break;
 			
         case NSFetchedResultsChangeMove:
 			[self performRowUpdate:DCTDataSourceUpdateTypeItemDelete
-						 indexPath:indexPath
-						 animation:self.deletionAnimation];
+						 indexPath:indexPath];
 			[self performRowUpdate:DCTDataSourceUpdateTypeItemInsert
-						 indexPath:newIndexPath
-						 animation:self.insertionAnimation];
+						 indexPath:newIndexPath];
             break;
     }
 }

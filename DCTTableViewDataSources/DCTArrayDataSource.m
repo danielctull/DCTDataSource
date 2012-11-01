@@ -45,8 +45,7 @@
 	
 	[_array enumerateObjectsUsingBlock:^(id obj, NSUInteger i, BOOL *stop) {
 		[self performRowUpdate:DCTDataSourceUpdateTypeItemDelete
-					 indexPath:[NSIndexPath indexPathForRow:i inSection:0]
-					 animation:self.deletionAnimation];
+					 indexPath:[NSIndexPath indexPathForRow:i inSection:0]];
 	}];
 		
 	
@@ -54,8 +53,7 @@
 	
 	[_array enumerateObjectsUsingBlock:^(id obj, NSUInteger i, BOOL *stop) {
 		[self performRowUpdate:DCTDataSourceUpdateTypeItemInsert
-					 indexPath:[NSIndexPath indexPathForRow:i inSection:0]
-					 animation:self.deletionAnimation];
+					 indexPath:[NSIndexPath indexPathForRow:i inSection:0]];
 	}];
 	
 	[self endUpdates];

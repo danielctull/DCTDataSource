@@ -81,18 +81,15 @@ void* arrayObservingContext = &arrayObservingContext;
 		
 		if (changeType == NSKeyValueChangeInsertion)
 			[self performRowUpdate:DCTDataSourceUpdateTypeItemInsert
-						 indexPath:indexPath
-						 animation:self.insertionAnimation];
+						 indexPath:indexPath];
 			
 		else if (changeType == NSKeyValueChangeRemoval)
 			[self performRowUpdate:DCTDataSourceUpdateTypeItemDelete
-						 indexPath:indexPath
-						 animation:self.deletionAnimation];
+						 indexPath:indexPath];
 					
 		else if (changeType == NSKeyValueChangeReplacement)
 			[self performRowUpdate:DCTDataSourceUpdateTypeItemReload
-						 indexPath:indexPath
-						 animation:self.reloadAnimation];
+						 indexPath:indexPath];
 	}];
 	
 	[self endUpdates];

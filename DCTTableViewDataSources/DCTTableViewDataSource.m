@@ -146,22 +146,20 @@
 }
 
 - (void)performSectionUpdate:(DCTDataSourceUpdateType)updateType
-				sectionIndex:(NSInteger)index
-				   animation:(UITableViewRowAnimation)animation {
+				sectionIndex:(NSInteger)index {
 
 	_DCTDataSourceUpdate *update = [_DCTDataSourceUpdate new];
-	update.animation = animation;
+	update.animation = self.insertionAnimation;
 	update.type = updateType;
 	update.section = index;
 	[self _performUpdate:update];
 }
 
 - (void)performRowUpdate:(DCTDataSourceUpdateType)updateType
-			   indexPath:(NSIndexPath *)indexPath
-			   animation:(UITableViewRowAnimation)animation {
+			   indexPath:(NSIndexPath *)indexPath {
 
 	_DCTDataSourceUpdate *update = [_DCTDataSourceUpdate new];
-	update.animation = animation;
+	update.animation = self.insertionAnimation;
 	update.type = updateType;
 	update.indexPath = indexPath;
 	[self _performUpdate:update];

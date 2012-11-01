@@ -55,33 +55,12 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	__strong NSMutableArray *_updates;
 }
 
-#pragma mark - NSObject
-
-- (void)dealloc {
-	_parent = nil;
-}
-
-- (id)init {
-    
-    if (!(self = [super init])) return nil;
-	
-	_insertionAnimation = DCTTableViewDataSourceNoAnimationSet;
-	_deletionAnimation = DCTTableViewDataSourceNoAnimationSet;
-	_reloadAnimation = DCTTableViewDataSourceNoAnimationSet;
-	
-    return self;
-}
-
 #pragma mark - DCTTableViewDataSource
 
 - (void)reloadData {
 	[self beginUpdates];
 	[self enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-		
-		[self performRowUpdate:DCTDataSourceUpdateTypeItemReload
-					 indexPath:indexPath
-					 animation:self.reloadAnimation];
-		
+		[self performRowUpdate:DCTDataSourceUpdateTypeItemReload indexPath:indexPath];
 	}];
 	[self endUpdates];
 }
@@ -110,19 +89,17 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 }
 
 - (void)performSectionUpdate:(DCTDataSourceUpdateType)updateType
-				sectionIndex:(NSInteger)index
-				   animation:(UITableViewRowAnimation)animation {
+				sectionIndex:(NSInteger)index {
 
 	index = [self.parent convertSection:index fromChildTableViewDataSource:self];
-	[self.parent performSectionUpdate:updateType sectionIndex:index animation:animation];
+	[self.parent performSectionUpdate:updateType sectionIndex:index];
 }
 
 - (void)performRowUpdate:(DCTDataSourceUpdateType)updateType
-			   indexPath:(NSIndexPath *)indexPath
-			   animation:(UITableViewRowAnimation)animation {
+			   indexPath:(NSIndexPath *)indexPath {
 
 	indexPath = [self.parent convertIndexPath:indexPath fromChildTableViewDataSource:self];
-	[self.parent performRowUpdate:updateType indexPath:indexPath animation:animation];
+	[self.parent performRowUpdate:updateType indexPath:indexPath];
 }
 
 - (void)enumerateIndexPathsUsingBlock:(void(^)(NSIndexPath *, BOOL *stop))enumerator {

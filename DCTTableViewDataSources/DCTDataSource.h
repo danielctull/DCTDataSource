@@ -96,20 +96,10 @@ typedef enum {
 @property (nonatomic, copy) NSString *sectionHeaderTitle;
 @property (nonatomic, copy) NSString *sectionFooterTitle;
 
-@property (nonatomic, assign) UITableViewRowAnimation insertionAnimation;
-@property (nonatomic, assign) UITableViewRowAnimation reloadAnimation;
-@property (nonatomic, assign) UITableViewRowAnimation deletionAnimation;
-
 - (void)beginUpdates;
+- (void)performSectionUpdate:(DCTDataSourceUpdateType)update sectionIndex:(NSInteger)index;
+- (void)performRowUpdate:(DCTDataSourceUpdateType)update indexPath:(NSIndexPath *)indexPath;
 - (void)endUpdates;
-
-- (void)performSectionUpdate:(DCTDataSourceUpdateType)update
-				sectionIndex:(NSInteger)index
-				   animation:(UITableViewRowAnimation)animation;
-
-- (void)performRowUpdate:(DCTDataSourceUpdateType)update
-			   indexPath:(NSIndexPath *)indexPath
-			   animation:(UITableViewRowAnimation)animation;
 
 - (void)enumerateIndexPathsUsingBlock:(void(^)(NSIndexPath *, BOOL *stop))enumerator;
 
