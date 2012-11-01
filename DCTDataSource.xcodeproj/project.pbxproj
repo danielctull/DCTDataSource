@@ -89,12 +89,12 @@
 		24297F0F1640109700E32187 /* DCTTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTableViewDataSource.m; sourceTree = "<group>"; };
 		24297F121640165B00E32187 /* DCTCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTCollectionViewDataSource.h; sourceTree = "<group>"; };
 		24297F131640165B00E32187 /* DCTCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTCollectionViewDataSource.m; sourceTree = "<group>"; };
-		2437B77D15B97FA900750117 /* libDCTTableViewDataSources.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDCTTableViewDataSources.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2437B77D15B97FA900750117 /* libDCTDataSource.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDCTDataSource.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2437B7F915B9802A00750117 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		244A6768158B1AB100952890 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		244A6775158B1AB100952890 /* DCTTableViewDataSourcesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTTableViewDataSourcesTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		244A6775158B1AB100952890 /* DCTDataSourceTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTDataSourceTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		244A6776158B1AB100952890 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		244A6780158B1AB100952890 /* DCTTableViewDataSourcesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTTableViewDataSourcesTests-Info.plist"; sourceTree = "<group>"; };
+		244A6780158B1AB100952890 /* DCTDataSourceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTDataSourceTests-Info.plist"; sourceTree = "<group>"; };
 		244A6782158B1AB100952890 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		244A6784158B1AB100952890 /* DCTTableViewDataSourcesTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCTTableViewDataSourcesTests.h; sourceTree = "<group>"; };
 		244A6785158B1AB100952890 /* DCTTableViewDataSourcesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCTTableViewDataSourcesTests.m; sourceTree = "<group>"; };
@@ -124,11 +124,11 @@
 		244A67AD158B1AF700952890 /* UITableView+DCTNibRegistration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTNibRegistration.m"; sourceTree = "<group>"; };
 		244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DCTTableViewDataSources.h"; sourceTree = "<group>"; };
 		244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTTableViewDataSources.m"; sourceTree = "<group>"; };
-		24700B3815B835A100FA5843 /* DCTTableViewDataSources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTTableViewDataSources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		24700B3815B835A100FA5843 /* DCTDataSource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTDataSource.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		24700B3915B835A100FA5843 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		24700B3D15B835A100FA5843 /* DCTTableViewDataSourcesBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTTableViewDataSourcesBundle-Info.plist"; sourceTree = "<group>"; };
+		24700B3D15B835A100FA5843 /* DCTDataSourceBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTDataSourceBundle-Info.plist"; sourceTree = "<group>"; };
 		24700B3F15B835A100FA5843 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		24700B4115B835A100FA5843 /* DCTTableViewDataSourcesBundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DCTTableViewDataSourcesBundle-Prefix.pch"; sourceTree = "<group>"; };
+		24700B4115B835A100FA5843 /* DCTDataSourceBundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DCTDataSourceBundle-Prefix.pch"; sourceTree = "<group>"; };
 		24700B4615B835C100FA5843 /* DisclosureIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DisclosureIndicator.png; sourceTree = "<group>"; };
 		24700B4715B835C100FA5843 /* DisclosureIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DisclosureIndicator@2x.png"; sourceTree = "<group>"; };
 		24700B4815B835C100FA5843 /* DisclosureIndicatorHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DisclosureIndicatorHighlighted.png; sourceTree = "<group>"; };
@@ -209,9 +209,9 @@
 		244A6766158B1AB100952890 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				244A6775158B1AB100952890 /* DCTTableViewDataSourcesTests.octest */,
-				24700B3815B835A100FA5843 /* DCTTableViewDataSources.bundle */,
-				2437B77D15B97FA900750117 /* libDCTTableViewDataSources.a */,
+				244A6775158B1AB100952890 /* DCTDataSourceTests.octest */,
+				24700B3815B835A100FA5843 /* DCTDataSource.bundle */,
+				2437B77D15B97FA900750117 /* libDCTDataSource.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -258,7 +258,7 @@
 		244A677F158B1AB100952890 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				244A6780158B1AB100952890 /* DCTTableViewDataSourcesTests-Info.plist */,
+				244A6780158B1AB100952890 /* DCTDataSourceTests-Info.plist */,
 				244A6781158B1AB100952890 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -279,9 +279,9 @@
 		24700B3C15B835A100FA5843 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				24700B3D15B835A100FA5843 /* DCTTableViewDataSourcesBundle-Info.plist */,
+				24700B3D15B835A100FA5843 /* DCTDataSourceBundle-Info.plist */,
 				24700B3E15B835A100FA5843 /* InfoPlist.strings */,
-				24700B4115B835A100FA5843 /* DCTTableViewDataSourcesBundle-Prefix.pch */,
+				24700B4115B835A100FA5843 /* DCTDataSourceBundle-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -326,9 +326,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2437B77C15B97FA900750117 /* DCTTableViewDataSources */ = {
+		2437B77C15B97FA900750117 /* DCTDataSource */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2437B78615B97FA900750117 /* Build configuration list for PBXNativeTarget "DCTTableViewDataSources" */;
+			buildConfigurationList = 2437B78615B97FA900750117 /* Build configuration list for PBXNativeTarget "DCTDataSource" */;
 			buildPhases = (
 				2437B77915B97FA900750117 /* Sources */,
 				2437B77A15B97FA900750117 /* Frameworks */,
@@ -339,14 +339,14 @@
 			dependencies = (
 				2437B7F815B9801C00750117 /* PBXTargetDependency */,
 			);
-			name = DCTTableViewDataSources;
+			name = DCTDataSource;
 			productName = DCTTableViewDataSources;
-			productReference = 2437B77D15B97FA900750117 /* libDCTTableViewDataSources.a */;
+			productReference = 2437B77D15B97FA900750117 /* libDCTDataSource.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		244A6774158B1AB100952890 /* DCTTableViewDataSourcesTests */ = {
+		244A6774158B1AB100952890 /* DCTDataSourceTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 244A678C158B1AB100952890 /* Build configuration list for PBXNativeTarget "DCTTableViewDataSourcesTests" */;
+			buildConfigurationList = 244A678C158B1AB100952890 /* Build configuration list for PBXNativeTarget "DCTDataSourceTests" */;
 			buildPhases = (
 				244A6770158B1AB100952890 /* Sources */,
 				244A6771158B1AB100952890 /* Frameworks */,
@@ -357,14 +357,14 @@
 			);
 			dependencies = (
 			);
-			name = DCTTableViewDataSourcesTests;
+			name = DCTDataSourceTests;
 			productName = DCTTableViewDataSourcesTests;
-			productReference = 244A6775158B1AB100952890 /* DCTTableViewDataSourcesTests.octest */;
+			productReference = 244A6775158B1AB100952890 /* DCTDataSourceTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		24700B3715B835A100FA5843 /* DCTTableViewDataSourcesBundle */ = {
+		24700B3715B835A100FA5843 /* DCTDataSourceBundle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24700B4415B835A100FA5843 /* Build configuration list for PBXNativeTarget "DCTTableViewDataSourcesBundle" */;
+			buildConfigurationList = 24700B4415B835A100FA5843 /* Build configuration list for PBXNativeTarget "DCTDataSourceBundle" */;
 			buildPhases = (
 				24700B3415B835A100FA5843 /* Sources */,
 				24700B3515B835A100FA5843 /* Frameworks */,
@@ -374,9 +374,9 @@
 			);
 			dependencies = (
 			);
-			name = DCTTableViewDataSourcesBundle;
+			name = DCTDataSourceBundle;
 			productName = DCTTableViewDataSourcesBundle;
-			productReference = 24700B3815B835A100FA5843 /* DCTTableViewDataSources.bundle */;
+			productReference = 24700B3815B835A100FA5843 /* DCTDataSource.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -388,7 +388,7 @@
 				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Daniel Tull";
 			};
-			buildConfigurationList = 244A675F158B1AB100952890 /* Build configuration list for PBXProject "DCTTableViewDataSources" */;
+			buildConfigurationList = 244A675F158B1AB100952890 /* Build configuration list for PBXProject "DCTDataSource" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -400,9 +400,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2437B77C15B97FA900750117 /* DCTTableViewDataSources */,
-				244A6774158B1AB100952890 /* DCTTableViewDataSourcesTests */,
-				24700B3715B835A100FA5843 /* DCTTableViewDataSourcesBundle */,
+				2437B77C15B97FA900750117 /* DCTDataSource */,
+				244A6774158B1AB100952890 /* DCTDataSourceTests */,
+				24700B3715B835A100FA5843 /* DCTDataSourceBundle */,
 			);
 		};
 /* End PBXProject section */
@@ -489,7 +489,7 @@
 /* Begin PBXTargetDependency section */
 		2437B7F815B9801C00750117 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 24700B3715B835A100FA5843 /* DCTTableViewDataSourcesBundle */;
+			target = 24700B3715B835A100FA5843 /* DCTDataSourceBundle */;
 			targetProxy = 2437B7F715B9801C00750117 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -523,7 +523,7 @@
 				GCC_PREFIX_HEADER = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DCTDataSource;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -537,7 +537,7 @@
 				GCC_PREFIX_HEADER = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DCTDataSource;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -597,8 +597,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DCTTableViewDataSources/DCTTableViewDataSources-Prefix.pch";
-				INFOPLIST_FILE = "DCTTableViewDataSourcesTests/DCTTableViewDataSourcesTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "DCTTableViewDataSourcesTests/DCTDataSourceTests-Info.plist";
+				PRODUCT_NAME = DCTDataSourceTests;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -612,8 +612,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DCTTableViewDataSources/DCTTableViewDataSources-Prefix.pch";
-				INFOPLIST_FILE = "DCTTableViewDataSourcesTests/DCTTableViewDataSourcesTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "DCTTableViewDataSourcesTests/DCTDataSourceTests-Info.plist";
+				PRODUCT_NAME = DCTDataSourceTests;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
@@ -626,13 +626,13 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DCTTableViewDataSourcesBundle/DCTTableViewDataSourcesBundle-Prefix.pch";
+				GCC_PREFIX_HEADER = "DCTTableViewDataSourcesBundle/DCTDataSourceBundle-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				INFOPLIST_FILE = "DCTTableViewDataSourcesBundle/DCTTableViewDataSourcesBundle-Info.plist";
+				INFOPLIST_FILE = "DCTTableViewDataSourcesBundle/DCTDataSourceBundle-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = DCTTableViewDataSources;
+				PRODUCT_NAME = DCTDataSource;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -648,12 +648,12 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DCTTableViewDataSourcesBundle/DCTTableViewDataSourcesBundle-Prefix.pch";
+				GCC_PREFIX_HEADER = "DCTTableViewDataSourcesBundle/DCTDataSourceBundle-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				INFOPLIST_FILE = "DCTTableViewDataSourcesBundle/DCTTableViewDataSourcesBundle-Info.plist";
+				INFOPLIST_FILE = "DCTTableViewDataSourcesBundle/DCTDataSourceBundle-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				PRODUCT_NAME = DCTTableViewDataSources;
+				PRODUCT_NAME = DCTDataSource;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = bundle;
@@ -663,7 +663,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2437B78615B97FA900750117 /* Build configuration list for PBXNativeTarget "DCTTableViewDataSources" */ = {
+		2437B78615B97FA900750117 /* Build configuration list for PBXNativeTarget "DCTDataSource" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2437B78715B97FA900750117 /* Debug */,
@@ -672,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		244A675F158B1AB100952890 /* Build configuration list for PBXProject "DCTTableViewDataSources" */ = {
+		244A675F158B1AB100952890 /* Build configuration list for PBXProject "DCTDataSource" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				244A6787158B1AB100952890 /* Debug */,
@@ -681,7 +681,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		244A678C158B1AB100952890 /* Build configuration list for PBXNativeTarget "DCTTableViewDataSourcesTests" */ = {
+		244A678C158B1AB100952890 /* Build configuration list for PBXNativeTarget "DCTDataSourceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				244A678D158B1AB100952890 /* Debug */,
@@ -690,7 +690,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24700B4415B835A100FA5843 /* Build configuration list for PBXNativeTarget "DCTTableViewDataSourcesBundle" */ = {
+		24700B4415B835A100FA5843 /* Build configuration list for PBXNativeTarget "DCTDataSourceBundle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24700B4215B835A100FA5843 /* Debug */,
