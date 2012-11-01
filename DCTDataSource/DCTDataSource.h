@@ -106,3 +106,5 @@ typedef enum {
 - (void)enumerateIndexPathsUsingBlock:(void(^)(NSIndexPath *, BOOL *stop))enumerator;
 
 @end
+
+#import "DCTEditableDataSource.h"

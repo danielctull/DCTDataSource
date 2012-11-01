@@ -212,4 +212,43 @@
 	return self.cellReuseIdentifierHandler(indexPath, object);
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+
+	if (![self.dataSource conformsToProtocol:@protocol(DCTEditableDataSource)]) return NO;
+
+	return [((id<DCTEditableDataSource>)self.dataSource) canEditObjectAtIndexPath:indexPath];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+
+	if (![self.dataSource conformsToProtocol:@protocol(DCTEditableDataSource)]) return NO;
+
+	return [((id<DCTEditableDataSource>)self.dataSource) canMoveObjectAtIndexPath:indexPath];
+}
+
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+
+	if (![self.dataSource conformsToProtocol:@protocol(DCTEditableDataSource)]) return;
+
+	DCTDataSource<DCTEditableDataSource> *editableDataSource = (DCTDataSource<DCTEditableDataSource> *)self.dataSource;
+
+	if (editingStyle == UITableViewCellEditingStyleDelete)
+		[editableDataSource removeObjectAtIndexPath:indexPath];
+
+	else if (editingStyle == UITableViewCellEditingStyleInsert)
+		[editableDataSource insertObject:[editableDataSource generateObject] atIndexPath:indexPath];
+}
+
+- (void)tableView:(UITableView *)tableView
+moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+	  toIndexPath:(NSIndexPath *)destinationIndexPath {
+
+	if (![self.dataSource conformsToProtocol:@protocol(DCTEditableDataSource)]) return;
+
+	DCTDataSource<DCTEditableDataSource> *editableDataSource = (DCTDataSource<DCTEditableDataSource> *)self.dataSource;
+	[editableDataSource moveObjectAtIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
+}
+
 @end

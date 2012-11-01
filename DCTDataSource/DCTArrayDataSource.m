@@ -37,7 +37,9 @@
 #import "DCTArrayDataSource.h"
 #import "UITableView+DCTTableViewDataSources.h"
 
-@implementation DCTArrayDataSource
+@implementation DCTArrayDataSource {
+	__strong NSMutableArray *_array;
+}
 
 - (void)setArray:(NSArray *)array {
 	
@@ -49,7 +51,7 @@
 	}];
 		
 	
-	_array = [array copy];
+	_array = [array mutableCopy];
 	
 	[_array enumerateObjectsUsingBlock:^(id obj, NSUInteger i, BOOL *stop) {
 		[self performRowUpdate:DCTDataSourceUpdateTypeItemInsert
@@ -59,12 +61,44 @@
 	[self endUpdates];
 }
 
+- (NSArray *)array {
+	return [_array copy];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	return [self.array count];
 }
 
+#pragma mark - DCTEditableDataSource
+
+- (BOOL)canEditObjectAtIndexPath:(NSIndexPath *)indexPath {
+	return self.editable;
+}
+
+- (BOOL)canMoveObjectAtIndexPath:(NSIndexPath *)indexPath {
+	return self.reorderable;
+}
+
+- (id)generateObject {
+	return self.objectGenerator();
+}
+
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
 	return [self.array objectAtIndex:indexPath.row];
+}
+
+- (void)insertObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
+	[_array insertObject:object atIndex:indexPath.row];
+}
+
+- (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath {
+	[_array removeObjectAtIndex:indexPath.row];
+}
+
+- (void)moveObjectAtIndexPath:(NSIndexPath *)oldIndexPath toIndexPath:(NSIndexPath *)newIndexPath {
+	id object = [self objectAtIndexPath:oldIndexPath];
+	[self removeObjectAtIndexPath:oldIndexPath];
+	[self insertObject:object atIndexPath:newIndexPath];
 }
 
 @end
