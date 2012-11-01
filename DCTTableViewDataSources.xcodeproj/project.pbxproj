@@ -45,7 +45,6 @@
 		24C0299815B982F3009B1DE9 /* DCTSplitDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A679F158B1AF600952890 /* DCTSplitDataSource.h */; };
 		24C0299A15B982F3009B1DE9 /* DCTTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67A1158B1AF600952890 /* DCTTableViewCell.h */; };
 		24C0299C15B982F3009B1DE9 /* DCTDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67A3158B1AF600952890 /* DCTDataSource.h */; };
-		24C0299E15B982F3009B1DE9 /* DCTTableViewDataSources.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67A5158B1AF600952890 /* DCTTableViewDataSources.h */; };
 		24C029A015B982F3009B1DE9 /* UITableView+DCTNibRegistration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67AC158B1AF700952890 /* UITableView+DCTNibRegistration.h */; };
 		24C029A215B982F3009B1DE9 /* UITableView+DCTTableViewDataSources.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */; };
 /* End PBXBuildFile section */
@@ -78,7 +77,6 @@
 				24C0299815B982F3009B1DE9 /* DCTSplitDataSource.h in CopyFiles */,
 				24C0299A15B982F3009B1DE9 /* DCTTableViewCell.h in CopyFiles */,
 				24C0299C15B982F3009B1DE9 /* DCTDataSource.h in CopyFiles */,
-				24C0299E15B982F3009B1DE9 /* DCTTableViewDataSources.h in CopyFiles */,
 				24C029A015B982F3009B1DE9 /* UITableView+DCTNibRegistration.h in CopyFiles */,
 				24C029A215B982F3009B1DE9 /* UITableView+DCTTableViewDataSources.h in CopyFiles */,
 			);
@@ -122,7 +120,6 @@
 		244A67A2158B1AF600952890 /* DCTTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTableViewCell.m; sourceTree = "<group>"; };
 		244A67A3158B1AF600952890 /* DCTDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTDataSource.h; sourceTree = "<group>"; };
 		244A67A4158B1AF600952890 /* DCTDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTDataSource.m; sourceTree = "<group>"; };
-		244A67A5158B1AF600952890 /* DCTTableViewDataSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTableViewDataSources.h; sourceTree = "<group>"; };
 		244A67AC158B1AF700952890 /* UITableView+DCTNibRegistration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DCTNibRegistration.h"; sourceTree = "<group>"; };
 		244A67AD158B1AF700952890 /* UITableView+DCTNibRegistration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTNibRegistration.m"; sourceTree = "<group>"; };
 		244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DCTTableViewDataSources.h"; sourceTree = "<group>"; };
@@ -233,8 +230,12 @@
 		244A676A158B1AB100952890 /* DCTTableViewDataSources */ = {
 			isa = PBXGroup;
 			children = (
-				244A67A5158B1AF600952890 /* DCTTableViewDataSources.h */,
-				24D4AB25162B260F009F3E35 /* Core */,
+				244A67A3158B1AF600952890 /* DCTDataSource.h */,
+				244A67A4158B1AF600952890 /* DCTDataSource.m */,
+				244A679D158B1AF600952890 /* DCTParentDataSource.h */,
+				244A679E158B1AF600952890 /* DCTParentDataSource.m */,
+				24A389FB162303CF0003A1BE /* _DCTDataSourceUpdate.h */,
+				24A389FC162303CF0003A1BE /* _DCTDataSourceUpdate.m */,
 				24297F111640161200E32187 /* UITableView */,
 				24297F151640166400E32187 /* UICollectionView */,
 				24D4AB29162B26A8009F3E35 /* Object + Array */,
@@ -283,19 +284,6 @@
 				24700B4115B835A100FA5843 /* DCTTableViewDataSourcesBundle-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		24D4AB25162B260F009F3E35 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				244A67A3158B1AF600952890 /* DCTDataSource.h */,
-				244A67A4158B1AF600952890 /* DCTDataSource.m */,
-				244A679D158B1AF600952890 /* DCTParentDataSource.h */,
-				244A679E158B1AF600952890 /* DCTParentDataSource.m */,
-				24A389FB162303CF0003A1BE /* _DCTDataSourceUpdate.h */,
-				24A389FC162303CF0003A1BE /* _DCTDataSourceUpdate.m */,
-			);
-			name = Core;
 			sourceTree = "<group>";
 		};
 		24D4AB27162B2634009F3E35 /* Parent Data Sources */ = {
