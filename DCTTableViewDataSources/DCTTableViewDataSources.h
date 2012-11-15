@@ -26,6 +26,7 @@
 #import "DCTObjectTableViewDataSource.h"
 #import "DCTSplitTableViewDataSource.h"
 
+#import "UITableView+DCTNibRegistration.h"
 
 @interface DCTTableViewDataSources : NSObject
 + (NSBundle *)bundle;
