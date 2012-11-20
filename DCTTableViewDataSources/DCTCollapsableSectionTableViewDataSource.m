@@ -143,7 +143,7 @@
 
 - (void)setTableView:(UITableView *)tableView {
 	[super setTableView:tableView];
-	[tableView registerClass:[_DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell class]
+	[tableView dct_registerClass:[_DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell class]
 	  forCellReuseIdentifier:NSStringFromClass([_DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell class])];
 }
 

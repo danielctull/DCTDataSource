@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITableView (DCTNibRegistration)
+@interface UITableView (DCTCellRegistration)
 
 /// @name Nib Registration
 
@@ -34,5 +34,7 @@
  @see dct_dequeueReusableCellWithIdentifier:
  */
 - (void)dct_registerNib:(UINib *)nib forCellReuseIdentifier:(NSString *)identifier;
+
+- (void)dct_registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier;
 
 @end

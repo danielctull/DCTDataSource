@@ -37,7 +37,7 @@
 #import "DCTTableViewDataSource.h"
 #import "DCTTableViewCell.h"
 #import "UITableView+DCTTableViewDataSources.h"
-#import "UITableView+DCTNibRegistration.h"
+#import "UITableView+DCTCellRegistration.h"
 #import "DCTParentTableViewDataSource.h"
 #import "_DCTTableViewDataSourceUpdate.h"
 
@@ -79,7 +79,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 
 - (void)setTableView:(UITableView *)tableView {
 	_tableView = tableView;
-	[_tableView registerClass:[DCTTableViewCell class] forCellReuseIdentifier:@"DCTTableViewCell"];
+	[_tableView dct_registerClass:[DCTTableViewCell class] forCellReuseIdentifier:@"DCTTableViewCell"];
 }
 
 - (void)reloadData {
@@ -317,9 +317,6 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	
 	NSString *cellIdentifier = [self _cellReuseIdentifierAtIndexPath:indexPath];
     UITableViewCell *cell = [tv dct_dequeueReusableCellWithIdentifier:cellIdentifier];
-	
-	if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-											 reuseIdentifier:cellIdentifier];
     
 	id object = [self objectAtIndexPath:indexPath];
 	

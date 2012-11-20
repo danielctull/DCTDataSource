@@ -20,7 +20,7 @@
 		2437B7D215B97FEC00750117 /* DCTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A2158B1AF600952890 /* DCTTableViewCell.m */; };
 		2437B7D415B97FEC00750117 /* DCTTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A4158B1AF600952890 /* DCTTableViewDataSource.m */; };
 		2437B7D615B97FEC00750117 /* DCTTableViewDataSources.m in Sources */ = {isa = PBXBuildFile; fileRef = 24700B5015B8362100FA5843 /* DCTTableViewDataSources.m */; };
-		2437B7D815B97FEC00750117 /* UITableView+DCTNibRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67AD158B1AF700952890 /* UITableView+DCTNibRegistration.m */; };
+		2437B7D815B97FEC00750117 /* UITableView+DCTCellRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67AD158B1AF700952890 /* UITableView+DCTCellRegistration.m */; };
 		2437B7DA15B97FEC00750117 /* UITableView+DCTTableViewDataSources.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */; };
 		2437B7FA15B9802A00750117 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B7F915B9802A00750117 /* UIKit.framework */; };
 		244A6777158B1AB100952890 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244A6776158B1AB100952890 /* SenTestingKit.framework */; };
@@ -47,7 +47,7 @@
 		24C0299A15B982F3009B1DE9 /* DCTTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67A1158B1AF600952890 /* DCTTableViewCell.h */; };
 		24C0299C15B982F3009B1DE9 /* DCTTableViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67A3158B1AF600952890 /* DCTTableViewDataSource.h */; };
 		24C0299E15B982F3009B1DE9 /* DCTTableViewDataSources.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67A5158B1AF600952890 /* DCTTableViewDataSources.h */; };
-		24C029A015B982F3009B1DE9 /* UITableView+DCTNibRegistration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67AC158B1AF700952890 /* UITableView+DCTNibRegistration.h */; };
+		24C029A015B982F3009B1DE9 /* UITableView+DCTCellRegistration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67AC158B1AF700952890 /* UITableView+DCTCellRegistration.h */; };
 		24C029A215B982F3009B1DE9 /* UITableView+DCTTableViewDataSources.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +80,7 @@
 				24C0299A15B982F3009B1DE9 /* DCTTableViewCell.h in CopyFiles */,
 				24C0299C15B982F3009B1DE9 /* DCTTableViewDataSource.h in CopyFiles */,
 				24C0299E15B982F3009B1DE9 /* DCTTableViewDataSources.h in CopyFiles */,
-				24C029A015B982F3009B1DE9 /* UITableView+DCTNibRegistration.h in CopyFiles */,
+				24C029A015B982F3009B1DE9 /* UITableView+DCTCellRegistration.h in CopyFiles */,
 				24C029A215B982F3009B1DE9 /* UITableView+DCTTableViewDataSources.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,8 +120,8 @@
 		244A67A3158B1AF600952890 /* DCTTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTableViewDataSource.h; sourceTree = "<group>"; };
 		244A67A4158B1AF600952890 /* DCTTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTableViewDataSource.m; sourceTree = "<group>"; };
 		244A67A5158B1AF600952890 /* DCTTableViewDataSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTableViewDataSources.h; sourceTree = "<group>"; };
-		244A67AC158B1AF700952890 /* UITableView+DCTNibRegistration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DCTNibRegistration.h"; sourceTree = "<group>"; };
-		244A67AD158B1AF700952890 /* UITableView+DCTNibRegistration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTNibRegistration.m"; sourceTree = "<group>"; };
+		244A67AC158B1AF700952890 /* UITableView+DCTCellRegistration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DCTCellRegistration.h"; sourceTree = "<group>"; };
+		244A67AD158B1AF700952890 /* UITableView+DCTCellRegistration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTCellRegistration.m"; sourceTree = "<group>"; };
 		244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DCTTableViewDataSources.h"; sourceTree = "<group>"; };
 		244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTTableViewDataSources.m"; sourceTree = "<group>"; };
 		24700B3815B835A100FA5843 /* DCTTableViewDataSources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTTableViewDataSources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -267,8 +267,8 @@
 				244A67A2158B1AF600952890 /* DCTTableViewCell.m */,
 				24A389FB162303CF0003A1BE /* _DCTTableViewDataSourceUpdate.h */,
 				24A389FC162303CF0003A1BE /* _DCTTableViewDataSourceUpdate.m */,
-				244A67AC158B1AF700952890 /* UITableView+DCTNibRegistration.h */,
-				244A67AD158B1AF700952890 /* UITableView+DCTNibRegistration.m */,
+				244A67AC158B1AF700952890 /* UITableView+DCTCellRegistration.h */,
+				244A67AD158B1AF700952890 /* UITableView+DCTCellRegistration.m */,
 				244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */,
 				244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */,
 			);
@@ -454,7 +454,7 @@
 				2437B7D215B97FEC00750117 /* DCTTableViewCell.m in Sources */,
 				2437B7D415B97FEC00750117 /* DCTTableViewDataSource.m in Sources */,
 				2437B7D615B97FEC00750117 /* DCTTableViewDataSources.m in Sources */,
-				2437B7D815B97FEC00750117 /* UITableView+DCTNibRegistration.m in Sources */,
+				2437B7D815B97FEC00750117 /* UITableView+DCTCellRegistration.m in Sources */,
 				2437B7DA15B97FEC00750117 /* UITableView+DCTTableViewDataSources.m in Sources */,
 				24A389FD162303CF0003A1BE /* _DCTTableViewDataSourceUpdate.m in Sources */,
 				24A38A01162304B90003A1BE /* _DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell.m in Sources */,
