@@ -61,9 +61,20 @@
 }
 
 - (void)setTableView:(UITableView *)tableView {
-	CGRect frame = tableView.frame;
-	tableView.transform = CGAffineTransformMakeRotation(-M_PI_2);
-	tableView.frame = frame;
+	
+	UIView *view = [[UIView alloc] initWithFrame:tableView.frame];
+	view.autoresizingMask = tableView.autoresizingMask;
+
+	tableView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
+	tableView.frame = view.bounds;
+
+	[tableView.superview insertSubview:view belowSubview:tableView];
+	[tableView removeFromSuperview];
+	[view addSubview:tableView];
+
+	CGRect frame = view.frame;
+	view.transform = CGAffineTransformMakeRotation(-M_PI_2);
+	view.frame = frame;
 	[super setTableView:tableView];
 }
 
