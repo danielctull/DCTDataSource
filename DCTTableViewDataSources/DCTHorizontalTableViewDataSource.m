@@ -35,6 +35,7 @@
  */
 
 #import "DCTHorizontalTableViewDataSource.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation DCTHorizontalTableViewDataSource
 
@@ -52,10 +53,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-	
-	cell.backgroundView.transform = CGAffineTransformMakeRotation(M_PI_2);
-	cell.selectedBackgroundView.transform = CGAffineTransformMakeRotation(M_PI_2);
-	cell.contentView.transform = CGAffineTransformMakeRotation(M_PI_2);
+
+	[CATransaction begin];
+    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+	cell.transform = CGAffineTransformMakeRotation(M_PI_2);
+    [CATransaction commit];
+
+	//cell.backgroundView.transform = CGAffineTransformMakeRotation(M_PI_2);
+
+	//cell.contentView.transform = CGAffineTransformMakeRotation(M_PI_2);
 	
     return cell;
 }
