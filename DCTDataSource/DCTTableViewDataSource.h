@@ -7,15 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DCTDataSource.h"
+#import "DCTParentDataSource.h"
 
-@interface DCTTableViewDataSource : NSObject <UITableViewDataSource>
+@interface DCTTableViewDataSource : DCTParentDataSource <UITableViewDataSource>
 
 - (id)initWithTableView:(UITableView *)tableView dataSource:(DCTDataSource *)dataSource;
 @property (nonatomic, readonly, weak) UITableView *tableView;
 @property (nonatomic, readonly, strong) DCTDataSource *dataSource;
 
-@property (nonatomic, copy) void(^cellConfigurer)(id cell, NSIndexPath *indexPath, id object);
 @property (nonatomic, copy) NSString *(^cellReuseIdentifierHandler)(NSIndexPath *indexPath, id object);
 
 @property (nonatomic, assign) DCTTableViewDataSourceReloadType reloadType;

@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DCTDataSource.h"
+#import "DCTParentDataSource.h"
 
-@interface DCTCollectionViewDataSource : DCTDataSource <UICollectionViewDataSource>
+@interface DCTCollectionViewDataSource : DCTParentDataSource <UICollectionViewDataSource>
 
 - (id)initWithCollectionView:(UICollectionView *)collectionView dataSource:(DCTDataSource *)dataSource;
 @property (nonatomic, readonly, weak) UICollectionView *collectionView;
 @property (nonatomic, readonly, strong) DCTDataSource *dataSource;
+
+@property (nonatomic, copy) NSString *(^cellReuseIdentifierHandler)(NSIndexPath *indexPath, id object);
+@property (nonatomic, copy) NSString *(^supplementaryViewReuseIdentifierHandler)(NSIndexPath *indexPath, id object);
 
 @end

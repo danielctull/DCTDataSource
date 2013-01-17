@@ -99,6 +99,7 @@ typedef enum {
 @property (nonatomic, copy) NSString *sectionFooterTitle;
 
 - (void)beginUpdates;
+//- (void)performUpdate:(DCTDataSourceUpdate *)update;
 - (void)performSectionUpdate:(DCTDataSourceUpdateType)update sectionIndex:(NSInteger)index;
 - (void)performRowUpdate:(DCTDataSourceUpdateType)update indexPath:(NSIndexPath *)indexPath;
 - (void)endUpdates;
