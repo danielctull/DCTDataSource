@@ -93,30 +93,18 @@
 	return self;
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark - DCTDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSections {
 	return [[self.fetchedResultsController sections] count];
 }
 
-- (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
 	id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
 	return [sectionInfo numberOfObjects];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	
-	NSInteger amount = [self tableView:tableView numberOfRowsInSection:indexPath.section];
-    if (indexPath.row >= amount) {
-        NSLog(@"%@:%@ RELOADING TABLE VIEW NAH NAH NAH", self, NSStringFromSelector(_cmd));
-        [tableView reloadData];
-        return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"blah"];
-    }
-	
-	return [super tableView:tableView cellForRowAtIndexPath:indexPath];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section { 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 	id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
 	NSString *sectionName = [sectionInfo name];
 	if ([sectionName length] == 0)

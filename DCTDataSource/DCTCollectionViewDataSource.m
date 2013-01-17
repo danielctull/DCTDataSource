@@ -7,7 +7,7 @@
 //
 
 #import "DCTCollectionViewDataSource.h"
-#import "_DCTDataSourceUpdate.h"
+#import "DCTDataSourceUpdate.h"
 
 @implementation DCTCollectionViewDataSource
 
@@ -60,7 +60,7 @@
 
 - (void)endUpdates {}
 
-- (void)performUpdate:(_DCTDataSourceUpdate *)update {
+- (void)performUpdate:(DCTDataSourceUpdate *)update {
 	
 }
 

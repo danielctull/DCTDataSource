@@ -6,20 +6,20 @@
 //  Copyright (c) 2012 Daniel Tull. All rights reserved.
 //
 
-#import "_DCTDataSourceUpdate.h"
+#import "DCTDataSourceUpdate.h"
 
 BOOL DCTDataSourceUpdateTypeIncludes(DCTDataSourceUpdateType type, DCTDataSourceUpdateType testType) {
 	return (type & testType) == testType;
 }
 
-@implementation _DCTDataSourceUpdate
+@implementation DCTDataSourceUpdate
 
 - (BOOL)isSectionUpdate {
 	return (DCTDataSourceUpdateTypeIncludes(self.type, DCTDataSourceUpdateTypeSectionInsert)
 			|| DCTDataSourceUpdateTypeIncludes(self.type, DCTDataSourceUpdateTypeSectionDelete));
 }
 
-- (NSComparisonResult)compare:(_DCTDataSourceUpdate *)update {
+- (NSComparisonResult)compare:(DCTDataSourceUpdate *)update {
 	
 	NSComparisonResult result = [[NSNumber numberWithInteger:self.type] compare:[NSNumber numberWithInteger:update.type]];
 	

@@ -9,7 +9,7 @@
 #import "DCTTableViewDataSource.h"
 #import "UITableView+DCTNibRegistration.h"
 #import "DCTTableViewCell.h"
-#import "_DCTDataSourceUpdate.h"
+#import "DCTDataSourceUpdate.h"
 
 @implementation DCTTableViewDataSource {
 	__strong NSMutableArray *_updates;
@@ -53,7 +53,7 @@
 
 	[self.tableView beginUpdates];
 
-	[_updates enumerateObjectsUsingBlock:^(_DCTDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
+	[_updates enumerateObjectsUsingBlock:^(DCTDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
 
 		switch (update.type) {
 
@@ -102,7 +102,7 @@
 
 	NSArray *updates = [_updates sortedArrayUsingSelector:@selector(compare:)];
 
-	[updates enumerateObjectsUsingBlock:^(_DCTDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
+	[updates enumerateObjectsUsingBlock:^(DCTDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
 
 		if ([update.indexPath compare:indexPath] == NSOrderedDescending) {
 			*stop = YES;
@@ -141,14 +141,14 @@
 	self.tableView.contentOffset = offset;
 }
 
-- (void)_performUpdate:(_DCTDataSourceUpdate *)update {
+- (void)_performUpdate:(DCTDataSourceUpdate *)update {
 	[_updates addObject:update];
 }
 
 - (void)performSectionUpdate:(DCTDataSourceUpdateType)updateType
 				sectionIndex:(NSInteger)index {
 
-	_DCTDataSourceUpdate *update = [_DCTDataSourceUpdate new];
+	DCTDataSourceUpdate *update = [DCTDataSourceUpdate new];
 	update.animation = self.insertionAnimation;
 	update.type = updateType;
 	update.section = index;
@@ -158,7 +158,7 @@
 - (void)performRowUpdate:(DCTDataSourceUpdateType)updateType
 			   indexPath:(NSIndexPath *)indexPath {
 
-	_DCTDataSourceUpdate *update = [_DCTDataSourceUpdate new];
+	DCTDataSourceUpdate *update = [DCTDataSourceUpdate new];
 	update.animation = self.insertionAnimation;
 	update.type = updateType;
 	update.indexPath = indexPath;
