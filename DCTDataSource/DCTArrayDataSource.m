@@ -46,16 +46,16 @@
 	[self beginUpdates];
 	
 	[_array enumerateObjectsUsingBlock:^(id obj, NSUInteger i, BOOL *stop) {
-		[self performRowUpdate:DCTDataSourceUpdateTypeItemDelete
-					 indexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+		DCTDataSourceUpdate *update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemDelete indexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+		[self performUpdate:update];
 	}];
 		
 	
 	_array = [array mutableCopy];
 	
 	[_array enumerateObjectsUsingBlock:^(id obj, NSUInteger i, BOOL *stop) {
-		[self performRowUpdate:DCTDataSourceUpdateTypeItemInsert
-					 indexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+		DCTDataSourceUpdate *update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemInsert indexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+		[self performUpdate:update];
 	}];
 	
 	[self endUpdates];

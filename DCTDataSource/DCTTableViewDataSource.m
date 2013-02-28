@@ -12,7 +12,8 @@
 #import "DCTDataSourceUpdate.h"
 
 @implementation DCTTableViewDataSource {
-	__strong NSMutableArray *_updates;
+	NSMutableArray *_updates;
+	NSMutableDictionary *_animations;
 }
 
 - (id)initWithTableView:(UITableView *)tableView dataSource:(DCTDataSource *)dataSource {
@@ -21,13 +22,21 @@
 	_dataSource = dataSource;
 	_tableView = tableView;
 	_tableView.dataSource = self;
-
+	_animations = [NSMutableDictionary new];
 	[_tableView registerClass:[DCTTableViewCell class] forCellReuseIdentifier:@"DCTTableViewCell"];
 	_cellReuseIdentifierHandler = ^NSString *(NSIndexPath *indexPath, id object) {
 		return @"DCTTableViewCell";
 	};
 
 	return self;
+}
+
+- (UITableViewRowAnimation)animationForUpdateType:(DCTDataSourceUpdateType)updateType {
+	return [[_animations objectForKey:@(updateType)] integerValue];
+}
+
+- (void)setAnimation:(UITableViewRowAnimation)animation forUpdateType:(DCTDataSourceUpdateType)updateType {
+	[_animations setObject:@(animation) forKey:@(updateType)];
 }
 
 #pragma mark - Updating the table view
@@ -55,26 +64,28 @@
 
 	[_updates enumerateObjectsUsingBlock:^(DCTDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
 
+		UITableViewRowAnimation animation = [self animationForUpdateType:update.type];
+
 		switch (update.type) {
 
 			case DCTDataSourceUpdateTypeItemInsert:
-				[self.tableView insertRowsAtIndexPaths:@[update.indexPath] withRowAnimation:update.animation];
+				[self.tableView insertRowsAtIndexPaths:@[update.indexPath] withRowAnimation:animation];
 				break;
 
 			case DCTDataSourceUpdateTypeItemDelete:
-				[self.tableView deleteRowsAtIndexPaths:@[update.indexPath] withRowAnimation:update.animation];
+				[self.tableView deleteRowsAtIndexPaths:@[update.indexPath] withRowAnimation:animation];
 				break;
 
 			case DCTDataSourceUpdateTypeItemReload:
-				[self.tableView reloadRowsAtIndexPaths:@[update.indexPath] withRowAnimation:update.animation];
+				[self.tableView reloadRowsAtIndexPaths:@[update.indexPath] withRowAnimation:animation];
 				break;
 
 			case DCTDataSourceUpdateTypeSectionInsert:
-				[self.tableView insertSections:[NSIndexSet indexSetWithIndex:update.section] withRowAnimation:update.animation];
+				[self.tableView insertSections:[NSIndexSet indexSetWithIndex:update.section] withRowAnimation:animation];
 				break;
 
 			case DCTDataSourceUpdateTypeSectionDelete:
-				[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:update.section] withRowAnimation:update.animation];
+				[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:update.section] withRowAnimation:animation];
 				break;
 
 			default:
@@ -149,9 +160,8 @@
 				sectionIndex:(NSInteger)index {
 
 	DCTDataSourceUpdate *update = [DCTDataSourceUpdate new];
-	update.animation = self.insertionAnimation;
 	update.type = updateType;
-	update.section = index;
+	update.indexPath = [NSIndexPath indexPathWithIndex:index];
 	[self _performUpdate:update];
 }
 
@@ -159,7 +169,6 @@
 			   indexPath:(NSIndexPath *)indexPath {
 
 	DCTDataSourceUpdate *update = [DCTDataSourceUpdate new];
-	update.animation = self.insertionAnimation;
 	update.type = updateType;
 	update.indexPath = indexPath;
 	[self _performUpdate:update];

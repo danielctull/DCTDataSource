@@ -14,6 +14,24 @@ BOOL DCTDataSourceUpdateTypeIncludes(DCTDataSourceUpdateType type, DCTDataSource
 
 @implementation DCTDataSourceUpdate
 
++ (instancetype)updateWithType:(DCTDataSourceUpdateType)type indexPath:(NSIndexPath *)indexPath {
+	DCTDataSourceUpdate *update = [self new];
+	update.type = type;
+	update.indexPath = indexPath;
+	return update;
+}
+
++ (instancetype)updateWithType:(DCTDataSourceUpdateType)type index:(NSInteger)index {
+	DCTDataSourceUpdate *update = [self new];
+	update.type = type;
+	update.indexPath = [NSIndexPath indexPathWithIndex:index];
+	return update;
+}
+
+- (NSInteger)section {
+	return [self.indexPath indexAtPosition:0];
+}
+
 - (BOOL)isSectionUpdate {
 	return (DCTDataSourceUpdateTypeIncludes(self.type, DCTDataSourceUpdateTypeSectionInsert)
 			|| DCTDataSourceUpdateTypeIncludes(self.type, DCTDataSourceUpdateTypeSectionDelete));
@@ -29,12 +47,11 @@ BOOL DCTDataSourceUpdateTypeIncludes(DCTDataSourceUpdateType type, DCTDataSource
 }
 
 - (NSString *)description {
-	return [NSString stringWithFormat:@"<%@: %p; indexPath = %@; type = %i; animation = %i>",
+	return [NSString stringWithFormat:@"<%@: %p; indexPath = %@; type = %i>",
 			NSStringFromClass([self class]),
 			self,
 			self.indexPath,
-			self.type,
-			self.animation];
+			self.type];
 }
 
 @end

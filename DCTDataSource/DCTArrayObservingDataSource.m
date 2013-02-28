@@ -78,18 +78,17 @@ void* arrayObservingContext = &arrayObservingContext;
 	
 	[indexSet enumerateIndexesUsingBlock:^(NSUInteger i, BOOL *stop) {
 		NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-		
+
+		DCTDataSourceUpdate *update;
+
 		if (changeType == NSKeyValueChangeInsertion)
-			[self performRowUpdate:DCTDataSourceUpdateTypeItemInsert
-						 indexPath:indexPath];
-			
+			update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemInsert indexPath:indexPath];
 		else if (changeType == NSKeyValueChangeRemoval)
-			[self performRowUpdate:DCTDataSourceUpdateTypeItemDelete
-						 indexPath:indexPath];
-					
+			update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemDelete indexPath:indexPath];
 		else if (changeType == NSKeyValueChangeReplacement)
-			[self performRowUpdate:DCTDataSourceUpdateTypeItemReload
-						 indexPath:indexPath];
+			update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemReload indexPath:indexPath];
+
+		if (update) [self performUpdate:update];
 	}];
 	
 	[self endUpdates];

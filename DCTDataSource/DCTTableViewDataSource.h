@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "DCTParentDataSource.h"
 
+typedef enum {
+	DCTTableViewDataSourceReloadTypeDefault = 0,
+	DCTTableViewDataSourceReloadTypeBottom,
+	DCTTableViewDataSourceReloadTypeTop
+} DCTTableViewDataSourceReloadType;
+
 @interface DCTTableViewDataSource : DCTParentDataSource <UITableViewDataSource>
 
 - (id)initWithTableView:(UITableView *)tableView dataSource:(DCTDataSource *)dataSource;
@@ -17,9 +23,8 @@
 
 @property (nonatomic, copy) NSString *(^cellReuseIdentifierHandler)(NSIndexPath *indexPath, id object);
 
+- (UITableViewRowAnimation)animationForUpdateType:(DCTDataSourceUpdateType)updateType;
+- (void)setAnimation:(UITableViewRowAnimation)animation forUpdateType:(DCTDataSourceUpdateType)updateType;
 @property (nonatomic, assign) DCTTableViewDataSourceReloadType reloadType;
-@property (nonatomic, assign) UITableViewRowAnimation insertionAnimation;
-@property (nonatomic, assign) UITableViewRowAnimation reloadAnimation;
-@property (nonatomic, assign) UITableViewRowAnimation deletionAnimation;
 
 @end
