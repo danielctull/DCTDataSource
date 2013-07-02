@@ -35,6 +35,7 @@
  */
 
 #import "DCTHorizontalTableViewDataSource.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation DCTHorizontalTableViewDataSource
 
@@ -52,18 +53,34 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-	
-	cell.backgroundView.transform = CGAffineTransformMakeRotation(M_PI_2);
-	cell.selectedBackgroundView.transform = CGAffineTransformMakeRotation(M_PI_2);
-	cell.contentView.transform = CGAffineTransformMakeRotation(M_PI_2);
+
+	[CATransaction begin];
+    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+	cell.transform = CGAffineTransformMakeRotation(M_PI_2);
+    [CATransaction commit];
+
+	//cell.backgroundView.transform = CGAffineTransformMakeRotation(M_PI_2);
+
+	//cell.contentView.transform = CGAffineTransformMakeRotation(M_PI_2);
 	
     return cell;
 }
 
 - (void)setTableView:(UITableView *)tableView {
-	CGRect frame = tableView.frame;
-	tableView.transform = CGAffineTransformMakeRotation(-M_PI_2);
-	tableView.frame = frame;
+	
+	UIView *view = [[UIView alloc] initWithFrame:tableView.frame];
+	view.autoresizingMask = tableView.autoresizingMask;
+
+	tableView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
+	tableView.frame = view.bounds;
+
+	[tableView.superview insertSubview:view belowSubview:tableView];
+	[tableView removeFromSuperview];
+	[view addSubview:tableView];
+
+	CGRect frame = view.frame;
+	view.transform = CGAffineTransformMakeRotation(-M_PI_2);
+	view.frame = frame;
 	[super setTableView:tableView];
 }
 
