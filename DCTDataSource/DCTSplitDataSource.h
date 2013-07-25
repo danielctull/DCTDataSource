@@ -51,13 +51,13 @@ typedef enum {
  
  @param dataSource The data source to add as a child.
  */
-- (void)addChildTableViewDataSource:(DCTDataSource *)dataSource;
+- (void)addChildDataSource:(DCTDataSource *)dataSource;
 
 /** Remove a child data source. This calls to the tableView to animate out the cells.
  
  @param dataSource The child data source to remove.
  */
-- (void)removeChildTableViewDataSource:(DCTDataSource *)dataSource;
+- (void)removeChildDataSource:(DCTDataSource *)dataSource;
 
 /** The type of the split. 
  
