@@ -7,7 +7,6 @@
 //
 
 #import "DCTTableViewDataSource.h"
-#import "UITableView+DCTNibRegistration.h"
 #import "DCTTableViewCell.h"
 #import "DCTDataSourceUpdate.h"
 
@@ -205,7 +204,7 @@
 
 	id object = [self.dataSource objectAtIndexPath:indexPath];
 	NSString *cellIdentifier = self.cellReuseIdentifierHandler(indexPath, object);
-    UITableViewCell *cell = [tv dct_dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:cellIdentifier];
 
 	if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
 											 reuseIdentifier:cellIdentifier];

@@ -37,7 +37,6 @@
 #import "DCTDataSource.h"
 #import "DCTTableViewCell.h"
 #import "UITableView+DCTTableViewDataSources.h"
-#import "UITableView+DCTNibRegistration.h"
 #import "DCTParentDataSource.h"
 #import "DCTDataSourceUpdate.h"
 
