@@ -106,7 +106,7 @@
 	if (!self) return nil;
 	
 	splitDataSource = [[DCTSplitDataSource alloc] init];
-	splitDataSource.type = DCTSplitTableViewDataSourceTypeRow;
+	splitDataSource.type = DCTSplitDataSourceTypeRow;
 	splitDataSource.parent = self;
 	
 	headerDataSource = [[DCTObjectDataSource alloc] init];

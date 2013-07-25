@@ -37,14 +37,14 @@
 #import "DCTParentDataSource.h"
 
 typedef enum {
-	DCTSplitTableViewDataSourceTypeSection = 0,
-	DCTSplitTableViewDataSourceTypeRow
-} DCTSplitTableViewDataSourceType;
+	DCTSplitDataSourceTypeSection = 0,
+	DCTSplitDataSourceTypeRow
+} DCTSplitDataSourceType;
 
 /** A class to provide a way of displaying data from multiple data sources in a table view. */
 @interface DCTSplitDataSource : DCTParentDataSource
 
-- (id)initWithType:(DCTSplitTableViewDataSourceType)type;
+- (id)initWithType:(DCTSplitDataSourceType)type;
 
 
 /** Add a child data source. This calls to the tableView to animate the cells in.
@@ -61,10 +61,10 @@ typedef enum {
 
 /** The type of the split. 
  
- - *DCTSplitTableViewDataSourceTypeSection* Splits each child
+ - *DCTSplitDataSourceTypeSection* Splits each child
  table view data source into separate sections
- - *DCTSplitTableViewDataSourceTypeRow* Makes this data source responsible for once section
+ - *DCTSplitDataSourceTypeRow* Makes this data source responsible for once section
  and joins each child table view data source one after the other inside this section.
  */
-@property (nonatomic, readonly) DCTSplitTableViewDataSourceType type;
+@property (nonatomic, readonly) DCTSplitDataSourceType type;
 @end
