@@ -36,6 +36,9 @@
 
 #import "DCTFetchedResultsDataSource.h"
 
+@interface DCTFetchedResultsDataSource () <NSFetchedResultsControllerDelegate>
+@end
+
 @implementation DCTFetchedResultsDataSource
 
 #pragma mark - DCTTableViewDataSource
