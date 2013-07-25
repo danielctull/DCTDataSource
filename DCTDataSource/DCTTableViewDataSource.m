@@ -7,7 +7,6 @@
 //
 
 #import "DCTTableViewDataSource.h"
-#import "DCTTableViewCell.h"
 #import "DCTDataSourceUpdate.h"
 
 @implementation DCTTableViewDataSource {
@@ -22,11 +21,6 @@
 	_tableView = tableView;
 	_tableView.dataSource = self;
 	_animations = [NSMutableDictionary new];
-	[_tableView registerClass:[DCTTableViewCell class] forCellReuseIdentifier:@"DCTTableViewCell"];
-	_cellReuseIdentifierHandler = ^NSString *(NSIndexPath *indexPath, id object) {
-		return @"DCTTableViewCell";
-	};
-
 	return self;
 }
 
