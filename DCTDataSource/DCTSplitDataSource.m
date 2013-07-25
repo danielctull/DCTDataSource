@@ -45,6 +45,13 @@
 	__strong NSMutableArray *dctInternal_tableViewDataSources;
 }
 
+- (id)initWithType:(DCTSplitTableViewDataSourceType)type {
+	self = [self init];
+	if (!self) return nil;
+	_type = type;
+	return self;
+}
+
 #pragma mark - DCTParentTableViewDataSource
 
 - (NSArray *)childTableViewDataSources {
@@ -180,12 +187,13 @@
 	if (self.type == DCTSplitTableViewDataSourceTypeRow) {
 		
 		[tableViewDataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-			[tableViewDataSource performRowUpdate:DCTDataSourceUpdateTypeItemInsert indexPath:indexPath];
+			DCTDataSourceUpdate *update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemInsert indexPath:indexPath];
+			[tableViewDataSource performUpdate:update];
 		}];
 		
 	} else {
-		
-		[self performSectionUpdate:DCTDataSourceUpdateTypeSectionInsert sectionIndex:[childDataSources indexOfObject:tableViewDataSource]];
+		DCTDataSourceUpdate *update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeSectionInsert index:[childDataSources indexOfObject:tableViewDataSource]];
+		[self performUpdate:update];
 	}
 	
 	[self endUpdates];
@@ -205,12 +213,14 @@
 	if (self.type == DCTSplitTableViewDataSourceTypeRow) {
 		
 		[tableViewDataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-			[tableViewDataSource performRowUpdate:DCTDataSourceUpdateTypeItemDelete indexPath:indexPath];
+			DCTDataSourceUpdate *update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemDelete indexPath:indexPath];
+			[tableViewDataSource performUpdate:update];
 		}];
 		
 	} else {
-		
-		[self performSectionUpdate:DCTDataSourceUpdateTypeSectionDelete sectionIndex:index];
+
+		DCTDataSourceUpdate *update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeSectionDelete index:index];
+		[self performUpdate:update];
 	}
 	
 	[self endUpdates];

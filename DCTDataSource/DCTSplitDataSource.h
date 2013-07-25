@@ -44,6 +44,9 @@ typedef enum {
 /** A class to provide a way of displaying data from multiple data sources in a table view. */
 @interface DCTSplitDataSource : DCTParentDataSource
 
+- (id)initWithType:(DCTSplitTableViewDataSourceType)type;
+
+
 /** Add a child data source. This calls to the tableView to animate the cells in.
  
  @param dataSource The data source to add as a child.
@@ -63,5 +66,5 @@ typedef enum {
  - *DCTSplitTableViewDataSourceTypeRow* Makes this data source responsible for once section
  and joins each child table view data source one after the other inside this section.
  */
-@property (nonatomic, assign) DCTSplitTableViewDataSourceType type;
+@property (nonatomic, readonly) DCTSplitTableViewDataSourceType type;
 @end

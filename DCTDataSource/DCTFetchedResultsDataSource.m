@@ -136,13 +136,11 @@
 	
     switch(type) {
         case NSFetchedResultsChangeInsert:
-			[self performSectionUpdate:DCTDataSourceUpdateTypeSectionInsert
-						  sectionIndex:sectionIndex];
+			[self performUpdate:[DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeSectionInsert index:sectionIndex]];
             break;
 			
         case NSFetchedResultsChangeDelete:
-			[self performSectionUpdate:DCTDataSourceUpdateTypeSectionDelete
-						  sectionIndex:sectionIndex];
+			[self performUpdate:[DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeSectionDelete index:sectionIndex]];
             break;
     }
 }
@@ -156,25 +154,20 @@
     switch(type) {
 			
 		case NSFetchedResultsChangeInsert:
-			[self performRowUpdate:DCTDataSourceUpdateTypeItemInsert
-						 indexPath:newIndexPath];
+			[self performUpdate:[DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemInsert indexPath:newIndexPath]];
 			break;
 			
 		case NSFetchedResultsChangeDelete:
-			[self performRowUpdate:DCTDataSourceUpdateTypeItemDelete
-						 indexPath:indexPath];
+			[self performUpdate:[DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemDelete indexPath:indexPath]];
 			break;
 			
         case NSFetchedResultsChangeUpdate:
-			[self performRowUpdate:DCTDataSourceUpdateTypeItemReload
-						 indexPath:indexPath];
+			[self performUpdate:[DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemReload indexPath:indexPath]];
 			break;
 			
         case NSFetchedResultsChangeMove:
-			[self performRowUpdate:DCTDataSourceUpdateTypeItemDelete
-						 indexPath:indexPath];
-			[self performRowUpdate:DCTDataSourceUpdateTypeItemInsert
-						 indexPath:newIndexPath];
+			[self performUpdate:[DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemDelete indexPath:indexPath]];
+			[self performUpdate:[DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemInsert indexPath:newIndexPath]];
             break;
     }
 }
