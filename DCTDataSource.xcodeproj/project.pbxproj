@@ -31,6 +31,7 @@
 		24700B4D15B835C100FA5843 /* DisclosureIndicatorHighlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24700B4915B835C100FA5843 /* DisclosureIndicatorHighlighted@2x.png */; };
 		24A389FD162303CF0003A1BE /* DCTDataSourceUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */; };
 		24ABB4D917A1249A0061A95E /* DCTDataSourceUpdate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */; };
+		24ABB4DC17A12D620061A95E /* DCTPickerViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ABB4DB17A12D610061A95E /* DCTPickerViewDataSource.m */; };
 		24C0298815B982F3009B1DE9 /* DCTArrayObservingDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A678F158B1AF600952890 /* DCTArrayObservingDataSource.h */; };
 		24C0298A15B982F3009B1DE9 /* DCTArrayDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6791158B1AF600952890 /* DCTArrayDataSource.h */; };
 		24C0298C15B982F3009B1DE9 /* DCTCollapsableDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6793158B1AF600952890 /* DCTCollapsableDataSource.h */; };
@@ -120,6 +121,8 @@
 		24700B4915B835C100FA5843 /* DisclosureIndicatorHighlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DisclosureIndicatorHighlighted@2x.png"; sourceTree = "<group>"; };
 		24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTDataSourceUpdate.h; sourceTree = "<group>"; };
 		24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTDataSourceUpdate.m; sourceTree = "<group>"; };
+		24ABB4DA17A12D610061A95E /* DCTPickerViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DCTPickerViewDataSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		24ABB4DB17A12D610061A95E /* DCTPickerViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTPickerViewDataSource.m; sourceTree = "<group>"; };
 		24EC2E7C1642DAA4000092C8 /* DCTEditableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTEditableDataSource.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +218,7 @@
 				244A679E158B1AF600952890 /* DCTParentDataSource.m */,
 				24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */,
 				24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */,
+				24ABB4DD17A12D660061A95E /* UIPickerView */,
 				24297F111640161200E32187 /* UITableView */,
 				24297F151640166400E32187 /* UICollectionView */,
 				24D4AB29162B26A8009F3E35 /* Object + Array */,
@@ -262,6 +266,15 @@
 				24700B3E15B835A100FA5843 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		24ABB4DD17A12D660061A95E /* UIPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				24ABB4DA17A12D610061A95E /* DCTPickerViewDataSource.h */,
+				24ABB4DB17A12D610061A95E /* DCTPickerViewDataSource.m */,
+			);
+			name = UIPickerView;
 			sourceTree = "<group>";
 		};
 		24D4AB27162B2634009F3E35 /* Parent Data Sources */ = {
@@ -438,6 +451,7 @@
 				24A389FD162303CF0003A1BE /* DCTDataSourceUpdate.m in Sources */,
 				24297F101640109700E32187 /* DCTTableViewDataSource.m in Sources */,
 				24297F141640165B00E32187 /* DCTCollectionViewDataSource.m in Sources */,
+				24ABB4DC17A12D620061A95E /* DCTPickerViewDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
