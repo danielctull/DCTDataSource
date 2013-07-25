@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Daniel Tull. All rights reserved.
 //
 
-#import "DCTDataSource.h"
+#import <Foundation/Foundation.h>
 
 typedef enum {
 	DCTDataSourceUpdateTypeUnknown = 0,

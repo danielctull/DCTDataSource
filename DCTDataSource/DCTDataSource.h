@@ -65,11 +65,6 @@
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
 
-
-
-
-
-
 /** To get the associated object from the data source for the given 
  index path. By default this returns the index path, but subclasses
  should return the correct object to use.

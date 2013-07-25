@@ -36,60 +36,17 @@
 
 #import "DCTParentDataSource.h"
 
-/** A class to represent the header cell for the collapsable data source. 
- */
-@interface DCTCollapsableSectionTableViewDataSourceHeader : NSObject
+@interface DCTCollapsableDataSource : DCTParentDataSource
 
-/** The title to use in the header cell.
- */
-@property (nonatomic, readonly) NSString *title;
-
-/** YES if the DCTCollapsableSectionTableViewDataSource is open.
- */
-@property (nonatomic, readonly) BOOL open;
-
-/** YES if the DCTCollapsableSectionTableViewDataSource is empty and has
- nothing to expand out for.
- 
- The DCTCollapsableSectionTableViewDataSource is deemed to be empty if
- it has no childTableViewDataSource or the childTableViewDataSource returns 
- 0 for tableView:numberOfRowsInSection:.
- */
-@property (nonatomic, readonly) BOOL empty;
-@end
-
-
-/** A data source that manages one section of a table view which puts a header cell 
- above its childTableViewDataSource to allow expanding and collapsing in an 
- acordian style.
- */
-@interface DCTCollapsableSectionTableViewDataSource : DCTParentDataSource
+- (id)initWithChildDataSource:(DCTDataSource *)dataSource;
 
 /** The child data source to expand.
  */
-@property (nonatomic, strong) DCTDataSource *childTableViewDataSource;
-
-/** The class to use for header cell. Assuming it conforms to the 
- DCTTableViewCellObjectConfiguration protocol, it will get an instance of 
- DCTCollapsableSectionTableViewDataSourceHeader that represents the current state 
- of the collapsable data source.
- */
-@property (nonatomic, copy) NSString *titleCellReuseIdentifier;
-
-/** The title that should go in the header cell. 
- */
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, readonly) DCTDataSource *childDataSource;
 
 /** Shows whether the collapsable data source is open or not. You can
  also use this to programatically expand or collapse.
  */
-@property (nonatomic, assign, getter = isOpen) BOOL open;
-
-/** A method for subclasses to override to provide a data source to use
- for the childTableViewDataSource.
- 
- This method is only called when childTableViewDataSource is nil.
- */
-- (void)loadChildTableViewDataSource;
+@property (nonatomic, assign, getter = isCollapsed) BOOL collapsed;
 
 @end

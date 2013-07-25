@@ -34,7 +34,7 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "DCTCollapsableSectionTableViewDataSource.h"
+#import "DCTCollapsableDataSource.h"
 #import "DCTTableViewDataSources.h"
 #import "UITableView+DCTTableViewDataSources.h"
 #import "_DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell.h"
@@ -62,7 +62,7 @@
 
 
 
-@interface DCTCollapsableSectionTableViewDataSource ()
+@interface DCTCollapsableDataSource ()
 
 - (IBAction)dctInternal_titleTapped:(UITapGestureRecognizer *)sender;
 - (void)dctInternal_setOpened;
@@ -94,9 +94,16 @@
 
 #pragma mark - NSObject
 
+- (id)initWithChildDataSource:(DCTDataSource *)dataSource {
+	self = [self init];
+	if (!self) return nil;
+	_childDataSource = dataSource;
+	return self;
+}
+
 - (id)init {
-	
-	if (!(self = [super init])) return nil;
+	self = [super init];
+	if (!self) return nil;
 	
 	splitDataSource = [[DCTSplitDataSource alloc] init];
 	splitDataSource.type = DCTSplitTableViewDataSourceTypeRow;
