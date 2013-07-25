@@ -56,7 +56,7 @@
 	NSLog(@"%@%@", string, self);
 	
 	if ([self isKindOfClass:[DCTParentDataSource class]]) {
-		for (id object in [(DCTParentDataSource *)self childTableViewDataSources])
+		for (id object in [(DCTParentDataSource *)self childDataSources])
 			[object dct_logTableViewDataSourcesLevel:level+1];
 	}
 }

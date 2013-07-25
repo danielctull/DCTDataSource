@@ -88,7 +88,7 @@
  
  All these data sources should have thier parent set as this data source.
  */
-@property (nonatomic, readonly) NSArray *childTableViewDataSources;
+@property (nonatomic, readonly) NSArray *childDataSources;
 
 
 /** Retrieves the child data source for a given section.
