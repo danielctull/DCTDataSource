@@ -338,4 +338,13 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	return self.sectionHeaderTitle;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+	return self.editable;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+
+	if (self.editHandler) self.editHandler(editingStyle, indexPath);
+}
+
 @end

@@ -118,6 +118,9 @@ typedef enum {
 @property (nonatomic, copy) NSString *sectionHeaderTitle;
 @property (nonatomic, copy) NSString *sectionFooterTitle;
 
+@property (nonatomic) BOOL editable;
+@property (nonatomic, copy) void(^editHandler)(UITableViewCellEditingStyle editingStyle, NSIndexPath *indexPath);
+
 @property (nonatomic, assign) UITableViewRowAnimation insertionAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation reloadAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation deletionAnimation;
