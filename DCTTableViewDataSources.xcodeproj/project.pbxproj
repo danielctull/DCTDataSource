@@ -509,6 +509,7 @@
 		2437B78715B97FA900750117 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LIBRARY = "libc++";
 				DSTROOT = /tmp/DCTTableViewDataSources.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -523,6 +524,7 @@
 		2437B78815B97FA900750117 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LIBRARY = "libc++";
 				DSTROOT = /tmp/DCTTableViewDataSources.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

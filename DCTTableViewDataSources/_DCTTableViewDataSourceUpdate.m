@@ -29,12 +29,12 @@ BOOL DCTTableViewDataSourceUpdateTypeIncludes(DCTTableViewDataSourceUpdateType t
 }
 
 - (NSString *)description {
-	return [NSString stringWithFormat:@"<%@: %p; indexPath = %@; type = %i; animation = %i>",
+	return [NSString stringWithFormat:@"<%@: %p; indexPath = %@; type = %i; animation = %@>",
 			NSStringFromClass([self class]),
 			self,
 			self.indexPath,
 			self.type,
-			self.animation];
+			@(self.animation)];
 }
 
 @end
