@@ -124,6 +124,7 @@
 		244A67AD158B1AF700952890 /* UITableView+DCTCellRegistration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTCellRegistration.m"; sourceTree = "<group>"; };
 		244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DCTTableViewDataSources.h"; sourceTree = "<group>"; };
 		244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTTableViewDataSources.m"; sourceTree = "<group>"; };
+		244F133017FEB29F0016E94E /* Architectures.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Architectures.xcconfig; sourceTree = "<group>"; };
 		24700B3815B835A100FA5843 /* DCTTableViewDataSources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTTableViewDataSources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		24700B3915B835A100FA5843 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		24700B3D15B835A100FA5843 /* DCTTableViewDataSourcesBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTTableViewDataSourcesBundle-Info.plist"; sourceTree = "<group>"; };
@@ -173,6 +174,7 @@
 		244A675A158B1AB100952890 = {
 			isa = PBXGroup;
 			children = (
+				244F133017FEB29F0016E94E /* Architectures.xcconfig */,
 				244A676A158B1AB100952890 /* DCTTableViewDataSources */,
 				244A677E158B1AB100952890 /* DCTTableViewDataSourcesTests */,
 				24700B3B15B835A100FA5843 /* DCTTableViewDataSourcesBundle */,
@@ -508,8 +510,8 @@
 /* Begin XCBuildConfiguration section */
 		2437B78715B97FA900750117 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 244F133017FEB29F0016E94E /* Architectures.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LIBRARY = "libc++";
 				DSTROOT = /tmp/DCTTableViewDataSources.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -523,8 +525,8 @@
 		};
 		2437B78815B97FA900750117 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 244F133017FEB29F0016E94E /* Architectures.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LIBRARY = "libc++";
 				DSTROOT = /tmp/DCTTableViewDataSources.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -627,6 +629,7 @@
 		};
 		24700B4215B835A100FA5843 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 244F133017FEB29F0016E94E /* Architectures.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LIBRARY = "libc++";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -647,6 +650,7 @@
 		};
 		24700B4315B835A100FA5843 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 244F133017FEB29F0016E94E /* Architectures.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LIBRARY = "libc++";
 				COMBINE_HIDPI_IMAGES = YES;
