@@ -41,14 +41,6 @@
 #import "DCTParentTableViewDataSource.h"
 #import "_DCTTableViewDataSourceUpdate.h"
 
-void DCTTableViewDataSourceUpdateTypeAdd(DCTTableViewDataSourceUpdateType type, DCTTableViewDataSourceUpdateType typeToAdd) {
-	
-	if (type == DCTTableViewDataSourceUpdateTypeUnknown)
-		type = typeToAdd;
-	
-	type = (type | typeToAdd);
-}
-
 NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 
 @implementation DCTTableViewDataSource {
