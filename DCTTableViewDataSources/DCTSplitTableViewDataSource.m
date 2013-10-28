@@ -201,7 +201,10 @@
 	NSAssert([dctInternal_tableViewDataSources containsObject:tableViewDataSource], @"dataSource should be a child table view data source");
 	
 	NSMutableArray *childDataSources = [self dctInternal_tableViewDataSources];
-	
+
+	tableViewDataSource.tableView = nil;
+	tableViewDataSource.parent = nil;
+
 	[self beginUpdates];
 	
 	NSUInteger index = [childDataSources indexOfObject:tableViewDataSource];
