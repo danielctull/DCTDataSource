@@ -283,8 +283,9 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 }
 
 - (void)enumerateIndexPathsUsingBlock:(void(^)(NSIndexPath *, BOOL *stop))enumerator {
-	
-	NSInteger sectionCount = [self numberOfSectionsInTableView:self.tableView];
+
+	BOOL responds = [self respondsToSelector:@selector(numberOfSectionsInTableView:)];
+	NSInteger sectionCount = responds ? [self numberOfSectionsInTableView:self.tableView] : 1;
 	
 	for (NSInteger section = 0; section < sectionCount; section++) {
 		
