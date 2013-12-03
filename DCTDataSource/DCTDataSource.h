@@ -47,8 +47,6 @@
  */
 @interface DCTDataSource : NSObject <UITableViewDataSource>
 
-+ (NSBundle *)bundle;
-
 /** A parent data source, if one exists.
  
  To enable nesting any data source has the potential to have a
@@ -92,3 +90,4 @@
 @end
 
 #import "DCTEditableDataSource.h"
+#import "DCTParentDataSource.h"

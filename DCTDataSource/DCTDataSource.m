@@ -49,37 +49,23 @@ void DCTDataSourceUpdateTypeAdd(DCTDataSourceUpdateType type, DCTDataSourceUpdat
 
 NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 
-@implementation DCTDataSource {
-	__strong NSMutableArray *_updates;
-}
 
-+ (NSBundle *)bundle {
-	static NSBundle *bundle;
-	static dispatch_once_t bundleToken;
-	dispatch_once(&bundleToken, ^{
-		NSDirectoryEnumerator *enumerator = [[NSFileManager new] enumeratorAtURL:[[NSBundle mainBundle] bundleURL]
-													  includingPropertiesForKeys:nil
-																		 options:NSDirectoryEnumerationSkipsHiddenFiles
-																	errorHandler:NULL];
+@interface DCTDataSource ()
+@property (nonatomic) NSMutableArray *updates;
+@end
 
-		for (NSURL *URL in enumerator)
-			if ([[URL lastPathComponent] isEqualToString:@"DCTDataSource.bundle"])
-				bundle = [NSBundle bundleWithURL:URL];
-	});
-
-	return bundle;
-}
+@implementation DCTDataSource
 
 #pragma mark - DCTTableViewDataSource
 
 - (void)reloadData {
 	[self beginUpdates];
 	[self enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-		[self performRowUpdate:DCTDataSourceUpdateTypeItemReload indexPath:indexPath];
+		DCTDataSourceUpdate *update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemReload indexPath:indexPath];
+		[self performUpdate:update];
 	}];
 	[self endUpdates];
 }
-
 
 - (NSInteger)numberOfSections {
 	return 0;
@@ -99,22 +85,14 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 	[self.parent beginUpdates];
 }
 
+- (void)performUpdate:(DCTDataSourceUpdate *)update {
+	NSIndexPath *indexPath = [self.parent convertIndexPath:update.indexPath fromChildTableViewDataSource:self];
+	DCTDataSourceUpdate *parentUpdate = [DCTDataSourceUpdate updateWithType:update.type indexPath:indexPath];
+	[self.parent performUpdate:parentUpdate];
+}
+
 - (void)endUpdates {
 	[self.parent endUpdates];
-}
-
-- (void)performSectionUpdate:(DCTDataSourceUpdateType)updateType
-				sectionIndex:(NSInteger)index {
-
-	index = [self.parent convertSection:index fromChildTableViewDataSource:self];
-	[self.parent performSectionUpdate:updateType sectionIndex:index];
-}
-
-- (void)performRowUpdate:(DCTDataSourceUpdateType)updateType
-			   indexPath:(NSIndexPath *)indexPath {
-
-	indexPath = [self.parent convertIndexPath:indexPath fromChildTableViewDataSource:self];
-	[self.parent performRowUpdate:updateType indexPath:indexPath];
 }
 
 - (void)enumerateIndexPathsUsingBlock:(void(^)(NSIndexPath *, BOOL *stop))enumerator {
