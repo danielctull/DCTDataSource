@@ -15,16 +15,29 @@ typedef enum {
 	DCTTableViewDataSourceReloadTypeTop
 } DCTTableViewDataSourceReloadType;
 
+@protocol DCTTableViewDataSourceDelegate;
+
+
+
 @interface DCTTableViewDataSource : DCTParentDataSource <UITableViewDataSource>
 
 - (id)initWithTableView:(UITableView *)tableView dataSource:(DCTDataSource *)dataSource;
 @property (nonatomic, readonly, weak) UITableView *tableView;
-@property (nonatomic, readonly, strong) DCTDataSource *dataSource;
+@property (nonatomic, readonly) DCTDataSource *dataSource;
 
-@property (nonatomic, copy) NSString *(^cellReuseIdentifierHandler)(NSIndexPath *indexPath, id object);
+@property (nonatomic, weak) id<DCTTableViewDataSourceDelegate> delegate;
+@property (nonatomic, copy) NSString *cellReuseIdentifier;
+@property (nonatomic) DCTTableViewDataSourceReloadType reloadType;
+@property (nonatomic) UITableViewRowAnimation animation;
 
-- (UITableViewRowAnimation)animationForUpdateType:(DCTDataSourceUpdateType)updateType;
-- (void)setAnimation:(UITableViewRowAnimation)animation forUpdateType:(DCTDataSourceUpdateType)updateType;
-@property (nonatomic, assign) DCTTableViewDataSourceReloadType reloadType;
+@end
+
+
+
+@protocol DCTTableViewDataSourceDelegate <NSObject>
+
+@optional
+- (NSString *)tableViewDataSource:(DCTTableViewDataSource *)tableViewDataSource cellReuseIdentifierForCellAtIndexPath:(NSIndexPath *)indexPath;
+- (UITableViewRowAnimation)tableViewDataSource:(DCTTableViewDataSource *)tableViewDataSource animationForCellAtIndexPath:(NSIndexPath *)indexPath updateType:(DCTDataSourceUpdateType)updateType;
 
 @end

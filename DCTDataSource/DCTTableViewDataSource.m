@@ -24,12 +24,25 @@
 	return self;
 }
 
-- (UITableViewRowAnimation)animationForUpdateType:(DCTDataSourceUpdateType)updateType {
-	return [[_animations objectForKey:@(updateType)] integerValue];
+- (UITableViewRowAnimation)animationForIndexPath:(NSIndexPath *)indexPath updateType:(DCTDataSourceUpdateType)updateType {
+
+	if ([self.delegate respondsToSelector:@selector(tableViewDataSource:animationForCellAtIndexPath:updateType:)])
+		return [self.delegate tableViewDataSource:self animationForCellAtIndexPath:indexPath updateType:updateType];
+
+	return self.animation;
 }
 
-- (void)setAnimation:(UITableViewRowAnimation)animation forUpdateType:(DCTDataSourceUpdateType)updateType {
-	[_animations setObject:@(animation) forKey:@(updateType)];
+- (NSString *)cellReuseIdentifierForIndexPath:(NSIndexPath *)indexPath {
+
+	NSString *cellReuseIdentifier;
+
+	if ([self.delegate respondsToSelector:@selector(tableViewDataSource:animationForCellAtIndexPath:updateType:)])
+		cellReuseIdentifier = [self.delegate tableViewDataSource:self cellReuseIdentifierForCellAtIndexPath:indexPath];
+
+	if (!cellReuseIdentifier)
+		cellReuseIdentifier = self.cellReuseIdentifier;
+
+	return cellReuseIdentifier;
 }
 
 #pragma mark - Updating the table view
@@ -57,7 +70,7 @@
 
 	[_updates enumerateObjectsUsingBlock:^(DCTDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
 
-		UITableViewRowAnimation animation = [self animationForUpdateType:update.type];
+		UITableViewRowAnimation animation = [self animationForIndexPath:update.indexPath updateType:update.type];
 
 		switch (update.type) {
 
@@ -196,8 +209,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-	id object = [self.dataSource objectAtIndexPath:indexPath];
-	NSString *cellIdentifier = self.cellReuseIdentifierHandler(indexPath, object);
+	NSString *cellIdentifier = [self cellReuseIdentifierForIndexPath:indexPath];
     UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:cellIdentifier];
 
 	if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
