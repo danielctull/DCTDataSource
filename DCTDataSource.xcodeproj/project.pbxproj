@@ -21,14 +21,7 @@
 		2437B7FA15B9802A00750117 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B7F915B9802A00750117 /* UIKit.framework */; };
 		244A6777158B1AB100952890 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244A6776158B1AB100952890 /* SenTestingKit.framework */; };
 		244A677A158B1AB100952890 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244A6768158B1AB100952890 /* Foundation.framework */; };
-		244A6783158B1AB100952890 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 244A6781158B1AB100952890 /* InfoPlist.strings */; };
-		244A6786158B1AB100952890 /* DCTTableViewDataSourcesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6785158B1AB100952890 /* DCTTableViewDataSourcesTests.m */; };
 		24700B3A15B835A100FA5843 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24700B3915B835A100FA5843 /* CoreFoundation.framework */; };
-		24700B4015B835A100FA5843 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24700B3E15B835A100FA5843 /* InfoPlist.strings */; };
-		24700B4A15B835C100FA5843 /* DisclosureIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 24700B4615B835C100FA5843 /* DisclosureIndicator.png */; };
-		24700B4B15B835C100FA5843 /* DisclosureIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24700B4715B835C100FA5843 /* DisclosureIndicator@2x.png */; };
-		24700B4C15B835C100FA5843 /* DisclosureIndicatorHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 24700B4815B835C100FA5843 /* DisclosureIndicatorHighlighted.png */; };
-		24700B4D15B835C100FA5843 /* DisclosureIndicatorHighlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24700B4915B835C100FA5843 /* DisclosureIndicatorHighlighted@2x.png */; };
 		24A389FD162303CF0003A1BE /* DCTDataSourceUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */; };
 		24ABB4D917A1249A0061A95E /* DCTDataSourceUpdate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */; };
 		24ABB4DC17A12D620061A95E /* DCTPickerViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ABB4DB17A12D610061A95E /* DCTPickerViewDataSource.m */; };
@@ -87,10 +80,6 @@
 		244A6768158B1AB100952890 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		244A6775158B1AB100952890 /* DCTDataSourceTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTDataSourceTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		244A6776158B1AB100952890 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		244A6780158B1AB100952890 /* DCTDataSourceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTDataSourceTests-Info.plist"; sourceTree = "<group>"; };
-		244A6782158B1AB100952890 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		244A6784158B1AB100952890 /* DCTTableViewDataSourcesTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCTTableViewDataSourcesTests.h; sourceTree = "<group>"; };
-		244A6785158B1AB100952890 /* DCTTableViewDataSourcesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCTTableViewDataSourcesTests.m; sourceTree = "<group>"; };
 		244A678F158B1AF600952890 /* DCTArrayObservingDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DCTArrayObservingDataSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		244A6790158B1AF600952890 /* DCTArrayObservingDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DCTArrayObservingDataSource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		244A6791158B1AF600952890 /* DCTArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DCTArrayDataSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -113,12 +102,6 @@
 		244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTTableViewDataSources.m"; sourceTree = "<group>"; };
 		24700B3815B835A100FA5843 /* DCTDataSource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DCTDataSource.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		24700B3915B835A100FA5843 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		24700B3D15B835A100FA5843 /* DCTDataSourceBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTDataSourceBundle-Info.plist"; sourceTree = "<group>"; };
-		24700B3F15B835A100FA5843 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		24700B4615B835C100FA5843 /* DisclosureIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DisclosureIndicator.png; sourceTree = "<group>"; };
-		24700B4715B835C100FA5843 /* DisclosureIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DisclosureIndicator@2x.png"; sourceTree = "<group>"; };
-		24700B4815B835C100FA5843 /* DisclosureIndicatorHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DisclosureIndicatorHighlighted.png; sourceTree = "<group>"; };
-		24700B4915B835C100FA5843 /* DisclosureIndicatorHighlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DisclosureIndicatorHighlighted@2x.png"; sourceTree = "<group>"; };
 		24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTDataSourceUpdate.h; sourceTree = "<group>"; };
 		24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTDataSourceUpdate.m; sourceTree = "<group>"; };
 		24ABB4DA17A12D610061A95E /* DCTPickerViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DCTPickerViewDataSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -180,8 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				244A676A158B1AB100952890 /* DCTDataSource */,
-				244A677E158B1AB100952890 /* DCTDataSourceTests */,
-				24700B3B15B835A100FA5843 /* DCTDataSourceBundle */,
 				244A6767158B1AB100952890 /* Frameworks */,
 				244A6766158B1AB100952890 /* Products */,
 			);
@@ -226,46 +207,6 @@
 				24D4AB28162B2649009F3E35 /* Core Data */,
 			);
 			path = DCTDataSource;
-			sourceTree = "<group>";
-		};
-		244A677E158B1AB100952890 /* DCTDataSourceTests */ = {
-			isa = PBXGroup;
-			children = (
-				244A6784158B1AB100952890 /* DCTTableViewDataSourcesTests.h */,
-				244A6785158B1AB100952890 /* DCTTableViewDataSourcesTests.m */,
-				244A677F158B1AB100952890 /* Supporting Files */,
-			);
-			path = DCTDataSourceTests;
-			sourceTree = "<group>";
-		};
-		244A677F158B1AB100952890 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				244A6780158B1AB100952890 /* DCTDataSourceTests-Info.plist */,
-				244A6781158B1AB100952890 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		24700B3B15B835A100FA5843 /* DCTDataSourceBundle */ = {
-			isa = PBXGroup;
-			children = (
-				24700B4615B835C100FA5843 /* DisclosureIndicator.png */,
-				24700B4715B835C100FA5843 /* DisclosureIndicator@2x.png */,
-				24700B4815B835C100FA5843 /* DisclosureIndicatorHighlighted.png */,
-				24700B4915B835C100FA5843 /* DisclosureIndicatorHighlighted@2x.png */,
-				24700B3C15B835A100FA5843 /* Supporting Files */,
-			);
-			path = DCTDataSourceBundle;
-			sourceTree = "<group>";
-		};
-		24700B3C15B835A100FA5843 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				24700B3D15B835A100FA5843 /* DCTDataSourceBundle-Info.plist */,
-				24700B3E15B835A100FA5843 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		24ABB4DD17A12D660061A95E /* UIPickerView */ = {
@@ -401,7 +342,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				244A6783158B1AB100952890 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,11 +349,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24700B4015B835A100FA5843 /* InfoPlist.strings in Resources */,
-				24700B4A15B835C100FA5843 /* DisclosureIndicator.png in Resources */,
-				24700B4B15B835C100FA5843 /* DisclosureIndicator@2x.png in Resources */,
-				24700B4C15B835C100FA5843 /* DisclosureIndicatorHighlighted.png in Resources */,
-				24700B4D15B835C100FA5843 /* DisclosureIndicatorHighlighted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,7 +394,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				244A6786158B1AB100952890 /* DCTTableViewDataSourcesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,25 +413,6 @@
 			targetProxy = 2437B7F715B9801C00750117 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		244A6781158B1AB100952890 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				244A6782158B1AB100952890 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		24700B3E15B835A100FA5843 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24700B3F15B835A100FA5843 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2437B78715B97FA900750117 /* Debug */ = {
