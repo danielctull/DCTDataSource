@@ -87,6 +87,10 @@
 
 - (void)enumerateIndexPathsUsingBlock:(void(^)(NSIndexPath *, BOOL *stop))enumerator;
 
+
+- (void)setUserInfoValue:(id)value forKey:(NSString *)key;
+- (id)userInfoValueForKey:(NSString *)key;
+
 @end
 
 #import "DCTEditableDataSource.h"

@@ -35,6 +35,7 @@
  */
 
 #import "DCTParentDataSource.h"
+#import "DCTDataSource+Private.h"
 
 @implementation DCTParentDataSource
 
@@ -54,6 +55,14 @@
 	DCTDataSource * ds = [self childTableViewDataSourceForIndexPath:indexPath];
 	indexPath = [self convertIndexPath:indexPath toChildTableViewDataSource:ds];
 	return [ds objectAtIndexPath:indexPath];
+}
+
+- (id)userInfoValueForKey:(NSString *)key indexPath:(NSIndexPath *)indexPath {
+	DCTDataSource *ds = [self childTableViewDataSourceForIndexPath:indexPath];
+	indexPath = [self convertIndexPath:indexPath toChildTableViewDataSource:ds];
+	id value = [ds userInfoValueForKey:key indexPath:indexPath];
+	if (!value) value = [self userInfoValueForKey:key];
+	return value;
 }
 
 #pragma mark - DCTParentTableViewDataSource

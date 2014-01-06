@@ -52,6 +52,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 
 @interface DCTDataSource ()
 @property (nonatomic) NSMutableArray *updates;
+@property (nonatomic) NSMutableDictionary *userInfo;
 @end
 
 @implementation DCTDataSource
@@ -77,6 +78,21 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
 	return indexPath;
+}
+
+- (NSMutableDictionary *)userInfo {
+
+	if (!_userInfo) _userInfo = [NSMutableDictionary new];
+
+	return _userInfo;
+}
+
+- (void)setUserInfoValue:(id)value forKey:(NSString *)key {
+	[self.userInfo setObject:value forKey:key];
+}
+
+- (id)userInfoValueForKey:(NSString *)key {
+	return [self.userInfo objectForKey:key];
 }
 
 #pragma mark - Updating the table view

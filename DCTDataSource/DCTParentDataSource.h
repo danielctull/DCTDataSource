@@ -109,4 +109,7 @@
  */
 - (DCTDataSource *)childTableViewDataSourceForIndexPath:(NSIndexPath *)indexPath;
 
+
+- (id)userInfoValueForKey:(NSString *)key indexPath:(NSIndexPath *)indexPath;
+
 @end

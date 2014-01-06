@@ -22,6 +22,7 @@
 		24A389FD162303CF0003A1BE /* DCTDataSourceUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */; };
 		24ABB4D917A1249A0061A95E /* DCTDataSourceUpdate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */; };
 		24ABB4DC17A12D620061A95E /* DCTPickerViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ABB4DB17A12D610061A95E /* DCTPickerViewDataSource.m */; };
+		24AF7A8B187AFB650091AD00 /* DCTDataSource+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF7A8A187AFB650091AD00 /* DCTDataSource+Private.m */; };
 		24C0298815B982F3009B1DE9 /* DCTArrayObservingDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A678F158B1AF600952890 /* DCTArrayObservingDataSource.h */; };
 		24C0298A15B982F3009B1DE9 /* DCTArrayDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6791158B1AF600952890 /* DCTArrayDataSource.h */; };
 		24C0298C15B982F3009B1DE9 /* DCTCollapsableDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6793158B1AF600952890 /* DCTCollapsableDataSource.h */; };
@@ -91,6 +92,8 @@
 		24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTDataSourceUpdate.m; sourceTree = "<group>"; };
 		24ABB4DA17A12D610061A95E /* DCTPickerViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DCTPickerViewDataSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		24ABB4DB17A12D610061A95E /* DCTPickerViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTPickerViewDataSource.m; sourceTree = "<group>"; };
+		24AF7A89187AFB650091AD00 /* DCTDataSource+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DCTDataSource+Private.h"; sourceTree = "<group>"; };
+		24AF7A8A187AFB650091AD00 /* DCTDataSource+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DCTDataSource+Private.m"; sourceTree = "<group>"; };
 		24EC2E7C1642DAA4000092C8 /* DCTEditableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTEditableDataSource.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +174,8 @@
 				24D4AB29162B26A8009F3E35 /* Object + Array */,
 				24D4AB27162B2634009F3E35 /* Parent Data Sources */,
 				24D4AB28162B2649009F3E35 /* Core Data */,
+				24AF7A89187AFB650091AD00 /* DCTDataSource+Private.h */,
+				24AF7A8A187AFB650091AD00 /* DCTDataSource+Private.m */,
 			);
 			path = DCTDataSource;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24AF7A8B187AFB650091AD00 /* DCTDataSource+Private.m in Sources */,
 				2437B7C015B97FEC00750117 /* DCTArrayObservingDataSource.m in Sources */,
 				2437B7C215B97FEC00750117 /* DCTArrayDataSource.m in Sources */,
 				2437B7C615B97FEC00750117 /* DCTFetchedResultsDataSource.m in Sources */,

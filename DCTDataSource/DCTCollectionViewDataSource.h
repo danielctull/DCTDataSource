@@ -9,13 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "DCTParentDataSource.h"
 
+extern const struct DCTCollectionViewDataSourceUserInfoKeys {
+	__unsafe_unretained NSString *cellReuseIdentifier;
+	__unsafe_unretained NSString *supplementaryViewReuseIdentifier;
+} DCTCollectionViewDataSourceUserInfoKeys;
+
 @interface DCTCollectionViewDataSource : DCTParentDataSource <UICollectionViewDataSource>
 
 - (id)initWithCollectionView:(UICollectionView *)collectionView dataSource:(DCTDataSource *)dataSource;
 @property (nonatomic, readonly, weak) UICollectionView *collectionView;
 @property (nonatomic, readonly, strong) DCTDataSource *dataSource;
 
-@property (nonatomic, copy) NSString *(^cellReuseIdentifierHandler)(NSIndexPath *indexPath, id object);
-@property (nonatomic, copy) NSString *(^supplementaryViewReuseIdentifierHandler)(NSIndexPath *indexPath, id object);
+@property (nonatomic) NSString *cellReuseIdentifier;
+@property (nonatomic) NSString *supplementaryViewReuseIdentifier;
 
 @end

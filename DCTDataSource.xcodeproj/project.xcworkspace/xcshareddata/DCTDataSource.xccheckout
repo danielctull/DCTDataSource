@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3DB83189-9208-4D77-AF31-A4504584179E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DCTDataSource</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B143DD36-A33D-4805-BC14-1A731AA1A592</key>
+		<string>ssh://github.com/danielctull/DCTTableViewDataSources.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DCTDataSource.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B143DD36-A33D-4805-BC14-1A731AA1A592</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/danielctull/DCTTableViewDataSources.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B143DD36-A33D-4805-BC14-1A731AA1A592</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B143DD36-A33D-4805-BC14-1A731AA1A592</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DCTTableViewDataSources</string>
+		</dict>
+	</array>
+</dict>
+</plist>
