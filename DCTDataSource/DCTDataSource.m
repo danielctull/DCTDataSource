@@ -38,17 +38,6 @@
 #import "DCTParentDataSource.h"
 #import "UITableView+DCTTableViewDataSources.h"
 
-void DCTDataSourceUpdateTypeAdd(DCTDataSourceUpdateType type, DCTDataSourceUpdateType typeToAdd) {
-	
-	if (type == DCTDataSourceUpdateTypeUnknown)
-		type = typeToAdd;
-	
-	type = (type | typeToAdd);
-}
-
-NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
-
-
 @interface DCTDataSource ()
 @property (nonatomic) NSMutableArray *updates;
 @property (nonatomic) NSMutableDictionary *userInfo;
@@ -61,7 +50,7 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 - (void)reloadData {
 	[self beginUpdates];
 	[self enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-		DCTDataSourceUpdate *update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemReload indexPath:indexPath];
+		DCTDataSourceUpdate *update = [DCTDataSourceUpdate reloadUpdateWithIndexPath:indexPath];
 		[self performUpdate:update];
 	}];
 	[self endUpdates];
@@ -101,8 +90,11 @@ NSInteger const DCTTableViewDataSourceNoAnimationSet = -1912;
 }
 
 - (void)performUpdate:(DCTDataSourceUpdate *)update {
-	NSIndexPath *indexPath = [self.parent convertIndexPath:update.indexPath fromChildTableViewDataSource:self];
-	DCTDataSourceUpdate *parentUpdate = [DCTDataSourceUpdate updateWithType:update.type indexPath:indexPath];
+
+	NSIndexPath *oldIndexPath = update.oldIndexPath ? [self.parent convertIndexPath:update.oldIndexPath fromChildTableViewDataSource:self] : nil;
+	NSIndexPath *newIndexPath = update.newIndexPath ? [self.parent convertIndexPath:update.newIndexPath fromChildTableViewDataSource:self] : nil;
+	
+	DCTDataSourceUpdate *parentUpdate = [[DCTDataSourceUpdate alloc] initWithType:update.type oldIndexPath:oldIndexPath newIndexPath:newIndexPath];
 	[self.parent performUpdate:parentUpdate];
 }
 

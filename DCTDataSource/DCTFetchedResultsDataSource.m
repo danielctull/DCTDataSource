@@ -101,38 +101,37 @@
 	
     switch(type) {
         case NSFetchedResultsChangeInsert:
-			[self performUpdate:[DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeSectionInsert index:sectionIndex]];
+			[self performUpdate:[DCTDataSourceUpdate insertUpdateWithIndex:sectionIndex]];
             break;
 			
         case NSFetchedResultsChangeDelete:
-			[self performUpdate:[DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeSectionDelete index:sectionIndex]];
+			[self performUpdate:[DCTDataSourceUpdate deleteUpdateWithIndex:sectionIndex]];
             break;
     }
 }
 
 - (void)controller:(NSFetchedResultsController *)controller 
    didChangeObject:(id)anObject
-	   atIndexPath:(NSIndexPath *)indexPath
+	   atIndexPath:(NSIndexPath *)oldIndexPath
 	 forChangeType:(NSFetchedResultsChangeType)type
 	  newIndexPath:(NSIndexPath *)newIndexPath {
 	
     switch(type) {
 			
 		case NSFetchedResultsChangeInsert:
-			[self performUpdate:[DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemInsert indexPath:newIndexPath]];
+			[self performUpdate:[DCTDataSourceUpdate insertUpdateWithNewIndexPath:newIndexPath]];
 			break;
 			
 		case NSFetchedResultsChangeDelete:
-			[self performUpdate:[DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemDelete indexPath:indexPath]];
+			[self performUpdate:[DCTDataSourceUpdate deleteUpdateWithOldIndexPath:oldIndexPath]];
 			break;
 			
         case NSFetchedResultsChangeUpdate:
-			[self performUpdate:[DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemReload indexPath:indexPath]];
+			[self performUpdate:[DCTDataSourceUpdate reloadUpdateWithIndexPath:oldIndexPath]];
 			break;
 			
         case NSFetchedResultsChangeMove:
-			[self performUpdate:[DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemDelete indexPath:indexPath]];
-			[self performUpdate:[DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemInsert indexPath:newIndexPath]];
+			[self performUpdate:[DCTDataSourceUpdate moveUpdateWithOldIndexPath:oldIndexPath newIndexPath:newIndexPath]];
             break;
     }
 }

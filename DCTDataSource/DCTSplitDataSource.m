@@ -186,12 +186,12 @@
 	if (self.type == DCTSplitDataSourceTypeRow) {
 		
 		[dataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-			DCTDataSourceUpdate *update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemInsert indexPath:indexPath];
+			DCTDataSourceUpdate *update = [DCTDataSourceUpdate insertUpdateWithNewIndexPath:indexPath];
 			[dataSource performUpdate:update];
 		}];
 		
 	} else {
-		DCTDataSourceUpdate *update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeSectionInsert index:[dataSources indexOfObject:dataSource]];
+		DCTDataSourceUpdate *update = [DCTDataSourceUpdate insertUpdateWithIndex:[dataSources indexOfObject:dataSource]];
 		[self performUpdate:update];
 	}
 	
@@ -212,13 +212,13 @@
 	if (self.type == DCTSplitDataSourceTypeRow) {
 		
 		[dataSource enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-			DCTDataSourceUpdate *update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemDelete indexPath:indexPath];
+			DCTDataSourceUpdate *update = [DCTDataSourceUpdate deleteUpdateWithOldIndexPath:indexPath];
 			[dataSource performUpdate:update];
 		}];
 		
 	} else {
 
-		DCTDataSourceUpdate *update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeSectionDelete index:index];
+		DCTDataSourceUpdate *update = [DCTDataSourceUpdate deleteUpdateWithIndex:index];
 		[self performUpdate:update];
 	}
 	

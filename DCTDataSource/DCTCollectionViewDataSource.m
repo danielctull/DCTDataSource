@@ -114,15 +114,15 @@ const struct DCTCollectionViewDataSourceUserInfoKeys DCTCollectionViewDataSource
 	switch (update.type) {
 
 		case DCTDataSourceUpdateTypeItemInsert:
-			[self.collectionView insertItemsAtIndexPaths:@[update.indexPath]];
+			[self.collectionView insertItemsAtIndexPaths:@[update.newIndexPath]];
 			break;
 
 		case DCTDataSourceUpdateTypeItemDelete:
-			[self.collectionView deleteItemsAtIndexPaths:@[update.indexPath]];
+			[self.collectionView deleteItemsAtIndexPaths:@[update.oldIndexPath]];
 			break;
 
 		case DCTDataSourceUpdateTypeItemReload:
-			[self.collectionView reloadItemsAtIndexPaths:@[update.indexPath]];
+			[self.collectionView reloadItemsAtIndexPaths:@[update.oldIndexPath]];
 			break;
 
 		case DCTDataSourceUpdateTypeSectionInsert:
@@ -134,10 +134,7 @@ const struct DCTCollectionViewDataSourceUserInfoKeys DCTCollectionViewDataSource
 			break;
 
 		case DCTDataSourceUpdateTypeItemMove:
-			[self.collectionView moveItemAtIndexPath:nil toIndexPath:nil];
-			break;
-
-		case DCTDataSourceUpdateTypeUnknown:
+			[self.collectionView moveItemAtIndexPath:update.oldIndexPath toIndexPath:update.newIndexPath];
 			break;
 	}
 }

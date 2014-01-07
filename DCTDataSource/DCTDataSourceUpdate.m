@@ -14,22 +14,44 @@ BOOL DCTDataSourceUpdateTypeIncludes(DCTDataSourceUpdateType type, DCTDataSource
 
 @implementation DCTDataSourceUpdate
 
-+ (instancetype)updateWithType:(DCTDataSourceUpdateType)type indexPath:(NSIndexPath *)indexPath {
-	DCTDataSourceUpdate *update = [self new];
-	update.type = type;
-	update.indexPath = indexPath;
-	return update;
+- (instancetype)initWithType:(DCTDataSourceUpdateType)type oldIndexPath:(NSIndexPath *)oldIndexPath newIndexPath:(NSIndexPath *)newIndexPath {
+	self = [self init];
+	if (!self) return nil;
+	_type = type;
+	_oldIndexPath = oldIndexPath;
+	_newIndexPath = newIndexPath;
+	return self;
 }
 
-+ (instancetype)updateWithType:(DCTDataSourceUpdateType)type index:(NSInteger)index {
-	DCTDataSourceUpdate *update = [self new];
-	update.type = type;
-	update.indexPath = [NSIndexPath indexPathWithIndex:index];
-	return update;
++ (instancetype)reloadUpdateWithIndexPath:(NSIndexPath *)indexPath {
+	return [[self alloc] initWithType:DCTDataSourceUpdateTypeItemReload oldIndexPath:indexPath newIndexPath:indexPath];
+}
+
++ (instancetype)insertUpdateWithNewIndexPath:(NSIndexPath *)newIndexPath {
+	return [[self alloc] initWithType:DCTDataSourceUpdateTypeItemInsert oldIndexPath:nil newIndexPath:newIndexPath];
+}
+
++ (instancetype)deleteUpdateWithOldIndexPath:(NSIndexPath *)oldIndexPath {
+	return [[self alloc] initWithType:DCTDataSourceUpdateTypeItemDelete oldIndexPath:oldIndexPath newIndexPath:nil];
+}
+
++ (instancetype)moveUpdateWithOldIndexPath:(NSIndexPath *)oldIndexPath newIndexPath:(NSIndexPath *)newIndexPath {
+	return [[self alloc] initWithType:DCTDataSourceUpdateTypeItemMove oldIndexPath:oldIndexPath newIndexPath:newIndexPath];
+}
+
+// Section
++ (instancetype)insertUpdateWithIndex:(NSInteger *)index {
+	NSIndexPath *indexPath = [NSIndexPath indexPathWithIndex:index];
+	return [[self alloc] initWithType:DCTDataSourceUpdateTypeSectionInsert oldIndexPath:indexPath newIndexPath:indexPath];
+}
+
++ (instancetype)deleteUpdateWithIndex:(NSInteger *)index {
+	NSIndexPath *indexPath = [NSIndexPath indexPathWithIndex:index];
+	return [[self alloc] initWithType:DCTDataSourceUpdateTypeSectionInsert oldIndexPath:indexPath newIndexPath:indexPath];
 }
 
 - (NSInteger)section {
-	return [self.indexPath indexAtPosition:0];
+	return [self.oldIndexPath indexAtPosition:0];
 }
 
 - (BOOL)isSectionUpdate {
@@ -43,14 +65,15 @@ BOOL DCTDataSourceUpdateTypeIncludes(DCTDataSourceUpdateType type, DCTDataSource
 	
 	if (result != NSOrderedSame) return result;
 	
-	return [self.indexPath compare:update.indexPath];
+	return [self.oldIndexPath compare:update.oldIndexPath];
 }
 
 - (NSString *)description {
-	return [NSString stringWithFormat:@"<%@: %p; indexPath = %@; type = %i>",
+	return [NSString stringWithFormat:@"<%@: %p; oldIndexPath = %@; newIndexPath = %@; type = %i>",
 			NSStringFromClass([self class]),
 			self,
-			self.indexPath,
+			self.oldIndexPath,
+			self.newIndexPath,
 			self.type];
 }
 

@@ -9,7 +9,6 @@
 @import Foundation;
 
 typedef enum {
-	DCTDataSourceUpdateTypeUnknown = 0,
 	DCTDataSourceUpdateTypeItemDelete = 1 << 0,
 	DCTDataSourceUpdateTypeSectionDelete = 1 << 1,
 	DCTDataSourceUpdateTypeItemInsert = 1 << 2,
@@ -20,12 +19,26 @@ typedef enum {
 
 @interface DCTDataSourceUpdate : NSObject
 
-+ (instancetype)updateWithType:(DCTDataSourceUpdateType)type indexPath:(NSIndexPath *)indexPath;
-+ (instancetype)updateWithType:(DCTDataSourceUpdateType)type index:(NSInteger)index;
+- (instancetype)initWithType:(DCTDataSourceUpdateType)type oldIndexPath:(NSIndexPath *)oldIndexPath newIndexPath:(NSIndexPath *)newIndexPath;
 
-@property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic, assign) DCTDataSourceUpdateType type;
+// Item
++ (instancetype)reloadUpdateWithIndexPath:(NSIndexPath *)indexPath;
++ (instancetype)insertUpdateWithNewIndexPath:(NSIndexPath *)newIndexPath;
++ (instancetype)deleteUpdateWithOldIndexPath:(NSIndexPath *)oldIndexPath;
++ (instancetype)moveUpdateWithOldIndexPath:(NSIndexPath *)oldIndexPath newIndexPath:(NSIndexPath *)newIndexPath;
+
+// Section
++ (instancetype)insertUpdateWithIndex:(NSInteger *)index;
++ (instancetype)deleteUpdateWithIndex:(NSInteger *)index;
+
+@property (nonatomic, readonly) DCTDataSourceUpdateType type;
+@property (nonatomic, readonly) NSIndexPath *oldIndexPath;
+@property (nonatomic, readonly) NSIndexPath *newIndexPath;
+- (NSIndexPath *)newIndexPath __attribute__((objc_method_family(none)));
+
 
 - (BOOL)isSectionUpdate;
+
 - (NSInteger)section;
+
 @end

@@ -88,20 +88,21 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 
 	[self.updates enumerateObjectsUsingBlock:^(DCTDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
 
-		UITableViewRowAnimation animation = [self animationForIndexPath:update.indexPath updateType:update.type];
+		NSIndexPath *indexPath = update.oldIndexPath ? update.oldIndexPath : update.newIndexPath;
+		UITableViewRowAnimation animation = [self animationForIndexPath:indexPath updateType:update.type];
 
 		switch (update.type) {
 
 			case DCTDataSourceUpdateTypeItemInsert:
-				[self.tableView insertRowsAtIndexPaths:@[update.indexPath] withRowAnimation:animation];
+				[self.tableView insertRowsAtIndexPaths:@[update.newIndexPath] withRowAnimation:animation];
 				break;
 
 			case DCTDataSourceUpdateTypeItemDelete:
-				[self.tableView deleteRowsAtIndexPaths:@[update.indexPath] withRowAnimation:animation];
+				[self.tableView deleteRowsAtIndexPaths:@[update.oldIndexPath] withRowAnimation:animation];
 				break;
 
 			case DCTDataSourceUpdateTypeItemReload:
-				[self.tableView reloadRowsAtIndexPaths:@[update.indexPath] withRowAnimation:animation];
+				[self.tableView reloadRowsAtIndexPaths:@[update.oldIndexPath] withRowAnimation:animation];
 				break;
 
 			case DCTDataSourceUpdateTypeSectionInsert:
@@ -112,7 +113,8 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 				[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:update.section] withRowAnimation:animation];
 				break;
 
-			default:
+			case DCTDataSourceUpdateTypeItemMove:
+				[self.tableView moveRowAtIndexPath:update.oldIndexPath toIndexPath:update.newIndexPath];
 				break;
 		}
 	}];
@@ -139,7 +141,8 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 
 	[updates enumerateObjectsUsingBlock:^(DCTDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
 
-		if ([update.indexPath compare:indexPath] == NSOrderedDescending) {
+		NSIndexPath *updateIndexPath = update.oldIndexPath ? update.oldIndexPath : update.newIndexPath;
+		if ([updateIndexPath compare:indexPath] == NSOrderedDescending) {
 			*stop = YES;
 			return;
 		}

@@ -85,11 +85,11 @@ void* DCTArrayObservingDataSourceObservingContext = &DCTArrayObservingDataSource
 		DCTDataSourceUpdate *update;
 
 		if (changeType == NSKeyValueChangeInsertion)
-			update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemInsert indexPath:indexPath];
+			update = [DCTDataSourceUpdate insertUpdateWithNewIndexPath:indexPath];
 		else if (changeType == NSKeyValueChangeRemoval)
-			update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemDelete indexPath:indexPath];
+			update = [DCTDataSourceUpdate deleteUpdateWithOldIndexPath:indexPath];
 		else if (changeType == NSKeyValueChangeReplacement)
-			update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemReload indexPath:indexPath];
+			update = [DCTDataSourceUpdate reloadUpdateWithIndexPath:indexPath];
 
 		if (update) [self performUpdate:update];
 	}];
