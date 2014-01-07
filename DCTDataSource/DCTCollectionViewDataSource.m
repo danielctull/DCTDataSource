@@ -14,6 +14,10 @@ const struct DCTCollectionViewDataSourceUserInfoKeys DCTCollectionViewDataSource
 	.supplementaryViewReuseIdentifier = @"supplementaryViewReuseIdentifier"
 };
 
+@interface DCTCollectionViewDataSource ()
+@property (nonatomic) NSMutableArray *updates;
+@end
+
 @implementation DCTCollectionViewDataSource
 
 - (id)initWithCollectionView:(UICollectionView *)collectionView dataSource:(DCTDataSource *)dataSource {
@@ -86,13 +90,56 @@ const struct DCTCollectionViewDataSourceUserInfoKeys DCTCollectionViewDataSource
 }
 
 - (void)beginUpdates {
-	[super beginUpdates];
+	self.updates = [NSMutableArray new];
 }
 
-- (void)endUpdates {}
-
 - (void)performUpdate:(DCTDataSourceUpdate *)update {
-	
+	[self.updates addObject:update];
+}
+
+- (void)endUpdates {
+
+	[self.collectionView performBatchUpdates:^{
+
+		for (DCTDataSourceUpdate *update in self.updates)
+			[self applyUpdate:update];
+
+	} completion:nil];
+
+	self.updates = nil;
+}
+
+- (void)applyUpdate:(DCTDataSourceUpdate *)update {
+
+	switch (update.type) {
+
+		case DCTDataSourceUpdateTypeItemInsert:
+			[self.collectionView insertItemsAtIndexPaths:@[update.indexPath]];
+			break;
+
+		case DCTDataSourceUpdateTypeItemDelete:
+			[self.collectionView deleteItemsAtIndexPaths:@[update.indexPath]];
+			break;
+
+		case DCTDataSourceUpdateTypeItemReload:
+			[self.collectionView reloadItemsAtIndexPaths:@[update.indexPath]];
+			break;
+
+		case DCTDataSourceUpdateTypeSectionInsert:
+			[self.collectionView insertSections:[NSIndexSet indexSetWithIndex:update.section]];
+			break;
+
+		case DCTDataSourceUpdateTypeSectionDelete:
+			[self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:update.section]];
+			break;
+
+		case DCTDataSourceUpdateTypeItemMove:
+			[self.collectionView moveItemAtIndexPath:nil toIndexPath:nil];
+			break;
+
+		case DCTDataSourceUpdateTypeUnknown:
+			break;
+	}
 }
 
 @end
