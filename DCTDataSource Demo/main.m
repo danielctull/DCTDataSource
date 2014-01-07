@@ -6,8 +6,7 @@
 //  Copyright (c) 2014 Daniel Tull. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
+@import UIKit;
 #import "AppDelegate.h"
 
 int main(int argc, char * argv[])

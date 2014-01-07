@@ -38,7 +38,7 @@
 #import "DCTTableViewDataSources.h"
 #import "UITableView+DCTTableViewDataSources.h"
 #import "_DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell.h"
-#import <QuartzCore/QuartzCore.h>
+@import QuartzCore;
 
 @implementation DCTCollapsableSectionTableViewDataSourceHeader {
 	__strong NSString *title;

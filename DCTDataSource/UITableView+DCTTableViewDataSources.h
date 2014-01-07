@@ -34,7 +34,7 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 @class DCTDataSource;
 
 @interface UITableView (DCTTableViewDataSources)

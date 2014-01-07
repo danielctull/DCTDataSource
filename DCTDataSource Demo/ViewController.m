@@ -7,9 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "DCTDataSource.h"
-#import "DCTCollectionViewDataSource.h"
-#import "DCTSplitDataSource.h"
+#import <DCTDataSource/DCTDataSource.h>
 #import "CollectionViewCell.h"
 
 @interface ViewController () <DCTCollectionViewDataSourceDelegate>

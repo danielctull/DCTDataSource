@@ -35,7 +35,6 @@
  */
 
 #import "DCTArrayObservingDataSource.h"
-#import "UITableView+DCTTableViewDataSources.h"
 
 void* DCTArrayObservingDataSourceObservingContext = &DCTArrayObservingDataSourceObservingContext;
 

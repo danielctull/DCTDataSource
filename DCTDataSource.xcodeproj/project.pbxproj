@@ -7,21 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24297F101640109700E32187 /* DCTTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24297F0F1640109700E32187 /* DCTTableViewDataSource.m */; };
-		24297F141640165B00E32187 /* DCTCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24297F131640165B00E32187 /* DCTCollectionViewDataSource.m */; };
-		2437B77E15B97FA900750117 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244A6768158B1AB100952890 /* Foundation.framework */; };
-		2437B7C015B97FEC00750117 /* DCTArrayObservingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6790158B1AF600952890 /* DCTArrayObservingDataSource.m */; };
-		2437B7C215B97FEC00750117 /* DCTArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6792158B1AF600952890 /* DCTArrayDataSource.m */; };
-		2437B7C615B97FEC00750117 /* DCTFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6796158B1AF600952890 /* DCTFetchedResultsDataSource.m */; };
-		2437B7CC15B97FEC00750117 /* DCTObjectDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679C158B1AF600952890 /* DCTObjectDataSource.m */; };
-		2437B7CE15B97FEC00750117 /* DCTParentDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679E158B1AF600952890 /* DCTParentDataSource.m */; };
-		2437B7D015B97FEC00750117 /* DCTSplitDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A0158B1AF600952890 /* DCTSplitDataSource.m */; };
-		2437B7D415B97FEC00750117 /* DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A4158B1AF600952890 /* DCTDataSource.m */; };
-		2437B7DA15B97FEC00750117 /* UITableView+DCTTableViewDataSources.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */; };
-		2437B7FA15B9802A00750117 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B7F915B9802A00750117 /* UIKit.framework */; };
-		24A389FD162303CF0003A1BE /* DCTDataSourceUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */; };
-		24ABB4D917A1249A0061A95E /* DCTDataSourceUpdate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */; };
-		24ABB4DC17A12D620061A95E /* DCTPickerViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ABB4DB17A12D610061A95E /* DCTPickerViewDataSource.m */; };
 		24AF7A91187AFE0B0091AD00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244A6768158B1AB100952890 /* Foundation.framework */; };
 		24AF7A93187AFE0B0091AD00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AF7A92187AFE0B0091AD00 /* CoreGraphics.framework */; };
 		24AF7A94187AFE0B0091AD00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B7F915B9802A00750117 /* UIKit.framework */; };
@@ -31,18 +16,32 @@
 		24AF7AA2187AFE0B0091AD00 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24AF7AA1187AFE0B0091AD00 /* Images.xcassets */; };
 		24AF7ABC187AFE2F0091AD00 /* libDCTDataSource.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B77D15B97FA900750117 /* libDCTDataSource.a */; };
 		24AF7ABF187AFE460091AD00 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF7ABE187AFE460091AD00 /* ViewController.m */; };
-		24AF7ADD187BEE010091AD00 /* DCTCollectionViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24297F121640165B00E32187 /* DCTCollectionViewDataSource.h */; };
 		24AF7ADF187BF0F60091AD00 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24AF7ADE187BF0F60091AD00 /* Storyboard.storyboard */; };
 		24AF7AE2187C44DA0091AD00 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF7AE1187C44DA0091AD00 /* CollectionViewCell.m */; };
-		24C0298815B982F3009B1DE9 /* DCTArrayObservingDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A678F158B1AF600952890 /* DCTArrayObservingDataSource.h */; };
-		24C0298A15B982F3009B1DE9 /* DCTArrayDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6791158B1AF600952890 /* DCTArrayDataSource.h */; };
-		24C0298C15B982F3009B1DE9 /* DCTCollapsableDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6793158B1AF600952890 /* DCTCollapsableDataSource.h */; };
-		24C0298E15B982F3009B1DE9 /* DCTFetchedResultsDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6795158B1AF600952890 /* DCTFetchedResultsDataSource.h */; };
-		24C0299415B982F3009B1DE9 /* DCTObjectDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A679B158B1AF600952890 /* DCTObjectDataSource.h */; };
-		24C0299615B982F3009B1DE9 /* DCTParentDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A679D158B1AF600952890 /* DCTParentDataSource.h */; };
-		24C0299815B982F3009B1DE9 /* DCTSplitDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A679F158B1AF600952890 /* DCTSplitDataSource.h */; };
-		24C0299C15B982F3009B1DE9 /* DCTDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67A3158B1AF600952890 /* DCTDataSource.h */; };
-		24C029A215B982F3009B1DE9 /* UITableView+DCTTableViewDataSources.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */; };
+		24AF7AE3187C5CDA0091AD00 /* DCTDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67A3158B1AF600952890 /* DCTDataSource.h */; };
+		24AF7AE4187C5CDA0091AD00 /* DCTParentDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A679D158B1AF600952890 /* DCTParentDataSource.h */; };
+		24AF7AE5187C5CDA0091AD00 /* DCTDataSourceUpdate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */; };
+		24AF7AE6187C5CDA0091AD00 /* DCTPickerViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24ABB4DA17A12D610061A95E /* DCTPickerViewDataSource.h */; };
+		24AF7AE7187C5CDA0091AD00 /* DCTTableViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24297F0E1640109700E32187 /* DCTTableViewDataSource.h */; };
+		24AF7AE8187C5CDA0091AD00 /* UITableView+DCTTableViewDataSources.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */; };
+		24AF7AE9187C5CDA0091AD00 /* DCTCollectionViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24297F121640165B00E32187 /* DCTCollectionViewDataSource.h */; };
+		24AF7AEA187C5CDA0091AD00 /* DCTArrayObservingDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A678F158B1AF600952890 /* DCTArrayObservingDataSource.h */; };
+		24AF7AEB187C5CDA0091AD00 /* DCTArrayDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6791158B1AF600952890 /* DCTArrayDataSource.h */; };
+		24AF7AEC187C5CDA0091AD00 /* DCTObjectDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A679B158B1AF600952890 /* DCTObjectDataSource.h */; };
+		24AF7AED187C5CDA0091AD00 /* DCTSplitDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A679F158B1AF600952890 /* DCTSplitDataSource.h */; };
+		24AF7AEF187C5CDA0091AD00 /* DCTFetchedResultsDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6795158B1AF600952890 /* DCTFetchedResultsDataSource.h */; };
+		24AF7AF0187C5D100091AD00 /* DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A4158B1AF600952890 /* DCTDataSource.m */; };
+		24AF7AF1187C5D100091AD00 /* DCTParentDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679E158B1AF600952890 /* DCTParentDataSource.m */; };
+		24AF7AF2187C5D100091AD00 /* DCTDataSourceUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */; };
+		24AF7AF3187C5D100091AD00 /* DCTPickerViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ABB4DB17A12D610061A95E /* DCTPickerViewDataSource.m */; };
+		24AF7AF4187C5D100091AD00 /* DCTTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24297F0F1640109700E32187 /* DCTTableViewDataSource.m */; };
+		24AF7AF5187C5D100091AD00 /* UITableView+DCTTableViewDataSources.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */; };
+		24AF7AF6187C5D100091AD00 /* DCTCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24297F131640165B00E32187 /* DCTCollectionViewDataSource.m */; };
+		24AF7AF7187C5D100091AD00 /* DCTArrayObservingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6790158B1AF600952890 /* DCTArrayObservingDataSource.m */; };
+		24AF7AF8187C5D100091AD00 /* DCTArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6792158B1AF600952890 /* DCTArrayDataSource.m */; };
+		24AF7AF9187C5D100091AD00 /* DCTObjectDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679C158B1AF600952890 /* DCTObjectDataSource.m */; };
+		24AF7AFA187C5D100091AD00 /* DCTSplitDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A0158B1AF600952890 /* DCTSplitDataSource.m */; };
+		24AF7AFB187C5D100091AD00 /* DCTFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6796158B1AF600952890 /* DCTFetchedResultsDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,17 +51,18 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				24AF7ADD187BEE010091AD00 /* DCTCollectionViewDataSource.h in CopyFiles */,
-				24C0298815B982F3009B1DE9 /* DCTArrayObservingDataSource.h in CopyFiles */,
-				24C0298A15B982F3009B1DE9 /* DCTArrayDataSource.h in CopyFiles */,
-				24C0298C15B982F3009B1DE9 /* DCTCollapsableDataSource.h in CopyFiles */,
-				24C0298E15B982F3009B1DE9 /* DCTFetchedResultsDataSource.h in CopyFiles */,
-				24C0299415B982F3009B1DE9 /* DCTObjectDataSource.h in CopyFiles */,
-				24C0299615B982F3009B1DE9 /* DCTParentDataSource.h in CopyFiles */,
-				24C0299815B982F3009B1DE9 /* DCTSplitDataSource.h in CopyFiles */,
-				24C0299C15B982F3009B1DE9 /* DCTDataSource.h in CopyFiles */,
-				24ABB4D917A1249A0061A95E /* DCTDataSourceUpdate.h in CopyFiles */,
-				24C029A215B982F3009B1DE9 /* UITableView+DCTTableViewDataSources.h in CopyFiles */,
+				24AF7AE3187C5CDA0091AD00 /* DCTDataSource.h in CopyFiles */,
+				24AF7AE4187C5CDA0091AD00 /* DCTParentDataSource.h in CopyFiles */,
+				24AF7AE5187C5CDA0091AD00 /* DCTDataSourceUpdate.h in CopyFiles */,
+				24AF7AE6187C5CDA0091AD00 /* DCTPickerViewDataSource.h in CopyFiles */,
+				24AF7AE7187C5CDA0091AD00 /* DCTTableViewDataSource.h in CopyFiles */,
+				24AF7AE8187C5CDA0091AD00 /* UITableView+DCTTableViewDataSources.h in CopyFiles */,
+				24AF7AE9187C5CDA0091AD00 /* DCTCollectionViewDataSource.h in CopyFiles */,
+				24AF7AEA187C5CDA0091AD00 /* DCTArrayObservingDataSource.h in CopyFiles */,
+				24AF7AEB187C5CDA0091AD00 /* DCTArrayDataSource.h in CopyFiles */,
+				24AF7AEC187C5CDA0091AD00 /* DCTObjectDataSource.h in CopyFiles */,
+				24AF7AED187C5CDA0091AD00 /* DCTSplitDataSource.h in CopyFiles */,
+				24AF7AEF187C5CDA0091AD00 /* DCTFetchedResultsDataSource.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,15 +117,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2437B77A15B97FA900750117 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2437B7FA15B9802A00750117 /* UIKit.framework in Frameworks */,
-				2437B77E15B97FA900750117 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		24AF7A8D187AFE0B0091AD00 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -287,7 +278,6 @@
 			buildConfigurationList = 2437B78615B97FA900750117 /* Build configuration list for PBXNativeTarget "DCTDataSource" */;
 			buildPhases = (
 				2437B77915B97FA900750117 /* Sources */,
-				2437B77A15B97FA900750117 /* Frameworks */,
 				2437B77B15B97FA900750117 /* CopyFiles */,
 			);
 			buildRules = (
@@ -361,18 +351,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2437B7C015B97FEC00750117 /* DCTArrayObservingDataSource.m in Sources */,
-				2437B7C215B97FEC00750117 /* DCTArrayDataSource.m in Sources */,
-				2437B7C615B97FEC00750117 /* DCTFetchedResultsDataSource.m in Sources */,
-				2437B7CC15B97FEC00750117 /* DCTObjectDataSource.m in Sources */,
-				2437B7CE15B97FEC00750117 /* DCTParentDataSource.m in Sources */,
-				2437B7D015B97FEC00750117 /* DCTSplitDataSource.m in Sources */,
-				2437B7D415B97FEC00750117 /* DCTDataSource.m in Sources */,
-				2437B7DA15B97FEC00750117 /* UITableView+DCTTableViewDataSources.m in Sources */,
-				24A389FD162303CF0003A1BE /* DCTDataSourceUpdate.m in Sources */,
-				24297F101640109700E32187 /* DCTTableViewDataSource.m in Sources */,
-				24297F141640165B00E32187 /* DCTCollectionViewDataSource.m in Sources */,
-				24ABB4DC17A12D620061A95E /* DCTPickerViewDataSource.m in Sources */,
+				24AF7AF0187C5D100091AD00 /* DCTDataSource.m in Sources */,
+				24AF7AF1187C5D100091AD00 /* DCTParentDataSource.m in Sources */,
+				24AF7AF2187C5D100091AD00 /* DCTDataSourceUpdate.m in Sources */,
+				24AF7AF3187C5D100091AD00 /* DCTPickerViewDataSource.m in Sources */,
+				24AF7AF4187C5D100091AD00 /* DCTTableViewDataSource.m in Sources */,
+				24AF7AF5187C5D100091AD00 /* UITableView+DCTTableViewDataSources.m in Sources */,
+				24AF7AF6187C5D100091AD00 /* DCTCollectionViewDataSource.m in Sources */,
+				24AF7AF7187C5D100091AD00 /* DCTArrayObservingDataSource.m in Sources */,
+				24AF7AF8187C5D100091AD00 /* DCTArrayDataSource.m in Sources */,
+				24AF7AF9187C5D100091AD00 /* DCTObjectDataSource.m in Sources */,
+				24AF7AFA187C5D100091AD00 /* DCTSplitDataSource.m in Sources */,
+				24AF7AFB187C5D100091AD00 /* DCTFetchedResultsDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,11 +433,9 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -463,11 +451,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

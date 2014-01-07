@@ -35,7 +35,6 @@
  */
 
 #import "DCTSplitDataSource.h"
-#import "UITableView+DCTTableViewDataSources.h"
 
 @interface DCTSplitDataSource ()
 @property (nonatomic, strong) NSMutableArray *internalChildDataSources;
