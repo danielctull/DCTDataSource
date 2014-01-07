@@ -37,7 +37,7 @@
 #import "DCTArrayObservingDataSource.h"
 #import "UITableView+DCTTableViewDataSources.h"
 
-void* arrayObservingContext = &arrayObservingContext;
+void* DCTArrayObservingDataSourceObservingContext = &DCTArrayObservingDataSourceObservingContext;
 
 @implementation DCTArrayObservingDataSource {
 	__strong NSArray *_array;
@@ -46,7 +46,7 @@ void* arrayObservingContext = &arrayObservingContext;
 - (void)dealloc {
 	[_object removeObserver:self 
 				 forKeyPath:_keyPath
-					context:arrayObservingContext];
+					context:DCTArrayObservingDataSourceObservingContext];
 }
 
 - (id)initWithObject:(id)object arrayKeyPath:(NSString *)keyPath {
@@ -59,14 +59,14 @@ void* arrayObservingContext = &arrayObservingContext;
 	[_object addObserver:self 
 			  forKeyPath:keyPath
 				 options:NSKeyValueObservingOptionNew
-				 context:arrayObservingContext];
+				 context:DCTArrayObservingDataSourceObservingContext];
 	
 	return self;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	
-	if (context != arrayObservingContext)
+	if (context != DCTArrayObservingDataSourceObservingContext)
 		return [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 		
 	_array = [_object valueForKeyPath:_keyPath];
