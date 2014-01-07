@@ -1,6 +1,6 @@
 //
 //  DCTCollectionViewDataSource.m
-//  DCTTableViewDataSources
+//  DCTDataSource
 //
 //  Created by Daniel Tull on 30/10/2012.
 //  Copyright (c) 2012 Daniel Tull. All rights reserved.

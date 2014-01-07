@@ -1,6 +1,6 @@
 /*
- DCTCollapsableSectionTableViewDataSource.h
- DCTTableViewDataSources
+ DCTCollapsableDataSource.h
+ DCTDataSource
  
  Created by Daniel Tull on 30.06.2011.
  

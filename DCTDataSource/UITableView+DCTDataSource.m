@@ -1,6 +1,6 @@
 /*
- UITableView+DCTTableViewDataSources.m
- DCTTableViewDataSources
+ UITableView+DCTDataSource.m
+ DCTDataSource
  
  Created by Daniel Tull on 08.10.2011.
  
@@ -34,15 +34,15 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "UITableView+DCTTableViewDataSources.h"
+#import "UITableView+DCTDataSource.h"
 #import "DCTParentDataSource.h"
 #import "DCTDataSource.h"
 
 
-@interface DCTDataSource (DCTTableViewDataSources)
+@interface DCTDataSource (DCTDataSource)
 - (void)dct_logTableViewDataSourcesLevel:(NSInteger)level;
 @end
-@implementation DCTDataSource (DCTTableViewDataSources)
+@implementation DCTDataSource (DCTDataSource)
 
 - (void)dct_logTableViewDataSourcesLevel:(NSInteger)level {
 	
@@ -61,7 +61,7 @@
 
 @end
 
-@implementation UITableView (DCTTableViewDataSources)
+@implementation UITableView (DCTDataSource)
 
 - (void)dct_logTableViewDataSources {
 	

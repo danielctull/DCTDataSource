@@ -1,6 +1,6 @@
 /*
  DCTArrayObservingTableViewDataSource.m
- DCTTableViewDataSources
+ DCTDataSource
  
  Created by Daniel Tull on 24.04.2012.
  

@@ -1,6 +1,6 @@
 /*
- DCTArrayTableViewDataSource.h
- DCTTableViewDataSources
+ DCTArrayDataSource.h
+ DCTDataSource
  
  Created by Daniel Tull on 26.12.2011.
  

@@ -1,6 +1,6 @@
 /*
  DCTCollapsableSectionTableViewDataSource.m
- DCTTableViewDataSources
+ DCTDataSource
  
  Created by Daniel Tull on 30.06.2011.
  
@@ -35,8 +35,8 @@
  */
 
 #import "DCTCollapsableDataSource.h"
-#import "DCTTableViewDataSources.h"
-#import "UITableView+DCTTableViewDataSources.h"
+#import "DCTDataSource.h"
+#import "UITableView+DCTDataSource.h"
 #import "_DCTCollapsableSectionTableViewDataSourceHeaderTableViewCell.h"
 @import QuartzCore;
 
@@ -204,8 +204,8 @@
 		
 		if ([self dctInternal_childDataSourceCurrentlyHasCells]) {
 			
-			NSString *disclosurePath = [[DCTTableViewDataSources bundle] pathForResource:@"DisclosureIndicator" ofType:@"png"];
-			NSString *highlightedDisclosurePath = [[DCTTableViewDataSources bundle] pathForResource:@"DisclosureIndicatorHighlighted" ofType:@"png"];
+			NSString *disclosurePath = [[DCTDataSource bundle] pathForResource:@"DisclosureIndicator" ofType:@"png"];
+			NSString *highlightedDisclosurePath = [[DCTDataSource bundle] pathForResource:@"DisclosureIndicatorHighlighted" ofType:@"png"];
 			
 			UIImage *image = [UIImage imageWithContentsOfFile:disclosurePath];
 			UIImageView *iv = [[UIImageView alloc] initWithImage:image];

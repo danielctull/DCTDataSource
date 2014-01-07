@@ -1,6 +1,6 @@
 /*
  DCTObjectTableViewDataSource.h
- DCTTableViewDataSources
+ DCTDataSource
  
  Created by Daniel Tull on 19.09.2011.
  

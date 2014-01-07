@@ -1,6 +1,6 @@
 /*
  DCTParentTableViewDataSource.h
- DCTTableViewDataSources
+ DCTDataSource
  
  Created by Daniel Tull on 20.08.2011.
  

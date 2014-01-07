@@ -23,7 +23,7 @@
 		24AF7AE5187C5CDA0091AD00 /* DCTDataSourceUpdate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */; };
 		24AF7AE6187C5CDA0091AD00 /* DCTPickerViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24ABB4DA17A12D610061A95E /* DCTPickerViewDataSource.h */; };
 		24AF7AE7187C5CDA0091AD00 /* DCTTableViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24297F0E1640109700E32187 /* DCTTableViewDataSource.h */; };
-		24AF7AE8187C5CDA0091AD00 /* UITableView+DCTTableViewDataSources.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */; };
+		24AF7AE8187C5CDA0091AD00 /* UITableView+DCTDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A67AE158B1AF700952890 /* UITableView+DCTDataSource.h */; };
 		24AF7AE9187C5CDA0091AD00 /* DCTCollectionViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24297F121640165B00E32187 /* DCTCollectionViewDataSource.h */; };
 		24AF7AEA187C5CDA0091AD00 /* DCTArrayObservingDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A678F158B1AF600952890 /* DCTArrayObservingDataSource.h */; };
 		24AF7AEB187C5CDA0091AD00 /* DCTArrayDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6791158B1AF600952890 /* DCTArrayDataSource.h */; };
@@ -35,7 +35,7 @@
 		24AF7AF2187C5D100091AD00 /* DCTDataSourceUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */; };
 		24AF7AF3187C5D100091AD00 /* DCTPickerViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ABB4DB17A12D610061A95E /* DCTPickerViewDataSource.m */; };
 		24AF7AF4187C5D100091AD00 /* DCTTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24297F0F1640109700E32187 /* DCTTableViewDataSource.m */; };
-		24AF7AF5187C5D100091AD00 /* UITableView+DCTTableViewDataSources.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */; };
+		24AF7AF5187C5D100091AD00 /* UITableView+DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67AF158B1AF700952890 /* UITableView+DCTDataSource.m */; };
 		24AF7AF6187C5D100091AD00 /* DCTCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24297F131640165B00E32187 /* DCTCollectionViewDataSource.m */; };
 		24AF7AF7187C5D100091AD00 /* DCTArrayObservingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6790158B1AF600952890 /* DCTArrayObservingDataSource.m */; };
 		24AF7AF8187C5D100091AD00 /* DCTArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6792158B1AF600952890 /* DCTArrayDataSource.m */; };
@@ -56,7 +56,7 @@
 				24AF7AE5187C5CDA0091AD00 /* DCTDataSourceUpdate.h in CopyFiles */,
 				24AF7AE6187C5CDA0091AD00 /* DCTPickerViewDataSource.h in CopyFiles */,
 				24AF7AE7187C5CDA0091AD00 /* DCTTableViewDataSource.h in CopyFiles */,
-				24AF7AE8187C5CDA0091AD00 /* UITableView+DCTTableViewDataSources.h in CopyFiles */,
+				24AF7AE8187C5CDA0091AD00 /* UITableView+DCTDataSource.h in CopyFiles */,
 				24AF7AE9187C5CDA0091AD00 /* DCTCollectionViewDataSource.h in CopyFiles */,
 				24AF7AEA187C5CDA0091AD00 /* DCTArrayObservingDataSource.h in CopyFiles */,
 				24AF7AEB187C5CDA0091AD00 /* DCTArrayDataSource.h in CopyFiles */,
@@ -93,8 +93,8 @@
 		244A67A0158B1AF600952890 /* DCTSplitDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTSplitDataSource.m; sourceTree = "<group>"; };
 		244A67A3158B1AF600952890 /* DCTDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTDataSource.h; sourceTree = "<group>"; };
 		244A67A4158B1AF600952890 /* DCTDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTDataSource.m; sourceTree = "<group>"; };
-		244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DCTTableViewDataSources.h"; sourceTree = "<group>"; };
-		244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTTableViewDataSources.m"; sourceTree = "<group>"; };
+		244A67AE158B1AF700952890 /* UITableView+DCTDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DCTDataSource.h"; sourceTree = "<group>"; };
+		244A67AF158B1AF700952890 /* UITableView+DCTDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTDataSource.m"; sourceTree = "<group>"; };
 		24700B3915B835A100FA5843 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTDataSourceUpdate.h; sourceTree = "<group>"; };
 		24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTDataSourceUpdate.m; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 			children = (
 				24297F0E1640109700E32187 /* DCTTableViewDataSource.h */,
 				24297F0F1640109700E32187 /* DCTTableViewDataSource.m */,
-				244A67AE158B1AF700952890 /* UITableView+DCTTableViewDataSources.h */,
-				244A67AF158B1AF700952890 /* UITableView+DCTTableViewDataSources.m */,
+				244A67AE158B1AF700952890 /* UITableView+DCTDataSource.h */,
+				244A67AF158B1AF700952890 /* UITableView+DCTDataSource.m */,
 			);
 			name = UITableView;
 			sourceTree = "<group>";
@@ -356,7 +356,7 @@
 				24AF7AF2187C5D100091AD00 /* DCTDataSourceUpdate.m in Sources */,
 				24AF7AF3187C5D100091AD00 /* DCTPickerViewDataSource.m in Sources */,
 				24AF7AF4187C5D100091AD00 /* DCTTableViewDataSource.m in Sources */,
-				24AF7AF5187C5D100091AD00 /* UITableView+DCTTableViewDataSources.m in Sources */,
+				24AF7AF5187C5D100091AD00 /* UITableView+DCTDataSource.m in Sources */,
 				24AF7AF6187C5D100091AD00 /* DCTCollectionViewDataSource.m in Sources */,
 				24AF7AF7187C5D100091AD00 /* DCTArrayObservingDataSource.m in Sources */,
 				24AF7AF8187C5D100091AD00 /* DCTArrayDataSource.m in Sources */,

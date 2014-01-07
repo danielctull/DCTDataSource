@@ -1,6 +1,6 @@
 /*
  DCTArrayTableViewDataSource.m
- DCTTableViewDataSources
+ DCTDataSource
  
  Created by Daniel Tull on 26.12.2011.
  
@@ -35,7 +35,7 @@
  */
 
 #import "DCTArrayDataSource.h"
-#import "UITableView+DCTTableViewDataSources.h"
+#import "UITableView+DCTDataSource.h"
 
 @interface DCTArrayDataSource ()
 @property (nonatomic) NSMutableArray *internalArray;

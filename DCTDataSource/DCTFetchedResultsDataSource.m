@@ -1,6 +1,6 @@
 /*
  DCTFetchedResultsTableViewDataSource.m
- DCTTableViewDataSources
+ DCTDataSource
  
  Created by Daniel Tull on 20.05.2011.
  

@@ -1,6 +1,6 @@
 /*
- UITableView+DCTTableViewDataSources.h
- DCTTableViewDataSources
+ UITableView+DCTDataSource.h
+ DCTDataSource
  
  Created by Daniel Tull on 08.10.2011.
  
@@ -37,7 +37,7 @@
 @import UIKit;
 @class DCTDataSource;
 
-@interface UITableView (DCTTableViewDataSources)
+@interface UITableView (DCTDataSource)
 
 /** @name Logging */
 
@@ -53,7 +53,7 @@
 
 /** Returns the section, with respect to the table view, of a section in
  the given child data source's structure. This uses the conversion
- methods of the DCTTableViewDataSources.
+ methods of the DCTDataSource.
  
  @param section The section in the given data source's co-ordinate space.
  @param dataSource The data source to convert the section from.
@@ -64,7 +64,7 @@
 
 /** Returns the indexPath, with respect to the table view, of an index path 
  in the given child data source's structure. This uses the conversion methods
- of the DCTTableViewDataSources.
+ of the DCTDataSource.
  
  @param indexPath The index path in the given data source's co-ordinate space.
  @param dataSource The data source to convert the index path from.
