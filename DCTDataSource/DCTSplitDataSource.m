@@ -130,7 +130,7 @@
 	return 0;
 }
 
-- (DCTDataSource *)childTableViewDataSourceForSection:(NSInteger)section {
+- (DCTDataSource *)childDataSourceForSection:(NSInteger)section {
 	
 	NSArray *dataSources = self.childDataSources;
 	
@@ -144,7 +144,7 @@
 	return [dataSources objectAtIndex:section];
 }
 
-- (DCTDataSource *)childTableViewDataSourceForIndexPath:(NSIndexPath *)indexPath {
+- (DCTDataSource *)childDataSourceForIndexPath:(NSIndexPath *)indexPath {
 	
 	if (self.type == DCTSplitDataSourceTypeRow) {
 		

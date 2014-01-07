@@ -35,7 +35,7 @@
  */
 
 #import "DCTDataSource.h"
-#import <CoreData/CoreData.h>
+@import CoreData;
 
 /** A data source that stays in sync with a Core Data fetch request using a
  NSFetchedResultsController.

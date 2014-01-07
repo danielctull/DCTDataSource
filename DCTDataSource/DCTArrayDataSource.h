@@ -35,6 +35,7 @@
  */
 
 #import "DCTDataSource.h"
+#import "DCTEditableDataSource.h"
 
 @interface DCTArrayDataSource : DCTDataSource <DCTEditableDataSource>
 

@@ -34,9 +34,9 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import <UIKit/UIKit.h>
+@import Foundation;
+@import UIKit;
 #import "DCTDataSourceUpdate.h"
-
 @class DCTParentDataSource;
 
 /** An abstract class to represent a core DCTTableViewDataSource object. Examples of concrete 
@@ -53,7 +53,7 @@
  parent, although this is not always true (for instance the root 
  data source).
  */
-@property (nonatomic, weak) DCTParentDataSource *parent;
+@property (nonatomic, weak) id parent;
 
 /** A convinient way to repload the cells of the data source, this 
  should be overridden by subclasses to provide desired results.
@@ -93,5 +93,6 @@
 
 @end
 
-#import "DCTEditableDataSource.h"
-#import "DCTParentDataSource.h"
+
+#import "DCTObjectDataSource.h"
+#import "DCTArrayDataSource.h"

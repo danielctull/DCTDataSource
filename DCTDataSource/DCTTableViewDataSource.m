@@ -7,7 +7,6 @@
 //
 
 #import "DCTTableViewDataSource.h"
-#import "DCTDataSourceUpdate.h"
 
 @implementation DCTTableViewDataSource {
 	NSMutableArray *_updates;

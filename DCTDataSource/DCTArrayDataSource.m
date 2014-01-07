@@ -65,7 +65,7 @@
 	return [_array copy];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
 	return [self.array count];
 }
 

@@ -35,9 +35,8 @@
  */
 
 #import "DCTDataSource.h"
-#import "UITableView+DCTTableViewDataSources.h"
 #import "DCTParentDataSource.h"
-#import "DCTDataSourceUpdate.h"
+#import "UITableView+DCTTableViewDataSources.h"
 
 void DCTDataSourceUpdateTypeAdd(DCTDataSourceUpdateType type, DCTDataSourceUpdateType typeToAdd) {
 	

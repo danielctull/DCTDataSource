@@ -45,20 +45,24 @@
 	[self.childTableViewDataSources makeObjectsPerformSelector:@selector(reloadData)];
 }
 
+- (NSInteger)numberOfSections {
+	return [[self.childDataSources firstObject] numberOfSections];
+}
+
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
-	DCTDataSource * ds = [self childTableViewDataSourceForSection:section];
+	DCTDataSource * ds = [self childDataSourceForSection:section];
 	section = [self convertSection:section toChildTableViewDataSource:ds];
 	return [ds numberOfItemsInSection:section];
 }
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
-	DCTDataSource * ds = [self childTableViewDataSourceForIndexPath:indexPath];
+	DCTDataSource * ds = [self childDataSourceForIndexPath:indexPath];
 	indexPath = [self convertIndexPath:indexPath toChildTableViewDataSource:ds];
 	return [ds objectAtIndexPath:indexPath];
 }
 
 - (id)userInfoValueForKey:(NSString *)key indexPath:(NSIndexPath *)indexPath {
-	DCTDataSource *ds = [self childTableViewDataSourceForIndexPath:indexPath];
+	DCTDataSource *ds = [self childDataSourceForIndexPath:indexPath];
 	indexPath = [self convertIndexPath:indexPath toChildTableViewDataSource:ds];
 	id value = [ds userInfoValueForKey:key indexPath:indexPath];
 	if (!value) value = [self userInfoValueForKey:key];
@@ -72,43 +76,43 @@
 }
 
 - (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(DCTDataSource *)dataSource {
-	NSAssert([self.childTableViewDataSources containsObject:dataSource], @"dataSource should be in the childTableViewDataSources");
+	NSAssert([self.childDataSources containsObject:dataSource], @"dataSource should be in the childTableViewDataSources");
 	return indexPath;
 }
 
 - (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath toChildTableViewDataSource:(DCTDataSource *)dataSource {
-	NSAssert([self.childTableViewDataSources containsObject:dataSource], @"dataSource should be in the childTableViewDataSources");
+	NSAssert([self.childDataSources containsObject:dataSource], @"dataSource should be in the childTableViewDataSources");
 	return indexPath;
 }
 
 - (NSInteger)convertSection:(NSInteger)section fromChildTableViewDataSource:(DCTDataSource *)dataSource {
-	NSAssert([self.childTableViewDataSources containsObject:dataSource], @"dataSource should be in the childTableViewDataSources");
+	NSAssert([self.childDataSources containsObject:dataSource], @"dataSource should be in the childTableViewDataSources");
 	return section;
 }
 
 - (NSInteger)convertSection:(NSInteger)section toChildTableViewDataSource:(DCTDataSource *)dataSource {	
-	NSAssert([self.childTableViewDataSources containsObject:dataSource], @"dataSource should be in the childTableViewDataSources");
+	NSAssert([self.childDataSources containsObject:dataSource], @"dataSource should be in the childTableViewDataSources");
 	return section;
 }
 
-- (DCTDataSource *)childTableViewDataSourceForSection:(NSInteger)section {
-	return [self.childTableViewDataSources lastObject];
+- (DCTDataSource *)childDataSourceForSection:(NSInteger)section {
+	return [self.childDataSources lastObject];
 }
 
-- (DCTDataSource *)childTableViewDataSourceForIndexPath:(NSIndexPath *)indexPath {
-	return [self.childTableViewDataSources lastObject];
+- (DCTDataSource *)childDataSourceForIndexPath:(NSIndexPath *)indexPath {
+	return [self.childDataSources lastObject];
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tv numberOfRowsInSection:(NSInteger)section {
-	DCTDataSource * ds = [self childTableViewDataSourceForSection:section];
+	DCTDataSource * ds = [self childDataSourceForSection:section];
 	section = [self convertSection:section toChildTableViewDataSource:ds];
 	return [ds tableView:tv numberOfRowsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	DCTDataSource * ds = [self childTableViewDataSourceForIndexPath:indexPath];
+	DCTDataSource * ds = [self childDataSourceForIndexPath:indexPath];
 	indexPath = [self convertIndexPath:indexPath toChildTableViewDataSource:ds];
 	return [ds tableView:tv cellForRowAtIndexPath:indexPath];
 }
@@ -120,7 +124,7 @@
 	NSString *title = [super tableView:tv titleForHeaderInSection:section];
 	if (title) return title;
 	
-	DCTDataSource * ds = [self childTableViewDataSourceForSection:section];
+	DCTDataSource * ds = [self childDataSourceForSection:section];
 	
 	if (![ds respondsToSelector:_cmd]) return nil;
 	
@@ -133,7 +137,7 @@
 	NSString *title = [super tableView:tv titleForFooterInSection:section];
 	if (title) return title;
 	
-	DCTDataSource * ds = [self childTableViewDataSourceForSection:section];
+	DCTDataSource * ds = [self childDataSourceForSection:section];
 	
 	if (![ds respondsToSelector:_cmd]) return nil;
 	
@@ -144,7 +148,7 @@
 #pragma mark Editing
 
 - (BOOL)tableView:(UITableView *)tv canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-	DCTDataSource * ds = [self childTableViewDataSourceForIndexPath:indexPath];
+	DCTDataSource * ds = [self childDataSourceForIndexPath:indexPath];
 	
 	if (![ds respondsToSelector:_cmd]) return NO;
 	
@@ -155,7 +159,7 @@
 #pragma mark Moving/reordering
 
 - (BOOL)tableView:(UITableView *)tv canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-	DCTDataSource * ds = [self childTableViewDataSourceForIndexPath:indexPath];
+	DCTDataSource * ds = [self childDataSourceForIndexPath:indexPath];
 	
 	if (![ds respondsToSelector:_cmd]) return NO;
 	
@@ -166,7 +170,7 @@
 #pragma mark  Data manipulation - insert and delete support
 
 - (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-	DCTDataSource * ds = [self childTableViewDataSourceForIndexPath:indexPath];
+	DCTDataSource * ds = [self childDataSourceForIndexPath:indexPath];
 	
 	if (![ds respondsToSelector:_cmd]) return;
 	
@@ -175,11 +179,11 @@
 }
 
 - (void)tableView:(UITableView *)tv moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-	DCTDataSource * ds = [self childTableViewDataSourceForIndexPath:sourceIndexPath];
+	DCTDataSource * ds = [self childDataSourceForIndexPath:sourceIndexPath];
 	NSIndexPath *dsSourceIndexPath = [self convertIndexPath:sourceIndexPath toChildTableViewDataSource:ds];
 	NSIndexPath *dsDestinationIndexPath = [self convertIndexPath:sourceIndexPath toChildTableViewDataSource:ds];
 	
-	DCTDataSource * ds2 = [self childTableViewDataSourceForIndexPath:destinationIndexPath];
+	DCTDataSource * ds2 = [self childDataSourceForIndexPath:destinationIndexPath];
 	NSIndexPath *ds2SourceIndexPath = [self convertIndexPath:sourceIndexPath toChildTableViewDataSource:ds2];
 	NSIndexPath *ds2DestinationIndexPath = [self convertIndexPath:destinationIndexPath toChildTableViewDataSource:ds2];
 	

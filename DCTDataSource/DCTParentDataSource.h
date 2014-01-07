@@ -98,7 +98,7 @@
  
  @return The data source object for the given section.
  */
-- (DCTDataSource *)childTableViewDataSourceForSection:(NSInteger)section;
+- (DCTDataSource *)childDataSourceForSection:(NSInteger)section;
 
 /** Retrieves the child data source for a given index path.
  
@@ -107,7 +107,7 @@
  
  @return The data source object for the given indexPath.
  */
-- (DCTDataSource *)childTableViewDataSourceForIndexPath:(NSIndexPath *)indexPath;
+- (DCTDataSource *)childDataSourceForIndexPath:(NSIndexPath *)indexPath;
 
 
 - (id)userInfoValueForKey:(NSString *)key indexPath:(NSIndexPath *)indexPath;
