@@ -24,8 +24,7 @@
 	objectDS.object = @"hello";
 	[objectDS setUserInfoValue:@"cell" forKey:DCTCollectionViewDataSourceUserInfoKeys.cellReuseIdentifier];
 
-	DCTArrayDataSource *objectDS2 = [DCTArrayDataSource new];
-	objectDS2.array = @[ @"hello", @"two", @"three", @"four" ];
+	DCTArrayDataSource *objectDS2 = [[DCTArrayDataSource alloc] initWithArray:@[ @"hello", @"two", @"three", @"four" ]];
 	[objectDS2 setUserInfoValue:@"cell2" forKey:DCTCollectionViewDataSourceUserInfoKeys.cellReuseIdentifier];
 
 	DCTSplitDataSource *split = [[DCTSplitDataSource alloc] initWithType:DCTSplitDataSourceTypeRow];

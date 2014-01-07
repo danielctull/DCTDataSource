@@ -39,7 +39,8 @@
 
 @interface DCTArrayDataSource : DCTDataSource <DCTEditableDataSource>
 
-@property (nonatomic, copy) NSArray *array;
+- (instancetype)initWithArray:(NSArray *)array;
+@property (nonatomic, readonly) NSArray *array;
 
 @property (nonatomic, assign, getter = isEditable) BOOL editable;
 @property (nonatomic, copy) id(^objectGenerator)();

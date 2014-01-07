@@ -37,32 +37,21 @@
 #import "DCTArrayDataSource.h"
 #import "UITableView+DCTTableViewDataSources.h"
 
-@implementation DCTArrayDataSource {
-	__strong NSMutableArray *_array;
-}
+@interface DCTArrayDataSource ()
+@property (nonatomic) NSMutableArray *internalArray;
+@end
 
-- (void)setArray:(NSArray *)array {
-	
-	[self beginUpdates];
-	
-	[_array enumerateObjectsUsingBlock:^(id obj, NSUInteger i, BOOL *stop) {
-		DCTDataSourceUpdate *update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemDelete indexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-		[self performUpdate:update];
-	}];
-		
-	
-	_array = [array mutableCopy];
-	
-	[_array enumerateObjectsUsingBlock:^(id obj, NSUInteger i, BOOL *stop) {
-		DCTDataSourceUpdate *update = [DCTDataSourceUpdate updateWithType:DCTDataSourceUpdateTypeItemInsert indexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-		[self performUpdate:update];
-	}];
-	
-	[self endUpdates];
+@implementation DCTArrayDataSource
+
+- (instancetype)initWithArray:(NSArray *)array {
+	self = [self init];
+	if (!self) return nil;
+	_internalArray = [array mutableCopy];
+	return self;
 }
 
 - (NSArray *)array {
-	return [_array copy];
+	return [self.internalArray copy];
 }
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
@@ -88,11 +77,11 @@
 }
 
 - (void)insertObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
-	[_array insertObject:object atIndex:indexPath.row];
+	[self.internalArray insertObject:object atIndex:indexPath.row];
 }
 
 - (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath {
-	[_array removeObjectAtIndex:indexPath.row];
+	[self.internalArray removeObjectAtIndex:indexPath.row];
 }
 
 - (void)moveObjectAtIndexPath:(NSIndexPath *)oldIndexPath toIndexPath:(NSIndexPath *)newIndexPath {
