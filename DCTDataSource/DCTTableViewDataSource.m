@@ -8,10 +8,16 @@
 
 #import "DCTTableViewDataSource.h"
 
-@implementation DCTTableViewDataSource {
-	NSMutableArray *_updates;
-	NSMutableDictionary *_animations;
-}
+const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKeys = {
+	.cellReuseIdentifier = @"cellReuseIdentifier",
+	.animation = @"animation"
+};
+
+@interface DCTTableViewDataSource ()
+@property (nonatomic) NSMutableArray *updates;
+@end
+
+@implementation DCTTableViewDataSource
 
 - (id)initWithTableView:(UITableView *)tableView dataSource:(DCTDataSource *)dataSource {
 	self = [super init];
@@ -19,8 +25,25 @@
 	_dataSource = dataSource;
 	_tableView = tableView;
 	_tableView.dataSource = self;
-	_animations = [NSMutableDictionary new];
 	return self;
+}
+
+#pragma mark - Properties
+
+- (NSString *)cellReuseIdentifier {
+	return [self userInfoValueForKey:DCTTableViewDataSourceUserInfoKeys.cellReuseIdentifier];
+}
+
+- (void)setCellReuseIdentifier:(NSString *)cellReuseIdentifier {
+	[self setUserInfoValue:cellReuseIdentifier forKey:DCTTableViewDataSourceUserInfoKeys.cellReuseIdentifier];
+}
+
+- (UITableViewRowAnimation)animation {
+	return [[self userInfoValueForKey:DCTTableViewDataSourceUserInfoKeys.animation] integerValue];
+}
+
+- (void)setAnimation:(UITableViewRowAnimation)animation {
+	[self setUserInfoValue:@(animation) forKey:DCTTableViewDataSourceUserInfoKeys.animation];
 }
 
 - (UITableViewRowAnimation)animationForIndexPath:(NSIndexPath *)indexPath updateType:(DCTDataSourceUpdateType)updateType {
@@ -28,31 +51,27 @@
 	if ([self.delegate respondsToSelector:@selector(tableViewDataSource:animationForCellAtIndexPath:updateType:)])
 		return [self.delegate tableViewDataSource:self animationForCellAtIndexPath:indexPath updateType:updateType];
 
-	return self.animation;
+	NSNumber *animation = [self userInfoValueForKey:DCTTableViewDataSourceUserInfoKeys.animation indexPath:indexPath];
+	return [animation integerValue];
 }
 
 - (NSString *)cellReuseIdentifierForIndexPath:(NSIndexPath *)indexPath {
 
-	NSString *cellReuseIdentifier;
+	if ([self.delegate respondsToSelector:@selector(tableViewDataSource:cellReuseIdentifierForCellAtIndexPath:)])
+		return [self.delegate tableViewDataSource:self cellReuseIdentifierForCellAtIndexPath:indexPath];
 
-	if ([self.delegate respondsToSelector:@selector(tableViewDataSource:animationForCellAtIndexPath:updateType:)])
-		cellReuseIdentifier = [self.delegate tableViewDataSource:self cellReuseIdentifierForCellAtIndexPath:indexPath];
-
-	if (!cellReuseIdentifier)
-		cellReuseIdentifier = self.cellReuseIdentifier;
-
-	return cellReuseIdentifier;
+	return [self userInfoValueForKey:DCTTableViewDataSourceUserInfoKeys.cellReuseIdentifier indexPath:indexPath];
 }
 
 #pragma mark - Updating the table view
 
 - (void)beginUpdates {
-	_updates = [NSMutableArray new];
+	self.updates = [NSMutableArray new];
 }
 
 - (void)endUpdates {
 	[self _endUpdates:self.reloadType];
-	_updates = nil;
+	self.updates = nil;
 }
 
 - (void)_endUpdates:(DCTTableViewDataSourceReloadType)reloadType {
@@ -67,7 +86,7 @@
 
 	[self.tableView beginUpdates];
 
-	[_updates enumerateObjectsUsingBlock:^(DCTDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
+	[self.updates enumerateObjectsUsingBlock:^(DCTDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
 
 		UITableViewRowAnimation animation = [self animationForIndexPath:update.indexPath updateType:update.type];
 
@@ -116,7 +135,7 @@
 
 	CGFloat firstVisibleCellYPosition = [self.tableView rectForRowAtIndexPath:indexPath].origin.y;
 
-	NSArray *updates = [_updates sortedArrayUsingSelector:@selector(compare:)];
+	NSArray *updates = [self.updates sortedArrayUsingSelector:@selector(compare:)];
 
 	[updates enumerateObjectsUsingBlock:^(DCTDataSourceUpdate *update, NSUInteger i, BOOL *stop) {
 
@@ -157,28 +176,10 @@
 	self.tableView.contentOffset = offset;
 }
 
-- (void)_performUpdate:(DCTDataSourceUpdate *)update {
-	[_updates addObject:update];
+- (void)performUpdate:(DCTDataSourceUpdate *)update {
+	[self.updates addObject:update];
 }
-
-- (void)performSectionUpdate:(DCTDataSourceUpdateType)updateType
-				sectionIndex:(NSInteger)index {
-
-	DCTDataSourceUpdate *update = [DCTDataSourceUpdate new];
-	update.type = updateType;
-	update.indexPath = [NSIndexPath indexPathWithIndex:index];
-	[self _performUpdate:update];
-}
-
-- (void)performRowUpdate:(DCTDataSourceUpdateType)updateType
-			   indexPath:(NSIndexPath *)indexPath {
-
-	DCTDataSourceUpdate *update = [DCTDataSourceUpdate new];
-	update.type = updateType;
-	update.indexPath = indexPath;
-	[self _performUpdate:update];
-}
-
+/*
 - (void)enumerateIndexPathsUsingBlock:(void(^)(NSIndexPath *, BOOL *stop))enumerator {
 
 	NSInteger sectionCount = [self numberOfSectionsInTableView:self.tableView];
@@ -194,7 +195,7 @@
 			if (stop) return;
 		}
 	}
-}
+}*/
 
 #pragma mark - UITableViewDataSource
 
@@ -207,14 +208,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
 	NSString *cellIdentifier = [self cellReuseIdentifierForIndexPath:indexPath];
-    UITableViewCell *cell = [tv dequeueReusableCellWithIdentifier:cellIdentifier];
-
-	if (!cell) cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-											 reuseIdentifier:cellIdentifier];
-
-	return cell;
+	return [tv dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

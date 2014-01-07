@@ -9,6 +9,12 @@
 @import UIKit;
 #import "DCTParentDataSource.h"
 
+extern const struct DCTTableViewDataSourceUserInfoKeys {
+	__unsafe_unretained NSString *cellReuseIdentifier;
+	__unsafe_unretained NSString *animation;
+} DCTCollectionViewDataSourceUserInfoKeys;
+
+
 typedef enum {
 	DCTTableViewDataSourceReloadTypeDefault = 0,
 	DCTTableViewDataSourceReloadTypeBottom,
@@ -26,9 +32,11 @@ typedef enum {
 @property (nonatomic, readonly) DCTDataSource *dataSource;
 
 @property (nonatomic, weak) id<DCTTableViewDataSourceDelegate> delegate;
-@property (nonatomic, copy) NSString *cellReuseIdentifier;
-@property (nonatomic) DCTTableViewDataSourceReloadType reloadType;
+
+@property (nonatomic) NSString *cellReuseIdentifier;
 @property (nonatomic) UITableViewRowAnimation animation;
+
+@property (nonatomic) DCTTableViewDataSourceReloadType reloadType;
 
 @end
 
