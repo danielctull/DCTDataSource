@@ -58,36 +58,4 @@
 	return [self.array count];
 }
 
-#pragma mark - DCTEditableDataSource
-
-- (BOOL)canEditObjectAtIndexPath:(NSIndexPath *)indexPath {
-	return self.editable;
-}
-
-- (BOOL)canMoveObjectAtIndexPath:(NSIndexPath *)indexPath {
-	return self.reorderable;
-}
-
-- (id)generateObject {
-	return self.objectGenerator();
-}
-
-- (id)objectAtIndexPath:(NSIndexPath *)indexPath {
-	return [self.array objectAtIndex:indexPath.row];
-}
-
-- (void)insertObject:(id)object atIndexPath:(NSIndexPath *)indexPath {
-	[self.internalArray insertObject:object atIndex:indexPath.row];
-}
-
-- (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath {
-	[self.internalArray removeObjectAtIndex:indexPath.row];
-}
-
-- (void)moveObjectAtIndexPath:(NSIndexPath *)oldIndexPath toIndexPath:(NSIndexPath *)newIndexPath {
-	id object = [self objectAtIndexPath:oldIndexPath];
-	[self removeObjectAtIndexPath:oldIndexPath];
-	[self insertObject:object atIndexPath:newIndexPath];
-}
-
 @end

@@ -114,7 +114,6 @@
 		24AF7ADE187BF0F60091AD00 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		24AF7AE0187C44DA0091AD00 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		24AF7AE1187C44DA0091AD00 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
-		24EC2E7C1642DAA4000092C8 /* DCTEditableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTEditableDataSource.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,7 +197,6 @@
 			children = (
 				244A67A3158B1AF600952890 /* DCTDataSource.h */,
 				244A67A4158B1AF600952890 /* DCTDataSource.m */,
-				24EC2E7C1642DAA4000092C8 /* DCTEditableDataSource.h */,
 				244A679D158B1AF600952890 /* DCTParentDataSource.h */,
 				244A679E158B1AF600952890 /* DCTParentDataSource.m */,
 				24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */,

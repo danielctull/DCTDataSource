@@ -35,17 +35,11 @@
  */
 
 #import "DCTDataSource.h"
-#import "DCTEditableDataSource.h"
 
-@interface DCTArrayDataSource : DCTDataSource <DCTEditableDataSource>
+@interface DCTArrayDataSource : DCTDataSource
 
 - (instancetype)initWithArray:(NSArray *)array;
 @property (nonatomic, readonly) NSArray *array;
-
-@property (nonatomic, assign, getter = isEditable) BOOL editable;
-@property (nonatomic, copy) id(^objectGenerator)();
-
-@property (nonatomic, assign, getter = isReorderable) BOOL reorderable;
 
 
 @end
