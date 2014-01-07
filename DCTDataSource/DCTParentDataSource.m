@@ -41,7 +41,7 @@
 #pragma mark - DCTTableViewDataSource
 
 - (void)reloadData {
-	[self.childTableViewDataSources makeObjectsPerformSelector:@selector(reloadData)];
+	[self.childDataSources makeObjectsPerformSelector:@selector(reloadData)];
 }
 
 - (NSInteger)numberOfSections {
@@ -50,19 +50,19 @@
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
 	DCTDataSource * ds = [self childDataSourceForSection:section];
-	section = [self convertSection:section toChildTableViewDataSource:ds];
+	section = [self convertSection:section toChildDataSource:ds];
 	return [ds numberOfItemsInSection:section];
 }
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
 	DCTDataSource * ds = [self childDataSourceForIndexPath:indexPath];
-	indexPath = [self convertIndexPath:indexPath toChildTableViewDataSource:ds];
+	indexPath = [self convertIndexPath:indexPath toChildDataSource:ds];
 	return [ds objectAtIndexPath:indexPath];
 }
 
 - (id)userInfoValueForKey:(NSString *)key indexPath:(NSIndexPath *)indexPath {
 	DCTDataSource *ds = [self childDataSourceForIndexPath:indexPath];
-	indexPath = [self convertIndexPath:indexPath toChildTableViewDataSource:ds];
+	indexPath = [self convertIndexPath:indexPath toChildDataSource:ds];
 	id value = [ds userInfoValueForKey:key indexPath:indexPath];
 	if (!value) value = [self userInfoValueForKey:key];
 	return value;
@@ -70,27 +70,27 @@
 
 #pragma mark - DCTParentTableViewDataSource
 
-- (NSArray *)childTableViewDataSources {
+- (NSArray *)childDataSources {
 	return nil;
 }
 
-- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(DCTDataSource *)dataSource {
-	NSAssert([self.childDataSources containsObject:dataSource], @"dataSource should be in the childTableViewDataSources");
+- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath fromChildDataSource:(DCTDataSource *)dataSource {
+	NSAssert([self.childDataSources containsObject:dataSource], @"dataSource should be in the childDataSources");
 	return indexPath;
 }
 
-- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath toChildTableViewDataSource:(DCTDataSource *)dataSource {
-	NSAssert([self.childDataSources containsObject:dataSource], @"dataSource should be in the childTableViewDataSources");
+- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath toChildDataSource:(DCTDataSource *)dataSource {
+	NSAssert([self.childDataSources containsObject:dataSource], @"dataSource should be in the childDataSources");
 	return indexPath;
 }
 
-- (NSInteger)convertSection:(NSInteger)section fromChildTableViewDataSource:(DCTDataSource *)dataSource {
-	NSAssert([self.childDataSources containsObject:dataSource], @"dataSource should be in the childTableViewDataSources");
+- (NSInteger)convertSection:(NSInteger)section fromChildDataSource:(DCTDataSource *)dataSource {
+	NSAssert([self.childDataSources containsObject:dataSource], @"dataSource should be in the childDataSources");
 	return section;
 }
 
-- (NSInteger)convertSection:(NSInteger)section toChildTableViewDataSource:(DCTDataSource *)dataSource {	
-	NSAssert([self.childDataSources containsObject:dataSource], @"dataSource should be in the childTableViewDataSources");
+- (NSInteger)convertSection:(NSInteger)section toChildDataSource:(DCTDataSource *)dataSource {	
+	NSAssert([self.childDataSources containsObject:dataSource], @"dataSource should be in the childDataSources");
 	return section;
 }
 

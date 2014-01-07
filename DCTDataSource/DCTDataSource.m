@@ -94,8 +94,8 @@
 
 - (void)performUpdate:(DCTDataSourceUpdate *)update {
 
-	NSIndexPath *oldIndexPath = update.oldIndexPath ? [self.parent convertIndexPath:update.oldIndexPath fromChildTableViewDataSource:self] : nil;
-	NSIndexPath *newIndexPath = update.newIndexPath ? [self.parent convertIndexPath:update.newIndexPath fromChildTableViewDataSource:self] : nil;
+	NSIndexPath *oldIndexPath = update.oldIndexPath ? [self.parent convertIndexPath:update.oldIndexPath fromChildDataSource:self] : nil;
+	NSIndexPath *newIndexPath = update.newIndexPath ? [self.parent convertIndexPath:update.newIndexPath fromChildDataSource:self] : nil;
 	
 	DCTDataSourceUpdate *parentUpdate = [[DCTDataSourceUpdate alloc] initWithType:update.type oldIndexPath:oldIndexPath newIndexPath:newIndexPath];
 	[self.parent performUpdate:parentUpdate];

@@ -53,7 +53,7 @@
  
  @return The section in the co-ordinate space of the parent.
  */
-- (NSInteger)convertSection:(NSInteger)section fromChildTableViewDataSource:(DCTDataSource *)dataSource;
+- (NSInteger)convertSection:(NSInteger)section fromChildDataSource:(DCTDataSource *)dataSource;
 
 /** Conversion method
  
@@ -62,7 +62,7 @@
  
  @return The section in the co-ordinate space of the child.
  */
-- (NSInteger)convertSection:(NSInteger)section toChildTableViewDataSource:(DCTDataSource *)dataSource;
+- (NSInteger)convertSection:(NSInteger)section toChildDataSource:(DCTDataSource *)dataSource;
 
 /** Conversion method
  
@@ -71,7 +71,7 @@
  
  @return The index path in the co-ordinate space of the parent.
  */
-- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(DCTDataSource *)dataSource;
+- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath fromChildDataSource:(DCTDataSource *)dataSource;
 
 /** Conversion method
  
@@ -80,7 +80,7 @@
  
  @return The index path in the co-ordinate space of the child.
  */
-- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath toChildTableViewDataSource:(DCTDataSource *)dataSource;
+- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath toChildDataSource:(DCTDataSource *)dataSource;
 
 /// @name Retrieving child data sources
 

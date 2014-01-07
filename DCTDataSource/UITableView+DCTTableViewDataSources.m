@@ -77,12 +77,12 @@
 	NSLog(@"-------------");
 }
 
-- (NSInteger)dct_convertSection:(NSInteger)section fromChildTableViewDataSource:(DCTDataSource *)dataSource {
+- (NSInteger)dct_convertSection:(NSInteger)section fromChildDataSource:(DCTDataSource *)dataSource {
 	
 	DCTParentDataSource *parent = dataSource.parent;
 	
 	while (parent) {
-		section = [parent convertSection:section fromChildTableViewDataSource:dataSource];
+		section = [parent convertSection:section fromChildDataSource:dataSource];
 		dataSource = parent;
 		parent = dataSource.parent;
 	}
@@ -93,12 +93,12 @@
 	return section;
 }
 
-- (NSIndexPath *)dct_convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(DCTDataSource *)dataSource {
+- (NSIndexPath *)dct_convertIndexPath:(NSIndexPath *)indexPath fromChildDataSource:(DCTDataSource *)dataSource {
 	
 	DCTParentDataSource *parent = dataSource.parent;
 	
 	while (parent) {
-		indexPath = [parent convertIndexPath:indexPath fromChildTableViewDataSource:dataSource];
+		indexPath = [parent convertIndexPath:indexPath fromChildDataSource:dataSource];
 		dataSource = parent;
 		parent = dataSource.parent;
 	}

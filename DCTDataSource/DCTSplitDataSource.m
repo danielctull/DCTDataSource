@@ -57,7 +57,7 @@
 	return [self.internalChildDataSources copy];
 }
 
-- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath fromChildTableViewDataSource:(DCTDataSource *)dataSource {
+- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath fromChildDataSource:(DCTDataSource *)dataSource {
 	
 	NSAssert([self.internalChildDataSources containsObject:dataSource], @"dataSource should be a child table view data source");
 	
@@ -86,7 +86,7 @@
 	return indexPath;
 }
 
-- (NSInteger)convertSection:(NSInteger)section fromChildTableViewDataSource:(DCTDataSource *)dataSource {
+- (NSInteger)convertSection:(NSInteger)section fromChildDataSource:(DCTDataSource *)dataSource {
 	
 	NSAssert([self.childDataSources containsObject:dataSource], @"dataSource should be a child table view data source");
 	
@@ -98,7 +98,7 @@
 	return section;
 }
 
-- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath toChildTableViewDataSource:(DCTDataSource *)dataSource {
+- (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath toChildDataSource:(DCTDataSource *)dataSource {
 	
 	NSAssert([self.childDataSources containsObject:dataSource], @"dataSource should be a child table view data source");
 	
@@ -125,7 +125,7 @@
 	return [NSIndexPath indexPathForRow:indexPath.row inSection:0];
 }
 
-- (NSInteger)convertSection:(NSInteger)section toChildTableViewDataSource:(DCTDataSource *)dataSource {
+- (NSInteger)convertSection:(NSInteger)section toChildDataSource:(DCTDataSource *)dataSource {
 	NSAssert([self.childDataSources containsObject:dataSource], @"dataSource should be a child table view data source");
 	return 0;
 }
