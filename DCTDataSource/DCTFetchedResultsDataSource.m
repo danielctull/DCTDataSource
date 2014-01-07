@@ -35,6 +35,7 @@
  */
 
 #import "DCTFetchedResultsDataSource.h"
+#import "DCTTableViewDataSource.h"
 
 @interface DCTFetchedResultsDataSource () <NSFetchedResultsControllerDelegate>
 @end
@@ -69,23 +70,15 @@
 	return [sectionInfo numberOfObjects];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-	NSString *sectionName = [sectionInfo name];
-	if ([sectionName length] == 0)
-		sectionName = [super tableView:tableView titleForHeaderInSection:section];
-	return sectionName;
-}
+- (id)userInfoValueForKey:(NSString *)key indexPath:(NSIndexPath *)indexPath {
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-	
-	if (!_showIndexList) return nil;
-	
-	return [self.fetchedResultsController sectionIndexTitles];
-}
+	if ([key isEqualToString:DCTTableViewDataSourceUserInfoKeys.sectionHeaderTitle]) {
+		id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:indexPath.section];
+		NSString *sectionName = [sectionInfo name];
+		if ([sectionName length] > 0) return sectionName;
+	}
 
-- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
-	return [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
+	return [super userInfoValueForKey:key indexPath:indexPath];
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate

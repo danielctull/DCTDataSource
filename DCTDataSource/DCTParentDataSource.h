@@ -109,7 +109,4 @@
  */
 - (DCTDataSource *)childDataSourceForIndexPath:(NSIndexPath *)indexPath;
 
-
-- (id)userInfoValueForKey:(NSString *)key indexPath:(NSIndexPath *)indexPath;
-
 @end

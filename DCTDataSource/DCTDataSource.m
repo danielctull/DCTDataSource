@@ -83,6 +83,10 @@
 	return [self.userInfo objectForKey:key];
 }
 
+- (id)userInfoValueForKey:(NSString *)key indexPath:(NSIndexPath *)indexPath {
+	return [self userInfoValueForKey:key];
+}
+
 #pragma mark - Updating the table view
 
 - (void)beginUpdates {
@@ -117,14 +121,6 @@
 			if (stop) return;
 		}
 	}
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-	return self.sectionFooterTitle;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	return self.sectionHeaderTitle;
 }
 
 @end

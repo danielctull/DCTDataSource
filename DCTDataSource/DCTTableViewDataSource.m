@@ -10,7 +10,9 @@
 
 const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKeys = {
 	.cellReuseIdentifier = @"cellReuseIdentifier",
-	.animation = @"animation"
+	.animation = @"animation",
+	.sectionHeaderTitle = @"sectionHeaderTitle",
+	.sectionFooterTitle = @"sectionFooterTitle"
 };
 
 @interface DCTTableViewDataSource ()
@@ -213,6 +215,16 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSString *cellIdentifier = [self cellReuseIdentifierForIndexPath:indexPath];
 	return [tv dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	DCTDataSource *dataSource = [self childDataSourceForSection:section];
+	return [dataSource userInfoValueForKey:DCTTableViewDataSourceUserInfoKeys.sectionHeaderTitle];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+	DCTDataSource *dataSource = [self childDataSourceForSection:section];
+	return [dataSource userInfoValueForKey:DCTTableViewDataSourceUserInfoKeys.sectionFooterTitle];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -35,7 +35,6 @@
  */
 
 #import "DCTParentDataSource.h"
-#import "DCTDataSource+Private.h"
 
 @implementation DCTParentDataSource
 
@@ -101,96 +100,6 @@
 
 - (DCTDataSource *)childDataSourceForIndexPath:(NSIndexPath *)indexPath {
 	return [self.childDataSources lastObject];
-}
-
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tv numberOfRowsInSection:(NSInteger)section {
-	DCTDataSource * ds = [self childDataSourceForSection:section];
-	section = [self convertSection:section toChildTableViewDataSource:ds];
-	return [ds tableView:tv numberOfRowsInSection:section];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	DCTDataSource * ds = [self childDataSourceForIndexPath:indexPath];
-	indexPath = [self convertIndexPath:indexPath toChildTableViewDataSource:ds];
-	return [ds tableView:tv cellForRowAtIndexPath:indexPath];
-}
-
-#pragma mark Optional
-
-- (NSString *)tableView:(UITableView *)tv titleForHeaderInSection:(NSInteger)section {
-	
-	NSString *title = [super tableView:tv titleForHeaderInSection:section];
-	if (title) return title;
-	
-	DCTDataSource * ds = [self childDataSourceForSection:section];
-	
-	if (![ds respondsToSelector:_cmd]) return nil;
-	
-	section = [self convertSection:section toChildTableViewDataSource:ds];
-	return [ds tableView:tv titleForHeaderInSection:section];
-}
-
-- (NSString *)tableView:(UITableView *)tv titleForFooterInSection:(NSInteger)section {
-	
-	NSString *title = [super tableView:tv titleForFooterInSection:section];
-	if (title) return title;
-	
-	DCTDataSource * ds = [self childDataSourceForSection:section];
-	
-	if (![ds respondsToSelector:_cmd]) return nil;
-	
-	section = [self convertSection:section toChildTableViewDataSource:ds];
-	return [ds tableView:tv titleForFooterInSection:section];
-}
-
-#pragma mark Editing
-
-- (BOOL)tableView:(UITableView *)tv canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-	DCTDataSource * ds = [self childDataSourceForIndexPath:indexPath];
-	
-	if (![ds respondsToSelector:_cmd]) return NO;
-	
-	indexPath = [self convertIndexPath:indexPath toChildTableViewDataSource:ds];
-	return [ds tableView:tv canEditRowAtIndexPath:indexPath];
-}
-
-#pragma mark Moving/reordering
-
-- (BOOL)tableView:(UITableView *)tv canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-	DCTDataSource * ds = [self childDataSourceForIndexPath:indexPath];
-	
-	if (![ds respondsToSelector:_cmd]) return NO;
-	
-	indexPath = [self convertIndexPath:indexPath toChildTableViewDataSource:ds];
-	return [ds tableView:tv canMoveRowAtIndexPath:indexPath];
-}
-
-#pragma mark  Data manipulation - insert and delete support
-
-- (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-	DCTDataSource * ds = [self childDataSourceForIndexPath:indexPath];
-	
-	if (![ds respondsToSelector:_cmd]) return;
-	
-	indexPath = [self convertIndexPath:indexPath toChildTableViewDataSource:ds];
-	[ds tableView:tv commitEditingStyle:editingStyle forRowAtIndexPath:indexPath];
-}
-
-- (void)tableView:(UITableView *)tv moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-	DCTDataSource * ds = [self childDataSourceForIndexPath:sourceIndexPath];
-	NSIndexPath *dsSourceIndexPath = [self convertIndexPath:sourceIndexPath toChildTableViewDataSource:ds];
-	NSIndexPath *dsDestinationIndexPath = [self convertIndexPath:sourceIndexPath toChildTableViewDataSource:ds];
-	
-	DCTDataSource * ds2 = [self childDataSourceForIndexPath:destinationIndexPath];
-	NSIndexPath *ds2SourceIndexPath = [self convertIndexPath:sourceIndexPath toChildTableViewDataSource:ds2];
-	NSIndexPath *ds2DestinationIndexPath = [self convertIndexPath:destinationIndexPath toChildTableViewDataSource:ds2];
-	
-	if (![ds respondsToSelector:_cmd] || ![ds2 respondsToSelector:_cmd]) return;
-	
-	[ds tableView:tv moveRowAtIndexPath:dsSourceIndexPath toIndexPath:dsDestinationIndexPath];
-	[ds2 tableView:tv moveRowAtIndexPath:ds2SourceIndexPath toIndexPath:ds2DestinationIndexPath];
 }
 
 @end

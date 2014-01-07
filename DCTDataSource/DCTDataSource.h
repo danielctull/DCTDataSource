@@ -45,7 +45,7 @@
  When subclassing, generally you should write your own implmentation for the objectAtIndexPath:
  and reloadData methods.
  */
-@interface DCTDataSource : NSObject <UITableViewDataSource>
+@interface DCTDataSource : NSObject
 
 /** A parent data source, if one exists.
  
@@ -78,9 +78,6 @@
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath;
 
 
-@property (nonatomic, copy) NSString *sectionHeaderTitle;
-@property (nonatomic, copy) NSString *sectionFooterTitle;
-
 - (void)beginUpdates;
 - (void)performUpdate:(DCTDataSourceUpdate *)update;
 - (void)endUpdates;
@@ -90,6 +87,7 @@
 
 - (void)setUserInfoValue:(id)value forKey:(NSString *)key;
 - (id)userInfoValueForKey:(NSString *)key;
+- (id)userInfoValueForKey:(NSString *)key indexPath:(NSIndexPath *)indexPath;
 
 @end
 

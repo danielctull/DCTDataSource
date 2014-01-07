@@ -12,7 +12,9 @@
 extern const struct DCTTableViewDataSourceUserInfoKeys {
 	__unsafe_unretained NSString *cellReuseIdentifier;
 	__unsafe_unretained NSString *animation;
-} DCTCollectionViewDataSourceUserInfoKeys;
+	__unsafe_unretained NSString *sectionHeaderTitle;
+	__unsafe_unretained NSString *sectionFooterTitle;
+} DCTTableViewDataSourceUserInfoKeys;
 
 
 typedef enum {

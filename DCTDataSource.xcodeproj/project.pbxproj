@@ -22,7 +22,6 @@
 		24A389FD162303CF0003A1BE /* DCTDataSourceUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */; };
 		24ABB4D917A1249A0061A95E /* DCTDataSourceUpdate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */; };
 		24ABB4DC17A12D620061A95E /* DCTPickerViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ABB4DB17A12D610061A95E /* DCTPickerViewDataSource.m */; };
-		24AF7A8B187AFB650091AD00 /* DCTDataSource+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF7A8A187AFB650091AD00 /* DCTDataSource+Private.m */; };
 		24AF7A91187AFE0B0091AD00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244A6768158B1AB100952890 /* Foundation.framework */; };
 		24AF7A93187AFE0B0091AD00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AF7A92187AFE0B0091AD00 /* CoreGraphics.framework */; };
 		24AF7A94187AFE0B0091AD00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B7F915B9802A00750117 /* UIKit.framework */; };
@@ -100,8 +99,6 @@
 		24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTDataSourceUpdate.m; sourceTree = "<group>"; };
 		24ABB4DA17A12D610061A95E /* DCTPickerViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DCTPickerViewDataSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		24ABB4DB17A12D610061A95E /* DCTPickerViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTPickerViewDataSource.m; sourceTree = "<group>"; };
-		24AF7A89187AFB650091AD00 /* DCTDataSource+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DCTDataSource+Private.h"; sourceTree = "<group>"; };
-		24AF7A8A187AFB650091AD00 /* DCTDataSource+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DCTDataSource+Private.m"; sourceTree = "<group>"; };
 		24AF7A90187AFE0B0091AD00 /* DCTDataSource Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DCTDataSource Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24AF7A92187AFE0B0091AD00 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		24AF7A97187AFE0B0091AD00 /* DCTDataSource Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTDataSource Demo-Info.plist"; sourceTree = "<group>"; };
@@ -209,8 +206,6 @@
 				24D4AB29162B26A8009F3E35 /* Object + Array */,
 				24D4AB27162B2634009F3E35 /* Parent Data Sources */,
 				24D4AB28162B2649009F3E35 /* Core Data */,
-				24AF7A89187AFB650091AD00 /* DCTDataSource+Private.h */,
-				24AF7A8A187AFB650091AD00 /* DCTDataSource+Private.m */,
 			);
 			path = DCTDataSource;
 			sourceTree = "<group>";
@@ -363,7 +358,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24AF7A8B187AFB650091AD00 /* DCTDataSource+Private.m in Sources */,
 				2437B7C015B97FEC00750117 /* DCTArrayObservingDataSource.m in Sources */,
 				2437B7C215B97FEC00750117 /* DCTArrayDataSource.m in Sources */,
 				2437B7C615B97FEC00750117 /* DCTFetchedResultsDataSource.m in Sources */,
