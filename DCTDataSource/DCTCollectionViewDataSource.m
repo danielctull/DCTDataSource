@@ -48,8 +48,16 @@ const struct DCTCollectionViewDataSourceUserInfoKeys DCTCollectionViewDataSource
 	NSString *reuseIdentifier = [self userInfoValueForKey:DCTCollectionViewDataSourceUserInfoKeys.cellReuseIdentifier
 												indexPath:indexPath];
 
-	return [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
-													 forIndexPath:indexPath];
+	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
+																		   forIndexPath:indexPath];
+
+	if ([self.collectionView.delegate conformsToProtocol:@protocol(DCTCollectionViewDataSourceDelegate)]) {
+		id<DCTCollectionViewDataSourceDelegate> delegate = (id<DCTCollectionViewDataSourceDelegate>)self.collectionView.delegate;
+		if ([delegate respondsToSelector:@selector(collectionView:willDisplayCell:forItemAtIndexPath:)])
+			[delegate collectionView:collectionView willDisplayCell:cell forItemAtIndexPath:indexPath];
+	}
+
+	return cell;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
@@ -59,9 +67,17 @@ const struct DCTCollectionViewDataSourceUserInfoKeys DCTCollectionViewDataSource
 	NSString *reuseIdentifier = [self userInfoValueForKey:DCTCollectionViewDataSourceUserInfoKeys.supplementaryViewReuseIdentifier
 												indexPath:indexPath];
 
-	return [collectionView dequeueReusableSupplementaryViewOfKind:kind
-											  withReuseIdentifier:reuseIdentifier
-													 forIndexPath:indexPath];
+	UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+																		withReuseIdentifier:reuseIdentifier
+																			   forIndexPath:indexPath];
+
+	if ([self.collectionView.delegate conformsToProtocol:@protocol(DCTCollectionViewDataSourceDelegate)]) {
+		id<DCTCollectionViewDataSourceDelegate> delegate = (id<DCTCollectionViewDataSourceDelegate>)self.collectionView.delegate;
+		if ([delegate respondsToSelector:@selector(collectionView:willDisplaySupplementaryView:forElementOfKind:atIndexPath:)])
+			[delegate collectionView:collectionView willDisplaySupplementaryView:view forElementOfKind:kind atIndexPath:indexPath];
+	}
+
+	return view;
 }
 
 #pragma mark - Properties

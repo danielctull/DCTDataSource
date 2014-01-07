@@ -22,7 +22,6 @@
 
 	DCTObjectDataSource *objectDS = [DCTObjectDataSource new];
 	objectDS.object = @"hello";
-	[objectDS setUserInfoValue:@"cell" forKey:DCTCollectionViewDataSourceUserInfoKeys.cellReuseIdentifier];
 
 	DCTArrayDataSource *objectDS2 = [[DCTArrayDataSource alloc] initWithArray:@[ @"hello", @"two", @"three", @"four" ]];
 	[objectDS2 setUserInfoValue:@"cell2" forKey:DCTCollectionViewDataSourceUserInfoKeys.cellReuseIdentifier];
@@ -32,6 +31,7 @@
 	[split addChildDataSource:objectDS2];
 
 	self.dataSource = [[DCTCollectionViewDataSource alloc] initWithCollectionView:self.collectionView dataSource:split];
+	self.dataSource.cellReuseIdentifier = @"cell";
 }
 
 @end
