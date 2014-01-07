@@ -39,9 +39,11 @@
 
 void* DCTArrayObservingDataSourceObservingContext = &DCTArrayObservingDataSourceObservingContext;
 
-@implementation DCTArrayObservingDataSource {
-	__strong NSArray *_array;
-}
+@interface DCTArrayObservingDataSource ()
+@property (nonatomic) NSArray *array;
+@end
+
+@implementation DCTArrayObservingDataSource
 
 - (void)dealloc {
 	[_object removeObserver:self 
@@ -50,7 +52,8 @@ void* DCTArrayObservingDataSourceObservingContext = &DCTArrayObservingDataSource
 }
 
 - (id)initWithObject:(id)object arrayKeyPath:(NSString *)keyPath {
-	if (!(self = [self init])) return nil;
+	self = [self init];
+	if (!self) return nil;
 	
 	_object = object;
 	_keyPath = keyPath;
@@ -69,7 +72,7 @@ void* DCTArrayObservingDataSourceObservingContext = &DCTArrayObservingDataSource
 	if (context != DCTArrayObservingDataSourceObservingContext)
 		return [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 		
-	_array = [_object valueForKeyPath:_keyPath];
+	self.array = [_object valueForKeyPath:_keyPath];
 	
 	NSKeyValueChange changeType = [[change objectForKey:NSKeyValueChangeKindKey] unsignedIntegerValue];
 	NSIndexSet *indexSet = [change objectForKey:NSKeyValueChangeIndexesKey];
@@ -94,16 +97,14 @@ void* DCTArrayObservingDataSourceObservingContext = &DCTArrayObservingDataSource
 	[self endUpdates];
 }
 
-#pragma mark - DCTTableViewDataSource
+#pragma mark - DCTDataSource
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
-	return [_array objectAtIndex:indexPath.row];
+	return [self.array objectAtIndex:indexPath.row];
 }
 
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return [_array count];
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
+	return [self.array count];
 }
 
 @end
