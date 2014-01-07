@@ -43,21 +43,6 @@
 
 #pragma mark - DCTTableViewDataSource
 
-- (void)reloadData {
-	
-	if (self.fetchRequestBlock != NULL) {
-		_fetchRequest = self.fetchRequestBlock();
-		_fetchedResultsController.delegate = nil;
-		_fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:self.fetchRequest
-																		managedObjectContext:self.managedObjectContext
-																		  sectionNameKeyPath:nil
-																				   cacheName:nil];
-		_fetchedResultsController.delegate = self;
-	}
-	
-	[super reloadData];
-}
-
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
 	return [self.fetchedResultsController objectAtIndexPath:indexPath];
 }
@@ -70,29 +55,6 @@
 	_fetchedResultsController = fetchedResultsController;
 	_fetchedResultsController.delegate = self;
 	[_fetchedResultsController performFetch:nil];
-	return self;
-}
-
-- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
-					  fetchRequest:(NSFetchRequest *)fetchRequest {
-	
-	NSFetchedResultsController *frc = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-																		  managedObjectContext:managedObjectContext
-																			sectionNameKeyPath:nil
-																					 cacheName:nil];
-	
-	self = [self initWithFetchedResultsController:frc];
-	if (!self) return nil;
-	_managedObjectContext = managedObjectContext;
-	_fetchRequest = fetchRequest;
-	return self;
-}
-
-- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
-				 fetchRequestBlock:(NSFetchRequest *(^)())fetchRequestBlock {
-	self = [self initWithManagedObjectContext:managedObjectContext fetchRequest:fetchRequestBlock()];
-	if (!self) return nil;
-	_fetchRequestBlock = [fetchRequestBlock copy];
 	return self;
 }
 
@@ -178,7 +140,5 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
 	[self endUpdates];
 }
-
-
 
 @end

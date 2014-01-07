@@ -55,34 +55,10 @@
 
 - (id)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController;
 
-
-- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
-					  fetchRequest:(NSFetchRequest *)fetchRequest;
-
-- (id)initWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
-				 fetchRequestBlock:(NSFetchRequest *(^)())fetchRequestBlock;
-
-
-/** The managed obejct context that is associated with the fetched results 
- controller.
- */
-@property (nonatomic, readonly, strong) NSManagedObjectContext *managedObjectContext;
-
 /** The fetched results controller that is controlling the data for cells 
  maintained by this data source.
  */
 @property (nonatomic, readonly, strong) NSFetchedResultsController *fetchedResultsController;
-
-/** The fetch request being used.
- */
-@property (nonatomic, readonly, strong) NSFetchRequest *fetchRequest;
-
-/** A fetch request block to provide a fetch request.
- 
- This is useful to use in the case where your fetch request might
- change, for example a search interface.
- */
-@property (nonatomic, readonly, copy) NSFetchRequest *(^fetchRequestBlock)();
 
 @property (nonatomic, assign) BOOL showIndexList;
 
