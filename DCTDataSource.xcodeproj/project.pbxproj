@@ -33,6 +33,7 @@
 		24AF7ABF187AFE460091AD00 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF7ABE187AFE460091AD00 /* ViewController.m */; };
 		24AF7ADD187BEE010091AD00 /* DCTCollectionViewDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 24297F121640165B00E32187 /* DCTCollectionViewDataSource.h */; };
 		24AF7ADF187BF0F60091AD00 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24AF7ADE187BF0F60091AD00 /* Storyboard.storyboard */; };
+		24AF7AE2187C44DA0091AD00 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF7AE1187C44DA0091AD00 /* CollectionViewCell.m */; };
 		24C0298815B982F3009B1DE9 /* DCTArrayObservingDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A678F158B1AF600952890 /* DCTArrayObservingDataSource.h */; };
 		24C0298A15B982F3009B1DE9 /* DCTArrayDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6791158B1AF600952890 /* DCTArrayDataSource.h */; };
 		24C0298C15B982F3009B1DE9 /* DCTCollapsableDataSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 244A6793158B1AF600952890 /* DCTCollapsableDataSource.h */; };
@@ -111,6 +112,8 @@
 		24AF7ABD187AFE460091AD00 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		24AF7ABE187AFE460091AD00 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		24AF7ADE187BF0F60091AD00 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		24AF7AE0187C44DA0091AD00 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		24AF7AE1187C44DA0091AD00 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		24EC2E7C1642DAA4000092C8 /* DCTEditableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTEditableDataSource.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,6 +232,8 @@
 				24AF7ABD187AFE460091AD00 /* ViewController.h */,
 				24AF7ABE187AFE460091AD00 /* ViewController.m */,
 				24AF7ADE187BF0F60091AD00 /* Storyboard.storyboard */,
+				24AF7AE0187C44DA0091AD00 /* CollectionViewCell.h */,
+				24AF7AE1187C44DA0091AD00 /* CollectionViewCell.m */,
 			);
 			path = "DCTDataSource Demo";
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 			files = (
 				24AF7ABF187AFE460091AD00 /* ViewController.m in Sources */,
 				24AF7AA0187AFE0B0091AD00 /* AppDelegate.m in Sources */,
+				24AF7AE2187C44DA0091AD00 /* CollectionViewCell.m in Sources */,
 				24AF7A9C187AFE0B0091AD00 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

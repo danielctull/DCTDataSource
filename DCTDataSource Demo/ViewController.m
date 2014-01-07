@@ -10,8 +10,9 @@
 #import "DCTDataSource.h"
 #import "DCTCollectionViewDataSource.h"
 #import "DCTSplitDataSource.h"
+#import "CollectionViewCell.h"
 
-@interface ViewController ()
+@interface ViewController () <DCTCollectionViewDataSourceDelegate>
 @property (nonatomic) DCTCollectionViewDataSource *dataSource;
 @end
 
@@ -23,7 +24,7 @@
 	DCTObjectDataSource *objectDS = [DCTObjectDataSource new];
 	objectDS.object = @"hello";
 
-	DCTArrayDataSource *objectDS2 = [[DCTArrayDataSource alloc] initWithArray:@[ @"hello", @"two", @"three", @"four" ]];
+	DCTArrayDataSource *objectDS2 = [[DCTArrayDataSource alloc] initWithArray:@[ @"one", @"two", @"three", @"four" ]];
 	[objectDS2 setUserInfoValue:@"cell2" forKey:DCTCollectionViewDataSourceUserInfoKeys.cellReuseIdentifier];
 
 	DCTSplitDataSource *split = [[DCTSplitDataSource alloc] initWithType:DCTSplitDataSourceTypeRow];
@@ -32,6 +33,17 @@
 
 	self.dataSource = [[DCTCollectionViewDataSource alloc] initWithCollectionView:self.collectionView dataSource:split];
 	self.dataSource.cellReuseIdentifier = @"cell";
+}
+
+#pragma mark - DCTCollectionViewDataSourceDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+
+	NSAssert([cell isKindOfClass:[CollectionViewCell class]], @"Cell should be a CollectionViewCell");
+
+	CollectionViewCell *collectionViewCell = (CollectionViewCell *)cell;
+	NSString *object = [self.dataSource objectAtIndexPath:indexPath];
+	collectionViewCell.label.text = object;
 }
 
 @end
