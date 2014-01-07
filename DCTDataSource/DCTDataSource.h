@@ -93,4 +93,5 @@
 #import "DCTArrayDataSource.h"
 #import "DCTArrayObservingDataSource.h"
 #import "DCTObjectDataSource.h"
+#import "DCTFetchedResultsDataSource.h"
 #import "DCTParentDataSource.h"

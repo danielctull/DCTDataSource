@@ -25,8 +25,10 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 	self = [super init];
 	if (!self) return nil;
 	_dataSource = dataSource;
+	_dataSource.parent = self;
 	_tableView = tableView;
 	_tableView.dataSource = self;
+	[_tableView reloadData];
 	return self;
 }
 
@@ -63,6 +65,10 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 		return [self.delegate tableViewDataSource:self cellReuseIdentifierForCellAtIndexPath:indexPath];
 
 	return [self userInfoValueForKey:DCTTableViewDataSourceUserInfoKeys.cellReuseIdentifier indexPath:indexPath];
+}
+
+- (NSArray *)childDataSources {
+	return @[self.dataSource];
 }
 
 #pragma mark - Updating the table view
