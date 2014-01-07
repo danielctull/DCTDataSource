@@ -8,9 +8,6 @@
 
 #import "DCTPickerViewDataSource.h"
 
-@interface DCTPickerViewDataSource () <UIPickerViewDataSource>
-@end
-
 @implementation DCTPickerViewDataSource
 
 - (id)initWithPickerView:(UIPickerView *)pickerView dataSource:(DCTDataSource *)dataSource {

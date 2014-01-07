@@ -8,7 +8,7 @@
 
 #import "DCTParentDataSource.h"
 
-@interface DCTPickerViewDataSource : DCTParentDataSource
+@interface DCTPickerViewDataSource : DCTParentDataSource <UIPickerViewDataSource>
 
 - (id)initWithPickerView:(UIPickerView *)pickerView dataSource:(DCTDataSource *)dataSource;
 @property (nonatomic, readonly) UIPickerView *pickerView;
