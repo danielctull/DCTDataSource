@@ -1,5 +1,5 @@
 //
-//  _DCTTableViewDataSourceUpdate.m
+//  DCTDataSourceUpdate.m
 //  DCTDataSource
 //
 //  Created by Daniel Tull on 08.10.2012.

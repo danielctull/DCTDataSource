@@ -1,5 +1,5 @@
 /*
- DCTCollapsableSectionTableViewDataSource.m
+ DCTCollapsableDataSource.m
  DCTDataSource
  
  Created by Daniel Tull on 30.06.2011.

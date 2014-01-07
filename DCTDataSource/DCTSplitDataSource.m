@@ -1,5 +1,5 @@
 /*
- DCTSplitTableViewDataSource.m
+ DCTSplitDataSource.m
  DCTDataSource
  
  Created by Daniel Tull on 16.09.2010.

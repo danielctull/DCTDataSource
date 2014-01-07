@@ -1,5 +1,5 @@
 /*
- DCTArrayTableViewDataSource.m
+ DCTArrayDataSource.m
  DCTDataSource
  
  Created by Daniel Tull on 26.12.2011.
