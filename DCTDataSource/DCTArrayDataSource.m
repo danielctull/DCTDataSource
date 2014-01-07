@@ -58,4 +58,8 @@
 	return [self.array count];
 }
 
+- (id)objectAtIndexPath:(NSIndexPath *)indexPath {
+	return [self.array objectAtIndex:indexPath.row];
+}
+
 @end

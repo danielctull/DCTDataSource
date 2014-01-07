@@ -110,3 +110,8 @@
 - (DCTDataSource *)childDataSourceForIndexPath:(NSIndexPath *)indexPath;
 
 @end
+
+#import "DCTSplitDataSource.h"
+#import "DCTPickerViewDataSource.h"
+#import "DCTTableViewDataSource.h"
+#import "DCTCollectionViewDataSource.h"

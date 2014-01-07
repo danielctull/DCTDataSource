@@ -35,7 +35,6 @@
  */
 
 #import "DCTDataSource.h"
-#import "DCTParentDataSource.h"
 #import "UITableView+DCTTableViewDataSources.h"
 
 @interface DCTDataSource ()
