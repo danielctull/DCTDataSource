@@ -28,7 +28,6 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 	_dataSource.parent = self;
 	_tableView = tableView;
 	_tableView.dataSource = self;
-	[_tableView reloadData];
 	return self;
 }
 
