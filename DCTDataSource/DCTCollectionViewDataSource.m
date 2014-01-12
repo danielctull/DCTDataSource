@@ -27,7 +27,6 @@ const struct DCTCollectionViewDataSourceUserInfoKeys DCTCollectionViewDataSource
 	_dataSource.parent = self;
 	_collectionView = collectionView;
 	_collectionView.dataSource = self;
-	[_collectionView reloadData];
 	return self;
 }
 
