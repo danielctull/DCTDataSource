@@ -37,9 +37,6 @@
 #import "DCTArrayDataSource.h"
 #import "UITableView+DCTDataSource.h"
 
-@interface DCTArrayDataSource ()
-@end
-
 @implementation DCTArrayDataSource
 
 - (instancetype)initWithArray:(NSArray *)array {
