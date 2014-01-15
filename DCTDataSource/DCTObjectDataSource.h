@@ -54,7 +54,9 @@
  */
 @interface DCTObjectDataSource : DCTDataSource
 
+- (instancetype)initWithObject:(id)object;
+
 /** The represented object for the single cell in this data soruce.
  */
-@property (nonatomic, strong) id object;
+@property (nonatomic, readonly) id object;
 @end

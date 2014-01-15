@@ -38,6 +38,13 @@
 
 @implementation DCTObjectDataSource
 
+- (instancetype)initWithObject:(id)object {
+	self = [self init];
+	if (!self) return nil;
+	_object = object;
+	return self;
+}
+
 - (NSInteger)numberOfSections {
 	return 1;
 }
