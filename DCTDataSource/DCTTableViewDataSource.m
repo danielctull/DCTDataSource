@@ -126,7 +126,12 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 		}
 	}];
 
+	NSArray *selectedRows = [self.tableView indexPathsForSelectedRows];
+
 	[self.tableView endUpdates];
+
+	for (NSIndexPath *indexPath in selectedRows)
+		[self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
 
 - (void)_endUpdatesNonDefault:(DCTTableViewDataSourceReloadType)reloadType {
