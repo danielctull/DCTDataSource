@@ -49,6 +49,10 @@
 	return self;
 }
 
+- (NSInteger)numberOfSections {
+	return 1;
+}
+
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
 	return [self.array count];
 }
