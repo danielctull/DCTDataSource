@@ -61,9 +61,12 @@
 }
 
 - (id)userInfoValueForKey:(NSString *)key indexPath:(NSIndexPath *)indexPath {
+	id value = nil;
 	DCTDataSource *ds = [self childDataSourceForIndexPath:indexPath];
-	indexPath = [self convertIndexPath:indexPath toChildDataSource:ds];
-	id value = [ds userInfoValueForKey:key indexPath:indexPath];
+	if (ds) {
+		indexPath = [self convertIndexPath:indexPath toChildDataSource:ds];
+		value = [ds userInfoValueForKey:key indexPath:indexPath];
+	}
 	if (!value) value = [self userInfoValueForKey:key];
 	return value;
 }

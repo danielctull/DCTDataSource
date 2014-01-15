@@ -54,8 +54,8 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 	if ([self.delegate respondsToSelector:@selector(tableViewDataSource:animationForCellAtIndexPath:updateType:)])
 		return [self.delegate tableViewDataSource:self animationForCellAtIndexPath:indexPath updateType:updateType];
 
-	NSNumber *animation = [self userInfoValueForKey:DCTTableViewDataSourceUserInfoKeys.animation indexPath:indexPath];
-	return [animation integerValue];
+	//NSNumber *animation = [self userInfoValueForKey:DCTTableViewDataSourceUserInfoKeys.animation indexPath:indexPath];
+	return UITableViewRowAnimationAutomatic;// [animation integerValue];
 }
 
 - (NSString *)cellReuseIdentifierForIndexPath:(NSIndexPath *)indexPath {

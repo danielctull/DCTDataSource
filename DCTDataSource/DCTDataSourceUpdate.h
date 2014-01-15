@@ -9,12 +9,12 @@
 @import Foundation;
 
 typedef enum {
-	DCTDataSourceUpdateTypeItemDelete = 1 << 0,
-	DCTDataSourceUpdateTypeSectionDelete = 1 << 1,
-	DCTDataSourceUpdateTypeItemInsert = 1 << 2,
-	DCTDataSourceUpdateTypeSectionInsert = 1 << 3,
-	DCTDataSourceUpdateTypeItemReload = 1 << 4,
-	DCTDataSourceUpdateTypeItemMove = 1 << 5,
+	DCTDataSourceUpdateTypeItemDelete,
+	DCTDataSourceUpdateTypeSectionDelete,
+	DCTDataSourceUpdateTypeItemInsert,
+	DCTDataSourceUpdateTypeSectionInsert,
+	DCTDataSourceUpdateTypeItemReload,
+	DCTDataSourceUpdateTypeItemMove,
 } DCTDataSourceUpdateType;
 
 @interface DCTDataSourceUpdate : NSObject

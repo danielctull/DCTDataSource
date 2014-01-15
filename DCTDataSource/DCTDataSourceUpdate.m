@@ -8,6 +8,15 @@
 
 #import "DCTDataSourceUpdate.h"
 
+static NSString *const DCTDataSourceUpdateString[] = {
+	@"DCTDataSourceUpdateTypeItemDelete",
+	@"DCTDataSourceUpdateTypeSectionDelete",
+	@"DCTDataSourceUpdateTypeItemInsert",
+	@"DCTDataSourceUpdateTypeSectionInsert",
+	@"DCTDataSourceUpdateTypeItemReload",
+	@"DCTDataSourceUpdateTypeItemMove"
+};
+
 BOOL DCTDataSourceUpdateTypeIncludes(DCTDataSourceUpdateType type, DCTDataSourceUpdateType testType) {
 	return (type & testType) == testType;
 }
@@ -47,7 +56,7 @@ BOOL DCTDataSourceUpdateTypeIncludes(DCTDataSourceUpdateType type, DCTDataSource
 
 + (instancetype)deleteUpdateWithIndex:(NSInteger *)index {
 	NSIndexPath *indexPath = [NSIndexPath indexPathWithIndex:index];
-	return [[self alloc] initWithType:DCTDataSourceUpdateTypeSectionInsert oldIndexPath:indexPath newIndexPath:indexPath];
+	return [[self alloc] initWithType:DCTDataSourceUpdateTypeSectionDelete oldIndexPath:indexPath newIndexPath:indexPath];
 }
 
 - (NSInteger)section {
@@ -69,12 +78,12 @@ BOOL DCTDataSourceUpdateTypeIncludes(DCTDataSourceUpdateType type, DCTDataSource
 }
 
 - (NSString *)description {
-	return [NSString stringWithFormat:@"<%@: %p; oldIndexPath = %@; newIndexPath = %@; type = %i>",
+	return [NSString stringWithFormat:@"<%@: %p; oldIndexPath = %@; newIndexPath = %@; type = %@>",
 			NSStringFromClass([self class]),
 			self,
 			self.oldIndexPath,
 			self.newIndexPath,
-			self.type];
+			DCTDataSourceUpdateString[self.type]];
 }
 
 @end

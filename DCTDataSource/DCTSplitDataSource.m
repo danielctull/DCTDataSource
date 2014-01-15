@@ -166,7 +166,9 @@
 		
 		return dataSource;
 	}
-	
+
+	//if (indexPath.section >= self.childDataSources.count) return nil;
+
 	return [self.childDataSources objectAtIndex:indexPath.section];
 }
 

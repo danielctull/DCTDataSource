@@ -38,7 +38,6 @@
 #import "UITableView+DCTDataSource.h"
 
 @interface DCTArrayDataSource ()
-@property (nonatomic) NSMutableArray *internalArray;
 @end
 
 @implementation DCTArrayDataSource
@@ -46,12 +45,8 @@
 - (instancetype)initWithArray:(NSArray *)array {
 	self = [self init];
 	if (!self) return nil;
-	_internalArray = [array mutableCopy];
+	_array = [array copy];
 	return self;
-}
-
-- (NSArray *)array {
-	return [self.internalArray copy];
 }
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
