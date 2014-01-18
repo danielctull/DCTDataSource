@@ -103,6 +103,10 @@ void* DCTArrayObservingDataSourceObservingContext = &DCTArrayObservingDataSource
 	return [self.array objectAtIndex:indexPath.row];
 }
 
+- (NSInteger)numberOfSections {
+	return 1;
+}
+
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
 	return [self.array count];
 }
