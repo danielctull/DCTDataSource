@@ -39,6 +39,7 @@ typedef enum {
 @property (nonatomic) UITableViewRowAnimation animation;
 
 @property (nonatomic) DCTTableViewDataSourceReloadType reloadType;
+@property (nonatomic) NSArray *sectionIndexTitles;
 
 @end
 

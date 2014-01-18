@@ -229,12 +229,18 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 	DCTDataSource *dataSource = [self childDataSourceForSection:section];
-	return [dataSource userInfoValueForKey:DCTTableViewDataSourceUserInfoKeys.sectionHeaderTitle];
+	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+	return [dataSource userInfoValueForKey:DCTTableViewDataSourceUserInfoKeys.sectionHeaderTitle indexPath:indexPath];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
 	DCTDataSource *dataSource = [self childDataSourceForSection:section];
-	return [dataSource userInfoValueForKey:DCTTableViewDataSourceUserInfoKeys.sectionFooterTitle];
+	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+	return [dataSource userInfoValueForKey:DCTTableViewDataSourceUserInfoKeys.sectionFooterTitle indexPath:indexPath];
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+	return self.sectionIndexTitles;
 }
 
 @end
