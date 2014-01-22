@@ -50,5 +50,6 @@ typedef enum {
 @optional
 - (NSString *)tableViewDataSource:(DCTTableViewDataSource *)tableViewDataSource cellReuseIdentifierForCellAtIndexPath:(NSIndexPath *)indexPath;
 - (UITableViewRowAnimation)tableViewDataSource:(DCTTableViewDataSource *)tableViewDataSource animationForCellAtIndexPath:(NSIndexPath *)indexPath updateType:(DCTDataSourceUpdateType)updateType;
+- (UITableViewCell *)tableViewDataSource:(DCTTableViewDataSource *)tableViewDataSource cellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
 
 @end

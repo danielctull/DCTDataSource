@@ -222,9 +222,13 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 	return [self numberOfItemsInSection:section];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSString *cellIdentifier = [self cellReuseIdentifierForIndexPath:indexPath];
-	return [tv dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+
+	if ([self.delegate respondsToSelector:@selector(tableViewDataSource:cellWithIdentifier:forIndexPath:)])
+		return [self.delegate tableViewDataSource:self cellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+
+	return [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
