@@ -88,7 +88,6 @@
 				NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
 				DCTDataSourceUpdate *update = [DCTDataSourceUpdate deleteUpdateWithOldIndexPath:indexPath];
 				[self performUpdate:update];
-				continue;
 			}
 		}
 
