@@ -41,5 +41,6 @@
 - (instancetype)initWithArray:(NSArray *)array;
 @property (nonatomic, readonly) NSArray *array;
 
+@property (nonatomic, copy) NSPredicate *predicate;
 
 @end

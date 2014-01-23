@@ -37,12 +37,17 @@
 #import "DCTArrayDataSource.h"
 #import "UITableView+DCTDataSource.h"
 
+@interface DCTArrayDataSource ()
+@property (nonatomic, copy) NSArray *filteredArray;
+@end
+
 @implementation DCTArrayDataSource
 
 - (instancetype)initWithArray:(NSArray *)array {
 	self = [self init];
 	if (!self) return nil;
 	_array = [array copy];
+	_filteredArray = _array;
 	return self;
 }
 
@@ -51,11 +56,53 @@
 }
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
-	return [self.array count];
+	return [self.filteredArray count];
 }
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
-	return [self.array objectAtIndex:indexPath.row];
+	return [self.filteredArray objectAtIndex:indexPath.row];
+}
+
+- (void)setPredicate:(NSPredicate *)predicate {
+	_predicate = [predicate copy];
+	self.filteredArray = [self.array filteredArrayUsingPredicate:_predicate];
+}
+
+- (void)setFilteredArray:(NSArray *)filteredArray {
+
+	NSArray *oldArray = _filteredArray;
+	NSArray *newArray = [filteredArray copy];
+	_filteredArray = newArray;
+
+	[self beginUpdates];
+
+	NSUInteger oldCount = [oldArray count];
+	NSUInteger newCount = [newArray count];
+	NSUInteger count = MAX(oldCount, newCount);
+
+	for (NSUInteger i = 0; i < count; i++) {
+
+		if (i < oldCount) {
+			id object = [oldArray objectAtIndex:i];
+			if (![newArray containsObject:object]) {
+				NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+				DCTDataSourceUpdate *update = [DCTDataSourceUpdate deleteUpdateWithOldIndexPath:indexPath];
+				[self performUpdate:update];
+				continue;
+			}
+		}
+
+		if (i < newCount) {
+			id object = [newArray objectAtIndex:i];
+			if (![oldArray containsObject:object]) {
+				NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+				DCTDataSourceUpdate *update = [DCTDataSourceUpdate insertUpdateWithNewIndexPath:indexPath];
+				[self performUpdate:update];
+			}
+		}
+	}
+
+	[self endUpdates];
 }
 
 @end
