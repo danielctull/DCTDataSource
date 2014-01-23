@@ -47,12 +47,7 @@
 #pragma mark - DCTTableViewDataSource
 
 - (void)reloadData {
-	[self beginUpdates];
-	[self enumerateIndexPathsUsingBlock:^(NSIndexPath *indexPath, BOOL *stop) {
-		DCTDataSourceUpdate *update = [DCTDataSourceUpdate reloadUpdateWithIndexPath:indexPath];
-		[self performUpdate:update];
-	}];
-	[self endUpdates];
+	[self.parent reloadData];
 }
 
 - (NSInteger)numberOfSections {

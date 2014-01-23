@@ -72,6 +72,10 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 
 #pragma mark - Updating the table view
 
+- (void)reloadData {
+	[self.tableView reloadData];
+}
+
 - (void)beginUpdates {
 	self.updates = [NSMutableArray new];
 }
