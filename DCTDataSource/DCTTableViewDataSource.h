@@ -16,13 +16,6 @@ extern const struct DCTTableViewDataSourceUserInfoKeys {
 	__unsafe_unretained NSString *sectionFooterTitle;
 } DCTTableViewDataSourceUserInfoKeys;
 
-
-typedef enum {
-	DCTTableViewDataSourceReloadTypeDefault = 0,
-	DCTTableViewDataSourceReloadTypeBottom,
-	DCTTableViewDataSourceReloadTypeTop
-} DCTTableViewDataSourceReloadType;
-
 @protocol DCTTableViewDataSourceDelegate;
 
 
@@ -38,7 +31,6 @@ typedef enum {
 @property (nonatomic) NSString *cellReuseIdentifier;
 @property (nonatomic) UITableViewRowAnimation animation;
 
-@property (nonatomic) DCTTableViewDataSourceReloadType reloadType;
 @property (nonatomic) NSArray *sectionIndexTitles;
 
 @end
