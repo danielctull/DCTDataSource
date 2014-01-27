@@ -251,4 +251,12 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 	return self.sectionIndexTitles;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+
+	if ([self.delegate respondsToSelector:@selector(tableViewDataSource:sectionForSectionIndexTitle:atIndex:)])
+		return [self.delegate tableViewDataSource:self sectionForSectionIndexTitle:title atIndex:index];
+
+	return index;
+}
+
 @end
