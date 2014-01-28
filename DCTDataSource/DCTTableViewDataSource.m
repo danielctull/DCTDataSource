@@ -87,6 +87,10 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 
 - (void)_endUpdates:(DCTTableViewDataSourceReloadType)reloadType {
 
+	// If the updates were all reloads and the delegate has refused them all,
+	// we'll have no updates to perform
+	if (self.updates.count == 0) return;
+
 	if (reloadType == DCTTableViewDataSourceReloadTypeDefault)
 		[self _endUpdatesDefault];
 	else
@@ -196,6 +200,14 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 }
 
 - (void)performUpdate:(DCTDataSourceUpdate *)update {
+
+	if (update.type == DCTDataSourceUpdateTypeItemReload) {
+		NSIndexPath *indexPath = update.oldIndexPath;
+		if ([self.delegate respondsToSelector:@selector(tableViewDataSource:shouldReloadRowAtIndexPath:)]
+			&& ![self.delegate tableViewDataSource:self shouldReloadRowAtIndexPath:indexPath])
+			return;
+	}
+
 	[self.updates addObject:update];
 }
 /*

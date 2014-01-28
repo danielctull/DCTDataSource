@@ -52,5 +52,6 @@ typedef enum {
 - (UITableViewRowAnimation)tableViewDataSource:(DCTTableViewDataSource *)tableViewDataSource animationForCellAtIndexPath:(NSIndexPath *)indexPath updateType:(DCTDataSourceUpdateType)updateType;
 - (UITableViewCell *)tableViewDataSource:(DCTTableViewDataSource *)tableViewDataSource cellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
 - (NSInteger)tableViewDataSource:(DCTTableViewDataSource *)tableViewDataSource sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index;
+- (BOOL)tableViewDataSource:(DCTTableViewDataSource *)tableViewDataSource shouldReloadRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
