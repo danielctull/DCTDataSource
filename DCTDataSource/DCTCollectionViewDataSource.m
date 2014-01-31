@@ -115,12 +115,17 @@ const struct DCTCollectionViewDataSourceUserInfoKeys DCTCollectionViewDataSource
 
 - (void)endUpdates {
 
+	NSArray *selectedIndexPaths = [self.collectionView indexPathsForSelectedItems];
+
 	[self.collectionView performBatchUpdates:^{
 
 		for (DCTDataSourceUpdate *update in self.updates)
 			[self applyUpdate:update];
 
 	} completion:nil];
+
+	for (NSIndexPath *indexPath in selectedIndexPaths)
+		[self.collectionView selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
 
 	self.updates = nil;
 }
