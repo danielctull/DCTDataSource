@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>3DB83189-9208-4D77-AF31-A4504584179E</string>
+	<string>6D2AA269-A673-4F6A-BE8C-C52F4472C36C</string>
 	<key>IDESourceControlProjectName</key>
 	<string>DCTDataSource</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>B143DD36-A33D-4805-BC14-1A731AA1A592</key>
-		<string>ssh://github.com/danielctull/DCTTableViewDataSources.git</string>
+		<key>28301C0A-9CC6-491D-A208-5285B5451915</key>
+		<string>ssh://github.com/danielctull/DCTDataSource.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>DCTDataSource.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>B143DD36-A33D-4805-BC14-1A731AA1A592</key>
+		<key>28301C0A-9CC6-491D-A208-5285B5451915</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/danielctull/DCTTableViewDataSources.git</string>
+	<string>ssh://github.com/danielctull/DCTDataSource.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>B143DD36-A33D-4805-BC14-1A731AA1A592</string>
+	<string>28301C0A-9CC6-491D-A208-5285B5451915</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B143DD36-A33D-4805-BC14-1A731AA1A592</string>
+			<string>28301C0A-9CC6-491D-A208-5285B5451915</string>
 			<key>IDESourceControlWCCName</key>
-			<string>DCTTableViewDataSources</string>
+			<string>DCTDataSource</string>
 		</dict>
 	</array>
 </dict>

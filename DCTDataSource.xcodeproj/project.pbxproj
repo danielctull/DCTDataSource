@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		248CC941189ECB4A009E2F6C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AF7AA8187AFE0B0091AD00 /* XCTest.framework */; };
+		248CC942189ECB4A009E2F6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244A6768158B1AB100952890 /* Foundation.framework */; };
+		248CC943189ECB4A009E2F6C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B7F915B9802A00750117 /* UIKit.framework */; };
+		248CC949189ECB4A009E2F6C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 248CC947189ECB4A009E2F6C /* InfoPlist.strings */; };
+		248CC94B189ECB4A009E2F6C /* DCTDataSource_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 248CC94A189ECB4A009E2F6C /* DCTDataSource_Tests.m */; };
 		24AF7A91187AFE0B0091AD00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244A6768158B1AB100952890 /* Foundation.framework */; };
 		24AF7A93187AFE0B0091AD00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AF7A92187AFE0B0091AD00 /* CoreGraphics.framework */; };
 		24AF7A94187AFE0B0091AD00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B7F915B9802A00750117 /* UIKit.framework */; };
@@ -43,6 +48,16 @@
 		24AF7AFA187C5D100091AD00 /* DCTSplitDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A0158B1AF600952890 /* DCTSplitDataSource.m */; };
 		24AF7AFB187C5D100091AD00 /* DCTFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6796158B1AF600952890 /* DCTFetchedResultsDataSource.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		248CC94D189ECB4A009E2F6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 244A675C158B1AB100952890 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2437B77C15B97FA900750117;
+			remoteInfo = DCTDataSource;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		2437B77B15B97FA900750117 /* CopyFiles */ = {
@@ -96,6 +111,10 @@
 		244A67AE158B1AF700952890 /* UITableView+DCTDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DCTDataSource.h"; sourceTree = "<group>"; };
 		244A67AF158B1AF700952890 /* UITableView+DCTDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTDataSource.m"; sourceTree = "<group>"; };
 		24700B3915B835A100FA5843 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		248CC940189ECB4A009E2F6C /* DCTDataSource Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DCTDataSource Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		248CC946189ECB4A009E2F6C /* DCTDataSource Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DCTDataSource Tests-Info.plist"; sourceTree = "<group>"; };
+		248CC948189ECB4A009E2F6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		248CC94A189ECB4A009E2F6C /* DCTDataSource_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCTDataSource_Tests.m; sourceTree = "<group>"; };
 		24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTDataSourceUpdate.h; sourceTree = "<group>"; };
 		24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTDataSourceUpdate.m; sourceTree = "<group>"; };
 		24ABB4DA17A12D610061A95E /* DCTPickerViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DCTPickerViewDataSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -117,6 +136,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		248CC93D189ECB4A009E2F6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				248CC941189ECB4A009E2F6C /* XCTest.framework in Frameworks */,
+				248CC943189ECB4A009E2F6C /* UIKit.framework in Frameworks */,
+				248CC942189ECB4A009E2F6C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24AF7A8D187AFE0B0091AD00 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -156,6 +185,7 @@
 			children = (
 				244A676A158B1AB100952890 /* DCTDataSource */,
 				24AF7A95187AFE0B0091AD00 /* DCTDataSource Demo */,
+				248CC944189ECB4A009E2F6C /* DCTDataSource Tests */,
 				244A6767158B1AB100952890 /* Frameworks */,
 				244A6766158B1AB100952890 /* Products */,
 			);
@@ -166,6 +196,7 @@
 			children = (
 				2437B77D15B97FA900750117 /* libDCTDataSource.a */,
 				24AF7A90187AFE0B0091AD00 /* DCTDataSource Demo.app */,
+				248CC940189ECB4A009E2F6C /* DCTDataSource Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,6 +231,16 @@
 				24D4AB28162B2649009F3E35 /* Core Data */,
 			);
 			path = DCTDataSource;
+			sourceTree = "<group>";
+		};
+		248CC944189ECB4A009E2F6C /* DCTDataSource Tests */ = {
+			isa = PBXGroup;
+			children = (
+				248CC94A189ECB4A009E2F6C /* DCTDataSource_Tests.m */,
+				248CC946189ECB4A009E2F6C /* DCTDataSource Tests-Info.plist */,
+				248CC947189ECB4A009E2F6C /* InfoPlist.strings */,
+			);
+			path = "DCTDataSource Tests";
 			sourceTree = "<group>";
 		};
 		24ABB4DD17A12D660061A95E /* UIPickerView */ = {
@@ -289,6 +330,24 @@
 			productReference = 2437B77D15B97FA900750117 /* libDCTDataSource.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		248CC93F189ECB4A009E2F6C /* DCTDataSource Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 248CC951189ECB4A009E2F6C /* Build configuration list for PBXNativeTarget "DCTDataSource Tests" */;
+			buildPhases = (
+				248CC93C189ECB4A009E2F6C /* Sources */,
+				248CC93D189ECB4A009E2F6C /* Frameworks */,
+				248CC93E189ECB4A009E2F6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				248CC94E189ECB4A009E2F6C /* PBXTargetDependency */,
+			);
+			name = "DCTDataSource Tests";
+			productName = "DCTDataSource Tests";
+			productReference = 248CC940189ECB4A009E2F6C /* DCTDataSource Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		24AF7A8F187AFE0B0091AD00 /* DCTDataSource Demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24AF7ABA187AFE0B0091AD00 /* Build configuration list for PBXNativeTarget "DCTDataSource Demo" */;
@@ -314,6 +373,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Daniel Tull";
+				TargetAttributes = {
+					248CC93F189ECB4A009E2F6C = {
+						TestTargetID = 2437B77C15B97FA900750117;
+					};
+				};
 			};
 			buildConfigurationList = 244A675F158B1AB100952890 /* Build configuration list for PBXProject "DCTDataSource" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -329,11 +393,20 @@
 			targets = (
 				2437B77C15B97FA900750117 /* DCTDataSource */,
 				24AF7A8F187AFE0B0091AD00 /* DCTDataSource Demo */,
+				248CC93F189ECB4A009E2F6C /* DCTDataSource Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		248CC93E189ECB4A009E2F6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				248CC949189ECB4A009E2F6C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24AF7A8E187AFE0B0091AD00 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -366,6 +439,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		248CC93C189ECB4A009E2F6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				248CC94B189ECB4A009E2F6C /* DCTDataSource_Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24AF7A8C187AFE0B0091AD00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -379,7 +460,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		248CC94E189ECB4A009E2F6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2437B77C15B97FA900750117 /* DCTDataSource */;
+			targetProxy = 248CC94D189ECB4A009E2F6C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		248CC947189ECB4A009E2F6C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				248CC948189ECB4A009E2F6C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		24AF7A98187AFE0B0091AD00 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -457,6 +554,69 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		248CC94F189ECB4A009E2F6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "DCTDataSource Tests/DCTDataSource Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		248CC950189ECB4A009E2F6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "DCTDataSource Tests/DCTDataSource Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -544,6 +704,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		248CC951189ECB4A009E2F6C /* Build configuration list for PBXNativeTarget "DCTDataSource Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				248CC94F189ECB4A009E2F6C /* Debug */,
+				248CC950189ECB4A009E2F6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		24AF7ABA187AFE0B0091AD00 /* Build configuration list for PBXNativeTarget "DCTDataSource Demo" */ = {
 			isa = XCConfigurationList;
