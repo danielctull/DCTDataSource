@@ -18,7 +18,13 @@
 	self = [self init];
 	if (!self) return nil;
 	_dataSource = dataSource;
+	_dataSource.parent = self;
+	_internalUpdates = [NSMutableArray new];
 	return self;
+}
+
+- (NSArray *)childDataSources {
+	return @[self.dataSource];
 }
 
 - (NSArray *)updates {
@@ -26,6 +32,7 @@
 }
 
 - (void)performUpdate:(DCTDataSourceUpdate *)update {
+	NSLog(@"%@:%@ %@", self, NSStringFromSelector(_cmd), update);
 	[self.internalUpdates addObject:update];
 }
 
