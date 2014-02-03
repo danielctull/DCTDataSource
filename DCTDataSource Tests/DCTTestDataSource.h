@@ -14,4 +14,6 @@
 @property (nonatomic, readonly) DCTDataSource *dataSource;
 @property (nonatomic, readonly) NSArray *updates;
 
+- (void)clearUpdates;
+
 @end

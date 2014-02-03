@@ -26,25 +26,59 @@
 
 	Event *event = [Event insertInManagedObjectContext:managedObjectContext];
 	event.name = @"B";
+	event.date = [NSDate new];
 	[managedObjectContext save:NULL];
 
+	XCTAssertEqual(testDataSource.updates.count, (NSUInteger)1, @"%@", testDataSource.updates);
+	DCTDataSourceUpdate *update = [testDataSource.updates lastObject];
+	[testDataSource clearUpdates];
 
-	DCTDataSourceUpdate *update = [testDataSource.updates firstObject];
 	XCTAssertNotNil(update, @"There should be an update.");
-	XCTAssertEqual(testDataSource.updates.count, 1, @"udates contains: %@", testDataSource.updates);
+	XCTAssertEqual(update.type, DCTDataSourceUpdateTypeSectionInsert, @"%@", update);
+	XCTAssertEqual(update.section, (NSInteger)0, @"%@", update);
 
-
-	XCTAssertEqual(update.type, DCTDataSourceUpdateTypeSectionInsert, @"update.type is %@, should be DCTDataSourceUpdateTypeSectionInsert", @(update.type));
-
-	//XCTAssertEqual(update.section, 0, @"Section should be 0.");
-
-	NSUInteger indexes[] = {0,0};
-	NSIndexPath *indexPath = [NSIndexPath indexPathWithIndexes:indexes length:2];
+	NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
 	id testObject = [fetchedResultsDataSource objectAtIndexPath:indexPath];
-	XCTAssertEqualObjects(event, testObject, @"The object coming out should be the object that went in.");
+	XCTAssertEqualObjects(event, testObject, @"%@ != %@", event, testObject);
 
 
 
+	Event *event2 = [Event insertInManagedObjectContext:managedObjectContext];
+	event2.name = @"B";
+	event2.date = [NSDate new];
+	[managedObjectContext save:NULL];
+
+	XCTAssertEqual(testDataSource.updates.count, (NSUInteger)1, @"%@", testDataSource.updates);
+	DCTDataSourceUpdate *update2 = [testDataSource.updates lastObject];
+	[testDataSource clearUpdates];
+
+	XCTAssertNotNil(update2, @"There should be an update.");
+	XCTAssertEqual(update2.type, DCTDataSourceUpdateTypeItemInsert, @"%@", update2);
+	XCTAssertEqual(update2.newIndexPath.section, (NSInteger)0, @"%@", update2);
+	XCTAssertEqual(update2.newIndexPath.item, (NSInteger)1, @"%@", update2);
+
+	NSIndexPath *indexPath2 = [NSIndexPath indexPathForItem:1 inSection:0];
+	id testObject2 = [fetchedResultsDataSource objectAtIndexPath:indexPath2];
+	XCTAssertEqualObjects(event2, testObject2, @"%@ != %@", event2, testObject2);
+
+	event.name = @"C";
+	[managedObjectContext save:NULL];
+
+	XCTAssertEqual(testDataSource.updates.count, (NSUInteger)2, @"%@", testDataSource.updates);
+	DCTDataSourceUpdate *insertNewSectionUpdate = testDataSource.updates[0];
+	DCTDataSourceUpdate *deleteOldIndexPathUpdate = testDataSource.updates[1];
+	[testDataSource clearUpdates];
+
+	XCTAssertEqual(insertNewSectionUpdate.type, DCTDataSourceUpdateTypeSectionInsert, @"%@", insertNewSectionUpdate);
+	XCTAssertEqual(insertNewSectionUpdate.section, (NSInteger)1, @"%@", insertNewSectionUpdate);
+
+	XCTAssertEqual(deleteOldIndexPathUpdate.type, DCTDataSourceUpdateTypeItemDelete, @"%@", deleteOldIndexPathUpdate);
+	XCTAssertEqual(deleteOldIndexPathUpdate.newIndexPath.section, (NSInteger)0, @"%@", deleteOldIndexPathUpdate);
+	XCTAssertEqual(deleteOldIndexPathUpdate.newIndexPath.item, (NSInteger)0, @"%@", deleteOldIndexPathUpdate);
+
+	NSIndexPath *movedIndexPath = [NSIndexPath indexPathForItem:0 inSection:1];
+	id testObject3 = [fetchedResultsDataSource objectAtIndexPath:movedIndexPath];
+	XCTAssertEqualObjects(event, testObject3, @"%@ != %@", event, testObject3);
 }
 
 

@@ -31,8 +31,11 @@
 	return [self.internalUpdates copy];
 }
 
+- (void)clearUpdates {
+	[self.internalUpdates removeAllObjects];
+}
+
 - (void)performUpdate:(DCTDataSourceUpdate *)update {
-	NSLog(@"%@:%@ %@", self, NSStringFromSelector(_cmd), update);
 	[self.internalUpdates addObject:update];
 }
 
