@@ -14,6 +14,10 @@
 		248CC954189ECC49009E2F6C /* DCTTestDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 248CC953189ECC49009E2F6C /* DCTTestDataSource.m */; };
 		248CC956189ECDA7009E2F6C /* DCTSplitDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 248CC955189ECDA7009E2F6C /* DCTSplitDataSourceTests.m */; };
 		248CC957189ECDC1009E2F6C /* libDCTDataSource.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B77D15B97FA900750117 /* libDCTDataSource.a */; };
+		24A3E3DA189F80F300E73F0C /* DCTFetchedResultsDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A3E3D9189F80F300E73F0C /* DCTFetchedResultsDataSourceTests.m */; };
+		24A3E3DD189F816F00E73F0C /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24A3E3DB189F816F00E73F0C /* TestModel.xcdatamodeld */; };
+		24A3E3E4189F826A00E73F0C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A3E3E0189F826A00E73F0C /* Event.m */; };
+		24A3E3E5189F826A00E73F0C /* _Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A3E3E3189F826A00E73F0C /* _Event.m */; };
 		24AF7A91187AFE0B0091AD00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244A6768158B1AB100952890 /* Foundation.framework */; };
 		24AF7A93187AFE0B0091AD00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AF7A92187AFE0B0091AD00 /* CoreGraphics.framework */; };
 		24AF7A94187AFE0B0091AD00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B7F915B9802A00750117 /* UIKit.framework */; };
@@ -121,6 +125,12 @@
 		248CC955189ECDA7009E2F6C /* DCTSplitDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTSplitDataSourceTests.m; sourceTree = "<group>"; };
 		24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTDataSourceUpdate.h; sourceTree = "<group>"; };
 		24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTDataSourceUpdate.m; sourceTree = "<group>"; };
+		24A3E3D9189F80F300E73F0C /* DCTFetchedResultsDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTFetchedResultsDataSourceTests.m; sourceTree = "<group>"; };
+		24A3E3DC189F816F00E73F0C /* TestModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestModel.xcdatamodel; sourceTree = "<group>"; };
+		24A3E3DF189F826A00E73F0C /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		24A3E3E0189F826A00E73F0C /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		24A3E3E2189F826A00E73F0C /* _Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Event.h; sourceTree = "<group>"; };
+		24A3E3E3189F826A00E73F0C /* _Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Event.m; sourceTree = "<group>"; };
 		24ABB4DA17A12D610061A95E /* DCTPickerViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DCTPickerViewDataSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		24ABB4DB17A12D610061A95E /* DCTPickerViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTPickerViewDataSource.m; sourceTree = "<group>"; };
 		24AF7A90187AFE0B0091AD00 /* DCTDataSource Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DCTDataSource Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,8 +256,30 @@
 				248CC952189ECC49009E2F6C /* DCTTestDataSource.h */,
 				248CC953189ECC49009E2F6C /* DCTTestDataSource.m */,
 				248CC955189ECDA7009E2F6C /* DCTSplitDataSourceTests.m */,
+				24A3E3D9189F80F300E73F0C /* DCTFetchedResultsDataSourceTests.m */,
+				24A3E3DB189F816F00E73F0C /* TestModel.xcdatamodeld */,
+				24A3E3DE189F826A00E73F0C /* Model */,
 			);
 			path = "DCTDataSource Tests";
+			sourceTree = "<group>";
+		};
+		24A3E3DE189F826A00E73F0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24A3E3DF189F826A00E73F0C /* Event.h */,
+				24A3E3E0189F826A00E73F0C /* Event.m */,
+				24A3E3E1189F826A00E73F0C /* Generated */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		24A3E3E1189F826A00E73F0C /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				24A3E3E2189F826A00E73F0C /* _Event.h */,
+				24A3E3E3189F826A00E73F0C /* _Event.m */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		24ABB4DD17A12D660061A95E /* UIPickerView */ = {
@@ -450,7 +482,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24A3E3DD189F816F00E73F0C /* TestModel.xcdatamodeld in Sources */,
 				248CC954189ECC49009E2F6C /* DCTTestDataSource.m in Sources */,
+				24A3E3E4189F826A00E73F0C /* Event.m in Sources */,
+				24A3E3DA189F80F300E73F0C /* DCTFetchedResultsDataSourceTests.m in Sources */,
+				24A3E3E5189F826A00E73F0C /* _Event.m in Sources */,
 				248CC956189ECDA7009E2F6C /* DCTSplitDataSourceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -720,6 +756,7 @@
 				248CC950189ECB4A009E2F6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24AF7ABA187AFE0B0091AD00 /* Build configuration list for PBXNativeTarget "DCTDataSource Demo" */ = {
 			isa = XCConfigurationList;
@@ -731,6 +768,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		24A3E3DB189F816F00E73F0C /* TestModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				24A3E3DC189F816F00E73F0C /* TestModel.xcdatamodel */,
+			);
+			currentVersion = 24A3E3DC189F816F00E73F0C /* TestModel.xcdatamodel */;
+			path = TestModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 244A675C158B1AB100952890 /* Project object */;
 }

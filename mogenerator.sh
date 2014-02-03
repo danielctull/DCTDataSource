@@ -1,0 +1,1 @@
+mogenerator -m DCTDataSource\ Tests/TestModel.xcdatamodeld/TestModel.xcdatamodel -M DCTDataSource\ Tests/Model/Generated -H DCTDataSource\ Tests/Model --template-var arc=true --template-var modules=true
