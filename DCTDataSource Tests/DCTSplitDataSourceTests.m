@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Daniel Tull. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
+@import XCTest;
 #import "DCTTestDataSource.h"
 
 @interface DCTSplitDataSourceTests : XCTestCase
