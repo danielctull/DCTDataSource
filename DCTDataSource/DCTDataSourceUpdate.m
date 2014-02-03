@@ -50,12 +50,14 @@ BOOL DCTDataSourceUpdateTypeIncludes(DCTDataSourceUpdateType type, DCTDataSource
 
 // Section
 + (instancetype)insertUpdateWithIndex:(NSInteger *)index {
-	NSIndexPath *indexPath = [NSIndexPath indexPathWithIndex:index];
+	NSUInteger indexes[] = {index,0};
+	NSIndexPath *indexPath = [NSIndexPath indexPathWithIndexes:indexes length:2];
 	return [[self alloc] initWithType:DCTDataSourceUpdateTypeSectionInsert oldIndexPath:indexPath newIndexPath:indexPath];
 }
 
 + (instancetype)deleteUpdateWithIndex:(NSInteger *)index {
-	NSIndexPath *indexPath = [NSIndexPath indexPathWithIndex:index];
+	NSUInteger indexes[] = {index,0};
+	NSIndexPath *indexPath = [NSIndexPath indexPathWithIndexes:indexes length:2];
 	return [[self alloc] initWithType:DCTDataSourceUpdateTypeSectionDelete oldIndexPath:indexPath newIndexPath:indexPath];
 }
 
@@ -81,9 +83,20 @@ BOOL DCTDataSourceUpdateTypeIncludes(DCTDataSourceUpdateType type, DCTDataSource
 	return [NSString stringWithFormat:@"<%@: %p; oldIndexPath = %@; newIndexPath = %@; type = %@>",
 			NSStringFromClass([self class]),
 			self,
-			self.oldIndexPath,
-			self.newIndexPath,
+			[self descriptionForIndexPath:self.oldIndexPath],
+			[self descriptionForIndexPath:self.newIndexPath],
 			DCTDataSourceUpdateString[self.type]];
+}
+
+- (NSString *)descriptionForIndexPath:(NSIndexPath *)indexPath {
+
+	NSMutableArray *indexes = [NSMutableArray new];
+	NSUInteger length = indexPath.length;
+	for (NSUInteger i = 0; i < length; i++)
+		[indexes addObject:[@([indexPath indexAtPosition:i]) stringValue]];
+
+	NSString *indexString = [indexes componentsJoinedByString:@" - "];
+	return [NSString stringWithFormat:@"{%@}", indexString];
 }
 
 @end
