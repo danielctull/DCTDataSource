@@ -209,7 +209,6 @@
 	[self beginUpdates];
 	
 	NSUInteger index = [childDataSources indexOfObject:dataSource];
-	[childDataSources removeObject:dataSource];
 	
 	if (self.type == DCTSplitDataSourceTypeRow) {
 		
@@ -224,6 +223,7 @@
 		[self performUpdate:update];
 	}
 	
+	[childDataSources removeObject:dataSource];
 	[self endUpdates];
 }
 
