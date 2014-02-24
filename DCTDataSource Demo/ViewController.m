@@ -12,6 +12,8 @@
 
 @interface ViewController () <DCTCollectionViewDataSourceDelegate>
 @property (nonatomic) DCTCollectionViewDataSource *dataSource;
+@property (nonatomic) DCTSplitDataSource *split;
+@property (nonatomic) DCTArrayDataSource *list;
 @end
 
 @implementation ViewController
@@ -19,21 +21,26 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
-	DCTObjectDataSource *objectDS = [DCTObjectDataSource new];
-	objectDS.object = @"zero";
+	DCTObjectDataSource *objectDS = [[DCTObjectDataSource alloc] initWithObject:@"zero"];
 
-	DCTArrayDataSource *objectDS2 = [[DCTArrayDataSource alloc] initWithArray:@[ @"one", @"two", @"three", @"four", @"five", @"six", @"seven", @"eight", @"nine", @"ten" ]];
-	[objectDS2 setUserInfoValue:@"cell2" forKey:DCTCollectionViewDataSourceUserInfoKeys.cellReuseIdentifier];
+	self.list = [[DCTArrayDataSource alloc] initWithArray:@[ @"one", @"two", @"three", @"four", @"five", @"six", @"seven", @"eight", @"nine", @"ten" ]];
+	[self.list setUserInfoValue:@"cell2" forKey:DCTCollectionViewDataSourceUserInfoKeys.cellReuseIdentifier];
 
-	DCTArrayDataSource *objectDS3 = [[DCTArrayDataSource alloc] initWithArray:@[ @"eleven", @"twelve", @"thirteen", @"fourteen", @"fifteen", @"sixteen", @"seventeen", @"eighteen", @"nineteen", @"twenty" ]];
+	self.split = [[DCTSplitDataSource alloc] initWithType:DCTSplitDataSourceTypeRow];
+	[self.split addChildDataSource:objectDS];
+	//[self.split addChildDataSource:self.list];
+	//[split addChildDataSource:objectDS3];
 
-	DCTSplitDataSource *split = [[DCTSplitDataSource alloc] initWithType:DCTSplitDataSourceTypeRow];
-	[split addChildDataSource:objectDS];
-	[split addChildDataSource:objectDS2];
-	[split addChildDataSource:objectDS3];
-
-	self.dataSource = [[DCTCollectionViewDataSource alloc] initWithCollectionView:self.collectionView dataSource:split];
+	self.dataSource = [[DCTCollectionViewDataSource alloc] initWithCollectionView:self.collectionView dataSource:self.split];
 	self.dataSource.cellReuseIdentifier = @"cell";
+}
+
+- (void)toggle {
+
+	if ([self.split.childDataSources containsObject:self.list])
+		[self.split removeChildDataSource:self.list];
+	else
+		[self.split addChildDataSource:self.list];
 }
 
 #pragma mark - DCTCollectionViewDataSourceDelegate
@@ -45,6 +52,13 @@
 	CollectionViewCell *collectionViewCell = (CollectionViewCell *)cell;
 	NSString *object = [self.dataSource objectAtIndexPath:indexPath];
 	collectionViewCell.label.text = object;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+	id object = [self.dataSource objectAtIndexPath:indexPath];
+
+	if ([object isKindOfClass:[NSString class]] && [object isEqualToString:@"zero"])
+		[self toggle];
 }
 
 @end
