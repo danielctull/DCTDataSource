@@ -56,7 +56,9 @@
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
 	DCTDataSource * ds = [self childDataSourceForIndexPath:indexPath];
-	indexPath = [self convertIndexPath:indexPath toChildDataSource:ds];
+	if (ds) {
+		indexPath = [self convertIndexPath:indexPath toChildDataSource:ds];
+	}
 	return [ds objectAtIndexPath:indexPath];
 }
 
