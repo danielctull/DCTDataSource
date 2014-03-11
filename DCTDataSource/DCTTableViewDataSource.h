@@ -26,9 +26,21 @@ typedef enum {
 @protocol DCTTableViewDataSourceDelegate;
 
 
-
+/**
+ *  A class to adapt a DCTDataSource to a UITableView.
+ */
 @interface DCTTableViewDataSource : DCTParentDataSource <UITableViewDataSource>
 
+/**
+ *  Creates a table view data source.
+ *
+ *  Assigns itself as the dataSource of the table view.
+ *
+ *  @param tableView  The table view
+ *  @param dataSource The root data source to adapt
+ *
+ *  @return The table view data source.
+ */
 - (id)initWithTableView:(UITableView *)tableView dataSource:(DCTDataSource *)dataSource;
 @property (nonatomic, readonly, weak) UITableView *tableView;
 @property (nonatomic, readonly) DCTDataSource *dataSource;
