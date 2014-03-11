@@ -37,21 +37,12 @@
 #import "DCTDataSource.h"
 @import CoreData;
 
-/** A data source that stays in sync with a Core Data fetch request using a
- NSFetchedResultsController.
- 
- You can set this up in a number of ways:
- 
- - Provide a fetchedResultsController
- - Provide a managedObjectContext and a fetchRequest
- - Provide a managedObjectContext and a fetchRequestBlock
- - Implement loadFetchedResultsController in a subclass
- - Provide a managedObjectContext and implement loadFetchRequest in a subclass
- 
- There may be other combinations that work also. Note however that without 
- a managed object context and some form of fetch request, this will crash.
+/**
+ *  A data source that stays in sync with a Core Data fetch request 
+ *  using a NSFetchedResultsController.
  */
 @interface DCTFetchedResultsDataSource : DCTDataSource
+
 
 - (id)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController;
 
