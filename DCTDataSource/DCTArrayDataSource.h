@@ -36,11 +36,33 @@
 
 #import "DCTDataSource.h"
 
+/**
+ *  A data source which will list objects from a
+ *  given array. A predicate can also be set to filter 
+ *  the array. This could be useful for providing a
+ *  filtering search UI.
+ */
 @interface DCTArrayDataSource : DCTDataSource
 
+/**
+ *  Creates a data source which contains the objects
+ *  of an array.
+ *
+ *  @param array The array of objects to show in this data source.
+ *
+ *  @return Initialized data source.
+ */
 - (instancetype)initWithArray:(NSArray *)array;
+
+/**
+ *  The array of objects to display.
+ */
 @property (nonatomic, readonly) NSArray *array;
 
+/**
+ *  This predicate is applied to the array and updates
+ *  are sent to the parent data source to remove objects.
+ */
 @property (nonatomic, copy) NSPredicate *predicate;
 
 @end

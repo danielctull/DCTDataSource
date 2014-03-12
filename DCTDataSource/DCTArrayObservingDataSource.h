@@ -36,11 +36,30 @@
 
 #import "DCTDataSource.h"
 
+/**
+ *  A data source that will observe a KVO-able array on a
+ *  given object and keyPath.
+ */
 @interface DCTArrayObservingDataSource : DCTDataSource
 
+/**
+ *  This method starts observing the keypath straight away.
+ *
+ *  @param object  The object which has the reference to the array to observe.
+ *  @param keyPath The keypath for the array to observe.
+ *
+ *  @return The created data source.
+ */
 - (id)initWithObject:(id)object arrayKeyPath:(NSString *)keyPath;
 
+/**
+ *  The object on which we are observing the keyPath.
+ */
 @property (nonatomic, readonly, strong) id object;
+
+/**
+ *  The key path which we are observing.
+ */
 @property (nonatomic, readonly, copy) NSString *keyPath;
 
 @end

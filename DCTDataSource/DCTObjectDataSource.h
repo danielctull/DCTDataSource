@@ -36,27 +36,34 @@
 
 #import "DCTDataSource.h"
 
-/** A simple, perhaps the most simple, data source class. It gives back one 
- section and one row, displaying a cell with the given represented object.
- 
- For example if you wanted a default cell, with the text "Hello world!" to 
- appear in your table view, you would write this:
- 
-	DCTObjectTableViewDataSource *ds = [[DCTObjectTableViewDataSource alloc] init];
-	ds.object = @"Hello world!";
-	tableview.dataSource = ds;
- 
- If you want a custom cell, you just assign its class to the cellClass property
- and an instance of that class will be created, if it conforms to 
- DCTTableViewCellObjectConfiguration, then it will get a message to 
- [configureWithObject:]([DCTTableViewCell configureWithObject:]) with the
- given object for you to set up with.
+/**
+ *  A simple, perhaps the most simple, data source class. It gives back one
+ *  section and one row, displaying a cell with the given represented object.
+ *
+ *  For example if you wanted a default cell, with the text "Hello world!" to
+ *  appear in your table view, you would write this:
+ *
+ *  	DCTObjectTableViewDataSource *ds = [[DCTObjectTableViewDataSource alloc] initWithObject:@"Hello world!"];
+ *
+ *  If you want a custom cell, you just assign its class to the cellClass property
+ *  and an instance of that class will be created, if it conforms to
+ *  DCTTableViewCellObjectConfiguration, then it will get a message to
+ *  [configureWithObject:]([DCTTableViewCell configureWithObject:]) with the
+ *  given object for you to set up with.
  */
 @interface DCTObjectDataSource : DCTDataSource
 
+/**
+ *  Creates an object data source.
+ *
+ *  @param object The object to return when queried.
+ *
+ *  @return An object data source.
+ */
 - (instancetype)initWithObject:(id)object;
 
-/** The represented object for the single cell in this data soruce.
+/**
+ *  The represented object for the single item in this data soruce.
  */
 @property (nonatomic, readonly) id object;
 @end

@@ -38,41 +38,45 @@
 @class DCTParentDataSource;
 #import "DCTDataSourceUpdate.h"
 
-/** An abstract class to represent a core DCTTableViewDataSource object. Examples of concrete 
- subclasses are DCTObjectTableViewDataSource and DCTFetchedResultsTableViewDataSource.
- 
- When subclassing, generally you should write your own implmentation for the objectAtIndexPath:
- and reloadData methods.
+/**
+ *  An abstract class to represent a core DCTTableViewDataSource object. Examples of concrete
+ *  subclasses are DCTObjectTableViewDataSource and DCTFetchedResultsTableViewDataSource.
+ *
+ *  When subclassing, generally you should write your own implmentation for the objectAtIndexPath:
+ *  and reloadData methods.
  */
 @interface DCTDataSource : NSObject
 
-/** A parent data source, if one exists.
- 
- To enable nesting any data source has the potential to have a
- parent, although this is not always true (for instance the root 
- data source).
+/**
+ *  A parent data source, if one exists.
+ *
+ *  To enable nesting any data source has the potential to have a
+ *  parent, although this is not always true (for instance the root
+ *  data source).
  */
 @property (nonatomic, weak) DCTParentDataSource *parent;
 
-/** A convinient way to repload the cells of the data source, this 
- should be overridden by subclasses to provide desired results.
+/**
+ *  A convinient way to repload the cells of the data source, this
+ *  should be overridden by subclasses to provide desired results.
  */
 - (void)reloadData;
 
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
 
-/** To get the associated object from the data source for the given 
- index path. By default this returns the index path, but subclasses
- should return the correct object to use.
- 
- If the cellClass conforms to DCTTableViewCellObjectConfiguration,
- it is this object that will be given to the cell when
- configureWithObject: is called.
- 
- @param indexPath The index path in the co-ordinate space of the data source.
- 
- @return The representing object.
+/**
+ *  To get the associated object from the data source for the given
+ *  index path. By default this returns the index path, but subclasses
+ *  should return the correct object to use.
+ *
+ *  If the cellClass conforms to DCTTableViewCellObjectConfiguration,
+ *  it is this object that will be given to the cell when
+ *  configureWithObject: is called.
+ *
+ *  @param indexPath The index path in the co-ordinate space of the data source.
+ *
+ *  @return The representing object.
  */
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath;
 

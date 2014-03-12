@@ -36,76 +36,84 @@
 
 #import "DCTDataSource.h"
 
-/** This is an abstract class that implements forwarding of the UITableViewDataSource methods to child data source 
- objects. You should use a subclass or make your own parent subclass, which must implement all of the methods declared
- here.
- 
- Examples of concrete subclasses are DCTSplitTableViewDataSource and DCTCollapsableSectionTableViewDataSource.
-*/
+/** 
+ *  This is an abstract class that implements forwarding of the UITableViewDataSource methods to child data source
+ *  objects. You should use a subclass or make your own parent subclass, which must implement all of the methods declared
+ *  here.
+ *
+ *  Examples of concrete subclasses are DCTSplitTableViewDataSource and DCTCollapsableSectionTableViewDataSource.
+ */
 @interface DCTParentDataSource : DCTDataSource
 
 /// @name Conversion
 
-/** Conversion method
- 
- @param section The section in the co-ordinate space of the child.
- @param dataSource The child data source.
- 
- @return The section in the co-ordinate space of the parent.
+/** 
+ *  Conversion method
+ *
+ *  @param section The section in the co-ordinate space of the child.
+ *  @param dataSource The child data source.
+ *
+ *  @return The section in the co-ordinate space of the parent.
  */
 - (NSInteger)convertSection:(NSInteger)section fromChildDataSource:(DCTDataSource *)dataSource;
 
-/** Conversion method
- 
- @param section The section in the co-ordinate space of the parent.
- @param dataSource The child data source.
- 
- @return The section in the co-ordinate space of the child.
+/**
+ *  Conversion method
+ *
+ *  @param section The section in the co-ordinate space of the parent.
+ *  @param dataSource The child data source.
+ *
+ *  @return The section in the co-ordinate space of the child.
  */
 - (NSInteger)convertSection:(NSInteger)section toChildDataSource:(DCTDataSource *)dataSource;
 
-/** Conversion method
- 
- @param indexPath The index path in the co-ordinate space of the child.
- @param dataSource The child data source.
- 
- @return The index path in the co-ordinate space of the parent.
+/**
+ *  Conversion method
+ *
+ *  @param indexPath The index path in the co-ordinate space of the child.
+ *  @param dataSource The child data source.
+ *
+ *  @return The index path in the co-ordinate space of the parent.
  */
 - (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath fromChildDataSource:(DCTDataSource *)dataSource;
 
-/** Conversion method
- 
- @param indexPath The index path in the co-ordinate space of the parent.
- @param dataSource The child data source.
- 
- @return The index path in the co-ordinate space of the child.
+/**
+ *  Conversion method
+ *
+ *  @param indexPath The index path in the co-ordinate space of the parent.
+ *  @param dataSource The child data source.
+ *
+ *  @return The index path in the co-ordinate space of the child.
  */
 - (NSIndexPath *)convertIndexPath:(NSIndexPath *)indexPath toChildDataSource:(DCTDataSource *)dataSource;
 
 /// @name Retrieving child data sources
 
-/** This should return an array of all the child data sources.
- 
- All these data sources should have thier parent set as this data source.
+/**
+ *  This should return an array of all the child data sources.
+ *
+ *  All these data sources should have thier parent set as this data source.
  */
 @property (nonatomic, readonly) NSArray *childDataSources;
 
 
-/** Retrieves the child data source for a given section.
- 
- @param section The section the caller wants a data source for. This should be 
- in the "co-ordinates" of the data source you are calling to.
- 
- @return The data source object for the given section.
+/**
+ *  Retrieves the child data source for a given section.
+ *
+ *  @param section The section the caller wants a data source for. This should be
+ *  in the "co-ordinates" of the data source you are calling to.
+ *
+ *  @return The data source object for the given section.
  */
 - (DCTDataSource *)childDataSourceForSection:(NSInteger)section;
 
-/** Retrieves the child data source for a given index path.
- 
- @param indexPath The indexPath the caller wants a data source for. This should be 
- in the "co-ordinates" of the data source you are calling to.
- 
- @return The data source object for the given indexPath.
+/**
+ *  Retrieves the child data source for a given index path.
+ *
+ *  @param indexPath The indexPath the caller wants a data source for. This should be
+ *  in the "co-ordinates" of the data source you are calling to.
+ *
+ *  @return The data source object for the given indexPath.
  */
 - (DCTDataSource *)childDataSourceForIndexPath:(NSIndexPath *)indexPath;
 

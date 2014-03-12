@@ -9,6 +9,9 @@
 @import UIKit;
 #import "DCTParentDataSource.h"
 
+/**
+ *  A class to adapt a DCTDataSource to a UIPickerView.
+ */
 @interface DCTPickerViewDataSource : DCTParentDataSource <UIPickerViewDataSource>
 
 - (id)initWithPickerView:(UIPickerView *)pickerView dataSource:(DCTDataSource *)dataSource;
