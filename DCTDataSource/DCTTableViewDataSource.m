@@ -185,7 +185,8 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 				indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section-1];
 				break;
 
-			default:
+			case DCTDataSourceUpdateTypeItemMove:
+			case DCTDataSourceUpdateTypeItemReload:
 				break;
 		}
 	}];

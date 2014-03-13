@@ -37,7 +37,7 @@
 @import UIKit;
 #import "DCTArrayObservingDataSource.h"
 
-void* DCTArrayObservingDataSourceObservingContext = &DCTArrayObservingDataSourceObservingContext;
+static void* DCTArrayObservingDataSourceObservingContext = &DCTArrayObservingDataSourceObservingContext;
 
 @interface DCTArrayObservingDataSource ()
 @property (nonatomic) NSArray *array;
@@ -69,10 +69,12 @@ void* DCTArrayObservingDataSourceObservingContext = &DCTArrayObservingDataSource
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	
-	if (context != DCTArrayObservingDataSourceObservingContext)
-		return [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+	if (context != DCTArrayObservingDataSourceObservingContext) {
+		[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+		return;
+	}
 		
-	self.array = [_object valueForKeyPath:_keyPath];
+	self.array = [self.object valueForKeyPath:self.keyPath];
 	
 	NSKeyValueChange changeType = [[change objectForKey:NSKeyValueChangeKindKey] unsignedIntegerValue];
 	NSIndexSet *indexSet = [change objectForKey:NSKeyValueChangeIndexesKey];

@@ -78,7 +78,11 @@
 
 	NSUInteger oldCount = [oldArray count];
 	NSUInteger newCount = [newArray count];
+
+# pragma clang diagnostic push
+# pragma clang diagnostic ignored "-Wgnu-statement-expression"
 	NSUInteger count = MAX(oldCount, newCount);
+# pragma clang diagnostic pop
 
 	for (NSUInteger i = 0; i < count; i++) {
 
