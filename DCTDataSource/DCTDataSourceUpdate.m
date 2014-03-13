@@ -49,13 +49,13 @@ BOOL DCTDataSourceUpdateTypeIncludes(DCTDataSourceUpdateType type, DCTDataSource
 }
 
 // Section
-+ (instancetype)insertUpdateWithIndex:(NSInteger *)index {
++ (instancetype)insertUpdateWithIndex:(NSInteger)index {
 	NSUInteger indexes[] = {index,0};
 	NSIndexPath *indexPath = [NSIndexPath indexPathWithIndexes:indexes length:2];
 	return [[self alloc] initWithType:DCTDataSourceUpdateTypeSectionInsert oldIndexPath:indexPath newIndexPath:indexPath];
 }
 
-+ (instancetype)deleteUpdateWithIndex:(NSInteger *)index {
++ (instancetype)deleteUpdateWithIndex:(NSInteger)index {
 	NSUInteger indexes[] = {index,0};
 	NSIndexPath *indexPath = [NSIndexPath indexPathWithIndexes:indexes length:2];
 	return [[self alloc] initWithType:DCTDataSourceUpdateTypeSectionDelete oldIndexPath:indexPath newIndexPath:indexPath];

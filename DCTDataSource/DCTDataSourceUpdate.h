@@ -28,8 +28,8 @@ typedef enum {
 + (instancetype)moveUpdateWithOldIndexPath:(NSIndexPath *)oldIndexPath newIndexPath:(NSIndexPath *)newIndexPath;
 
 // Section
-+ (instancetype)insertUpdateWithIndex:(NSInteger *)index;
-+ (instancetype)deleteUpdateWithIndex:(NSInteger *)index;
++ (instancetype)insertUpdateWithIndex:(NSInteger)index;
++ (instancetype)deleteUpdateWithIndex:(NSInteger)index;
 
 @property (nonatomic, readonly) DCTDataSourceUpdateType type;
 @property (nonatomic, readonly) NSIndexPath *oldIndexPath;
