@@ -57,4 +57,8 @@
 	return self.object;
 }
 
+- (NSIndexPath *)indexPathOfObject:(id)object {
+	return [NSIndexPath indexPathForRow:0 inSection:0];
+}
+
 @end

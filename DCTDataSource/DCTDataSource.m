@@ -62,6 +62,10 @@
 	return indexPath;
 }
 
+- (NSIndexPath *)indexPathOfObject:(id)object {
+	return nil;
+}
+
 - (NSMutableDictionary *)userInfo {
 
 	if (!_userInfo) _userInfo = [NSMutableDictionary new];

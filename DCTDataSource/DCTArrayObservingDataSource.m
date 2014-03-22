@@ -105,6 +105,12 @@ static void* DCTArrayObservingDataSourceObservingContext = &DCTArrayObservingDat
 	return [self.array objectAtIndex:indexPath.row];
 }
 
+- (NSIndexPath *)indexPathOfObject:(id)object {
+	NSInteger index = [self.array indexOfObject:object];
+	if (index == NSNotFound) return nil;
+	return [NSIndexPath indexPathForItem:index inSection:0];
+}
+
 - (NSInteger)numberOfSections {
 	return 1;
 }

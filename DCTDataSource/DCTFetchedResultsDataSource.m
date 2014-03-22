@@ -53,6 +53,10 @@
 	return [self.fetchedResultsController objectAtIndexPath:indexPath];
 }
 
+- (NSIndexPath *)indexPathOfObject:(id)object {
+	return [self.fetchedResultsController indexPathForObject:object];
+}
+
 #pragma mark - DCTFetchedResultsTableViewDataSource
 
 - (id)initWithFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController {

@@ -63,6 +63,14 @@
 	return [self.filteredArray objectAtIndex:indexPath.row];
 }
 
+- (NSIndexPath *)indexPathOfObject:(id)object {
+	NSUInteger index = [self.array indexOfObject:object];
+
+	if (index == NSNotFound) return nil;
+
+	return [NSIndexPath indexPathForItem:index inSection:0];
+}
+
 - (void)setPredicate:(NSPredicate *)predicate {
 	_predicate = [predicate copy];
 	self.filteredArray = [self.array filteredArrayUsingPredicate:_predicate];

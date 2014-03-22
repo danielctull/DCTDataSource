@@ -60,6 +60,15 @@
 	return [ds objectAtIndexPath:indexPath];
 }
 
+- (NSIndexPath *)indexPathOfObject:(id)object {
+	for (DCTDataSource *ds in self.childDataSources) {
+		NSIndexPath *indexPath = [ds indexPathOfObject:object];
+		indexPath = [self convertIndexPath:indexPath fromChildDataSource:ds];
+		if (indexPath) return indexPath;
+	}
+	return nil;
+}
+
 - (id)userInfoValueForKey:(NSString *)key indexPath:(NSIndexPath *)indexPath {
 	id value = nil;
 	DCTDataSource *ds = [self childDataSourceForIndexPath:indexPath];

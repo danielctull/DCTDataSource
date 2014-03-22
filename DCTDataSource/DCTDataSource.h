@@ -80,6 +80,7 @@
  */
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath;
 
+- (NSIndexPath *)indexPathOfObject:(id)object;
 
 - (void)beginUpdates;
 - (void)performUpdate:(DCTDataSourceUpdate *)update;
