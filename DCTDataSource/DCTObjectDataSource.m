@@ -58,6 +58,9 @@
 }
 
 - (NSIndexPath *)indexPathOfObject:(id)object {
+
+	if (![object isEqual:self.object]) return nil;
+
 	return [NSIndexPath indexPathForRow:0 inSection:0];
 }
 

@@ -63,8 +63,10 @@
 - (NSIndexPath *)indexPathOfObject:(id)object {
 	for (DCTDataSource *ds in self.childDataSources) {
 		NSIndexPath *indexPath = [ds indexPathOfObject:object];
-		indexPath = [self convertIndexPath:indexPath fromChildDataSource:ds];
-		if (indexPath) return indexPath;
+		if (indexPath) {
+			indexPath = [self convertIndexPath:indexPath fromChildDataSource:ds];
+			return indexPath;
+		}
 	}
 	return nil;
 }
