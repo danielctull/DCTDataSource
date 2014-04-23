@@ -53,6 +53,8 @@ typedef enum {
 @property (nonatomic) DCTTableViewDataSourceReloadType reloadType;
 @property (nonatomic) NSArray *sectionIndexTitles;
 
+- (NSString *)cellReuseIdentifierForIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 
