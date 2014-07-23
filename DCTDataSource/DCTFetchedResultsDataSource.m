@@ -107,6 +107,10 @@
         case NSFetchedResultsChangeDelete:
             [self.deletedSectionIndexes addObject:@(sectionIndex)];
             break;
+
+		case NSFetchedResultsChangeMove:
+		case NSFetchedResultsChangeUpdate:
+			break;
     }
 }
 
