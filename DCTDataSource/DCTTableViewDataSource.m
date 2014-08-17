@@ -272,6 +272,17 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 	return index;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+
+	id<UITableViewDelegate> delegate = tableView.delegate;
+	if ([delegate respondsToSelector:@selector(tableView:editActionsForRowAtIndexPath:)]) {
+		NSArray *editActions = [delegate tableView:tableView editActionsForRowAtIndexPath:indexPath];
+		return editActions.count > 0;
+	}
+
+	return NO;
+}
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {}
 
 @end
