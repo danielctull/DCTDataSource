@@ -617,7 +617,6 @@
 			baseConfigurationReference = 24959EFB19A7220400C17E48 /* Library.xcconfig */;
 			buildSettings = {
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = DCTDataSource;
 			};
 			name = Debug;
 		};
@@ -626,7 +625,6 @@
 			baseConfigurationReference = 24959EFB19A7220400C17E48 /* Library.xcconfig */;
 			buildSettings = {
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = DCTDataSource;
 			};
 			name = Release;
 		};
@@ -648,7 +646,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24959EFE19A7220400C17E48 /* Tests.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
@@ -656,7 +653,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24959EFE19A7220400C17E48 /* Tests.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -686,7 +682,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24959EF719A7220400C17E48 /* Application.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
@@ -694,7 +689,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24959EF719A7220400C17E48 /* Application.xcconfig */;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -735,6 +729,7 @@
 				24959EF019A721AE00C17E48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24AF7ABA187AFE0B0091AD00 /* Build configuration list for PBXNativeTarget "DCTDataSource Demo" */ = {
 			isa = XCConfigurationList;
