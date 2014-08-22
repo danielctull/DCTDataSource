@@ -10,29 +10,41 @@
 	<string>DCTDataSource</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>28301C0A-9CC6-491D-A208-5285B5451915</key>
+		<key>AEC4AC70A9C79EC3FA2396B64831D32FFD9606E2</key>
 		<string>ssh://github.com/danielctull/DCTDataSource.git</string>
+		<key>C053380515D9BD3EEE5C9D786D5DE5DF0FA888F3</key>
+		<string>bitbucket.org:danielctull/dctauthservice.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>DCTDataSource.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>28301C0A-9CC6-491D-A208-5285B5451915</key>
+		<key>AEC4AC70A9C79EC3FA2396B64831D32FFD9606E2</key>
 		<string>../..</string>
+		<key>C053380515D9BD3EEE5C9D786D5DE5DF0FA888F3</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/danielctull/DCTDataSource.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>28301C0A-9CC6-491D-A208-5285B5451915</string>
+	<string>AEC4AC70A9C79EC3FA2396B64831D32FFD9606E2</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>28301C0A-9CC6-491D-A208-5285B5451915</string>
+			<string>C053380515D9BD3EEE5C9D786D5DE5DF0FA888F3</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AEC4AC70A9C79EC3FA2396B64831D32FFD9606E2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>DCTDataSource</string>
 		</dict>
