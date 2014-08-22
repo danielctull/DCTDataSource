@@ -10,6 +10,8 @@
 	<string>DCTDataSource</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>8FDCB8C6CFBA78E0E3667763514775D0D62067AD</key>
+		<string>git://github.com/danielctull/Xcode-Configurations.git</string>
 		<key>AEC4AC70A9C79EC3FA2396B64831D32FFD9606E2</key>
 		<string>ssh://github.com/danielctull/DCTDataSource.git</string>
 		<key>C053380515D9BD3EEE5C9D786D5DE5DF0FA888F3</key>
@@ -19,6 +21,8 @@
 	<string>DCTDataSource.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>8FDCB8C6CFBA78E0E3667763514775D0D62067AD</key>
+		<string>../../Configurations/</string>
 		<key>AEC4AC70A9C79EC3FA2396B64831D32FFD9606E2</key>
 		<string>../..</string>
 		<key>C053380515D9BD3EEE5C9D786D5DE5DF0FA888F3</key>
@@ -39,6 +43,14 @@
 			<string>C053380515D9BD3EEE5C9D786D5DE5DF0FA888F3</string>
 			<key>IDESourceControlWCCName</key>
 			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8FDCB8C6CFBA78E0E3667763514775D0D62067AD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Configurations</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
