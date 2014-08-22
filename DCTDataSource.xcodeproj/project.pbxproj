@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		248CC941189ECB4A009E2F6C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AF7AA8187AFE0B0091AD00 /* XCTest.framework */; };
-		248CC942189ECB4A009E2F6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244A6768158B1AB100952890 /* Foundation.framework */; };
-		248CC943189ECB4A009E2F6C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B7F915B9802A00750117 /* UIKit.framework */; };
 		248CC949189ECB4A009E2F6C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 248CC947189ECB4A009E2F6C /* InfoPlist.strings */; };
 		248CC954189ECC49009E2F6C /* DCTTestDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 248CC953189ECC49009E2F6C /* DCTTestDataSource.m */; };
 		248CC956189ECDA7009E2F6C /* DCTSplitDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 248CC955189ECDA7009E2F6C /* DCTSplitDataSourceTests.m */; };
@@ -18,9 +15,6 @@
 		24A3E3DD189F816F00E73F0C /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24A3E3DB189F816F00E73F0C /* TestModel.xcdatamodeld */; };
 		24A3E3E4189F826A00E73F0C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A3E3E0189F826A00E73F0C /* Event.m */; };
 		24A3E3E5189F826A00E73F0C /* _Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A3E3E3189F826A00E73F0C /* _Event.m */; };
-		24AF7A91187AFE0B0091AD00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244A6768158B1AB100952890 /* Foundation.framework */; };
-		24AF7A93187AFE0B0091AD00 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AF7A92187AFE0B0091AD00 /* CoreGraphics.framework */; };
-		24AF7A94187AFE0B0091AD00 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B7F915B9802A00750117 /* UIKit.framework */; };
 		24AF7A9C187AFE0B0091AD00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF7A9B187AFE0B0091AD00 /* main.m */; };
 		24AF7AA0187AFE0B0091AD00 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AF7A9F187AFE0B0091AD00 /* AppDelegate.m */; };
 		24AF7AA2187AFE0B0091AD00 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24AF7AA1187AFE0B0091AD00 /* Images.xcassets */; };
@@ -52,6 +46,30 @@
 		24AF7AF9187C5D100091AD00 /* DCTObjectDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679C158B1AF600952890 /* DCTObjectDataSource.m */; };
 		24AF7AFA187C5D100091AD00 /* DCTSplitDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A0158B1AF600952890 /* DCTSplitDataSource.m */; };
 		24AF7AFB187C5D100091AD00 /* DCTFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6796158B1AF600952890 /* DCTFetchedResultsDataSource.m */; };
+		24CCDD6319A8008700D96F66 /* DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A4158B1AF600952890 /* DCTDataSource.m */; };
+		24CCDD6419A800A300D96F66 /* DCTParentDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679E158B1AF600952890 /* DCTParentDataSource.m */; };
+		24CCDD6519A800A300D96F66 /* DCTDataSourceUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */; };
+		24CCDD6619A800A300D96F66 /* DCTPickerViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ABB4DB17A12D610061A95E /* DCTPickerViewDataSource.m */; };
+		24CCDD6719A800A300D96F66 /* DCTTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24297F0F1640109700E32187 /* DCTTableViewDataSource.m */; };
+		24CCDD6819A800A300D96F66 /* UITableView+DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67AF158B1AF700952890 /* UITableView+DCTDataSource.m */; };
+		24CCDD6919A800A300D96F66 /* DCTCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24297F131640165B00E32187 /* DCTCollectionViewDataSource.m */; };
+		24CCDD6A19A800A300D96F66 /* DCTArrayObservingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6790158B1AF600952890 /* DCTArrayObservingDataSource.m */; };
+		24CCDD6B19A800A300D96F66 /* DCTArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6792158B1AF600952890 /* DCTArrayDataSource.m */; };
+		24CCDD6C19A800A300D96F66 /* DCTObjectDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679C158B1AF600952890 /* DCTObjectDataSource.m */; };
+		24CCDD6D19A800A300D96F66 /* DCTSplitDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A0158B1AF600952890 /* DCTSplitDataSource.m */; };
+		24CCDD6F19A800A300D96F66 /* DCTFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6796158B1AF600952890 /* DCTFetchedResultsDataSource.m */; };
+		24CCDD7019A800AF00D96F66 /* DCTDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A67A3158B1AF600952890 /* DCTDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CCDD7119A800AF00D96F66 /* DCTParentDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A679D158B1AF600952890 /* DCTParentDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CCDD7219A800C600D96F66 /* DCTDataSourceUpdate.h in Headers */ = {isa = PBXBuildFile; fileRef = 24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CCDD7319A800C600D96F66 /* DCTPickerViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24ABB4DA17A12D610061A95E /* DCTPickerViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CCDD7419A800C600D96F66 /* DCTTableViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24297F0E1640109700E32187 /* DCTTableViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CCDD7519A800C600D96F66 /* UITableView+DCTDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A67AE158B1AF700952890 /* UITableView+DCTDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CCDD7619A800C600D96F66 /* DCTCollectionViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24297F121640165B00E32187 /* DCTCollectionViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CCDD7719A800C600D96F66 /* DCTArrayObservingDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A678F158B1AF600952890 /* DCTArrayObservingDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CCDD7819A800C600D96F66 /* DCTArrayDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A6791158B1AF600952890 /* DCTArrayDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CCDD7919A800C600D96F66 /* DCTObjectDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A679B158B1AF600952890 /* DCTObjectDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CCDD7A19A800C600D96F66 /* DCTSplitDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A679F158B1AF600952890 /* DCTSplitDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CCDD7C19A800C600D96F66 /* DCTFetchedResultsDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A6795158B1AF600952890 /* DCTFetchedResultsDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,9 +113,6 @@
 		24297F121640165B00E32187 /* DCTCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTCollectionViewDataSource.h; sourceTree = "<group>"; };
 		24297F131640165B00E32187 /* DCTCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTCollectionViewDataSource.m; sourceTree = "<group>"; };
 		2437B77D15B97FA900750117 /* libDCTDataSource.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDCTDataSource.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2437B7F915B9802A00750117 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		244A6768158B1AB100952890 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		244A6776158B1AB100952890 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		244A678F158B1AF600952890 /* DCTArrayObservingDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DCTArrayObservingDataSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		244A6790158B1AF600952890 /* DCTArrayObservingDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DCTArrayObservingDataSource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		244A6791158B1AF600952890 /* DCTArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DCTArrayDataSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -116,7 +131,6 @@
 		244A67A4158B1AF600952890 /* DCTDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTDataSource.m; sourceTree = "<group>"; };
 		244A67AE158B1AF700952890 /* UITableView+DCTDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DCTDataSource.h"; sourceTree = "<group>"; };
 		244A67AF158B1AF700952890 /* UITableView+DCTDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTDataSource.m"; sourceTree = "<group>"; };
-		24700B3915B835A100FA5843 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		248CC940189ECB4A009E2F6C /* DCTDataSource Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DCTDataSource Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		248CC946189ECB4A009E2F6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		248CC948189ECB4A009E2F6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -144,13 +158,11 @@
 		24ABB4DA17A12D610061A95E /* DCTPickerViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DCTPickerViewDataSource.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		24ABB4DB17A12D610061A95E /* DCTPickerViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTPickerViewDataSource.m; sourceTree = "<group>"; };
 		24AF7A90187AFE0B0091AD00 /* DCTDataSource Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DCTDataSource Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		24AF7A92187AFE0B0091AD00 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		24AF7A97187AFE0B0091AD00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24AF7A9B187AFE0B0091AD00 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24AF7A9E187AFE0B0091AD00 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		24AF7A9F187AFE0B0091AD00 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		24AF7AA1187AFE0B0091AD00 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		24AF7AA8187AFE0B0091AD00 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		24AF7ABD187AFE460091AD00 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		24AF7ABE187AFE460091AD00 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		24AF7ADE187BF0F60091AD00 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
@@ -164,9 +176,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				248CC957189ECDC1009E2F6C /* libDCTDataSource.a in Frameworks */,
-				248CC941189ECB4A009E2F6C /* XCTest.framework in Frameworks */,
-				248CC943189ECB4A009E2F6C /* UIKit.framework in Frameworks */,
-				248CC942189ECB4A009E2F6C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,9 +191,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				24AF7ABC187AFE2F0091AD00 /* libDCTDataSource.a in Frameworks */,
-				24AF7A93187AFE0B0091AD00 /* CoreGraphics.framework in Frameworks */,
-				24AF7A94187AFE0B0091AD00 /* UIKit.framework in Frameworks */,
-				24AF7A91187AFE0B0091AD00 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +224,6 @@
 				24AF7A95187AFE0B0091AD00 /* DCTDataSource Demo */,
 				248CC944189ECB4A009E2F6C /* DCTDataSource Tests */,
 				24959EF619A7220400C17E48 /* Configurations */,
-				244A6767158B1AB100952890 /* Frameworks */,
 				244A6766158B1AB100952890 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -232,19 +237,6 @@
 				24959EDF19A721AD00C17E48 /* DCTDataSource.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		244A6767158B1AB100952890 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2437B7F915B9802A00750117 /* UIKit.framework */,
-				244A6768158B1AB100952890 /* Foundation.framework */,
-				244A6776158B1AB100952890 /* SenTestingKit.framework */,
-				24700B3915B835A100FA5843 /* CoreFoundation.framework */,
-				24AF7A92187AFE0B0091AD00 /* CoreGraphics.framework */,
-				24AF7AA8187AFE0B0091AD00 /* XCTest.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		244A676A158B1AB100952890 /* DCTDataSource */ = {
@@ -382,6 +374,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24CCDD7019A800AF00D96F66 /* DCTDataSource.h in Headers */,
+				24CCDD7119A800AF00D96F66 /* DCTParentDataSource.h in Headers */,
+				24CCDD7219A800C600D96F66 /* DCTDataSourceUpdate.h in Headers */,
+				24CCDD7319A800C600D96F66 /* DCTPickerViewDataSource.h in Headers */,
+				24CCDD7419A800C600D96F66 /* DCTTableViewDataSource.h in Headers */,
+				24CCDD7619A800C600D96F66 /* DCTCollectionViewDataSource.h in Headers */,
+				24CCDD7719A800C600D96F66 /* DCTArrayObservingDataSource.h in Headers */,
+				24CCDD7819A800C600D96F66 /* DCTArrayDataSource.h in Headers */,
+				24CCDD7919A800C600D96F66 /* DCTObjectDataSource.h in Headers */,
+				24CCDD7A19A800C600D96F66 /* DCTSplitDataSource.h in Headers */,
+				24CCDD7C19A800C600D96F66 /* DCTFetchedResultsDataSource.h in Headers */,
+				24CCDD7519A800C600D96F66 /* UITableView+DCTDataSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +580,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24CCDD6319A8008700D96F66 /* DCTDataSource.m in Sources */,
+				24CCDD6419A800A300D96F66 /* DCTParentDataSource.m in Sources */,
+				24CCDD6519A800A300D96F66 /* DCTDataSourceUpdate.m in Sources */,
+				24CCDD6619A800A300D96F66 /* DCTPickerViewDataSource.m in Sources */,
+				24CCDD6719A800A300D96F66 /* DCTTableViewDataSource.m in Sources */,
+				24CCDD6819A800A300D96F66 /* UITableView+DCTDataSource.m in Sources */,
+				24CCDD6919A800A300D96F66 /* DCTCollectionViewDataSource.m in Sources */,
+				24CCDD6A19A800A300D96F66 /* DCTArrayObservingDataSource.m in Sources */,
+				24CCDD6B19A800A300D96F66 /* DCTArrayDataSource.m in Sources */,
+				24CCDD6C19A800A300D96F66 /* DCTObjectDataSource.m in Sources */,
+				24CCDD6D19A800A300D96F66 /* DCTSplitDataSource.m in Sources */,
+				24CCDD6F19A800A300D96F66 /* DCTFetchedResultsDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

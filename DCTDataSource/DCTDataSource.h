@@ -36,7 +36,14 @@
 
 @import Foundation;
 @class DCTParentDataSource;
-#import "DCTDataSourceUpdate.h"
+
+//! Project version number for DCTDataSource.
+FOUNDATION_EXPORT double DCTDataSourceVersionNumber;
+
+//! Project version string for DCTDataSource.
+FOUNDATION_EXPORT const unsigned char DCTDataSourceVersionString[];
+
+#import <DCTDataSource/DCTDataSourceUpdate.h>
 
 /**
  *  An abstract class to represent a core DCTTableViewDataSource object. Examples of concrete
@@ -95,8 +102,8 @@
 
 @end
 
-#import "DCTArrayDataSource.h"
-#import "DCTArrayObservingDataSource.h"
-#import "DCTObjectDataSource.h"
-#import "DCTFetchedResultsDataSource.h"
-#import "DCTParentDataSource.h"
+#import <DCTDataSource/DCTArrayDataSource.h>
+#import <DCTDataSource/DCTArrayObservingDataSource.h>
+#import <DCTDataSource/DCTObjectDataSource.h>
+#import <DCTDataSource/DCTFetchedResultsDataSource.h>
+#import <DCTDataSource/DCTParentDataSource.h>
