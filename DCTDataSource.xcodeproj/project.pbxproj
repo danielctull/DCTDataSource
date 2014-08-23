@@ -131,6 +131,15 @@
 		244A67A4158B1AF600952890 /* DCTDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTDataSource.m; sourceTree = "<group>"; };
 		244A67AE158B1AF700952890 /* UITableView+DCTDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DCTDataSource.h"; sourceTree = "<group>"; };
 		244A67AF158B1AF700952890 /* UITableView+DCTDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DCTDataSource.m"; sourceTree = "<group>"; };
+		244DE83419A91C5500A91DC7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		244DE83519A91C5500A91DC7 /* iOS Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Application.xcconfig"; sourceTree = "<group>"; };
+		244DE83619A91C5500A91DC7 /* iOS Bundle.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Bundle.xcconfig"; sourceTree = "<group>"; };
+		244DE83719A91C5500A91DC7 /* iOS Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Framework.xcconfig"; sourceTree = "<group>"; };
+		244DE83819A91C5500A91DC7 /* iOS Static Library.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Static Library.xcconfig"; sourceTree = "<group>"; };
+		244DE83919A91C5500A91DC7 /* iOS Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Tests.xcconfig"; sourceTree = "<group>"; };
+		244DE83A19A91C5500A91DC7 /* OS X Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "OS X Framework.xcconfig"; sourceTree = "<group>"; };
+		244DE83B19A91C5500A91DC7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		244DE83C19A91C5500A91DC7 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
 		248CC940189ECB4A009E2F6C /* DCTDataSource Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DCTDataSource Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		248CC946189ECB4A009E2F6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		248CC948189ECB4A009E2F6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -139,14 +148,6 @@
 		248CC955189ECDA7009E2F6C /* DCTSplitDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTSplitDataSourceTests.m; sourceTree = "<group>"; };
 		24959EDF19A721AD00C17E48 /* DCTDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCTDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24959EF519A721D300C17E48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24959EF719A7220400C17E48 /* Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Application.xcconfig; sourceTree = "<group>"; };
-		24959EF819A7220400C17E48 /* Bundle.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Bundle.xcconfig; sourceTree = "<group>"; };
-		24959EF919A7220400C17E48 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		24959EFA19A7220400C17E48 /* iOS Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Framework.xcconfig"; sourceTree = "<group>"; };
-		24959EFB19A7220400C17E48 /* Library.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Library.xcconfig; sourceTree = "<group>"; };
-		24959EFC19A7220400C17E48 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		24959EFD19A7220400C17E48 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
-		24959EFE19A7220400C17E48 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
 		24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTDataSourceUpdate.h; sourceTree = "<group>"; };
 		24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTDataSourceUpdate.m; sourceTree = "<group>"; };
 		24A3E3D9189F80F300E73F0C /* DCTFetchedResultsDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTFetchedResultsDataSourceTests.m; sourceTree = "<group>"; };
@@ -223,7 +224,7 @@
 				244A676A158B1AB100952890 /* DCTDataSource */,
 				24AF7A95187AFE0B0091AD00 /* DCTDataSource Demo */,
 				248CC944189ECB4A009E2F6C /* DCTDataSource Tests */,
-				24959EF619A7220400C17E48 /* Configurations */,
+				244DE83319A91C5500A91DC7 /* Configurations */,
 				244A6766158B1AB100952890 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -259,6 +260,22 @@
 			path = DCTDataSource;
 			sourceTree = "<group>";
 		};
+		244DE83319A91C5500A91DC7 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				244DE83419A91C5500A91DC7 /* Debug.xcconfig */,
+				244DE83519A91C5500A91DC7 /* iOS Application.xcconfig */,
+				244DE83619A91C5500A91DC7 /* iOS Bundle.xcconfig */,
+				244DE83719A91C5500A91DC7 /* iOS Framework.xcconfig */,
+				244DE83819A91C5500A91DC7 /* iOS Static Library.xcconfig */,
+				244DE83919A91C5500A91DC7 /* iOS Tests.xcconfig */,
+				244DE83A19A91C5500A91DC7 /* OS X Framework.xcconfig */,
+				244DE83B19A91C5500A91DC7 /* Release.xcconfig */,
+				244DE83C19A91C5500A91DC7 /* Shared.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
 		248CC944189ECB4A009E2F6C /* DCTDataSource Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,21 +289,6 @@
 				24A3E3DE189F826A00E73F0C /* Model */,
 			);
 			path = "DCTDataSource Tests";
-			sourceTree = "<group>";
-		};
-		24959EF619A7220400C17E48 /* Configurations */ = {
-			isa = PBXGroup;
-			children = (
-				24959EF719A7220400C17E48 /* Application.xcconfig */,
-				24959EF819A7220400C17E48 /* Bundle.xcconfig */,
-				24959EF919A7220400C17E48 /* Debug.xcconfig */,
-				24959EFA19A7220400C17E48 /* iOS Framework.xcconfig */,
-				24959EFB19A7220400C17E48 /* Library.xcconfig */,
-				24959EFC19A7220400C17E48 /* Release.xcconfig */,
-				24959EFD19A7220400C17E48 /* Shared.xcconfig */,
-				24959EFE19A7220400C17E48 /* Tests.xcconfig */,
-			);
-			path = Configurations;
 			sourceTree = "<group>";
 		};
 		24A3E3DE189F826A00E73F0C /* Model */ = {
@@ -492,9 +494,9 @@
 			projectRoot = "";
 			targets = (
 				2437B77C15B97FA900750117 /* DCTDataSource */,
+				24959EDE19A721AD00C17E48 /* DCTDataSource iOS */,
 				24AF7A8F187AFE0B0091AD00 /* DCTDataSource Demo */,
 				248CC93F189ECB4A009E2F6C /* DCTDataSource Tests */,
-				24959EDE19A721AD00C17E48 /* DCTDataSource iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -630,7 +632,7 @@
 /* Begin XCBuildConfiguration section */
 		2437B78715B97FA900750117 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24959EFB19A7220400C17E48 /* Library.xcconfig */;
+			baseConfigurationReference = 244DE83819A91C5500A91DC7 /* iOS Static Library.xcconfig */;
 			buildSettings = {
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 			};
@@ -638,7 +640,7 @@
 		};
 		2437B78815B97FA900750117 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24959EFB19A7220400C17E48 /* Library.xcconfig */;
+			baseConfigurationReference = 244DE83819A91C5500A91DC7 /* iOS Static Library.xcconfig */;
 			buildSettings = {
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 			};
@@ -646,35 +648,35 @@
 		};
 		244A6787158B1AB100952890 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24959EF919A7220400C17E48 /* Debug.xcconfig */;
+			baseConfigurationReference = 244DE83419A91C5500A91DC7 /* Debug.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		244A6788158B1AB100952890 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24959EFC19A7220400C17E48 /* Release.xcconfig */;
+			baseConfigurationReference = 244DE83B19A91C5500A91DC7 /* Release.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
 		};
 		248CC94F189ECB4A009E2F6C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24959EFE19A7220400C17E48 /* Tests.xcconfig */;
+			baseConfigurationReference = 244DE83919A91C5500A91DC7 /* iOS Tests.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		248CC950189ECB4A009E2F6C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24959EFE19A7220400C17E48 /* Tests.xcconfig */;
+			baseConfigurationReference = 244DE83919A91C5500A91DC7 /* iOS Tests.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
 		};
 		24959EEF19A721AE00C17E48 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24959EFA19A7220400C17E48 /* iOS Framework.xcconfig */;
+			baseConfigurationReference = 244DE83719A91C5500A91DC7 /* iOS Framework.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -685,7 +687,7 @@
 		};
 		24959EF019A721AE00C17E48 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24959EFA19A7220400C17E48 /* iOS Framework.xcconfig */;
+			baseConfigurationReference = 244DE83719A91C5500A91DC7 /* iOS Framework.xcconfig */;
 			buildSettings = {
 				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -696,14 +698,14 @@
 		};
 		24AF7AB6187AFE0B0091AD00 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24959EF719A7220400C17E48 /* Application.xcconfig */;
+			baseConfigurationReference = 244DE83519A91C5500A91DC7 /* iOS Application.xcconfig */;
 			buildSettings = {
 			};
 			name = Debug;
 		};
 		24AF7AB7187AFE0B0091AD00 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24959EF719A7220400C17E48 /* Application.xcconfig */;
+			baseConfigurationReference = 244DE83519A91C5500A91DC7 /* iOS Application.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
