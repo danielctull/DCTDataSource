@@ -470,7 +470,7 @@
 		244A675C158B1AB100952890 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Daniel Tull";
 				TargetAttributes = {
 					248CC93F189ECB4A009E2F6C = {
