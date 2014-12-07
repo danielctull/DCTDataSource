@@ -15,8 +15,11 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 	.sectionFooterTitle = @"sectionFooterTitle"
 };
 
+typedef id (^DCTTableViewDataSourceObjectOverideBlock)();
+
 @interface DCTTableViewDataSource ()
 @property (nonatomic) NSMutableArray *updates;
+@property (nonatomic) NSMutableDictionary *objectOverideBlocks;
 @end
 
 @implementation DCTTableViewDataSource
@@ -78,9 +81,11 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 
 - (void)beginUpdates {
 	self.updates = [NSMutableArray new];
+	self.objectOverideBlocks = [NSMutableDictionary new];
 }
 
 - (void)endUpdates {
+	self.objectOverideBlocks = nil;
 	[self _endUpdates:self.reloadType];
 	self.updates = nil;
 }
@@ -207,6 +212,15 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 		if ([self.delegate respondsToSelector:@selector(tableViewDataSource:shouldReloadRowAtIndexPath:)]
 			&& ![self.delegate tableViewDataSource:self shouldReloadRowAtIndexPath:indexPath])
 			return;
+	} else if (update.type == DCTDataSourceUpdateTypeItemMove) {
+
+		NSIndexPath *oldIndexPath = update.oldIndexPath;
+		NSIndexPath *newIndexPath = update.newIndexPath;
+		DCTTableViewDataSourceObjectOverideBlock block = ^id {
+			return [self objectAtIndexPath:newIndexPath];
+		};
+		self.objectOverideBlocks[oldIndexPath] = block;
+		[self.tableView reloadRowsAtIndexPaths:@[oldIndexPath] withRowAnimation:UITableViewRowAnimationNone];
 	}
 
 	[self.updates addObject:update];
@@ -228,6 +242,16 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 		}
 	}
 }*/
+
+#pragma mark - DCTDataSource
+
+- (id)objectAtIndexPath:(NSIndexPath *)indexPath {
+
+	DCTTableViewDataSourceObjectOverideBlock block = self.objectOverideBlocks[indexPath];
+	if (block) return block();
+
+	return [super objectAtIndexPath:indexPath];
+}
 
 #pragma mark - UITableViewDataSource
 
