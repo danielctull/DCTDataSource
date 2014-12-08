@@ -119,6 +119,7 @@
 
 @end
 
+#import "DCTHidingDataSource.h"
 #import "DCTSplitDataSource.h"
 #import "DCTPickerViewDataSource.h"
 #import "DCTTableViewDataSource.h"
