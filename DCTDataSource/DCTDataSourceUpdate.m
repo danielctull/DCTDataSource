@@ -14,6 +14,7 @@ static NSString *const DCTDataSourceUpdateString[] = {
 	@"DCTDataSourceUpdateTypeItemInsert",
 	@"DCTDataSourceUpdateTypeSectionInsert",
 	@"DCTDataSourceUpdateTypeItemReload",
+	@"DCTDataSourceUpdateTypeSectionReload",
 	@"DCTDataSourceUpdateTypeItemMove"
 };
 
@@ -59,6 +60,12 @@ BOOL DCTDataSourceUpdateTypeIncludes(DCTDataSourceUpdateType type, DCTDataSource
 	NSUInteger indexes[] = {index,0};
 	NSIndexPath *indexPath = [NSIndexPath indexPathWithIndexes:indexes length:2];
 	return [[self alloc] initWithType:DCTDataSourceUpdateTypeSectionDelete oldIndexPath:indexPath newIndexPath:indexPath];
+}
+
++ (instancetype)reloadUpdateWithIndex:(NSInteger)index {
+	NSUInteger indexes[] = {index,0};
+	NSIndexPath *indexPath = [NSIndexPath indexPathWithIndexes:indexes length:2];
+	return [[self alloc] initWithType:DCTDataSourceUpdateTypeSectionReload oldIndexPath:indexPath newIndexPath:indexPath];
 }
 
 - (NSInteger)section {

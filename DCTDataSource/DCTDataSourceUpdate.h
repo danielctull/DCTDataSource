@@ -14,6 +14,7 @@ typedef enum {
 	DCTDataSourceUpdateTypeItemInsert,
 	DCTDataSourceUpdateTypeSectionInsert,
 	DCTDataSourceUpdateTypeItemReload,
+	DCTDataSourceUpdateTypeSectionReload,
 	DCTDataSourceUpdateTypeItemMove,
 } DCTDataSourceUpdateType;
 
@@ -30,6 +31,7 @@ typedef enum {
 // Section
 + (instancetype)insertUpdateWithIndex:(NSInteger)index;
 + (instancetype)deleteUpdateWithIndex:(NSInteger)index;
++ (instancetype)reloadUpdateWithIndex:(NSInteger)index;
 
 @property (nonatomic, readonly) DCTDataSourceUpdateType type;
 @property (nonatomic, readonly) NSIndexPath *oldIndexPath;

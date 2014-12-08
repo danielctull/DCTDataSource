@@ -154,6 +154,9 @@ const struct DCTCollectionViewDataSourceUserInfoKeys DCTCollectionViewDataSource
 			[self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:update.section]];
 			break;
 
+		case DCTDataSourceUpdateTypeSectionReload:
+			[self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:update.section]];
+
 		case DCTDataSourceUpdateTypeItemMove:
 			[self.collectionView moveItemAtIndexPath:update.oldIndexPath toIndexPath:update.newIndexPath];
 			break;

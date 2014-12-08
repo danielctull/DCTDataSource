@@ -133,6 +133,10 @@ typedef id (^DCTTableViewDataSourceObjectOverideBlock)();
 				[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:update.section] withRowAnimation:animation];
 				break;
 
+			case DCTDataSourceUpdateTypeSectionReload:
+				[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:update.section] withRowAnimation:animation];
+				break;
+
 			case DCTDataSourceUpdateTypeItemMove:
 				[self.tableView moveRowAtIndexPath:update.oldIndexPath toIndexPath:update.newIndexPath];
 				break;
@@ -192,6 +196,7 @@ typedef id (^DCTTableViewDataSourceObjectOverideBlock)();
 
 			case DCTDataSourceUpdateTypeItemMove:
 			case DCTDataSourceUpdateTypeItemReload:
+			case DCTDataSourceUpdateTypeSectionReload:
 				break;
 		}
 	}];
