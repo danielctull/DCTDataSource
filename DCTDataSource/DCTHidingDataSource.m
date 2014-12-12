@@ -56,11 +56,6 @@
 	[super performUpdate:update];
 }
 
-- (NSInteger)numberOfSections {
-	NSInteger numberOfItems = [self numberOfItemsInSection:0];
-	return numberOfItems > 0 ? 1 : 0;
-}
-
 - (NSInteger)numberOfItemsInSection:(NSInteger)section {
 	return [self.childDataSource numberOfItemsInSection:section];
 }
