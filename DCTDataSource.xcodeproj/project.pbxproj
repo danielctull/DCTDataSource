@@ -445,6 +445,7 @@
 				24959EDB19A721AD00C17E48 /* Frameworks */,
 				24959EDC19A721AD00C17E48 /* Headers */,
 				24959EDD19A721AD00C17E48 /* Resources */,
+				240C637D1A6457A5007CD368 /* Documentation */,
 			);
 			buildRules = (
 			);
@@ -537,6 +538,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		240C637D1A6457A5007CD368 /* Documentation */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Documentation;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Scripts/documentation.sh -c \"Daniel Tull\" -i \"uk.co.danieltull\" > /dev/null 2>&1 &\n";
+		};
 		24493EE118CFB24E003A1AA5 /* Documentation */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
