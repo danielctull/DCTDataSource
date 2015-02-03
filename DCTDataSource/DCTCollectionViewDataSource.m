@@ -48,16 +48,8 @@ const struct DCTCollectionViewDataSourceUserInfoKeys DCTCollectionViewDataSource
 	NSString *reuseIdentifier = [self userInfoValueForKey:DCTCollectionViewDataSourceUserInfoKeys.cellReuseIdentifier
 												indexPath:indexPath];
 
-	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
-																		   forIndexPath:indexPath];
-
-	if ([self.collectionView.delegate conformsToProtocol:@protocol(DCTCollectionViewDataSourceDelegate)]) {
-		id<DCTCollectionViewDataSourceDelegate> delegate = (id<DCTCollectionViewDataSourceDelegate>)self.collectionView.delegate;
-		if ([delegate respondsToSelector:@selector(collectionView:willDisplayCell:forItemAtIndexPath:)])
-			[delegate collectionView:collectionView willDisplayCell:cell forItemAtIndexPath:indexPath];
-	}
-
-	return cell;
+	return [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
+													 forIndexPath:indexPath];
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView

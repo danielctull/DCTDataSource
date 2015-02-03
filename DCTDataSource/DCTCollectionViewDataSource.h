@@ -32,7 +32,6 @@ extern const struct DCTCollectionViewDataSourceUserInfoKeys {
 @protocol DCTCollectionViewDataSourceDelegate <UICollectionViewDelegate>
 
 @optional
-- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath;
 - (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath;
 @end
 
