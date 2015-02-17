@@ -35,7 +35,6 @@
  */
 
 #import "DCTDataSource.h"
-#import "UITableView+DCTDataSource.h"
 
 @interface DCTDataSource ()
 @property (nonatomic) NSMutableArray *updates;
@@ -113,7 +112,7 @@
 		NSInteger itemCount = [self numberOfItemsInSection:section];
 
 		for (NSInteger item = 0; item < itemCount; item++) {
-			NSIndexPath *indexPath = [NSIndexPath indexPathForRow:item inSection:section];
+			NSIndexPath *indexPath = [NSIndexPath dctDataSource_indexPathForRow:item inSection:section];
 			BOOL stop = NO;
 			enumerator(indexPath, &stop);
 			if (stop) return;

@@ -7,6 +7,7 @@
 //
 
 @import UIKit;
+#import "UITableView+DCTDataSource.h"
 #import "DCTParentDataSource.h"
 
 extern const struct DCTTableViewDataSourceUserInfoKeys {

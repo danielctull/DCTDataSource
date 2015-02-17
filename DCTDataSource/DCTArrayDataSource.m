@@ -35,7 +35,6 @@
  */
 
 #import "DCTArrayDataSource.h"
-#import "UITableView+DCTDataSource.h"
 
 @interface DCTArrayDataSource ()
 @property (nonatomic, copy) NSArray *filteredArray;
@@ -60,7 +59,7 @@
 }
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
-	return [self.filteredArray objectAtIndex:indexPath.row];
+	return [self.filteredArray objectAtIndex:indexPath.dctDataSource_row];
 }
 
 - (NSIndexPath *)indexPathOfObject:(id)object {
@@ -68,7 +67,7 @@
 
 	if (index == NSNotFound) return nil;
 
-	return [NSIndexPath indexPathForItem:index inSection:0];
+	return [NSIndexPath dctDataSource_indexPathForRow:index inSection:0];
 }
 
 - (void)setPredicate:(NSPredicate *)predicate {
@@ -97,7 +96,7 @@
 		if (i < oldCount) {
 			id object = [oldArray objectAtIndex:i];
 			if (![newArray containsObject:object]) {
-				NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+				NSIndexPath *indexPath = [NSIndexPath dctDataSource_indexPathForRow:i inSection:0];
 				DCTDataSourceUpdate *update = [DCTDataSourceUpdate deleteUpdateWithOldIndexPath:indexPath];
 				[self performUpdate:update];
 			}
@@ -106,7 +105,7 @@
 		if (i < newCount) {
 			id object = [newArray objectAtIndex:i];
 			if (![oldArray containsObject:object]) {
-				NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+				NSIndexPath *indexPath = [NSIndexPath dctDataSource_indexPathForRow:i inSection:0];
 				DCTDataSourceUpdate *update = [DCTDataSourceUpdate insertUpdateWithNewIndexPath:indexPath];
 				[self performUpdate:update];
 			}

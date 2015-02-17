@@ -34,7 +34,6 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import UIKit;
 #import "DCTSplitDataSource.h"
 
 @interface DCTSplitDataSource ()
@@ -65,7 +64,7 @@
 	
 	if (self.type == DCTSplitDataSourceTypeRow) {
 		
-		__block NSInteger row = indexPath.row;
+		__block NSInteger row = indexPath.dctDataSource_row;
 		
 		[dataSources enumerateObjectsUsingBlock:^(DCTDataSource *ds, NSUInteger idx, BOOL *stop) {
 						
@@ -76,11 +75,11 @@
 			
 		}];
 		
-		indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+		indexPath = [NSIndexPath dctDataSource_indexPathForRow:row inSection:0];
 		
 	} else {
 		
-		indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:[dataSources indexOfObject:dataSource]];
+		indexPath = [NSIndexPath dctDataSource_indexPathForRow:indexPath.dctDataSource_row inSection:[dataSources indexOfObject:dataSource]];
 	}
 	
 	return indexPath;
@@ -105,7 +104,7 @@
 	if (self.type == DCTSplitDataSourceTypeRow) {
 		
 		__block NSInteger totalItems = 0;
-		NSInteger row = indexPath.row;
+		NSInteger row = indexPath.dctDataSource_row;
 		
 		[self.childDataSources enumerateObjectsUsingBlock:^(DCTDataSource *ds, NSUInteger idx, BOOL *stop) {
 			
@@ -117,12 +116,12 @@
 				totalItems += numberOfItems;
 		}];
 		
-		row = indexPath.row - totalItems;
+		row = indexPath.dctDataSource_row - totalItems;
 		
-		return [NSIndexPath indexPathForRow:row inSection:0];
+		return [NSIndexPath dctDataSource_indexPathForRow:row inSection:0];
 	}
 	
-	return [NSIndexPath indexPathForRow:indexPath.row inSection:0];
+	return [NSIndexPath dctDataSource_indexPathForRow:indexPath.dctDataSource_row inSection:0];
 }
 
 - (NSInteger)convertSection:(NSInteger)section toChildDataSource:(DCTDataSource *)dataSource {
@@ -150,7 +149,7 @@
 		
 		__block NSInteger totalRows = 0;
 		__block DCTDataSource * dataSource = nil;
-		NSInteger row = indexPath.row;
+		NSInteger row = indexPath.dctDataSource_row;
 		
 		[self.childDataSources enumerateObjectsUsingBlock:^(DCTDataSource *ds, NSUInteger idx, BOOL *stop) {
 			
@@ -169,7 +168,7 @@
 
 	//if (indexPath.section >= self.childDataSources.count) return nil;
 
-	return [self.childDataSources objectAtIndex:indexPath.section];
+	return [self.childDataSources objectAtIndex:indexPath.dctDataSource_section];
 }
 
 

@@ -44,6 +44,7 @@ FOUNDATION_EXPORT double DCTDataSourceVersionNumber;
 FOUNDATION_EXPORT const unsigned char DCTDataSourceVersionString[];
 
 #import <DCTDataSource/DCTDataSourceUpdate.h>
+#import <DCTDataSource/NSIndexPath+DCTDataSource.h>
 
 /**
  *  An abstract class to represent a core DCTTableViewDataSource object. Examples of concrete
@@ -105,5 +106,8 @@ FOUNDATION_EXPORT const unsigned char DCTDataSourceVersionString[];
 #import <DCTDataSource/DCTArrayDataSource.h>
 #import <DCTDataSource/DCTArrayObservingDataSource.h>
 #import <DCTDataSource/DCTObjectDataSource.h>
-#import <DCTDataSource/DCTFetchedResultsDataSource.h>
 #import <DCTDataSource/DCTParentDataSource.h>
+
+#if TARGET_OS_IPHONE
+#import <DCTDataSource/DCTFetchedResultsDataSource.h>
+#endif

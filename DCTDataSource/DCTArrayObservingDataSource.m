@@ -34,7 +34,6 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import UIKit;
 #import "DCTArrayObservingDataSource.h"
 
 static void* DCTArrayObservingDataSourceObservingContext = &DCTArrayObservingDataSourceObservingContext;
@@ -82,7 +81,7 @@ static void* DCTArrayObservingDataSourceObservingContext = &DCTArrayObservingDat
 	[self beginUpdates];
 	
 	[indexSet enumerateIndexesUsingBlock:^(NSUInteger i, BOOL *stop) {
-		NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+		NSIndexPath *indexPath = [NSIndexPath dctDataSource_indexPathForRow:i inSection:0];
 
 		DCTDataSourceUpdate *update;
 
@@ -102,13 +101,13 @@ static void* DCTArrayObservingDataSourceObservingContext = &DCTArrayObservingDat
 #pragma mark - DCTDataSource
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
-	return [self.array objectAtIndex:indexPath.row];
+	return [self.array objectAtIndex:indexPath.dctDataSource_row];
 }
 
 - (NSIndexPath *)indexPathOfObject:(id)object {
 	NSInteger index = [self.array indexOfObject:object];
 	if (index == NSNotFound) return nil;
-	return [NSIndexPath indexPathForItem:index inSection:0];
+	return [NSIndexPath dctDataSource_indexPathForRow:index inSection:0];
 }
 
 - (NSInteger)numberOfSections {

@@ -61,7 +61,7 @@
 
 	if (![object isEqual:self.object]) return nil;
 
-	return [NSIndexPath indexPathForRow:0 inSection:0];
+	return [NSIndexPath dctDataSource_indexPathForRow:0 inSection:0];
 }
 
 @end

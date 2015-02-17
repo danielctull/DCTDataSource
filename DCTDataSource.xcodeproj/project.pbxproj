@@ -73,6 +73,26 @@
 		24CCDD7919A800C600D96F66 /* DCTObjectDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A679B158B1AF600952890 /* DCTObjectDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24CCDD7A19A800C600D96F66 /* DCTSplitDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A679F158B1AF600952890 /* DCTSplitDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24CCDD7C19A800C600D96F66 /* DCTFetchedResultsDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A6795158B1AF600952890 /* DCTFetchedResultsDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CF1A591A939A2200868486 /* DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A4158B1AF600952890 /* DCTDataSource.m */; };
+		24CF1A5A1A939A2200868486 /* DCTParentDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679E158B1AF600952890 /* DCTParentDataSource.m */; };
+		24CF1A5B1A939A2200868486 /* DCTDataSourceUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */; };
+		24CF1A5C1A939A2200868486 /* DCTArrayObservingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6790158B1AF600952890 /* DCTArrayObservingDataSource.m */; };
+		24CF1A5D1A939A2200868486 /* DCTArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6792158B1AF600952890 /* DCTArrayDataSource.m */; };
+		24CF1A5E1A939A2200868486 /* DCTObjectDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679C158B1AF600952890 /* DCTObjectDataSource.m */; };
+		24CF1A5F1A939A2200868486 /* DCTSplitDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A0158B1AF600952890 /* DCTSplitDataSource.m */; };
+		24CF1A611A939A2200868486 /* DCTHidingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B1B1EB1A35A38800F35416 /* DCTHidingDataSource.m */; };
+		24CF1A621A939A4A00868486 /* DCTDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A67A3158B1AF600952890 /* DCTDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CF1A631A939A4A00868486 /* DCTParentDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A679D158B1AF600952890 /* DCTParentDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CF1A641A939A4A00868486 /* DCTDataSourceUpdate.h in Headers */ = {isa = PBXBuildFile; fileRef = 24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CF1A651A939A4A00868486 /* DCTArrayObservingDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A678F158B1AF600952890 /* DCTArrayObservingDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CF1A661A939A4A00868486 /* DCTArrayDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A6791158B1AF600952890 /* DCTArrayDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CF1A671A939A4A00868486 /* DCTObjectDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A679B158B1AF600952890 /* DCTObjectDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CF1A681A939A4A00868486 /* DCTSplitDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A679F158B1AF600952890 /* DCTSplitDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CF1A6A1A939A4A00868486 /* DCTHidingDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24B1B1EA1A35A38800F35416 /* DCTHidingDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CF1A731A939BD000868486 /* NSIndexPath+DCTDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24CF1A711A939BD000868486 /* NSIndexPath+DCTDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CF1A741A939BD000868486 /* NSIndexPath+DCTDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24CF1A711A939BD000868486 /* NSIndexPath+DCTDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CF1A751A939BD000868486 /* NSIndexPath+DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CF1A721A939BD000868486 /* NSIndexPath+DCTDataSource.m */; };
+		24CF1A761A939BD000868486 /* NSIndexPath+DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CF1A721A939BD000868486 /* NSIndexPath+DCTDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +194,9 @@
 		24AF7AE1187C44DA0091AD00 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		24B1B1EA1A35A38800F35416 /* DCTHidingDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTHidingDataSource.h; sourceTree = "<group>"; };
 		24B1B1EB1A35A38800F35416 /* DCTHidingDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTHidingDataSource.m; sourceTree = "<group>"; };
+		24CF1A211A93983500868486 /* DCTDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCTDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24CF1A711A939BD000868486 /* NSIndexPath+DCTDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+DCTDataSource.h"; sourceTree = "<group>"; };
+		24CF1A721A939BD000868486 /* NSIndexPath+DCTDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+DCTDataSource.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +220,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				24AF7ABC187AFE2F0091AD00 /* libDCTDataSource.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24CF1A1D1A93983500868486 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +271,7 @@
 				24AF7A90187AFE0B0091AD00 /* DCTDataSource Demo.app */,
 				248CC940189ECB4A009E2F6C /* DCTDataSource Tests.xctest */,
 				24959EDF19A721AD00C17E48 /* DCTDataSource.framework */,
+				24CF1A211A93983500868486 /* DCTDataSource.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,6 +286,8 @@
 				244A679E158B1AF600952890 /* DCTParentDataSource.m */,
 				24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */,
 				24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */,
+				24CF1A711A939BD000868486 /* NSIndexPath+DCTDataSource.h */,
+				24CF1A721A939BD000868486 /* NSIndexPath+DCTDataSource.m */,
 				24ABB4DD17A12D660061A95E /* UIPickerView */,
 				24297F111640161200E32187 /* UITableView */,
 				24297F151640166400E32187 /* UICollectionView */,
@@ -394,8 +427,25 @@
 				24CCDD7919A800C600D96F66 /* DCTObjectDataSource.h in Headers */,
 				249C85641A35A6FF00B60E9D /* DCTHidingDataSource.h in Headers */,
 				24CCDD7A19A800C600D96F66 /* DCTSplitDataSource.h in Headers */,
+				24CF1A731A939BD000868486 /* NSIndexPath+DCTDataSource.h in Headers */,
 				24CCDD7C19A800C600D96F66 /* DCTFetchedResultsDataSource.h in Headers */,
 				24CCDD7519A800C600D96F66 /* UITableView+DCTDataSource.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24CF1A1E1A93983500868486 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24CF1A621A939A4A00868486 /* DCTDataSource.h in Headers */,
+				24CF1A631A939A4A00868486 /* DCTParentDataSource.h in Headers */,
+				24CF1A641A939A4A00868486 /* DCTDataSourceUpdate.h in Headers */,
+				24CF1A651A939A4A00868486 /* DCTArrayObservingDataSource.h in Headers */,
+				24CF1A661A939A4A00868486 /* DCTArrayDataSource.h in Headers */,
+				24CF1A671A939A4A00868486 /* DCTObjectDataSource.h in Headers */,
+				24CF1A681A939A4A00868486 /* DCTSplitDataSource.h in Headers */,
+				24CF1A741A939BD000868486 /* NSIndexPath+DCTDataSource.h in Headers */,
+				24CF1A6A1A939A4A00868486 /* DCTHidingDataSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +523,24 @@
 			productReference = 24AF7A90187AFE0B0091AD00 /* DCTDataSource Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		24CF1A201A93983500868486 /* DCTDataSource OS X */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24CF1A381A93983500868486 /* Build configuration list for PBXNativeTarget "DCTDataSource OS X" */;
+			buildPhases = (
+				24CF1A1C1A93983500868486 /* Sources */,
+				24CF1A1D1A93983500868486 /* Frameworks */,
+				24CF1A1E1A93983500868486 /* Headers */,
+				24CF1A1F1A93983500868486 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DCTDataSource OS X";
+			productName = "DCTDataSource OS X";
+			productReference = 24CF1A211A93983500868486 /* DCTDataSource.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -487,6 +555,9 @@
 					};
 					24959EDE19A721AD00C17E48 = {
 						CreatedOnToolsVersion = 6.0;
+					};
+					24CF1A201A93983500868486 = {
+						CreatedOnToolsVersion = 6.1.1;
 					};
 				};
 			};
@@ -504,6 +575,7 @@
 			targets = (
 				2437B77C15B97FA900750117 /* DCTDataSource */,
 				24959EDE19A721AD00C17E48 /* DCTDataSource iOS */,
+				24CF1A201A93983500868486 /* DCTDataSource OS X */,
 				24AF7A8F187AFE0B0091AD00 /* DCTDataSource Demo */,
 				248CC93F189ECB4A009E2F6C /* DCTDataSource Tests */,
 			);
@@ -532,6 +604,13 @@
 			files = (
 				24AF7AA2187AFE0B0091AD00 /* Images.xcassets in Resources */,
 				24AF7ADF187BF0F60091AD00 /* Storyboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24CF1A1F1A93983500868486 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +690,7 @@
 				24CCDD6519A800A300D96F66 /* DCTDataSourceUpdate.m in Sources */,
 				24CCDD6619A800A300D96F66 /* DCTPickerViewDataSource.m in Sources */,
 				249C85651A35A7BE00B60E9D /* DCTHidingDataSource.m in Sources */,
+				24CF1A751A939BD000868486 /* NSIndexPath+DCTDataSource.m in Sources */,
 				24CCDD6719A800A300D96F66 /* DCTTableViewDataSource.m in Sources */,
 				24CCDD6819A800A300D96F66 /* UITableView+DCTDataSource.m in Sources */,
 				24CCDD6919A800A300D96F66 /* DCTCollectionViewDataSource.m in Sources */,
@@ -630,6 +710,22 @@
 				24AF7AA0187AFE0B0091AD00 /* AppDelegate.m in Sources */,
 				24AF7AE2187C44DA0091AD00 /* CollectionViewCell.m in Sources */,
 				24AF7A9C187AFE0B0091AD00 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24CF1A1C1A93983500868486 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24CF1A591A939A2200868486 /* DCTDataSource.m in Sources */,
+				24CF1A5A1A939A2200868486 /* DCTParentDataSource.m in Sources */,
+				24CF1A5B1A939A2200868486 /* DCTDataSourceUpdate.m in Sources */,
+				24CF1A5C1A939A2200868486 /* DCTArrayObservingDataSource.m in Sources */,
+				24CF1A5D1A939A2200868486 /* DCTArrayDataSource.m in Sources */,
+				24CF1A761A939BD000868486 /* NSIndexPath+DCTDataSource.m in Sources */,
+				24CF1A5E1A939A2200868486 /* DCTObjectDataSource.m in Sources */,
+				24CF1A5F1A939A2200868486 /* DCTSplitDataSource.m in Sources */,
+				24CF1A611A939A2200868486 /* DCTHidingDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,6 +832,26 @@
 			};
 			name = Release;
 		};
+		24CF1A341A93983500868486 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 244DE83A19A91C5500A91DC7 /* OS X Framework.xcconfig */;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				PRODUCT_NAME = DCTDataSource;
+			};
+			name = Debug;
+		};
+		24CF1A351A93983500868486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 244DE83A19A91C5500A91DC7 /* OS X Framework.xcconfig */;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				PRODUCT_NAME = DCTDataSource;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -783,6 +899,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		24CF1A381A93983500868486 /* Build configuration list for PBXNativeTarget "DCTDataSource OS X" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24CF1A341A93983500868486 /* Debug */,
+				24CF1A351A93983500868486 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
