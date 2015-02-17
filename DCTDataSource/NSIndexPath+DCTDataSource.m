@@ -8,31 +8,43 @@
 
 #import "NSIndexPath+DCTDataSource.h"
 
+#if TARGET_OS_IPHONE
+
+@import UIKit;
+
 @implementation NSIndexPath (DCTDataSource)
 
 + (instancetype)dctDataSource_indexPathForRow:(NSInteger)row inSection:(NSInteger)section {
-#if TARGET_OS_IPHONE
 	return [self indexPathForRow:row inSection:section];
-#else
-	NSIndexPath *indexPath = [self indexPathWithIndex:section];
-	return [indexPath indexPathByAddingIndex:row];
-#endif
 }
 
 - (NSInteger)dctDataSource_row {
-#if TARGET_OS_IPHONE
 	return self.row;
-#else
-	return [self indexAtPosition:1];
-#endif
 }
 
 - (NSInteger)dctDataSource_section {
-#if TARGET_OS_IPHONE
 	return self.section;
-#else
-	return [self indexAtPosition:0];
-#endif
 }
 
 @end
+
+#else
+
+@implementation NSIndexPath (DCTDataSource)
+
++ (instancetype)dctDataSource_indexPathForRow:(NSInteger)row inSection:(NSInteger)section {
+	NSIndexPath *indexPath = [self indexPathWithIndex:section];
+	return [indexPath indexPathByAddingIndex:row];
+}
+
+- (NSInteger)dctDataSource_row {
+	return [self indexAtPosition:1];
+}
+
+- (NSInteger)dctDataSource_section {
+	return [self indexAtPosition:0];
+}
+
+@end
+
+#endif
