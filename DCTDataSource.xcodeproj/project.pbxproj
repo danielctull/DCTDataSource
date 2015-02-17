@@ -93,6 +93,8 @@
 		24CF1A741A939BD000868486 /* NSIndexPath+DCTDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24CF1A711A939BD000868486 /* NSIndexPath+DCTDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24CF1A751A939BD000868486 /* NSIndexPath+DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CF1A721A939BD000868486 /* NSIndexPath+DCTDataSource.m */; };
 		24CF1A761A939BD000868486 /* NSIndexPath+DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CF1A721A939BD000868486 /* NSIndexPath+DCTDataSource.m */; };
+		24E023731A93CF860012B032 /* DCTOutlineViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24E023711A93CF860012B032 /* DCTOutlineViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24E023741A93CF860012B032 /* DCTOutlineViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E023721A93CF860012B032 /* DCTOutlineViewDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +199,8 @@
 		24CF1A211A93983500868486 /* DCTDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCTDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24CF1A711A939BD000868486 /* NSIndexPath+DCTDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+DCTDataSource.h"; sourceTree = "<group>"; };
 		24CF1A721A939BD000868486 /* NSIndexPath+DCTDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+DCTDataSource.m"; sourceTree = "<group>"; };
+		24E023711A93CF860012B032 /* DCTOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTOutlineViewDataSource.h; sourceTree = "<group>"; };
+		24E023721A93CF860012B032 /* DCTOutlineViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTOutlineViewDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +295,7 @@
 				24ABB4DD17A12D660061A95E /* UIPickerView */,
 				24297F111640161200E32187 /* UITableView */,
 				24297F151640166400E32187 /* UICollectionView */,
+				24E023701A93CF4B0012B032 /* NSOutlineView */,
 				24D4AB29162B26A8009F3E35 /* Object + Array */,
 				24D4AB27162B2634009F3E35 /* Parent Data Sources */,
 				24D4AB28162B2649009F3E35 /* Core Data */,
@@ -409,6 +414,15 @@
 			name = "Object + Array";
 			sourceTree = "<group>";
 		};
+		24E023701A93CF4B0012B032 /* NSOutlineView */ = {
+			isa = PBXGroup;
+			children = (
+				24E023711A93CF860012B032 /* DCTOutlineViewDataSource.h */,
+				24E023721A93CF860012B032 /* DCTOutlineViewDataSource.m */,
+			);
+			name = NSOutlineView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -443,6 +457,7 @@
 				24CF1A651A939A4A00868486 /* DCTArrayObservingDataSource.h in Headers */,
 				24CF1A661A939A4A00868486 /* DCTArrayDataSource.h in Headers */,
 				24CF1A671A939A4A00868486 /* DCTObjectDataSource.h in Headers */,
+				24E023731A93CF860012B032 /* DCTOutlineViewDataSource.h in Headers */,
 				24CF1A681A939A4A00868486 /* DCTSplitDataSource.h in Headers */,
 				24CF1A741A939BD000868486 /* NSIndexPath+DCTDataSource.h in Headers */,
 				24CF1A6A1A939A4A00868486 /* DCTHidingDataSource.h in Headers */,
@@ -725,6 +740,7 @@
 				24CF1A761A939BD000868486 /* NSIndexPath+DCTDataSource.m in Sources */,
 				24CF1A5E1A939A2200868486 /* DCTObjectDataSource.m in Sources */,
 				24CF1A5F1A939A2200868486 /* DCTSplitDataSource.m in Sources */,
+				24E023741A93CF860012B032 /* DCTOutlineViewDataSource.m in Sources */,
 				24CF1A611A939A2200868486 /* DCTHidingDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -907,6 +923,7 @@
 				24CF1A351A93983500868486 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
