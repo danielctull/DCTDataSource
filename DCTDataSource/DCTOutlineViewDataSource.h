@@ -9,6 +9,14 @@
 @import AppKit;
 #import "DCTDataSource.h"
 
+
+extern const struct DCTOutlineViewDataSourceUserInfoKeys {
+	__unsafe_unretained NSString *headerTitle;
+	__unsafe_unretained NSString *headerCellIdentifier;
+	__unsafe_unretained NSString *objectCellIdentifier;
+} DCTOutlineViewDataSourceUserInfoKeys;
+
+
 @interface DCTOutlineViewDataSource : DCTParentDataSource <NSOutlineViewDataSource>
 
 /**
@@ -24,5 +32,7 @@
 - (instancetype)initWithOutlineView:(NSOutlineView *)outlineView dataSources:(NSArray *)dataSources;
 @property (nonatomic, readonly, weak) NSOutlineView *outlineView;
 @property (nonatomic, readonly) NSArray *dataSources;
+
+- (id)viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item;
 
 @end

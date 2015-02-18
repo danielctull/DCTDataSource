@@ -9,6 +9,12 @@
 
 #import "DCTOutlineViewDataSource.h"
 
+const struct DCTOutlineViewDataSourceUserInfoKeys DCTOutlineViewDataSourceUserInfoKeys = {
+	.headerTitle = @"headerTitle",
+	.headerCellIdentifier = @"headerCellIdentifier",
+	.objectCellIdentifier = @"objectCellIdentifier"
+};
+
 @implementation DCTOutlineViewDataSource
 
 #pragma mark - DCTOutlineViewDataSource
@@ -26,6 +32,28 @@
 	_outlineView = outlineView;
 	_outlineView.dataSource = self;
 	return self;
+}
+
+- (id)viewForTableColumn:(NSTableColumn *)tableColumn item:(id)item {
+
+	if ([item isKindOfClass:[DCTDataSource class]]) {
+
+		DCTDataSource *dataSource = item;
+		id value = [dataSource userInfoValueForKey:DCTOutlineViewDataSourceUserInfoKeys.headerTitle];
+		NSString *identifier = [dataSource userInfoValueForKey:DCTOutlineViewDataSourceUserInfoKeys.headerCellIdentifier];
+		NSTableCellView *view = [self.outlineView makeViewWithIdentifier:identifier owner:nil];
+
+		if ([value isKindOfClass:[NSString class]]) {
+			view.textField.stringValue = value;
+		}
+
+		return view;
+	}
+
+	NSIndexPath *indexPath = [self indexPathOfObject:item];
+	DCTDataSource *dataSource = [self childDataSourceForIndexPath:indexPath];
+	NSString *identifier = [dataSource userInfoValueForKey:DCTOutlineViewDataSourceUserInfoKeys.objectCellIdentifier];
+	return [self.outlineView makeViewWithIdentifier:identifier owner:nil];
 }
 
 #pragma mark - DCTParentDataSource
