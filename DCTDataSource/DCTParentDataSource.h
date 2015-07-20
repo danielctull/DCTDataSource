@@ -126,6 +126,7 @@
 #import "DCTPickerViewDataSource.h"
 #import "DCTTableViewDataSource.h"
 #import "DCTCollectionViewDataSource.h"
+#import "DCTSegmentedControlDataSource.h"
 #else
 #import "DCTOutlineViewDataSource.h"
 #endif

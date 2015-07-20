@@ -95,6 +95,9 @@
 		24CF1A761A939BD000868486 /* NSIndexPath+DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CF1A721A939BD000868486 /* NSIndexPath+DCTDataSource.m */; };
 		24E023731A93CF860012B032 /* DCTOutlineViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24E023711A93CF860012B032 /* DCTOutlineViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24E023741A93CF860012B032 /* DCTOutlineViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E023721A93CF860012B032 /* DCTOutlineViewDataSource.m */; };
+		24EA55271B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24EA55251B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24EA55291B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EA55261B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.m */; };
+		24EA552A1B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EA55261B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +204,8 @@
 		24CF1A721A939BD000868486 /* NSIndexPath+DCTDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+DCTDataSource.m"; sourceTree = "<group>"; };
 		24E023711A93CF860012B032 /* DCTOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTOutlineViewDataSource.h; sourceTree = "<group>"; };
 		24E023721A93CF860012B032 /* DCTOutlineViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTOutlineViewDataSource.m; sourceTree = "<group>"; };
+		24EA55251B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTSegmentedControlDataSource.h; sourceTree = "<group>"; };
+		24EA55261B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTSegmentedControlDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +300,7 @@
 				24ABB4DD17A12D660061A95E /* UIPickerView */,
 				24297F111640161200E32187 /* UITableView */,
 				24297F151640166400E32187 /* UICollectionView */,
+				24EA552F1B5D654800E1B3B2 /* UISegmentedControl */,
 				24E023701A93CF4B0012B032 /* NSOutlineView */,
 				24D4AB29162B26A8009F3E35 /* Object + Array */,
 				24D4AB27162B2634009F3E35 /* Parent Data Sources */,
@@ -423,6 +429,15 @@
 			name = NSOutlineView;
 			sourceTree = "<group>";
 		};
+		24EA552F1B5D654800E1B3B2 /* UISegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				24EA55251B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.h */,
+				24EA55261B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.m */,
+			);
+			name = UISegmentedControl;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -439,6 +454,7 @@
 				24CCDD7719A800C600D96F66 /* DCTArrayObservingDataSource.h in Headers */,
 				24CCDD7819A800C600D96F66 /* DCTArrayDataSource.h in Headers */,
 				24CCDD7919A800C600D96F66 /* DCTObjectDataSource.h in Headers */,
+				24EA55271B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.h in Headers */,
 				249C85641A35A6FF00B60E9D /* DCTHidingDataSource.h in Headers */,
 				24CCDD7A19A800C600D96F66 /* DCTSplitDataSource.h in Headers */,
 				24CF1A731A939BD000868486 /* NSIndexPath+DCTDataSource.h in Headers */,
@@ -674,6 +690,7 @@
 				24B1B1EC1A35A38800F35416 /* DCTHidingDataSource.m in Sources */,
 				24AF7AF4187C5D100091AD00 /* DCTTableViewDataSource.m in Sources */,
 				24AF7AF5187C5D100091AD00 /* UITableView+DCTDataSource.m in Sources */,
+				24EA55291B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.m in Sources */,
 				24AF7AF6187C5D100091AD00 /* DCTCollectionViewDataSource.m in Sources */,
 				24AF7AF7187C5D100091AD00 /* DCTArrayObservingDataSource.m in Sources */,
 				24AF7AF8187C5D100091AD00 /* DCTArrayDataSource.m in Sources */,
@@ -702,6 +719,7 @@
 			files = (
 				24CCDD6319A8008700D96F66 /* DCTDataSource.m in Sources */,
 				24CCDD6419A800A300D96F66 /* DCTParentDataSource.m in Sources */,
+				24EA552A1B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.m in Sources */,
 				24CCDD6519A800A300D96F66 /* DCTDataSourceUpdate.m in Sources */,
 				24CCDD6619A800A300D96F66 /* DCTPickerViewDataSource.m in Sources */,
 				249C85651A35A7BE00B60E9D /* DCTHidingDataSource.m in Sources */,
