@@ -271,8 +271,12 @@ typedef id (^DCTTableViewDataSourceObjectOverideBlock)();
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSString *cellIdentifier = [self cellReuseIdentifierForIndexPath:indexPath];
 
-	if ([self.delegate respondsToSelector:@selector(tableViewDataSource:cellWithIdentifier:forIndexPath:)])
-		return [self.delegate tableViewDataSource:self cellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+	if ([self.delegate respondsToSelector:@selector(tableViewDataSource:cellWithIdentifier:forIndexPath:)]) {
+		UITableViewCell *cell = [self.delegate tableViewDataSource:self cellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+		if (cell) {
+			return cell;
+		}
+	}
 
 	return [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 }
