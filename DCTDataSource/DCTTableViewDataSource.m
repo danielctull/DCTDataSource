@@ -307,11 +307,13 @@ typedef id (^DCTTableViewDataSourceObjectOverideBlock)();
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
 
+#if !TARGET_OS_TV
 	id<UITableViewDelegate> delegate = tableView.delegate;
 	if ([delegate respondsToSelector:@selector(tableView:editActionsForRowAtIndexPath:)]) {
 		NSArray *editActions = [delegate tableView:tableView editActionsForRowAtIndexPath:indexPath];
 		return editActions.count > 0;
 	}
+#endif
 
 	return NO;
 }

@@ -7,6 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2473F2D11BC85CAE0075EA00 /* DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A4158B1AF600952890 /* DCTDataSource.m */; };
+		2473F2D21BC85CAE0075EA00 /* DCTParentDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679E158B1AF600952890 /* DCTParentDataSource.m */; };
+		2473F2D31BC85CAE0075EA00 /* DCTSegmentedControlDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EA55261B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.m */; };
+		2473F2D41BC85CAE0075EA00 /* DCTDataSourceUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */; };
+		2473F2D61BC85CAE0075EA00 /* DCTHidingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B1B1EB1A35A38800F35416 /* DCTHidingDataSource.m */; };
+		2473F2D71BC85CAE0075EA00 /* NSIndexPath+DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CF1A721A939BD000868486 /* NSIndexPath+DCTDataSource.m */; };
+		2473F2D81BC85CAE0075EA00 /* DCTTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24297F0F1640109700E32187 /* DCTTableViewDataSource.m */; };
+		2473F2D91BC85CAE0075EA00 /* UITableView+DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67AF158B1AF700952890 /* UITableView+DCTDataSource.m */; };
+		2473F2DA1BC85CAE0075EA00 /* DCTCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24297F131640165B00E32187 /* DCTCollectionViewDataSource.m */; };
+		2473F2DB1BC85CAE0075EA00 /* DCTArrayObservingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6790158B1AF600952890 /* DCTArrayObservingDataSource.m */; };
+		2473F2DC1BC85CAE0075EA00 /* DCTArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6792158B1AF600952890 /* DCTArrayDataSource.m */; };
+		2473F2DD1BC85CAE0075EA00 /* DCTObjectDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679C158B1AF600952890 /* DCTObjectDataSource.m */; };
+		2473F2DE1BC85CAE0075EA00 /* DCTSplitDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A0158B1AF600952890 /* DCTSplitDataSource.m */; };
+		2473F2DF1BC85CAE0075EA00 /* DCTFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6796158B1AF600952890 /* DCTFetchedResultsDataSource.m */; };
+		2473F2E21BC85CAE0075EA00 /* DCTDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A67A3158B1AF600952890 /* DCTDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F2E31BC85CAE0075EA00 /* DCTParentDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A679D158B1AF600952890 /* DCTParentDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F2E41BC85CAE0075EA00 /* DCTDataSourceUpdate.h in Headers */ = {isa = PBXBuildFile; fileRef = 24A389FB162303CF0003A1BE /* DCTDataSourceUpdate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F2E61BC85CAE0075EA00 /* DCTTableViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24297F0E1640109700E32187 /* DCTTableViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F2E71BC85CAE0075EA00 /* DCTCollectionViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24297F121640165B00E32187 /* DCTCollectionViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F2E81BC85CAE0075EA00 /* DCTArrayObservingDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A678F158B1AF600952890 /* DCTArrayObservingDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F2E91BC85CAE0075EA00 /* DCTArrayDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A6791158B1AF600952890 /* DCTArrayDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F2EA1BC85CAE0075EA00 /* DCTObjectDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A679B158B1AF600952890 /* DCTObjectDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F2EB1BC85CAE0075EA00 /* DCTSegmentedControlDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24EA55251B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F2EC1BC85CAE0075EA00 /* DCTHidingDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24B1B1EA1A35A38800F35416 /* DCTHidingDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F2ED1BC85CAE0075EA00 /* DCTSplitDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A679F158B1AF600952890 /* DCTSplitDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F2EE1BC85CAE0075EA00 /* NSIndexPath+DCTDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24CF1A711A939BD000868486 /* NSIndexPath+DCTDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F2EF1BC85CAE0075EA00 /* DCTFetchedResultsDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A6795158B1AF600952890 /* DCTFetchedResultsDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2473F2F01BC85CAE0075EA00 /* UITableView+DCTDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A67AE158B1AF700952890 /* UITableView+DCTDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		248CC949189ECB4A009E2F6C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 248CC947189ECB4A009E2F6C /* InfoPlist.strings */; };
 		248CC954189ECC49009E2F6C /* DCTTestDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 248CC953189ECC49009E2F6C /* DCTTestDataSource.m */; };
 		248CC956189ECDA7009E2F6C /* DCTSplitDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 248CC955189ECDA7009E2F6C /* DCTSplitDataSourceTests.m */; };
@@ -168,6 +196,10 @@
 		244DE83A19A91C5500A91DC7 /* OS X Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "OS X Framework.xcconfig"; sourceTree = "<group>"; };
 		244DE83B19A91C5500A91DC7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		244DE83C19A91C5500A91DC7 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
+		2473F2F61BC85CAE0075EA00 /* DCTDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCTDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2473F2F71BC85CE10075EA00 /* tvOS Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS Application.xcconfig"; sourceTree = "<group>"; };
+		2473F2F81BC85CE10075EA00 /* tvOS Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS Framework.xcconfig"; sourceTree = "<group>"; };
+		2473F2F91BC85CE10075EA00 /* tvOS Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS Tests.xcconfig"; sourceTree = "<group>"; };
 		248CC940189ECB4A009E2F6C /* DCTDataSource Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DCTDataSource Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		248CC946189ECB4A009E2F6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		248CC948189ECB4A009E2F6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -209,6 +241,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2473F2E01BC85CAE0075EA00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		248CC93D189ECB4A009E2F6C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -281,6 +320,7 @@
 				248CC940189ECB4A009E2F6C /* DCTDataSource Tests.xctest */,
 				24959EDF19A721AD00C17E48 /* DCTDataSource.framework */,
 				24CF1A211A93983500868486 /* DCTDataSource.framework */,
+				2473F2F61BC85CAE0075EA00 /* DCTDataSource.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -321,6 +361,9 @@
 				244DE83A19A91C5500A91DC7 /* OS X Framework.xcconfig */,
 				244DE83B19A91C5500A91DC7 /* Release.xcconfig */,
 				244DE83C19A91C5500A91DC7 /* Shared.xcconfig */,
+				2473F2F71BC85CE10075EA00 /* tvOS Application.xcconfig */,
+				2473F2F81BC85CE10075EA00 /* tvOS Framework.xcconfig */,
+				2473F2F91BC85CE10075EA00 /* tvOS Tests.xcconfig */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -441,6 +484,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		2473F2E11BC85CAE0075EA00 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2473F2E21BC85CAE0075EA00 /* DCTDataSource.h in Headers */,
+				2473F2E31BC85CAE0075EA00 /* DCTParentDataSource.h in Headers */,
+				2473F2E41BC85CAE0075EA00 /* DCTDataSourceUpdate.h in Headers */,
+				2473F2E61BC85CAE0075EA00 /* DCTTableViewDataSource.h in Headers */,
+				2473F2E71BC85CAE0075EA00 /* DCTCollectionViewDataSource.h in Headers */,
+				2473F2E81BC85CAE0075EA00 /* DCTArrayObservingDataSource.h in Headers */,
+				2473F2E91BC85CAE0075EA00 /* DCTArrayDataSource.h in Headers */,
+				2473F2EA1BC85CAE0075EA00 /* DCTObjectDataSource.h in Headers */,
+				2473F2EB1BC85CAE0075EA00 /* DCTSegmentedControlDataSource.h in Headers */,
+				2473F2EC1BC85CAE0075EA00 /* DCTHidingDataSource.h in Headers */,
+				2473F2ED1BC85CAE0075EA00 /* DCTSplitDataSource.h in Headers */,
+				2473F2EE1BC85CAE0075EA00 /* NSIndexPath+DCTDataSource.h in Headers */,
+				2473F2EF1BC85CAE0075EA00 /* DCTFetchedResultsDataSource.h in Headers */,
+				2473F2F01BC85CAE0075EA00 /* UITableView+DCTDataSource.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24959EDC19A721AD00C17E48 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -499,6 +563,25 @@
 			productName = DCTTableViewDataSources;
 			productReference = 2437B77D15B97FA900750117 /* libDCTDataSource.a */;
 			productType = "com.apple.product-type.library.static";
+		};
+		2473F2CF1BC85CAE0075EA00 /* DCTDataSource tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2473F2F31BC85CAE0075EA00 /* Build configuration list for PBXNativeTarget "DCTDataSource tvOS" */;
+			buildPhases = (
+				2473F2D01BC85CAE0075EA00 /* Sources */,
+				2473F2E01BC85CAE0075EA00 /* Frameworks */,
+				2473F2E11BC85CAE0075EA00 /* Headers */,
+				2473F2F11BC85CAE0075EA00 /* Resources */,
+				2473F2F21BC85CAE0075EA00 /* Documentation */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DCTDataSource tvOS";
+			productName = "DCTDataSource iOS";
+			productReference = 2473F2F61BC85CAE0075EA00 /* DCTDataSource.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		248CC93F189ECB4A009E2F6C /* DCTDataSource Tests */ = {
 			isa = PBXNativeTarget;
@@ -607,6 +690,7 @@
 				2437B77C15B97FA900750117 /* DCTDataSource */,
 				24959EDE19A721AD00C17E48 /* DCTDataSource iOS */,
 				24CF1A201A93983500868486 /* DCTDataSource OS X */,
+				2473F2CF1BC85CAE0075EA00 /* DCTDataSource tvOS */,
 				24AF7A8F187AFE0B0091AD00 /* DCTDataSource Demo */,
 				248CC93F189ECB4A009E2F6C /* DCTDataSource Tests */,
 			);
@@ -614,6 +698,13 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2473F2F11BC85CAE0075EA00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		248CC93E189ECB4A009E2F6C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -676,6 +767,20 @@
 			shellPath = /bin/sh;
 			shellScript = "# Add this to Xcode's PATH to find homebrew installation\nPATH=$PATH:/usr/local/bin\n\nappledoc=`which appledoc`\n\nif [ $appledoc ]; then\n\ncompany=\"Daniel Tull\";\ncompanyID=\"uk.co.danieltull\";\ncompanyURL=\"http://danieltull.co.uk\";\nuuid=`uuidgen`\necho ${uuid}\noutputPath=\"/tmp/${uuid}\";\n\n$appledoc \\\n--project-name \"${PRODUCT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--output \"${outputPath}\" \\\n--create-docset \\\n--install-docset \\\n--create-html \\\n--docset-platform-family \"iphoneos\" \\\n--exit-threshold 2 \\\n--no-repeat-first-par \\\n\"${BUILT_PRODUCTS_DIR}/include/${PRODUCT_NAME}\"\n\nrm -rf ${outputPath}\n\nelse\n\necho \"appledoc not found.\"\n\nfi;\n";
 		};
+		2473F2F21BC85CAE0075EA00 /* Documentation */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Documentation;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Scripts/documentation.sh -c \"Daniel Tull\" -i \"uk.co.danieltull\" > /dev/null 2>&1 &\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -697,6 +802,27 @@
 				24AF7AF9187C5D100091AD00 /* DCTObjectDataSource.m in Sources */,
 				24AF7AFA187C5D100091AD00 /* DCTSplitDataSource.m in Sources */,
 				24AF7AFB187C5D100091AD00 /* DCTFetchedResultsDataSource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2473F2D01BC85CAE0075EA00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2473F2D11BC85CAE0075EA00 /* DCTDataSource.m in Sources */,
+				2473F2D21BC85CAE0075EA00 /* DCTParentDataSource.m in Sources */,
+				2473F2D31BC85CAE0075EA00 /* DCTSegmentedControlDataSource.m in Sources */,
+				2473F2D41BC85CAE0075EA00 /* DCTDataSourceUpdate.m in Sources */,
+				2473F2D61BC85CAE0075EA00 /* DCTHidingDataSource.m in Sources */,
+				2473F2D71BC85CAE0075EA00 /* NSIndexPath+DCTDataSource.m in Sources */,
+				2473F2D81BC85CAE0075EA00 /* DCTTableViewDataSource.m in Sources */,
+				2473F2D91BC85CAE0075EA00 /* UITableView+DCTDataSource.m in Sources */,
+				2473F2DA1BC85CAE0075EA00 /* DCTCollectionViewDataSource.m in Sources */,
+				2473F2DB1BC85CAE0075EA00 /* DCTArrayObservingDataSource.m in Sources */,
+				2473F2DC1BC85CAE0075EA00 /* DCTArrayDataSource.m in Sources */,
+				2473F2DD1BC85CAE0075EA00 /* DCTObjectDataSource.m in Sources */,
+				2473F2DE1BC85CAE0075EA00 /* DCTSplitDataSource.m in Sources */,
+				2473F2DF1BC85CAE0075EA00 /* DCTFetchedResultsDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,7 +931,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE83419A91C5500A91DC7 /* Debug.xcconfig */;
 			buildSettings = {
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.danieltull.$(PRODUCT_NAME:rfc1034identifier)";
 			};
 			name = Debug;
@@ -815,6 +940,28 @@
 			baseConfigurationReference = 244DE83B19A91C5500A91DC7 /* Release.xcconfig */;
 			buildSettings = {
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.danieltull.$(PRODUCT_NAME:rfc1034identifier)";
+			};
+			name = Release;
+		};
+		2473F2F41BC85CAE0075EA00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2473F2F81BC85CE10075EA00 /* tvOS Framework.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				PRODUCT_NAME = DCTDataSource;
+			};
+			name = Debug;
+		};
+		2473F2F51BC85CAE0075EA00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2473F2F81BC85CE10075EA00 /* tvOS Framework.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				PRODUCT_NAME = DCTDataSource;
 			};
 			name = Release;
 		};
@@ -905,6 +1052,15 @@
 			buildConfigurations = (
 				244A6787158B1AB100952890 /* Debug */,
 				244A6788158B1AB100952890 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2473F2F31BC85CAE0075EA00 /* Build configuration list for PBXNativeTarget "DCTDataSource tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2473F2F41BC85CAE0075EA00 /* Debug */,
+				2473F2F51BC85CAE0075EA00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

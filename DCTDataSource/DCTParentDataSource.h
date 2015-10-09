@@ -122,8 +122,11 @@
 #import "DCTHidingDataSource.h"
 #import "DCTSplitDataSource.h"
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE && !TARGET_OS_TV
 #import "DCTPickerViewDataSource.h"
+#endif 
+
+#if TARGET_OS_IPHONE
 #import "DCTTableViewDataSource.h"
 #import "DCTCollectionViewDataSource.h"
 #import "DCTSegmentedControlDataSource.h"
