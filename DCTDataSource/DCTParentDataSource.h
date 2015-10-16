@@ -122,6 +122,9 @@
 #import "DCTHidingDataSource.h"
 #import "DCTSplitDataSource.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundef"
+
 #if TARGET_OS_IPHONE && !TARGET_OS_TV
 #import "DCTPickerViewDataSource.h"
 #endif 
@@ -133,3 +136,5 @@
 #else
 #import "DCTOutlineViewDataSource.h"
 #endif
+
+#pragma clang diagnostic pop

@@ -307,7 +307,11 @@ typedef id (^DCTTableViewDataSourceObjectOverideBlock)();
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundef"
 #if !TARGET_OS_TV
+#pragma clang diagnostic pop
+
 	id<UITableViewDelegate> delegate = tableView.delegate;
 	if ([delegate respondsToSelector:@selector(tableView:editActionsForRowAtIndexPath:)]) {
 		NSArray *editActions = [delegate tableView:tableView editActionsForRowAtIndexPath:indexPath];
