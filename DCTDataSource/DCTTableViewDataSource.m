@@ -19,7 +19,6 @@ typedef id (^DCTTableViewDataSourceObjectOverideBlock)();
 
 @interface DCTTableViewDataSource ()
 @property (nonatomic) NSMutableArray *updates;
-@property (nonatomic) NSMutableDictionary *objectOverideBlocks;
 @end
 
 @implementation DCTTableViewDataSource
@@ -81,11 +80,9 @@ typedef id (^DCTTableViewDataSourceObjectOverideBlock)();
 
 - (void)beginUpdates {
 	self.updates = [NSMutableArray new];
-	self.objectOverideBlocks = [NSMutableDictionary new];
 }
 
 - (void)endUpdates {
-	self.objectOverideBlocks = nil;
 	[self _endUpdates:self.reloadType];
 	self.updates = nil;
 }
@@ -217,45 +214,9 @@ typedef id (^DCTTableViewDataSourceObjectOverideBlock)();
 		if ([self.delegate respondsToSelector:@selector(tableViewDataSource:shouldReloadRowAtIndexPath:)]
 			&& ![self.delegate tableViewDataSource:self shouldReloadRowAtIndexPath:indexPath])
 			return;
-	} else if (update.type == DCTDataSourceUpdateTypeItemMove) {
-
-		NSIndexPath *oldIndexPath = update.oldIndexPath;
-		NSIndexPath *newIndexPath = update.newIndexPath;
-		DCTTableViewDataSourceObjectOverideBlock block = ^id {
-			return [self objectAtIndexPath:newIndexPath];
-		};
-		self.objectOverideBlocks[oldIndexPath] = block;
-		[self.tableView reloadRowsAtIndexPaths:@[oldIndexPath] withRowAnimation:UITableViewRowAnimationNone];
 	}
 
 	[self.updates addObject:update];
-}
-/*
-- (void)enumerateIndexPathsUsingBlock:(void(^)(NSIndexPath *, BOOL *stop))enumerator {
-
-	NSInteger sectionCount = [self numberOfSectionsInTableView:self.tableView];
-
-	for (NSInteger section = 0; section < sectionCount; section++) {
-
-		NSInteger rowCount = [self tableView:self.tableView numberOfRowsInSection:section];
-
-		for (NSInteger row = 0; row < rowCount; row++) {
-			NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-			BOOL stop = NO;
-			enumerator(indexPath, &stop);
-			if (stop) return;
-		}
-	}
-}*/
-
-#pragma mark - DCTDataSource
-
-- (id)objectAtIndexPath:(NSIndexPath *)indexPath {
-
-	DCTTableViewDataSourceObjectOverideBlock block = self.objectOverideBlocks[indexPath];
-	if (block) return block();
-
-	return [super objectAtIndexPath:indexPath];
 }
 
 #pragma mark - UITableViewDataSource
