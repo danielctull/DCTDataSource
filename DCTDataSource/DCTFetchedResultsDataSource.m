@@ -38,11 +38,9 @@
 #import "DCTTableViewDataSource.h"
 
 @interface DCTFetchedResultsDataSource () <NSFetchedResultsControllerDelegate>
-@property (nonatomic, strong) NSMutableArray *deletedSectionIndexes;
-@property (nonatomic, strong) NSMutableArray *insertedSectionIndexes;
-@property (nonatomic, strong) NSMutableArray *deletedRowIndexPaths;
-@property (nonatomic, strong) NSMutableArray *insertedRowIndexPaths;
-@property (nonatomic, strong) NSMutableArray *updatedRowIndexPaths;
+@property (nonatomic) NSMutableArray *deletedSectionIndexes;
+@property (nonatomic) NSMutableArray *insertedSectionIndexes;
+@property (nonatomic) NSMutableArray *rowUpdates;
 @end
 
 @implementation DCTFetchedResultsDataSource
@@ -129,7 +127,7 @@
 				return;
 			}
 
-			[self.insertedRowIndexPaths addObject:newIndexPath];
+			[self.rowUpdates addObject:[DCTDataSourceUpdate insertUpdateWithNewIndexPath:newIndexPath]];
 			break;
 
 		case NSFetchedResultsChangeDelete:
@@ -138,20 +136,38 @@
 			if ([self.deletedSectionIndexes containsObject:@(oldIndexPath.section)])
 				return;
 
-			[self.deletedRowIndexPaths addObject:oldIndexPath];
+			[self.rowUpdates addObject:[DCTDataSourceUpdate deleteUpdateWithOldIndexPath:oldIndexPath]];
 			break;
 
         case NSFetchedResultsChangeUpdate:
-			[self.updatedRowIndexPaths addObject:oldIndexPath];
+			[self.rowUpdates addObject:[DCTDataSourceUpdate reloadUpdateWithIndexPath:oldIndexPath]];
 			break;
 
         case NSFetchedResultsChangeMove:
 
-			if (![self.deletedSectionIndexes containsObject:@(oldIndexPath.section)])
-				[self.deletedRowIndexPaths addObject:oldIndexPath];
+			// If the old section has been deleted, treat as an insert into the new section
+			if ([self.deletedSectionIndexes containsObject:@(oldIndexPath.section)]) {
 
-			if (![self.insertedSectionIndexes containsObject:@(newIndexPath.section)])
-				[self.insertedRowIndexPaths addObject:newIndexPath];
+				if ([self.insertedSectionIndexes containsObject:@(newIndexPath.section)]) {
+					[self.rowUpdates addObject:[DCTDataSourceUpdate insertUpdateWithNewIndexPath:newIndexPath]];
+				}
+
+			// If the new section has been inserted, treat as a delete from the old section
+			} else if ([self.insertedSectionIndexes containsObject:@(newIndexPath.section)]) {
+
+				if (![self.deletedSectionIndexes containsObject:@(oldIndexPath.section)]) {
+					[self.rowUpdates addObject:[DCTDataSourceUpdate deleteUpdateWithOldIndexPath:oldIndexPath]];
+				}
+
+			// If the index paths are the same, treat it as a reload
+			} else if ([oldIndexPath isEqual:newIndexPath]) {
+
+				[self.rowUpdates addObject:[DCTDataSourceUpdate reloadUpdateWithIndexPath:oldIndexPath]];
+
+			} else {
+
+				[self.rowUpdates addObject:[DCTDataSourceUpdate moveUpdateWithOldIndexPath:oldIndexPath newIndexPath:newIndexPath]];
+			}
 
             break;
     }
@@ -167,22 +183,14 @@
 	for (NSNumber *index in self.insertedSectionIndexes)
 		[self performUpdate:[DCTDataSourceUpdate insertUpdateWithIndex:[index integerValue]]];
 
-	for (NSIndexPath *indexPath in self.deletedRowIndexPaths)
-		[self performUpdate:[DCTDataSourceUpdate deleteUpdateWithOldIndexPath:indexPath]];
-
-	for (NSIndexPath *indexPath in self.insertedRowIndexPaths)
-		[self performUpdate:[DCTDataSourceUpdate insertUpdateWithNewIndexPath:indexPath]];
-
-	for (NSIndexPath *indexPath in self.updatedRowIndexPaths)
-		[self performUpdate:[DCTDataSourceUpdate reloadUpdateWithIndexPath:indexPath]];
+	for (DCTDataSourceUpdate *update in self.rowUpdates)
+		[self performUpdate:update];
 
 	[self endUpdates];
 
     self.insertedSectionIndexes = nil;
     self.deletedSectionIndexes = nil;
-    self.deletedRowIndexPaths = nil;
-    self.insertedRowIndexPaths = nil;
-    self.updatedRowIndexPaths = nil;
+    self.rowUpdates = nil;
 }
 
 #pragma mark -
@@ -203,28 +211,12 @@
     return _insertedSectionIndexes;
 }
 
-- (NSMutableArray *)deletedRowIndexPaths {
+- (NSMutableArray *)rowUpdates {
 
-    if (!_deletedRowIndexPaths)
-        _deletedRowIndexPaths = [NSMutableArray new];
+    if (!_rowUpdates)
+        _rowUpdates = [NSMutableArray new];
 
-    return _deletedRowIndexPaths;
-}
-
-- (NSMutableArray *)insertedRowIndexPaths {
-
-    if (!_insertedRowIndexPaths)
-        _insertedRowIndexPaths = [NSMutableArray new];
-
-    return _insertedRowIndexPaths;
-}
-
-- (NSMutableArray *)updatedRowIndexPaths {
-
-    if (!_updatedRowIndexPaths)
-        _updatedRowIndexPaths = [NSMutableArray new];
-	
-    return _updatedRowIndexPaths;
+    return _rowUpdates;
 }
 
 @end
