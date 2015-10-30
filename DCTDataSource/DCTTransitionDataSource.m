@@ -32,7 +32,8 @@
 	NSInteger oldCount = [oldDataSource numberOfItemsInSection:0];
 	NSInteger newCount = [newDataSource numberOfItemsInSection:0];
 
-	if (!oldDataSource
+	if (!animated
+		|| !oldDataSource
 		|| !newDataSource
 		|| oldDataSource.numberOfSections > 1
 		|| newDataSource.numberOfSections > 1
