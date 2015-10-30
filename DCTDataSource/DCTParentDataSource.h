@@ -121,6 +121,7 @@
 
 #import "DCTHidingDataSource.h"
 #import "DCTSplitDataSource.h"
+#import "DCTTransitionDataSource.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundef"
