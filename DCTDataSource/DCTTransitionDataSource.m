@@ -49,7 +49,7 @@
 		return;
 	}
 
-	NSMutableArray *updates = [NSMutableArray new];
+	[self beginUpdates];
 
 	for (NSInteger old = 0; old < oldCount; old++) {
 		NSIndexPath *oldIndexPath = [NSIndexPath indexPathForItem:old inSection:0];
@@ -58,7 +58,7 @@
 
 		if (!newIndexPath) {
 			DCTDataSourceUpdate *update = [DCTDataSourceUpdate deleteUpdateWithOldIndexPath:oldIndexPath];
-			[updates addObject:update];
+			[self performUpdate:update];
 		}
 	}
 
@@ -69,37 +69,10 @@
 
 		if (!oldIndexPath) {
 			DCTDataSourceUpdate *update = [DCTDataSourceUpdate insertUpdateWithNewIndexPath:newIndexPath];
-			[updates addObject:update];
+			[self performUpdate:update];
 		}
 	}
 
-	[updates sortUsingComparator:^NSComparisonResult(DCTDataSourceUpdate *update1, DCTDataSourceUpdate *update2) {
-
-		NSIndexPath *indexPath1 = update1.oldIndexPath ?: update1.newIndexPath;
-		NSIndexPath *indexPath2 = update2.oldIndexPath ?: update2.newIndexPath;
-
-		NSComparisonResult result = [indexPath1 compare:indexPath2];
-		if (result != NSOrderedSame) {
-			return result;
-		}
-
-		DCTDataSourceUpdateType type1 = update1.type;
-		DCTDataSourceUpdateType type2 = update2.type;
-
-
-		if (type1 == type2) {
-			return NSOrderedSame;
-		} else if (type1 == DCTDataSourceUpdateTypeItemDelete) {
-			return NSOrderedAscending;
-		}
-
-		return NSOrderedDescending;
-	}];
-
-	[self beginUpdates];
-	for (DCTDataSourceUpdate *update in updates) {
-		[self performUpdate:update];
-	}
 	[self endUpdates];
 }
 
