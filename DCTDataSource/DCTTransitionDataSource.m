@@ -9,6 +9,11 @@
 }
 
 - (NSArray *)childDataSources {
+
+	if (!self.childDataSource) {
+		return @[];
+	}
+
 	return @[self.childDataSource];
 }
 
