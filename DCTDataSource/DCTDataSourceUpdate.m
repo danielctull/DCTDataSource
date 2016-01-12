@@ -89,7 +89,7 @@ BOOL DCTDataSourceUpdateTypeIncludes(DCTDataSourceUpdateType type, DCTDataSource
 - (NSString *)description {
 	return [NSString stringWithFormat:@"<%@: %p; oldIndexPath = %@; newIndexPath = %@; type = %@>",
 			NSStringFromClass([self class]),
-			self,
+			(void *)self,
 			[self descriptionForIndexPath:self.oldIndexPath],
 			[self descriptionForIndexPath:self.newIndexPath],
 			DCTDataSourceUpdateString[self.type]];
