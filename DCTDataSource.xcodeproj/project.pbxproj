@@ -38,7 +38,6 @@
 		248CC949189ECB4A009E2F6C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 248CC947189ECB4A009E2F6C /* InfoPlist.strings */; };
 		248CC954189ECC49009E2F6C /* DCTTestDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 248CC953189ECC49009E2F6C /* DCTTestDataSource.m */; };
 		248CC956189ECDA7009E2F6C /* DCTSplitDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 248CC955189ECDA7009E2F6C /* DCTSplitDataSourceTests.m */; };
-		248CC957189ECDC1009E2F6C /* libDCTDataSource.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2437B77D15B97FA900750117 /* libDCTDataSource.a */; };
 		249B7DA31BE3DA08008E2318 /* DCTTransitionDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 249B7DA11BE3DA08008E2318 /* DCTTransitionDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		249B7DA41BE3DA08008E2318 /* DCTTransitionDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 249B7DA11BE3DA08008E2318 /* DCTTransitionDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		249B7DA51BE3DA08008E2318 /* DCTTransitionDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 249B7DA11BE3DA08008E2318 /* DCTTransitionDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -84,6 +83,7 @@
 		24AF7AFA187C5D100091AD00 /* DCTSplitDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A0158B1AF600952890 /* DCTSplitDataSource.m */; };
 		24AF7AFB187C5D100091AD00 /* DCTFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6796158B1AF600952890 /* DCTFetchedResultsDataSource.m */; };
 		24B1B1EC1A35A38800F35416 /* DCTHidingDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B1B1EB1A35A38800F35416 /* DCTHidingDataSource.m */; };
+		24C6B5EA1C91736C009A939A /* DCTDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24959EDF19A721AD00C17E48 /* DCTDataSource.framework */; };
 		24CCDD6319A8008700D96F66 /* DCTDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A67A4158B1AF600952890 /* DCTDataSource.m */; };
 		24CCDD6419A800A300D96F66 /* DCTParentDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A679E158B1AF600952890 /* DCTParentDataSource.m */; };
 		24CCDD6519A800A300D96F66 /* DCTDataSourceUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A389FC162303CF0003A1BE /* DCTDataSourceUpdate.m */; };
@@ -136,12 +136,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		248CC94D189ECB4A009E2F6C /* PBXContainerItemProxy */ = {
+		24C6B5EB1C917372009A939A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 244A675C158B1AB100952890 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2437B77C15B97FA900750117;
-			remoteInfo = DCTDataSource;
+			remoteGlobalIDString = 24959EDE19A721AD00C17E48;
+			remoteInfo = "DCTDataSource iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -261,7 +261,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				248CC957189ECDC1009E2F6C /* libDCTDataSource.a in Frameworks */,
+				24C6B5EA1C91736C009A939A /* DCTDataSource.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,7 +608,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				248CC94E189ECB4A009E2F6C /* PBXTargetDependency */,
+				24C6B5EC1C917372009A939A /* PBXTargetDependency */,
 			);
 			name = "DCTDataSource Tests";
 			productName = "DCTDataSource Tests";
@@ -910,10 +910,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		248CC94E189ECB4A009E2F6C /* PBXTargetDependency */ = {
+		24C6B5EC1C917372009A939A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2437B77C15B97FA900750117 /* DCTDataSource */;
-			targetProxy = 248CC94D189ECB4A009E2F6C /* PBXContainerItemProxy */;
+			target = 24959EDE19A721AD00C17E48 /* DCTDataSource iOS */;
+			targetProxy = 24C6B5EB1C917372009A939A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
