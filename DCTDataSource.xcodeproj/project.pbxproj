@@ -638,9 +638,9 @@
 			productReference = 24AF7A90187AFE0B0091AD00 /* DCTDataSource Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		24CF1A201A93983500868486 /* DCTDataSource OS X */ = {
+		24CF1A201A93983500868486 /* DCTDataSource macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24CF1A381A93983500868486 /* Build configuration list for PBXNativeTarget "DCTDataSource OS X" */;
+			buildConfigurationList = 24CF1A381A93983500868486 /* Build configuration list for PBXNativeTarget "DCTDataSource macOS" */;
 			buildPhases = (
 				24CF1A1C1A93983500868486 /* Sources */,
 				24CF1A1D1A93983500868486 /* Frameworks */,
@@ -651,7 +651,7 @@
 			);
 			dependencies = (
 			);
-			name = "DCTDataSource OS X";
+			name = "DCTDataSource macOS";
 			productName = "DCTDataSource OS X";
 			productReference = 24CF1A211A93983500868486 /* DCTDataSource.framework */;
 			productType = "com.apple.product-type.framework";
@@ -691,7 +691,7 @@
 			projectRoot = "";
 			targets = (
 				24959EDE19A721AD00C17E48 /* DCTDataSource iOS */,
-				24CF1A201A93983500868486 /* DCTDataSource OS X */,
+				24CF1A201A93983500868486 /* DCTDataSource macOS */,
 				2473F2CF1BC85CAE0075EA00 /* DCTDataSource tvOS */,
 				24AF7A8F187AFE0B0091AD00 /* DCTDataSource Demo */,
 				248CC93F189ECB4A009E2F6C /* DCTDataSource Tests */,
@@ -1023,7 +1023,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24CF1A381A93983500868486 /* Build configuration list for PBXNativeTarget "DCTDataSource OS X" */ = {
+		24CF1A381A93983500868486 /* Build configuration list for PBXNativeTarget "DCTDataSource macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24CF1A341A93983500868486 /* Debug */,
