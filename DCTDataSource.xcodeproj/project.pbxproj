@@ -679,10 +679,12 @@
 				ORGANIZATIONNAME = "Daniel Tull";
 				TargetAttributes = {
 					248CC93F189ECB4A009E2F6C = {
+						LastSwiftMigration = 0800;
 						TestTargetID = 2437B77C15B97FA900750117;
 					};
 					24959EDE19A721AD00C17E48 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 					};
 					24CF1A201A93983500868486 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -949,8 +951,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE83419A91C5500A91DC7 /* Debug.xcconfig */;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.danieltull.$(PRODUCT_NAME:rfc1034identifier)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -958,8 +960,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE83B19A91C5500A91DC7 /* Release.xcconfig */;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.danieltull.$(PRODUCT_NAME:rfc1034identifier)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -967,8 +969,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2473F2F81BC85CE10075EA00 /* tvOS Framework.xcconfig */;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				PRODUCT_NAME = DCTDataSource;
 			};
 			name = Debug;
@@ -977,8 +977,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2473F2F81BC85CE10075EA00 /* tvOS Framework.xcconfig */;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				PRODUCT_NAME = DCTDataSource;
 			};
 			name = Release;
@@ -1001,8 +999,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE83719A91C5500A91DC7 /* iOS Framework.xcconfig */;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				PRODUCT_NAME = DCTDataSource;
 			};
 			name = Debug;
@@ -1011,8 +1007,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE83719A91C5500A91DC7 /* iOS Framework.xcconfig */;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				PRODUCT_NAME = DCTDataSource;
 			};
 			name = Release;
@@ -1035,8 +1029,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE83A19A91C5500A91DC7 /* OS X Framework.xcconfig */;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				PRODUCT_NAME = DCTDataSource;
 			};
 			name = Debug;
@@ -1045,8 +1037,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244DE83A19A91C5500A91DC7 /* OS X Framework.xcconfig */;
 			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				PRODUCT_NAME = DCTDataSource;
 			};
 			name = Release;
