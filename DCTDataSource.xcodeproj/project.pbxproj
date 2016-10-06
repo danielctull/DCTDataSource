@@ -1059,6 +1059,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244A44D21D9D1263009A622C /* Debug.xcconfig */;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.danieltull.$(PRODUCT_NAME:rfc1034identifier)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1068,6 +1069,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 244A44E41D9D1263009A622C /* Release.xcconfig */;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.danieltull.$(PRODUCT_NAME:rfc1034identifier)";
 				SWIFT_VERSION = 3.0;
 			};
