@@ -35,7 +35,10 @@
  */
 
 #import "DCTFetchedResultsDataSource.h"
-#import "DCTTableViewDataSource.h"
+
+const struct DCTFetchedResultsDataSourceUserInfoKeys DCTFetchedResultsDataSourceUserInfoKeys = {
+	.sectionHeaderTitle = @"sectionHeaderTitle"
+};
 
 @interface DCTFetchedResultsDataSource () <NSFetchedResultsControllerDelegate>
 @property (nonatomic) NSMutableArray *deletedSectionIndexes;
@@ -79,7 +82,7 @@
 
 - (id)userInfoValueForKey:(NSString *)key indexPath:(NSIndexPath *)indexPath {
 
-	if ([key isEqualToString:DCTTableViewDataSourceUserInfoKeys.sectionHeaderTitle]) {
+	if ([key isEqualToString:DCTFetchedResultsDataSourceUserInfoKeys.sectionHeaderTitle]) {
 		id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:indexPath.section];
 		NSString *sectionName = [sectionInfo name];
 		if ([sectionName length] > 0) return sectionName;

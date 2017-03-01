@@ -37,6 +37,10 @@
 #import "DCTDataSource.h"
 @import CoreData;
 
+extern const struct DCTFetchedResultsDataSourceUserInfoKeys {
+	__unsafe_unretained NSString *sectionHeaderTitle;
+} DCTFetchedResultsDataSourceUserInfoKeys;
+
 /**
  *  A data source that stays in sync with a Core Data fetch request 
  *  using a NSFetchedResultsController.

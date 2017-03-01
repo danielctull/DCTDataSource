@@ -121,6 +121,8 @@
 		24E023741A93CF860012B032 /* DCTOutlineViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E023721A93CF860012B032 /* DCTOutlineViewDataSource.m */; };
 		24EA55271B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 24EA55251B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24EA552A1B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EA55261B5D416D00E1B3B2 /* DCTSegmentedControlDataSource.m */; };
+		24F600A71E66C76F00EC00D2 /* DCTFetchedResultsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 244A6796158B1AF600952890 /* DCTFetchedResultsDataSource.m */; };
+		24F600A81E66C85400EC00D2 /* DCTFetchedResultsDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 244A6795158B1AF600952890 /* DCTFetchedResultsDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -609,6 +611,7 @@
 				24CF1A681A939A4A00868486 /* DCTSplitDataSource.h in Headers */,
 				24CF1A741A939BD000868486 /* NSIndexPath+DCTDataSource.h in Headers */,
 				24CF1A6A1A939A4A00868486 /* DCTHidingDataSource.h in Headers */,
+				24F600A81E66C85400EC00D2 /* DCTFetchedResultsDataSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -988,6 +991,7 @@
 				24CF1A5F1A939A2200868486 /* DCTSplitDataSource.m in Sources */,
 				24E023741A93CF860012B032 /* DCTOutlineViewDataSource.m in Sources */,
 				24CF1A611A939A2200868486 /* DCTHidingDataSource.m in Sources */,
+				24F600A71E66C76F00EC00D2 /* DCTFetchedResultsDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

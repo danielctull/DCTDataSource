@@ -107,7 +107,4 @@ FOUNDATION_EXPORT const unsigned char DCTDataSourceVersionString[];
 #import <DCTDataSource/DCTArrayObservingDataSource.h>
 #import <DCTDataSource/DCTObjectDataSource.h>
 #import <DCTDataSource/DCTParentDataSource.h>
-
-#if TARGET_OS_IPHONE
 #import <DCTDataSource/DCTFetchedResultsDataSource.h>
-#endif
