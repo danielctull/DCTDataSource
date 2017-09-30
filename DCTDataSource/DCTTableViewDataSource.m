@@ -15,7 +15,7 @@ const struct DCTTableViewDataSourceUserInfoKeys DCTTableViewDataSourceUserInfoKe
 	.sectionFooterTitle = @"sectionFooterTitle"
 };
 
-typedef id (^DCTTableViewDataSourceObjectOverideBlock)();
+typedef id (^DCTTableViewDataSourceObjectOverideBlock)(void);
 
 @interface DCTTableViewDataSource ()
 @property (nonatomic) NSMutableArray *updates;
