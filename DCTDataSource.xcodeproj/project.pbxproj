@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2400A7711F7F88D000600369 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2400A7701F7F88D000600369 /* Default-568h@2x.png */; };
 		244A45241D9D132C009A622C /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24A3E3DB189F816F00E73F0C /* TestModel.xcdatamodeld */; };
 		244A45251D9D132C009A622C /* DCTTestDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 248CC953189ECC49009E2F6C /* DCTTestDataSource.m */; };
 		244A45261D9D132C009A622C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A3E3E0189F826A00E73F0C /* Event.m */; };
@@ -150,6 +151,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2400A7701F7F88D000600369 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		24297F0E1640109700E32187 /* DCTTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTTableViewDataSource.h; sourceTree = "<group>"; };
 		24297F0F1640109700E32187 /* DCTTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTTableViewDataSource.m; sourceTree = "<group>"; };
 		24297F121640165B00E32187 /* DCTCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTCollectionViewDataSource.h; sourceTree = "<group>"; };
@@ -323,9 +325,9 @@
 			isa = PBXGroup;
 			children = (
 				244A44D21D9D1263009A622C /* Debug.xcconfig */,
+				244A44E41D9D1263009A622C /* Release.xcconfig */,
 				244A44D41D9D1263009A622C /* iOS */,
 				244A44DD1D9D1263009A622C /* macOS */,
-				244A44E41D9D1263009A622C /* Release.xcconfig */,
 				244A44EC1D9D1263009A622C /* tvOS */,
 				244A44F31D9D1263009A622C /* watchOS */,
 			);
@@ -387,6 +389,7 @@
 		244A675A158B1AB100952890 = {
 			isa = PBXGroup;
 			children = (
+				2400A7701F7F88D000600369 /* Default-568h@2x.png */,
 				244A676A158B1AB100952890 /* DCTDataSource */,
 				24AF7A95187AFE0B0091AD00 /* DCTDataSource Demo */,
 				248CC944189ECB4A009E2F6C /* DCTDataSource Tests */,
@@ -837,6 +840,7 @@
 			files = (
 				24AF7AA2187AFE0B0091AD00 /* Images.xcassets in Resources */,
 				24AF7ADF187BF0F60091AD00 /* Storyboard.storyboard in Resources */,
+				2400A7711F7F88D000600369 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
